@@ -12,8 +12,8 @@ const Preview = () => {
     return <div className={styles.preview}>
         <div className="text-center m-auto">
             {/* center and add max-with to this div to make it responsive  */}
-            <div className="w-48 h-48 m-auto mb-5 bg-gray-100 rounded-full" />
-            <p className="font-bold text-2xl my-5">{fullname}</p>
+            <div className="w-48 h-48 m-auto bg-gray-100 rounded-full" />
+            <p className="font-bold text-2xl my-5 mt-10">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{title}</p>
             <p className="mb-5 px-5">{about}</p>
             <div className="mt-10">

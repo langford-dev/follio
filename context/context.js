@@ -11,6 +11,12 @@ export const AppProvider = ({ children }) => {
     let [themeColor, setThemeColor] = useState("")
     let [skills, setSkills] = useState([])
 
+    const [twitter, setTwitter] = useState("")
+    const [facebook, setFacebook] = useState("")
+    const [instagram, setInstagram] = useState("")
+    const [linkedin, setLinkedin] = useState("")
+    const [github, setGithub] = useState("")
+
     let maxViewCount = 2
 
     console.log(`${themeColor}`)
@@ -28,7 +34,12 @@ export const AppProvider = ({ children }) => {
         title, setTitle,
         about, setAbout,
         themeColor, setThemeColor,
-        skills, setSkills
+        skills, setSkills,
+        twitter, setTwitter,
+        facebook, setFacebook,
+        instagram, setInstagram,
+        linkedin, setLinkedin,
+        github, setGithub,
     }}>
         {children}
     </AppContext.Provider>
