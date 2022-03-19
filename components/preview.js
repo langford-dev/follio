@@ -39,11 +39,11 @@ const Preview = ({ editMode }) => {
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
-            {allSocials.facebook ? <SocialIcon url={socialLinks.facebook} className="mr-5" /> : <></>}
-            {allSocials.linkedin ? <SocialIcon url={socialLinks.linkedin} className="mr-5" /> : <></>}
-            {allSocials.github ? <SocialIcon url={socialLinks.github} className="mr-5" /> : <></>}
-            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>}
+            {allSocials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
+            {allSocials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+            {allSocials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+            {allSocials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+            {allSocials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
         </ul>
     }
 

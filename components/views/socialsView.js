@@ -7,7 +7,7 @@ const styles = {
 }
 
 const SocialsView = () => {
-   
+
 
     return <div className={styles.editingView}>
         <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
@@ -17,6 +17,7 @@ const SocialsView = () => {
             <SocialInput label="Facebook profile" host="https://facebook.com/" fieldFor="facebook" />
             <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
+            <SocialInput label="LinkedIn profile" host="https://linkedin.com/" fieldFor="linkedin" />
         </div>
     </div>
 }
