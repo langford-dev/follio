@@ -3,4 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: ["github-readme-stats.vercel.app", "activity-graph.herokuapp.com"],
+  },
+
+  nextConfig
+}

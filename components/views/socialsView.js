@@ -18,6 +18,7 @@ const SocialsView = () => {
             <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
             <SocialInput label="LinkedIn profile" host="https://linkedin.com/" fieldFor="linkedin" />
+            <SocialInput label="Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" />
         </div>
     </div>
 }

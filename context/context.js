@@ -16,10 +16,17 @@ export const AppProvider = ({ children }) => {
     const [instagram, setInstagram] = useState("")
     const [linkedin, setLinkedin] = useState("")
     const [github, setGithub] = useState("")
+    const [coffee, setCoffee] = useState("")
 
     let maxViewCount = 2
 
-    console.log(`${themeColor}`, twitter)
+    // const _usernames = {
+    //     twitter: 'https://twitter.com/' + twitter,
+    //     facebook: 'https://facebook.com/' + facebook,
+    //     linkedin: 'https://linkedin.com/' + linkedin,
+    //     github: 'https://github.com/' + github,
+    //     instagram: 'https://instagram.com/' + instagram,
+    // }
 
     const next = () => setViewCount(viewCount + 1)
 
@@ -40,9 +47,8 @@ export const AppProvider = ({ children }) => {
         setInstagram,
         setLinkedin,
         setGithub,
-        allSocials: {
-            twitter, facebook, instagram, linkedin, github
-        }
+        setCoffee,
+        usernames: { twitter, facebook, instagram, linkedin, github, coffee }
     }}>
         {children}
     </AppContext.Provider>
