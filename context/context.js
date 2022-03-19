@@ -5,6 +5,10 @@ export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
     const [viewCount, setViewCount] = useState(0)
+    const [fullname, setFullname] = useState("")
+    const [title, setTitle] = useState("")
+    const [about, setAbout] = useState("")
+
     const maxViewCount = 2
 
     const next = () => {
@@ -21,7 +25,10 @@ export const AppProvider = ({ children }) => {
         viewCount,
         next,
         previous,
-        maxViewCount
+        maxViewCount,
+        fullname, setFullname,
+        title, setTitle,
+        about, setAbout
     }}>
         {children}
     </AppContext.Provider>

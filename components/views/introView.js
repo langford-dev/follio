@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 
 const styles = {
@@ -12,20 +14,22 @@ const styles = {
 }
 
 const IntroView = () => {
+    const { setFullname, setTitle, setAbout } = useContext(AppContext)
+
     return <div className={styles.editingView}>
         <ViewTitle title="Intro" subtitle="Tell visitors about you, what you do, and who you are." />
 
         <div className={styles.inputContainer}>
             <label className={styles.label}>👋 Your name</label>
-            <input type="text" className={styles.input} />
+            <input type="text" className={styles.input} onChange={e => setFullname(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
             <label className={styles.label}>💡 Title</label>
-            <input type="text" className={styles.input} />
+            <input type="text" className={styles.input} onChange={e => setTitle(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
             <label className={styles.label}>✏️ About you</label>
-            <textarea type="text" className={styles.textArea} />
+            <textarea type="text" className={styles.textArea} onChange={e => setAbout(e.target.value)} />
         </div>
     </div>
 }

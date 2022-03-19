@@ -1,9 +1,5 @@
-import { useContext } from "react"
-import { AppContext } from "../context/context"
+import DynamicEditView from "./dynamicEditView"
 import Preview from "./preview"
-import IntroView from "./views/introView"
-import SkillsView from "./views/skillsView"
-import SocialsView from "./views/socialsView"
 
 const styles = {
     pageView: `m-auto max-w-screen-xl h-screen pt-20`,
@@ -17,20 +13,9 @@ const styles = {
 }
 
 const EditView = () => {
-    const { viewCount } = useContext(AppContext)
-
-    const dynamicViews = () => {
-        switch (viewCount) {
-            case 0: return <IntroView />
-            case 1: return <SkillsView />
-            case 2: return <SocialsView />
-            default:
-        }
-    }
-
     return <div className={styles.pageView}>
         <div className={styles.flexView}>
-            {dynamicViews()}
+            <DynamicEditView />
             <Preview
                 about="Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word"
                 fullname="Richard McClintock"
