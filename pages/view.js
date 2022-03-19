@@ -1,7 +1,7 @@
-import Preview from "../components/preview"
+import Style1 from "../components/themes/style1"
 
 const View = () => {
-    return <Preview />
+    return <Style1 />
 }
 
 export default View

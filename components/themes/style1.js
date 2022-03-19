@@ -1,21 +1,18 @@
 import { useState, useContext } from "react"
-import { AppContext } from "../context/context"
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
 import Image from "next/image"
+import { AppContext } from "../../context/context";
 
 const styles = {
-    // preview: `min-h-screen pb-20`,
+    preview: `min-h-screen pb-56`,
     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block`,
-    // previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
-    // previewMain: `text-center m-auto border-l border-b border-r max-w-2xl max-w-3xl py-20 sm:border-none lg:px-10`,
-    previewMainEdit: `text-center m-auto`,
+    previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
 }
 
-const Preview = ({ editMode }) => {
+const Style1 = () => {
     let { fullname, title, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
 
     if (!editMode) {
@@ -54,8 +51,8 @@ const Preview = ({ editMode }) => {
         </ul>
     }
 
-    if (showPreview) return <div className={styles.previewEdit}>
-        <div className={styles.previewMainEdit}>
+    return <div className={styles.preview}>
+        <div className={styles.previewMain}>
             <p className={styles.closePreviewButton} onClick={() => setShowPreview(false)}>&times; Close preview</p>
 
             <div>
@@ -67,6 +64,7 @@ const Preview = ({ editMode }) => {
             <p className=" font-bold mb-5 uppercase">{title}</p>
 
             {socialIcons()}
+
             {
                 usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
                     <Link passHref={true} href={socialLinks.twitter}>
@@ -106,8 +104,6 @@ const Preview = ({ editMode }) => {
             }
         </div>
     </div>
-
-    return <div></div>
 }
 
-export default Preview
+export default Style1

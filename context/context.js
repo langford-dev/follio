@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { createContext } from "react"
 
 export const AppContext = createContext()
@@ -23,8 +23,19 @@ export const AppProvider = ({ children }) => {
     let maxViewCount = 2
 
     const next = () => setViewCount(viewCount + 1)
-
     const previous = () => setViewCount(viewCount - 1)
+
+    useEffect(() => {
+        if ((screen.width <= 640) ||
+            (window.matchMedia &&
+                window.matchMedia('only screen and (max-width: 640px)').matches
+            )) {
+            console.log("mobile")
+            setShowPreview(false)
+        }
+
+        else setShowPreview(true)
+    }, [])
 
     return <AppContext.Provider value={{
         viewCount,
