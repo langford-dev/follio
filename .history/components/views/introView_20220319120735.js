@@ -1,3 +1,4 @@
+// import { styles } from "../../styles/styles"
 import ViewTitle from "../viewTitle"
 
 const styles = {

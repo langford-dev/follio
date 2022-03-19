@@ -1,3 +1,4 @@
+import { styles } from "../../styles/styles"
 import ViewTitle from "../viewTitle"
 
 const styles = {
@@ -11,10 +12,10 @@ const styles = {
     label: ``,
 }
 
-const SocialsView = () => {
+const SkillsView = () => {
     return <div className={styles.editingView}>
-        <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
+        <ViewTitle title="Your skills" subtitle="Tools, languages, software, and tech you use" />
     </div>
 }
 
-export default SocialsView
+export default SkillsView

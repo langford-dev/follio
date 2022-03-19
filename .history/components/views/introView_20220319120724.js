@@ -1,6 +1,7 @@
+import { styles } from "../../styles/styles"
 import ViewTitle from "../viewTitle"
 
-const styles = {
+styles = {
     pageView: `m-auto max-w-screen-xl h-screen pt-20`,
     flexView: `flex h-screen`,
     editingView: `w-1/2 p-10 border-l`,
