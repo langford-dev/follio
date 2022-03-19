@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import { SocialIcon } from 'react-social-icons';
+// import { SocialIcon } from 'react-social-icons';
 
 const styles = {
     preview: `border-l w-1/2 p-10 border-r`,
@@ -10,7 +10,6 @@ const styles = {
 
 const Preview = () => {
     const { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
-
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + allSocials.twitter,
@@ -22,11 +21,11 @@ const Preview = () => {
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
+            {/* {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
             {allSocials.facebook ? <SocialIcon url={socialLinks.facebook} className="mr-5" /> : <></>}
             {allSocials.linkedin ? <SocialIcon url={socialLinks.linkedin} className="mr-5" /> : <></>}
             {allSocials.github ? <SocialIcon url={socialLinks.github} className="mr-5" /> : <></>}
-            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>}
+            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>} */}
         </ul>
     }
 
