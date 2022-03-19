@@ -1,13 +1,15 @@
-
+import { useContext } from "react"
 import SocialInput from "../socialInput"
 import ViewTitle from "../viewTitle"
+import Switch from "react-switch";
+import { AppContext } from "../../context/context";
 
 const styles = {
     editingView: `w-1/2 p-10 border-l`,
 }
 
 const SocialsView = () => {
-
+    let { showGithubStats, setShowGithubStats } = useContext(AppContext)
 
     return <div className={styles.editingView}>
         <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
@@ -19,6 +21,12 @@ const SocialsView = () => {
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
             <SocialInput label="LinkedIn profile" host="https://linkedin.com/" fieldFor="linkedin" />
             <SocialInput label="Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" />
+            <div className="flex items-center">
+                <p>Show GitHub stats</p>
+                <div className="ml-5">
+                    <Switch onChange={e => setShowGithubStats(e)} checked={showGithubStats} />
+                </div>
+            </div>
         </div>
     </div>
 }

@@ -9,6 +9,7 @@ export const AppProvider = ({ children }) => {
     let [title, setTitle] = useState("")
     let [about, setAbout] = useState("")
     let [themeColor, setThemeColor] = useState("")
+    let [showGithubStats, setShowGithubStats] = useState(false)
     let [skills, setSkills] = useState([])
 
     const [twitter, setTwitter] = useState("")
@@ -19,14 +20,6 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
 
     let maxViewCount = 2
-
-    // const _usernames = {
-    //     twitter: 'https://twitter.com/' + twitter,
-    //     facebook: 'https://facebook.com/' + facebook,
-    //     linkedin: 'https://linkedin.com/' + linkedin,
-    //     github: 'https://github.com/' + github,
-    //     instagram: 'https://instagram.com/' + instagram,
-    // }
 
     const next = () => setViewCount(viewCount + 1)
 
@@ -48,6 +41,7 @@ export const AppProvider = ({ children }) => {
         setLinkedin,
         setGithub,
         setCoffee,
+        showGithubStats, setShowGithubStats,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee }
     }}>
         {children}
