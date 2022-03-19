@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
 
     let maxViewCount = 2
 
-    console.log(`${themeColor}`)
+    console.log(`${themeColor}`, twitter)
 
     const next = () => setViewCount(viewCount + 1)
 
@@ -35,11 +35,14 @@ export const AppProvider = ({ children }) => {
         about, setAbout,
         themeColor, setThemeColor,
         skills, setSkills,
-        twitter, setTwitter,
-        facebook, setFacebook,
-        instagram, setInstagram,
-        linkedin, setLinkedin,
-        github, setGithub,
+        setTwitter,
+        setFacebook,
+        setInstagram,
+        setLinkedin,
+        setGithub,
+        allSocials: {
+            twitter, facebook, instagram, linkedin, github
+        }
     }}>
         {children}
     </AppContext.Provider>
