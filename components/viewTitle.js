@@ -2,9 +2,10 @@ import { useContext } from "react"
 import { AppContext } from "../context/context"
 
 const styles = {
+    viewTitle: `flex items-center justify-between w-full sm:w-min`,
     title: `text-3xl font-bold`,
-    textButton: `text-blue-600 cursor-pointer select-none`,
-    pageTitleView: `flex items-center justify-between`,
+    textButton: `mt-5 sm:mt-0 text-blue-600 cursor-pointer select-none whitespace-nowrap`,
+    pageTitleView: `flex items-start justify-start flex-col sm:items-center sm:justify-between sm:flex-row`,
 }
 
 const ViewTitle = ({ title, subtitle }) => {
@@ -13,14 +14,14 @@ const ViewTitle = ({ title, subtitle }) => {
     return <div>
         <div className={styles.pageTitleView}>
             <p className={styles.title}>{title}</p>
-            <div className="flex">
+            <div className={styles.viewTitle}>
                 {
-                    viewCount > 0 ? <p className={styles.textButton} onClick={() => previous()}>&larr; Previous</p> : <div></div>
+                    viewCount > 0 ? <p className={styles.textButton} onClick={() => previous()}>&larr; Previous</p> : <div className="hidden"></div>
                 }
 
                 {
                     viewCount < maxViewCount ? <div className="flex">
-                        <div className="mx-7" />
+                        <div className="sm:mx-7" />
                         <p className={styles.textButton} onClick={() => next()}>Next &rarr;</p>
                     </div> : <div></div>
                 }

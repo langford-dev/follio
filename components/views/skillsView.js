@@ -3,10 +3,10 @@ import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 
 const styles = {
-    editingView: `w-1/2 p-10 border-l`,
-    input: `border p-2 outline-none mt-2 w-5/12 rounded-md`,
+    editingView: `w-screen sm:w-1/2 p-10 px-5 sm:border-l`,
+    input: `border p-2 outline-none mt-2 w-7/12 sm:w-5/12 rounded-md`,
     button: `ml-2 p-2 px-3 rounded-md bg-blue-600 text-white`,
-    toolItem: `bg-gray-100  rounded-full px-3 py-1 m-1 flex items-center justify-center cursor-pointer hover:bg-red-400 hover:text-white`,
+    toolItem: `bg-gray-100 rounded-full px-3 py-1 m-1 flex items-center justify-center cursor-pointer hover:bg-red-400 hover:text-white`,
 }
 
 const SkillsView = () => {

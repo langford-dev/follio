@@ -8,8 +8,8 @@ const styles = {
     preview: `pb-20`,
     pill: `bg-gray-100  rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `border-l w-1/2 p-10 border-r pb-20`,
-    previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10`,
+    previewEdit: `hidden sm:block border-l w-1/2 p-10 border-r pb-20`,
+    previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     // previewMain: `text-center m-auto border-l border-b border-r max-w-2xl max-w-3xl py-20 sm:border-none lg:px-10`,
     previewMainEdit: `text-center m-auto`
 }
@@ -97,8 +97,8 @@ const Preview = ({ editMode }) => {
             {
                 showGithubStats && usernames.github ? <div className="mt-20">
                     <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>My GitHub stats 🤩</p>
-                    <img className="w-full rounded-xl mb-5" src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
-                    <img className="w-full rounded-xl mb-5" src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
+                    <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
+                    <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                     {/* <img src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&count_private=true`} alt={`${usernames.github} GitHub stats`} /> */}
                     {/* <Image width={1000} height={400} objectFit="contain" src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} alt={`${usernames.github} GitHub stats`} /> */}
                     {/* <Image width={1000} height={400} objectFit="contain" src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} alt="GitHub Commits Graph" /> */}

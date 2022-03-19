@@ -5,7 +5,7 @@ import Switch from "react-switch";
 import { AppContext } from "../../context/context";
 
 const styles = {
-    editingView: `w-1/2 p-10 border-l`,
+    editingView: `w-screen sm:w-1/2 p-10 px-5 sm:border-l`,
 }
 
 const SocialsView = () => {

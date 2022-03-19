@@ -1,9 +1,9 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { AppContext } from "../context/context"
 
 const styles = {
-    inputContainer: `border p-2 outline-none mt-2 w-9/12 rounded-md flex`,
-    input: `outline-none`,
+    inputContainer: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex`,
+    input: `outline-none w-9/12`,
 }
 
 const SocialInput = ({ label, host, fieldFor }) => {
