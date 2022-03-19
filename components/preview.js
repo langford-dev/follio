@@ -21,11 +21,11 @@ const Preview = () => {
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {/* {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
+            {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
             {allSocials.facebook ? <SocialIcon url={socialLinks.facebook} className="mr-5" /> : <></>}
             {allSocials.linkedin ? <SocialIcon url={socialLinks.linkedin} className="mr-5" /> : <></>}
             {allSocials.github ? <SocialIcon url={socialLinks.github} className="mr-5" /> : <></>}
-            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>} */}
+            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>}
         </ul>
     }
 
