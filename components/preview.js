@@ -97,7 +97,8 @@ const Preview = ({ editMode }) => {
             {
                 showGithubStats && usernames.github ? <div className="mt-20">
                     <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>My GitHub stats 🤩</p>
-                    <img src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&count_private=true`} alt={`${usernames.github} GitHub stats`} />
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=langfordquarshie21&stroke=f97316&background=1c1917&ring=3382ed&fire=3382ed&currStreakNum=f97316&currStreakLabel=3382ed&sideNums=f97316&sideLabels=f97316&dates=f97316&hide_border=true" />
+                    {/* <img src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&count_private=true`} alt={`${usernames.github} GitHub stats`} /> */}
                     {/* <Image width={1000} height={400} objectFit="contain" src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} alt={`${usernames.github} GitHub stats`} /> */}
                     {/* <Image width={1000} height={400} objectFit="contain" src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} alt="GitHub Commits Graph" /> */}
                 </div> : <></>
