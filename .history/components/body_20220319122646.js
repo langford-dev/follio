@@ -21,10 +21,20 @@ const EditView = () => {
 
     const dynamicViews = () => {
         switch (viewCount) {
-            case 0: return <IntroView />
-            case 1: return <SkillsView />
-            case 2: return <SocialsView />
+            case 0:
+                return <IntroView />
+                break;
+
+            case 1:
+                return <SkillsView />
+                break;
+
+            case 2:
+                return <SocialsView />
+                break;
+
             default:
+                break;
         }
     }
 

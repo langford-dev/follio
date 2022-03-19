@@ -21,10 +21,20 @@ const EditView = () => {
 
     const dynamicViews = () => {
         switch (viewCount) {
-            case 0: return <IntroView />
-            case 1: return <SkillsView />
-            case 2: return <SocialsView />
+            case 0:
+                return <IntroView />
+                break;
+
+            case 1:
+                return <SkillsView />
+                break;
+
+            case 2:
+                return <SocialsView />
+                break;
+
             default:
+                break;
         }
     }
 
@@ -32,9 +42,7 @@ const EditView = () => {
         <div className={styles.flexView}>
             {dynamicViews()}
             <Preview
-                about="Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word"
-                fullname="Richard McClintock"
-                work="Web Developer"
+            
             />
         </div>
     </div>
