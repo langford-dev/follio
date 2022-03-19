@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image"
 
 const styles = {
-    preview: ``,
+    preview: `pb-20`,
     pill: `bg-gray-100  rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `border-l w-1/2 p-10 border-r`,
+    previewEdit: `border-l w-1/2 p-10 border-r pb-20`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10`,
     // previewMain: `text-center m-auto border-l border-b border-r max-w-2xl max-w-3xl py-20 sm:border-none lg:px-10`,
     previewMainEdit: `text-center m-auto`
@@ -23,6 +23,7 @@ const Preview = ({ editMode }) => {
         about = "Hello 👋 Im Langford. A self-taught Web(3) & Software developer, Content creator and Technical Writer ✍️ I have over 3 + years of industry experience.  I enjoy learning new technologies and writing about what I discover 💛 My favorite languages are JavaScript, HTML and CSS.I am well - versed in frameworks such as React, Vue.js, React Native, Flutter"
         themeColor = "#f5f5f5"
         skills = ["html", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
+        showGithubStats = true
         usernames = {
             twitter: "langford_dev",
             facebook: "sasa",
