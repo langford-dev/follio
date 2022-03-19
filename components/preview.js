@@ -15,19 +15,20 @@ const styles = {
 const Preview = ({ editMode }) => {
     let { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
 
-    fullname = "Langford Quarshie K."
-    title = "Web developer"
-    about = "Folio Dashboard Themes Settings Upgrade Donate Intro Tell visitors about you, what you do, and who you are. 👋 Your name 💡 Title ✏️ About you 🎨 Your theme color"
-    themeColor = "#f5f5f5"
-    skills = ["html", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
-    allSocials = {
-        twitter: "sasa",
-        facebook: "sasa",
-        linkedin: "sasa",
-        github: "sasa",
-        instagram: "sasa",
+    if (!editMode) {
+        fullname = "Langford Quarshie K."
+        title = "Web developer"
+        about = "Folio Dashboard Themes Settings Upgrade Donate Intro Tell visitors about you, what you do, and who you are. 👋 Your name 💡 Title ✏️ About you 🎨 Your theme color"
+        themeColor = "#f5f5f5"
+        skills = ["html", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
+        allSocials = {
+            twitter: "sasa",
+            facebook: "sasa",
+            linkedin: "sasa",
+            github: "sasa",
+            instagram: "sasa",
+        }
     }
-
     const socialLinks = {
         twitter: 'https://twitter.com/' + allSocials.twitter,
         facebook: 'https://facebook.com/' + allSocials.facebook,
