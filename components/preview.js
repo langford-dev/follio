@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-// import { SocialIcon } from 'react-social-icons';
+import { SocialIcon } from 'react-social-icons';
 
 const styles = {
     preview: `border-l w-1/2 p-10 border-r`,
