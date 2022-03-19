@@ -15,21 +15,19 @@ const styles = {
 const Style1 = () => {
     let { fullname, title, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
 
-    if (!editMode) {
-        fullname = "Langford Quarshie K."
-        title = "Web developer"
-        about = "Hello 👋 Im Langford. A self-taught Web(3) & Software developer, Content creator and Technical Writer ✍️ I have over 3 + years of industry experience.  I enjoy learning new technologies and writing about what I discover 💛 My favorite languages are JavaScript, HTML and CSS.I am well - versed in frameworks such as React, Vue.js, React Native, Flutter"
-        themeColor = "#f5f5f5"
-        skills = ["html", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
-        showGithubStats = true
-        usernames = {
-            twitter: "langford_dev",
-            facebook: "sasa",
-            linkedin: "sasa",
-            github: "langfordquarshie21",
-            instagram: "sasa",
-            coffee: "sasa",
-        }
+    fullname = "Langford Quarshie K."
+    title = "Web developer"
+    about = "Hello 👋 Im Langford. A self-taught Web(3) & Software developer, Content creator and Technical Writer ✍️ I have over 3 + years of industry experience.  I enjoy learning new technologies and writing about what I discover 💛 My favorite languages are JavaScript, HTML and CSS.I am well - versed in frameworks such as React, Vue.js, React Native, Flutter"
+    themeColor = "#f5f5f5"
+    skills = ["html", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
+    showGithubStats = true
+    usernames = {
+        twitter: "langford_dev",
+        facebook: "sasa",
+        linkedin: "sasa",
+        github: "langfordquarshie21",
+        instagram: "sasa",
+        coffee: "sasa",
     }
 
     const socialLinks = {
