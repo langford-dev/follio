@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
     let [themeColor, setThemeColor] = useState("")
     let [showGithubStats, setShowGithubStats] = useState(false)
     let [skills, setSkills] = useState([])
+    const [showPreview, setShowPreview] = useState(true)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -42,6 +43,7 @@ export const AppProvider = ({ children }) => {
         setGithub,
         setCoffee,
         showGithubStats, setShowGithubStats,
+        showPreview, setShowPreview,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee }
     }}>
         {children}

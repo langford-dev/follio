@@ -1,21 +1,22 @@
-import { useContext } from "react"
+import { useState, useContext } from "react"
 import { AppContext } from "../context/context"
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
 import Image from "next/image"
 
 const styles = {
-    preview: `pb-20`,
-    pill: `bg-gray-100  rounded-full px-3 py-1 m-1`,
+    preview: `min-h-screen pb-20`,
+    pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `hidden sm:block border-l w-1/2 p-10 border-r pb-20`,
+    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     // previewMain: `text-center m-auto border-l border-b border-r max-w-2xl max-w-3xl py-20 sm:border-none lg:px-10`,
-    previewMainEdit: `text-center m-auto`
+    previewMainEdit: `text-center m-auto`,
+    closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
 }
 
 const Preview = ({ editMode }) => {
-    let { fullname, title, about, themeColor, skills, usernames, showGithubStats } = useContext(AppContext)
+    let { fullname, title, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
 
     if (!editMode) {
         fullname = "Langford Quarshie K."
@@ -53,8 +54,10 @@ const Preview = ({ editMode }) => {
         </ul>
     }
 
-    return <div className={editMode ? styles.previewEdit : styles.preview}>
+    if (showPreview) return <div className={editMode ? styles.previewEdit : styles.preview}>
         <div className={editMode ? styles.previewMainEdit : styles.previewMain}>
+            <p className={styles.closePreviewButton} onClick={() => setShowPreview(false)}>&times; Close preview</p>
+
             <div>
                 <div className="bg-gray-200 w-full h-60" />
                 <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />
@@ -99,13 +102,12 @@ const Preview = ({ editMode }) => {
                     <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>My GitHub stats 🤩</p>
                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
-                    {/* <img src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&count_private=true`} alt={`${usernames.github} GitHub stats`} /> */}
-                    {/* <Image width={1000} height={400} objectFit="contain" src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} alt={`${usernames.github} GitHub stats`} /> */}
-                    {/* <Image width={1000} height={400} objectFit="contain" src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} alt="GitHub Commits Graph" /> */}
                 </div> : <></>
             }
         </div>
     </div>
+
+    return <div></div>
 }
 
 export default Preview

@@ -21,7 +21,7 @@ const Header = () => {
                 <Link passHref={true} href="/"><p className={styles.navLink}>Donate</p></Link>
             </nav>
             <div className="flex items-center">
-                <p className="mr-5 sm:hidden"><Link passHref={true} href="/view">Preview</Link></p>
+                {/* <p className="mr-5 sm:hidden"><Link passHref={true} href="/view">Preview</Link></p> */}
                 <div className={styles.button}>Publish</div>
             </div>
         </div>
