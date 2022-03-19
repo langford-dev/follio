@@ -3,13 +3,30 @@ import { AppContext } from "../context/context"
 import { SocialIcon } from 'react-social-icons';
 
 const styles = {
-    preview: `border-l w-1/2 p-10 border-r`,
+    preview: ``,
     pill: `bg-gray-100  rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
+    previewEdit: `border-l w-1/2 p-10 border-r`,
+    previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 lg:px-10`,
+    // previewMain: `text-center m-auto border-l border-b border-r max-w-2xl max-w-3xl py-20 sm:border-none lg:px-10`,
+    previewMainEdit: `text-center m-auto`
 }
 
-const Preview = () => {
-    const { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
+const Preview = ({ editMode }) => {
+    let { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
+
+    fullname = "Langford Quarshie K."
+    title = "Web developer"
+    about = "Folio Dashboard Themes Settings Upgrade Donate Intro Tell visitors about you, what you do, and who you are. 👋 Your name 💡 Title ✏️ About you 🎨 Your theme color"
+    themeColor = "#f5f5f5"
+    skills = ["html", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
+    allSocials = {
+        twitter: "sasa",
+        facebook: "sasa",
+        linkedin: "sasa",
+        github: "sasa",
+        instagram: "sasa",
+    }
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + allSocials.twitter,
@@ -29,9 +46,8 @@ const Preview = () => {
         </ul>
     }
 
-    return <div className={styles.preview}>
-        <div className="text-center m-auto">
-            {/* center and add max-with to this div to make it responsive  */}
+    return <div className={editMode ? styles.previewEdit : styles.preview}>
+        <div className={editMode ? styles.previewMainEdit : styles.previewMain}>
             <div className="w-48 h-48 m-auto bg-gray-100 rounded-full" />
             <p className="font-bold text-2xl my-5 mt-20">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{title}</p>

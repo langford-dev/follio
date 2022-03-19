@@ -16,11 +16,7 @@ const EditView = () => {
     return <div className={styles.pageView}>
         <div className={styles.flexView}>
             <DynamicEditView />
-            <Preview
-                about="Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word"
-                fullname="Richard McClintock"
-                work="Web Developer"
-            />
+            <Preview editMode={true} />
         </div>
     </div>
 }
