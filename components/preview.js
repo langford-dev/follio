@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import Link from "next/link"
-import { TwitterCircleFilled, FacebookFilled, LinkedinFilled, InstagramFilled, GithubFilled } from "@ant-design/icons"
+import { SocialIcon } from 'react-social-icons';
 
 const styles = {
     preview: `border-l w-1/2 p-10 border-r`,
@@ -9,57 +8,25 @@ const styles = {
     wrap: `flex items-center justify-center flex-wrap px-5`,
 }
 
-const iconProps = {
-    fontSize: '30px',
-    marginRight: '20px',
-}
-
-const socialHosts = {
-    twitter: 'https://twitter.com/',
-    facebook: 'https://facebook.com/',
-    linkedin: 'https://linkedin.com/',
-    github: 'https://github.com/',
-    instagram: 'https://instagram.com/',
-}
-
-const iconStyles = {
-    twitter: {
-        color: '#1DA1F2',
-        fontSize: iconProps.fontSize,
-        marginRight: iconProps.marginRight
-    },
-    instagram: {
-        color: '#E4405F',
-        fontSize: iconProps.fontSize,
-        marginRight: iconProps.marginRight
-    },
-    linkedin: {
-        color: '#E4405F',
-        fontSize: iconProps.fontSize,
-        marginRight: iconProps.marginRight
-    },
-    facebook: {
-        color: '#3F51B5',
-        fontSize: iconProps.fontSize,
-        marginRight: iconProps.marginRight
-    },
-    github: {
-        color: '#3a3a3a',
-        fontSize: iconProps.fontSize,
-        marginRight: iconProps.marginRight
-    },
-}
-
 const Preview = () => {
     const { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
 
+
+    const socialLinks = {
+        twitter: 'https://twitter.com/' + allSocials.twitter,
+        facebook: 'https://facebook.com/' + allSocials.facebook,
+        linkedin: 'https://linkedin.com/' + allSocials.linkedin,
+        github: 'https://github.com/' + allSocials.github,
+        instagram: 'https://instagram.com/' + allSocials.instagram,
+    }
+
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {allSocials.twitter ? <Link passHref={true} href={`${socialHosts.twitter}${allSocials.twitter}`}><TwitterCircleFilled style={iconStyles.twitter} /></Link> : <></>}
-            {allSocials.facebook ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><FacebookFilled style={iconStyles.facebook} /></Link> : <></>}
-            {allSocials.linkedin ? <Link passHref={true} href={`${socialHosts.linkedin}${allSocials.linkedin}`}><LinkedinFilled style={iconStyles.linkedin} /></Link> : <></>}
-            {allSocials.github ? <Link passHref={true} href={`${socialHosts.github}${allSocials.github}`}><GithubFilled style={iconStyles.github} /></Link> : <></>}
-            {allSocials.instagram ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><InstagramFilled style={iconStyles.instagram} /></Link> : <></>}
+            {allSocials.twitter ? <SocialIcon url={socialLinks.twitter} className="mr-5" /> : <></>}
+            {allSocials.facebook ? <SocialIcon url={socialLinks.facebook} className="mr-5" /> : <></>}
+            {allSocials.linkedin ? <SocialIcon url={socialLinks.linkedin} className="mr-5" /> : <></>}
+            {allSocials.github ? <SocialIcon url={socialLinks.github} className="mr-5" /> : <></>}
+            {allSocials.instagram ? <SocialIcon url={socialLinks.instagram} className="mr-5" /> : <></>}
         </ul>
     }
 
