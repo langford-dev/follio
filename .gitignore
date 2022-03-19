@@ -2,18 +2,22 @@
 
 # dependencies
 /node_modules
+/.history
 /.pnp
 .pnp.js
 
 # testing
 /coverage
+/.history
 
 # next.js
 /.next/
+/.history
 /out/
 
 # production
 /build
+/.history
 
 # misc
 .DS_Store

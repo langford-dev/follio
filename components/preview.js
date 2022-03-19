@@ -12,7 +12,6 @@ const styles = {
 const iconProps = {
     fontSize: '30px',
     marginRight: '20px',
-    color: '#424242'
 }
 
 const socialHosts = {
@@ -23,16 +22,44 @@ const socialHosts = {
     instagram: 'https://instagram.com/',
 }
 
+const iconStyles = {
+    twitter: {
+        color: '#1DA1F2',
+        fontSize: iconProps.fontSize,
+        marginRight: iconProps.marginRight
+    },
+    instagram: {
+        color: '#E4405F',
+        fontSize: iconProps.fontSize,
+        marginRight: iconProps.marginRight
+    },
+    linkedin: {
+        color: '#E4405F',
+        fontSize: iconProps.fontSize,
+        marginRight: iconProps.marginRight
+    },
+    facebook: {
+        color: '#3F51B5',
+        fontSize: iconProps.fontSize,
+        marginRight: iconProps.marginRight
+    },
+    github: {
+        color: '#3a3a3a',
+        fontSize: iconProps.fontSize,
+        marginRight: iconProps.marginRight
+    },
+}
+
 const Preview = () => {
     const { fullname, title, about, themeColor, skills, allSocials } = useContext(AppContext)
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {allSocials.twitter ? <Link passHref={true} href={`${socialHosts.twitter}${allSocials.twitter}`}><TwitterCircleFilled style={iconProps} /></Link> : <></>}
-            {allSocials.facebook ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><FacebookFilled style={iconProps} /></Link> : <></>}
-            {allSocials.linkedin ? <Link passHref={true} href={`${socialHosts.linkedin}${allSocials.linkedin}`}><LinkedinFilled style={iconProps} /></Link> : <></>}
-            {allSocials.github ? <Link passHref={true} href={`${socialHosts.github}${allSocials.github}`}><GithubFilled style={iconProps} /></Link> : <></>}
-            {allSocials.instagram ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><InstagramFilled style={iconProps} /></Link> : <></>}
+            {allSocials.twitter ? <Link passHref={true} href={`${socialHosts.twitter}${allSocials.twitter}`}><TwitterCircleFilled style={iconStyles.twitter} /></Link> : <></>}
+            {allSocials.facebook ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><FacebookFilled style={iconStyles.facebook} /></Link> : <></>}
+            {allSocials.linkedin ? <Link passHref={true} href={`${socialHosts.linkedin}${allSocials.linkedin}`}><LinkedinFilled style={iconStyles.linkedin} /></Link> : <></>}
+            {allSocials.github ? <Link passHref={true} href={`${socialHosts.github}${allSocials.github}`}><GithubFilled style={iconStyles.github} /></Link> : <></>}
+            {allSocials.instagram ? <Link passHref={true} href={`${socialHosts.facebook}${allSocials.facebook}`}><InstagramFilled style={iconStyles.instagram} /></Link> : <></>}
         </ul>
     }
 
