@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
     let [themeColor, setThemeColor] = useState("")
     let [showGithubStats, setShowGithubStats] = useState(false)
     let [skills, setSkills] = useState([])
-    const [showPreview, setShowPreview] = useState(true)
+    const [showPreview, setShowPreview] = useState(false)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
