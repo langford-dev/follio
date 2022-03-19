@@ -9,10 +9,12 @@ const Preview = () => {
     const { fullname, title, about } = useContext(AppContext)
 
     return <div className={styles.preview}>
-        <div className="w-48 h-48 m-auto mb-5 bg-gray-100 rounded-full" />
-        <p className="font-bold text-center text-2xl my-5">{fullname}</p>
-        <p className="text-center font-bold mb-5 uppercase">{title}</p>
-        <p className="text-center">{about}</p>
+        <div className="text-center">
+            <div className="w-48 h-48 m-auto mb-5 bg-gray-100 rounded-full" />
+            <p className="font-bold text-2xl my-5">{fullname}</p>
+            <p className=" font-bold mb-5 uppercase">{title}</p>
+            <p className="">{about}</p>
+        </div>
     </div>
 }
 

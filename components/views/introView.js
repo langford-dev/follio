@@ -14,22 +14,22 @@ const styles = {
 }
 
 const IntroView = () => {
-    const { setFullname, setTitle, setAbout } = useContext(AppContext)
+    const { setFullname, setTitle, setAbout, fullname, title, about } = useContext(AppContext)
 
     return <div className={styles.editingView}>
         <ViewTitle title="Intro" subtitle="Tell visitors about you, what you do, and who you are." />
 
         <div className={styles.inputContainer}>
             <label className={styles.label}>👋 Your name</label>
-            <input type="text" className={styles.input} onChange={e => setFullname(e.target.value)} />
+            <input type="text" value={fullname} className={styles.input} onChange={e => setFullname(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
             <label className={styles.label}>💡 Title</label>
-            <input type="text" className={styles.input} onChange={e => setTitle(e.target.value)} />
+            <input type="text" value={title} className={styles.input} onChange={e => setTitle(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
             <label className={styles.label}>✏️ About you</label>
-            <textarea type="text" className={styles.textArea} onChange={e => setAbout(e.target.value)} />
+            <textarea type="text" value={about} className={styles.textArea} onChange={e => setAbout(e.target.value)} />
         </div>
     </div>
 }
