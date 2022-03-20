@@ -12,8 +12,6 @@ const styles = {
 export default function Home() {
   const { toggleIsAuthenticated, isAuthenticated } = useContext(AppContext)
 
-
-
   useEffect(() => {
 
     // toggleIsAuthenticated(true)
@@ -70,7 +68,7 @@ export default function Home() {
   }
 
   if (!isAuthenticated) return <div className="w-screen h-screen flex flex-col items-center justify-center">
-    <p className="font-bold text-3xl mb-5">Heyooo 👋 Let's get started</p>
+    <p className="font-bold text-3xl mb-5">Heyooo 👋 Lets get started</p>
     <p className="mb-10">Login to your account</p>
     <div id="sawo-container" style={{ backgroundColor: "#f1f1f1", borderRadius: "10px", height: "300px", width: "400px" }}></div>
   </div>

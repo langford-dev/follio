@@ -83,7 +83,7 @@ const Style1 = ({ data, exists }) => {
             {
                 socials.twitter ? <div className="cursor-pointer flex justify-center mt-5">
                     <Link passHref={true} href={socialLinks.twitter}>
-                        <img alt='' src={`https://img.shields.io/twitter/follow/${socials.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
+                        <img src={`https://img.shields.io/twitter/follow/${socials.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
                     </Link>
                 </div> : <></>
             }
