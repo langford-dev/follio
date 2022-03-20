@@ -15,6 +15,7 @@ const Header = () => {
             <Logo />
             <nav className={styles.nav}>
                 <Link passHref={true} href="/"><p className={styles.navLink}>Dashboard</p></Link>
+                <Link passHref={true} href="/edit"><p className={styles.navLink}>Edit</p></Link>
                 <Link passHref={true} href="/"><p className={styles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/"><p className={styles.navLink}>Settings</p></Link>
                 <Link passHref={true} href="/"><p className={styles.navLink}>Upgrade</p></Link>
@@ -22,7 +23,7 @@ const Header = () => {
             </nav>
             <div className="flex items-center">
                 {/* <p className="mr-5 sm:hidden"><Link passHref={true} href="/view">Preview</Link></p> */}
-                <div className={styles.button}>Publish</div>
+                <div className={styles.button}>Save &amp; publish</div>
             </div>
         </div>
     </header>

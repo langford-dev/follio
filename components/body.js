@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { AppContext } from "../context/context"
 import DynamicEditView from "./dynamicEditView"
 import Preview from "./preview"
+import ViewsTracker from "./viewsTracker"
 
 const styles = {
     pageView: `m-auto max-w-screen-xl h-screen pt-20`,
@@ -13,6 +14,7 @@ const EditView = () => {
 
     return <div className={styles.pageView}>
         <div className={styles.flexView}>
+            <ViewsTracker />
             <DynamicEditView />
             <Preview editMode={true} />
             {

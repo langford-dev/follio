@@ -4,10 +4,11 @@ import { AppContext } from "../context/context"
 const styles = {
     inputContainer: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex`,
     input: `outline-none w-9/12`,
+    label: `font-bold`
 }
 
 const SocialInput = ({ label, host, fieldFor }) => {
-    const { setTwitter, setLinkedin, setFacebook, setInstagram, setGithub, setCoffee, usernames } = useContext(AppContext)
+    const { setTwitter, setLinkedin, isPremiumAccount, setFacebook, setInstagram, setGithub, setCoffee, setEthAddress, usernames } = useContext(AppContext)
 
     let dynamicInput = () => {
 
@@ -29,7 +30,10 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 return <input value={usernames.linkedin} className={styles.input} type="text" onChange={e => setLinkedin(e.target.value)} />
 
             case "coffee":
-                return <input value={usernames.coffee} className={styles.input} type="text" onChange={e => setCoffee(e.target.value)} />
+                return <input disabled={!isPremiumAccount} value={usernames.coffee} className={styles.input} type="text" onChange={e => setCoffee(e.target.value)} />
+
+            case "eth-tip":
+                return <input disabled={!isPremiumAccount} placeholder={host} value={usernames.ethAddress} className={styles.input} type="text" onChange={e => setEthAddress(e.target.value)} />
 
 
             default: return <p>...</p>
@@ -39,7 +43,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
     return <div className="mb-10">
         <label className={styles.label}>{label}</label>
         <div className={styles.inputContainer}>
-            <p>{host}</p>
+            {fieldFor !== "eth-tip" && fieldFor !== "coffee" ? <p>{host}</p> : <div></div>}
             {dynamicInput()}
         </div>
     </div>

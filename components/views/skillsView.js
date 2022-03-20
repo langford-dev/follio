@@ -29,7 +29,7 @@ const SkillsView = () => {
     return <div className={styles.editingView}>
         <ViewTitle title="Your skills" subtitle="Tools, languages, software, and tech you use" />
 
-        <ul className="flex items-center flex-wrap">
+        <ul className="flex items-center flex-wrap mt-10">
             {
                 skills.map((skill, index) => {
                     return <li key={index} className={styles.toolItem} onClick={() => removeSkill(index)}>
@@ -40,7 +40,7 @@ const SkillsView = () => {
             }
         </ul>
 
-        <div className="mt-20">
+        <div className="mt-10">
             <input className={styles.input} autoFocus={true} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="Skill" />
             <button className={styles.button} onClick={() => {
                 if (newSkill.trim() === "") return

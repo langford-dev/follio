@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
     let [themeColor, setThemeColor] = useState("")
     let [showGithubStats, setShowGithubStats] = useState(false)
     let [skills, setSkills] = useState([])
+    const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
 
     const [twitter, setTwitter] = useState("")
@@ -19,8 +20,9 @@ export const AppProvider = ({ children }) => {
     const [linkedin, setLinkedin] = useState("")
     const [github, setGithub] = useState("")
     const [coffee, setCoffee] = useState("")
+    const [ethAddress, setEthAddress] = useState("")
 
-    let maxViewCount = 2
+    let maxViewCount = 3
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)
@@ -38,7 +40,7 @@ export const AppProvider = ({ children }) => {
     }, [])
 
     return <AppContext.Provider value={{
-        viewCount,
+        viewCount, setViewCount,
         next,
         previous,
         maxViewCount,
@@ -55,7 +57,9 @@ export const AppProvider = ({ children }) => {
         setCoffee,
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,
-        usernames: { twitter, facebook, instagram, linkedin, github, coffee }
+        isPremiumAccount,
+        setEthAddress,
+        usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}
     </AppContext.Provider>
