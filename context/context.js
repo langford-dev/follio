@@ -11,6 +11,8 @@ export const AppProvider = ({ children }) => {
     let [themeColor, setThemeColor] = useState("")
     let [showGithubStats, setShowGithubStats] = useState(false)
     let [skills, setSkills] = useState([])
+    let [workplaces, setWorkplaces] = useState([])
+    let [projects, setProjects] = useState([])
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -24,7 +26,6 @@ export const AppProvider = ({ children }) => {
     const [ethAddress, setEthAddress] = useState("")
 
     const maxViewCount = 3
-    // const isAuthenticated = sessionStorage.getItem('isAuth')
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)
@@ -33,8 +34,6 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem('isAuth', val)
         setIsAuthenticated(eval(val))
     }
-
-    // console.log('eval(val)', eval(val))
 
     useEffect(() => {
 
@@ -64,6 +63,77 @@ export const AppProvider = ({ children }) => {
 
     }, [])
 
+    const save = async () => {
+
+        /* check if user is auth */
+        /* check if username is present */
+
+        try {
+
+            let _body = {
+                fullname: fullname,
+                work: work,
+                about: about,
+                showGithubStats: showGithubStats,
+                skills: skills,
+                isPremiumAccount: isPremiumAccount,
+                socials: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress },
+                profilePhoto: "",
+                coverPhoto: "",
+                workplaces: workplaces,
+                projects: projects,
+            }
+
+            await fetch(`http://localhost:2003/user/update-user`, { method: "POST", body: _body })
+
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
+    const getAccountData = async (_username) => {
+
+        try {
+
+            const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
+            const data = await res.json()
+
+            console.log("getting data", data.payload)
+
+            toggleIsAuthenticated(true)
+
+        } catch (e) {
+
+            console.log(e.message)
+        }
+    }
+
+    const login = async (_username, _password) => {
+
+        try {
+
+            const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
+            const data = await res.json()
+
+            if (data.payload.password === _password) {
+
+                console.log("correct password", data)
+
+                toggleIsAuthenticated(true)
+
+                return
+            }
+
+            console.log("Wrong password provided")
+
+            toggleIsAuthenticated(false)
+
+        } catch (e) {
+
+            console.log(e.message)
+        }
+    }
+
     return <AppContext.Provider value={{
         viewCount, setViewCount,
         next,
@@ -86,6 +156,8 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         setEthAddress,
+        save,
+        getAccountData, login,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

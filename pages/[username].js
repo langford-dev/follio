@@ -20,7 +20,7 @@ const Username = () => {
 
             if (data.status === false) {
                 setExists(false)
-                return
+                return  
             }
 
             if (res.status !== 200 || data.status === false) {
