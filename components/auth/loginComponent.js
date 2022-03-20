@@ -9,7 +9,7 @@ const styles = {
     button: `select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
-const Login = () => {
+const LoginComponent = () => {
     const { login, setShowLogin } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
@@ -41,4 +41,4 @@ const Login = () => {
     </div>
 }
 
-export default Login
+export default LoginComponent

@@ -9,7 +9,7 @@ const styles = {
     button: `select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
-const SignUp = () => {
+const SignupComponent = () => {
     const { getAccountData, setShowLogin } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
@@ -30,7 +30,7 @@ const SignUp = () => {
         }
     }
 
-    const signup = async () => {
+    const signupUser = async () => {
 
         try {
 
@@ -86,11 +86,11 @@ const SignUp = () => {
 
             <p className="mb-3 -mt-3 text-red-700">{error}</p>
 
-            <div className={styles.button} onClick={signup}>Lets go🚀</div>
+            <div className={styles.button} onClick={signupUser}>Lets go🚀</div>
 
             <p className="mt-3 font-bold cursor-pointer" onClick={() => setShowLogin(true)}>Login me in</p>
         </div>
     </div>
 }
 
-export default SignUp
+export default SignupComponent
