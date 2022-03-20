@@ -13,6 +13,7 @@ export const AppProvider = ({ children }) => {
     let [skills, setSkills] = useState([])
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -22,21 +23,45 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
-    let maxViewCount = 3
+    const maxViewCount = 3
+    // const isAuthenticated = sessionStorage.getItem('isAuth')
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)
 
+    const toggleIsAuthenticated = (val) => {
+        sessionStorage.setItem('isAuth', val)
+        setIsAuthenticated(eval(val))
+    }
+
+    // console.log('eval(val)', eval(val))
+
     useEffect(() => {
+
+        console.log(window.location.hostname.split(".")[0])
+
         if ((screen.width <= 640) ||
             (window.matchMedia &&
                 window.matchMedia('only screen and (max-width: 640px)').matches
             )) {
-            console.log("mobile")
             setShowPreview(false)
         }
 
         else setShowPreview(true)
+
+        const _authSessionValue = sessionStorage.getItem("isAuth")
+
+        if (!_authSessionValue) {
+            sessionStorage.setItem("isAuth", false)
+            setIsAuthenticated(false)
+            console.log('null_', false)
+            return
+        }
+
+        setIsAuthenticated(eval(_authSessionValue))
+
+        console.log('_authSessionValue', eval(_authSessionValue))
+
     }, [])
 
     return <AppContext.Provider value={{
@@ -55,6 +80,8 @@ export const AppProvider = ({ children }) => {
         setLinkedin,
         setGithub,
         setCoffee,
+        // isAuthenticated, toggleIsAuthenticated,
+        isAuthenticated, toggleIsAuthenticated,
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,
         isPremiumAccount,

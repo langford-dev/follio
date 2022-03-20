@@ -85,7 +85,7 @@ const Preview = ({ editMode }) => {
             <div className="mt-20">
                 {
                     skills.length > 0 ?
-                        <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>Tools is use 🧰</p>
+                        <p className={`font-bold text-xl mb-5`}>Tools is use 🧰</p>
                         : <></>
                 }
                 <ul className={styles.wrap}>
