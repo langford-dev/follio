@@ -13,7 +13,7 @@ const styles = {
 }
 
 const Preview = ({ editMode }) => {
-    let { fullname, title, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
+    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
 
     // if (!editMode) {
     //     fullname = "Langford Quarshie K."
@@ -61,7 +61,7 @@ const Preview = ({ editMode }) => {
             </div>
 
             <p className="font-bold text-3xl my-5 mt-20">{fullname}</p>
-            <p className=" font-bold mb-5 uppercase">{title}</p>
+            <p className=" font-bold mb-5 uppercase">{work}</p>
 
             {socialIcons()}
             {

@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { AppContext } from "../context/context"
 import Logo from "./logo"
 
 const styles = {
@@ -13,6 +14,7 @@ const styles = {
 
 const Header = () => {
     const [route, setRoute] = useState('')
+    const { updateAccount } = useContext(AppContext)
 
     useEffect(() => {
         console.log(window.location.pathname)
@@ -30,7 +32,7 @@ const Header = () => {
                 <Link passHref={true} href="/"><p className={route === "/upgrade" ? styles.active : styles.navLink}>Upgrade</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/donate" ? styles.active : styles.navLink}>Donate</p></Link>
             </nav>
-            <div className={styles.button}>Save &amp; publish</div>
+            <div className={styles.button} onClick={updateAccount}>Save &amp; publish</div>
         </div>
     </header>
 }

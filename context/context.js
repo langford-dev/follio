@@ -6,7 +6,8 @@ export const AppContext = createContext()
 export const AppProvider = ({ children }) => {
     let [viewCount, setViewCount] = useState(0)
     let [fullname, setFullname] = useState("")
-    let [title, setTitle] = useState("")
+    let [username, setUsername] = useState("")
+    let [work, setWork] = useState("")
     let [about, setAbout] = useState("")
     let [themeColor, setThemeColor] = useState("")
     let [showGithubStats, setShowGithubStats] = useState(false)
@@ -17,6 +18,9 @@ export const AppProvider = ({ children }) => {
     const [showPreview, setShowPreview] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [showLogin, setShowLogin] = useState(true)
+
+    const [profilePhoto, setProfilePhoto] = useState("")
+    const [coverPhoto, setCoverPhoto] = useState(true)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -64,7 +68,34 @@ export const AppProvider = ({ children }) => {
 
     }, [])
 
-    const save = async () => {
+    const saveNewChangesToStorage = (data) => {
+
+        sessionStorage.setItem("data", JSON.stringify(data))
+
+        // console.log("newData >> ", data)
+
+        // setFullname(data.payload.fullname)
+        // setUsername(data.payload.username)
+        // setWork(data.payload.work)
+        // setAbout(data.payload.about)
+        // setProfilePhoto(data.payload.coverPhoto)
+        // setCoverPhoto(data.payload.profilePhoto)
+        // setShowGithubStats(data.payload.showGithubStats)
+        // setSkills(data.payload.skills)
+        // setWorkplaces(data.payload.workplaces)
+        // setProjects(data.payload.projects)
+        // setIsPremiumAccount(data.payload.isPremiumAccount)
+        // setWorkplaces(data.payload.workplaces)
+        // setTwitter(data.payload.socials.twitter)
+        // setFacebook(data.payload.socials.facebook)
+        // setInstagram(data.payload.socials.instagram)
+        // setLinkedin(data.payload.socials.linkedin)
+        // setGithub(data.payload.socials.github)
+        // setCoffee(data.payload.socials.coffee)
+        // setEthAddress(data.payload.ethAddress)
+    }
+
+    const updateAccount = async () => {
 
         /* check if user is auth */
         /* check if username is present */
@@ -72,20 +103,35 @@ export const AppProvider = ({ children }) => {
         try {
 
             let _body = {
-                fullname: fullname,
-                work: work,
-                about: about,
-                showGithubStats: showGithubStats,
-                skills: skills,
-                isPremiumAccount: isPremiumAccount,
-                socials: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress },
-                profilePhoto: "",
-                coverPhoto: "",
-                workplaces: workplaces,
-                projects: projects,
+                "fullname": fullname,
+                "username": username,
+                "work": work,
+                "about": about,
+                "showGithubStats": showGithubStats,
+                "skills": skills,
+                "isPremiumAccount": isPremiumAccount,
+                "socials": { twitter, facebook, instagram, linkedin, github, coffee, ethAddress },
+                "profilePhoto": profilePhoto,
+                "coverPhoto": coverPhoto,
+                "workplaces": workplaces,
+                "projects": projects,
             }
 
-            await fetch(`http://localhost:2003/user/update-user`, { method: "POST", body: _body })
+            console.log(_body)
+
+            const res = await fetch("http://localhost:2003/user/update-user", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(_body),
+            })
+
+            const data = await res.json()
+
+            console.log(data)
+
+            saveNewChangesToStorage(_body)
 
         } catch (e) {
             console.log(e.message)
@@ -99,9 +145,31 @@ export const AppProvider = ({ children }) => {
             const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
 
-            console.log("getting data", data.payload)
+            delete data.payload["password"];
 
             toggleIsAuthenticated(true)
+
+            sessionStorage.setItem("data", JSON.stringify(data.payload))
+
+            setFullname(data.payload.fullname)
+            setUsername(data.payload.username)
+            setWork(data.payload.work)
+            setAbout(data.payload.about)
+            setProfilePhoto(data.payload.coverPhoto)
+            setCoverPhoto(data.payload.profilePhoto)
+            setShowGithubStats(data.payload.showGithubStats)
+            setSkills(data.payload.skills)
+            setWorkplaces(data.payload.workplaces)
+            setProjects(data.payload.projects)
+            setIsPremiumAccount(data.payload.isPremiumAccount)
+            setWorkplaces(data.payload.workplaces)
+            setTwitter(data.payload.socials.twitter)
+            setFacebook(data.payload.socials.facebook)
+            setInstagram(data.payload.socials.instagram)
+            setLinkedin(data.payload.socials.linkedin)
+            setGithub(data.payload.socials.github)
+            setCoffee(data.payload.socials.coffee)
+            setEthAddress(data.payload.ethAddress)
 
         } catch (e) {
 
@@ -109,11 +177,37 @@ export const AppProvider = ({ children }) => {
         }
     }
 
+    const readDataFromStorage = () => {
+
+        if (!sessionStorage.getItem("data")) return
+
+        let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
+
+        setFullname(sessionStorageData.fullname)
+        setUsername(sessionStorageData.username)
+        setWork(sessionStorageData.work)
+        setAbout(sessionStorageData.about)
+        setProfilePhoto(sessionStorageData.coverPhoto)
+        setCoverPhoto(sessionStorageData.profilePhoto)
+        setShowGithubStats(sessionStorageData.showGithubStats)
+        setSkills(sessionStorageData.skills)
+        setWorkplaces(sessionStorageData.workplaces)
+        setProjects(sessionStorageData.projects)
+        setIsPremiumAccount(sessionStorageData.isPremiumAccount)
+        setWorkplaces(sessionStorageData.workplaces)
+        setTwitter(sessionStorageData.socials.twitter)
+        setFacebook(sessionStorageData.socials.facebook)
+        setInstagram(sessionStorageData.socials.instagram)
+        setLinkedin(sessionStorageData.socials.linkedin)
+        setGithub(sessionStorageData.socials.github)
+        setCoffee(sessionStorageData.socials.coffee)
+        setEthAddress(sessionStorageData.ethAddress)
+
+    }
+
     const login = async (_username, _password) => {
 
         try {
-
-            console.log("_username, _password", _username, _password)
 
             const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
@@ -133,6 +227,7 @@ export const AppProvider = ({ children }) => {
 
         } catch (e) {
 
+            alert("Account doesn not exist")
             console.log(e.message)
         }
     }
@@ -143,7 +238,7 @@ export const AppProvider = ({ children }) => {
         previous,
         maxViewCount,
         fullname, setFullname,
-        title, setTitle,
+        work, setWork,
         about, setAbout,
         themeColor, setThemeColor,
         skills, setSkills,
@@ -159,9 +254,10 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         setEthAddress,
-        save,
+        updateAccount,
         getAccountData, login,
         showLogin, setShowLogin,
+        readDataFromStorage,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

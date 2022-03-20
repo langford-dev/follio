@@ -6,10 +6,11 @@ import { AppContext } from "../context/context"
 
 const Edit = () => {
     const router = useRouter()
-    const { isAuthenticated } = useContext(AppContext)
+    const { isAuthenticated, readDataFromStorage } = useContext(AppContext)
 
     useEffect(() => {
 
+        readDataFromStorage()
         if (!isAuthenticated) router.push("/")
 
     }, [isAuthenticated])
