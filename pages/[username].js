@@ -15,12 +15,12 @@ const Username = () => {
 
         try {
 
-            const res = await fetch(`http://localhost:2003/user/get-user/${username}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${username}`, { method: "GET" })
             const data = await res.json()
 
             if (data.status === false) {
                 setExists(false)
-                return  
+                return
             }
 
             if (res.status !== 200 || data.status === false) {

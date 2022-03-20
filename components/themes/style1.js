@@ -56,8 +56,6 @@ const Style1 = ({ data, exists }) => {
 
     return <div className={styles.preview}>
         <div className={styles.previewMain}>
-            <p className={styles.closePreviewButton} onClick={() => setShowPreview(false)}>&times; Close preview</p>
-
             <div>
                 <div className="bg-gray-200 w-full h-60" />
                 <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />

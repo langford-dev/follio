@@ -3,7 +3,7 @@
 // export default function handler(req, res) {
 //     const getUser = async () => {
 //         const response = await fetch(
-//             "http://localhost:2003/user/get-user/benedikt",
+//             "https://folio-backend-server.herokuapp.com/user/get-user/benedikt",
 //             {
 //                 method: 'GET',
 //                 headers: {

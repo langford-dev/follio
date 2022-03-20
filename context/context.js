@@ -119,7 +119,7 @@ export const AppProvider = ({ children }) => {
 
             console.log(_body)
 
-            const res = await fetch("http://localhost:2003/user/update-user", {
+            const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ export const AppProvider = ({ children }) => {
 
         try {
 
-            const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
 
             delete data.payload["password"];
@@ -209,7 +209,7 @@ export const AppProvider = ({ children }) => {
 
         try {
 
-            const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
 
             if (data.payload.password === _password) {

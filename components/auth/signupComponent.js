@@ -21,7 +21,7 @@ const SignupComponent = () => {
 
         try {
 
-            const res = await fetch(`http://localhost:2003/user/check-username-exists/${str}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/check-username-exists/${str}`, { method: "GET" })
             const data = await res.json()
             if (data.status) setsernameExists(data.payload)
 
@@ -38,7 +38,7 @@ const SignupComponent = () => {
 
             if (username.trim() === "" || password.trim() === "") return
 
-            const res = await fetch("http://localhost:2003/user/add-user", {
+            const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
