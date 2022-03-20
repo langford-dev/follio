@@ -10,7 +10,7 @@ const styles = {
 }
 
 const SignUp = () => {
-    const { toggleIsAuthenticated, getAccountData } = useContext(AppContext)
+    const { getAccountData, setShowLogin } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -87,6 +87,8 @@ const SignUp = () => {
             <p className="mb-3 -mt-3 text-red-700">{error}</p>
 
             <div className={styles.button} onClick={signup}>Lets go🚀</div>
+
+            <p className="mt-3 font-bold cursor-pointer" onClick={() => setShowLogin(true)}>Login me in</p>
         </div>
     </div>
 }

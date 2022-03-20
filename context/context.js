@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [showLogin, setShowLogin] = useState(true)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -112,6 +113,8 @@ export const AppProvider = ({ children }) => {
 
         try {
 
+            console.log("_username, _password", _username, _password)
+
             const res = await fetch(`http://localhost:2003/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
 
@@ -119,12 +122,12 @@ export const AppProvider = ({ children }) => {
 
                 console.log("correct password", data)
 
-                toggleIsAuthenticated(true)
+                getAccountData(_username)
 
                 return
             }
 
-            console.log("Wrong password provided")
+            alert("Wrong password provided")
 
             toggleIsAuthenticated(false)
 
@@ -158,6 +161,7 @@ export const AppProvider = ({ children }) => {
         setEthAddress,
         save,
         getAccountData, login,
+        showLogin, setShowLogin,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

@@ -6,7 +6,8 @@
 // import { AppContext } from "../context/context";
 
 import { useContext } from "react";
-import SignUp from "../components/auth/signUp";
+import Login from "../components/auth/login";
+import SignUp from "../components/auth/signup";
 import Header from "../components/header";
 import { AppContext } from "../context/context";
 
@@ -98,9 +99,10 @@ const styles = {
 
 
 export default function Home() {
-  const { isAuthenticated } = useContext(AppContext)
+  const { isAuthenticated, showLogin } = useContext(AppContext)
 
-  if (!isAuthenticated) return <SignUp />
+  if (!isAuthenticated && showLogin) return <Login />
+  if (!isAuthenticated && !showLogin) return <SignUp />
 
   else return <div>
     <Header />
