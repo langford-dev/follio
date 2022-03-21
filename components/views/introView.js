@@ -14,14 +14,14 @@ const IntroView = () => {
     const { setFullname, setWork, setAbout, fullname, work, about } = useContext(AppContext)
 
     return <div className={styles.editingView}>
-        <ViewTitle title="Introduction" subtitle="Tell visitors about you, what you do, and who you are." />
+        <ViewTitle title="Introduction" subtitle="Tell visitors your name, what you do, and who you are" />
 
         <div className={styles.inputContainer}>
             <label className={styles.label}>Your name</label>
             <input type="text" value={fullname} className={styles.input} onChange={e => setFullname(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>
-            <label className={styles.label}>Title</label>
+            <label className={styles.label}>Your work</label>
             <input type="text" value={work} className={styles.input} onChange={e => setWork(e.target.value)} />
         </div>
         <div className={styles.inputContainer}>

@@ -27,7 +27,7 @@ const SkillsView = () => {
     }
 
     return <div className={styles.editingView}>
-        <ViewTitle title="Your skills" subtitle="Tools, languages, software, and tech you use" />
+        <ViewTitle title="Your skills" subtitle="Tools, languages, skills, and tech you use" />
 
         <ul className="flex items-center flex-wrap mt-10">
             {

@@ -12,7 +12,7 @@ const PaymentView = () => {
     let { showGithubStats, setShowGithubStats, isPremiumAccount } = useContext(AppContext)
 
     return <div className={styles.editingView}>
-        <ViewTitle title="Receive tips" subtitle="Let visitors connect with you through your socials" />
+        <ViewTitle title="Receive tips" subtitle="Accept payments from your page" />
 
         <div className="mt-10">
             <SocialInput label="☕ Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" />
