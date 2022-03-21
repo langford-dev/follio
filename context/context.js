@@ -197,6 +197,8 @@ export const AppProvider = ({ children }) => {
 
         try {
 
+            if (_username.trim() === "" || _password.trim() === "") return
+
             setShowLoader(true)
 
             const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
