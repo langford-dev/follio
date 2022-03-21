@@ -10,9 +10,9 @@ const styles = {
     previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen`,
     previewMainEdit: `text-center m-auto`,
     closePreviewButton: `-mt-5 flex items-center justify-center p-2 sm:hidden`,
-    profilePhotoContainer: `w-48 h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-20`,
+    profilePhotoContainer: `w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-20`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `bg-gray-100 w-full h-60 object-cover`,
+    coverPhoto: `bg-gray-100 w-full h-25 sm:h-60 object-cover`,
 }
 
 const Preview = () => {
