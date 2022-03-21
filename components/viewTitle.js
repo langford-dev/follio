@@ -27,7 +27,7 @@ const ViewTitle = ({ title, subtitle }) => {
                 }
             </div>
         </div>
-        <p className="mt-3 mb-5">{subtitle}</p>
+        <p className="mt-3 mb-5 text-gray-500">{subtitle}</p>
     </div>
 }
 
