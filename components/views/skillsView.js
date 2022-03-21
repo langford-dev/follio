@@ -41,13 +41,13 @@ const SkillsView = () => {
         </ul>
 
         <div className="mt-10">
-            <input className={styles.input} autoFocus={true} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="Skill" />
+            <input className={styles.input} autoFocus={true} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
             <button className={styles.button} onClick={() => {
                 if (newSkill.trim() === "") return
 
                 setSkills([...skills, newSkill.trim()])
                 setNewSkill("")
-                console.log(skills)
+
             }}>Add skill</button>
         </div>
     </div>
