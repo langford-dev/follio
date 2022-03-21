@@ -73,7 +73,7 @@ const SignupComponent = () => {
 
     else return <div className="w-screen h-screen flex items-center justify-center bg-white">
         <div className="p-5 rounded-md w-full sm:max-w-lg px-10">
-            <p className="font-bold text-2xl mb-5 text-center">Yooo whats up? 👋</p>
+            <p className="font-bold text-2xl mb-1 text-center">Yooo whats up? 👋</p>
             <p className="text-center mb-5 text-gray-500">You new? enter your username and choose a password</p>
 
             <div className={styles.inputContainer}>

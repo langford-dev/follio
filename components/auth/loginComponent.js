@@ -21,7 +21,7 @@ const LoginComponent = () => {
 
     else return <div className="w-screen h-screen flex items-center justify-center bg-white">
         <div className="p-5 rounded-md w-full sm:max-w-lg px-10">
-            <p className="font-bold text-2xl mb-5 text-center">Welcome back 😋</p>
+            <p className="font-bold text-2xl mb-1 text-center">Welcome back 😋</p>
             <p className="text-center mb-5 text-gray-500">ayee! nice to see you again :)</p>
 
             <div className={styles.inputContainer}>

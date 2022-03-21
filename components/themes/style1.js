@@ -20,6 +20,8 @@ const Style1 = ({ data, exists }) => {
     const [workplaces, setWorkplaces] = useState([])
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [socials, setSocials] = useState({})
+    const [isPremiumAccount, setIsPremiumAccount] = useState(false)
+    const [username, setUsername] = useState("")
 
     useEffect(() => {
 
@@ -27,10 +29,12 @@ const Style1 = ({ data, exists }) => {
         if (data && data) {
             setSkills(data.skills)
             setFullame(data.fullname)
+            setUsername(data.username)
             setWork(data.work)
             setSocials(data.socials)
             setAbout(data.about)
             setShowGithubStats(data.showGithubStats)
+            setIsPremiumAccount(data.isPremiumAccount)
         }
 
     }, [data, exists])
@@ -88,7 +92,7 @@ const Style1 = ({ data, exists }) => {
 
             {
                 about ? <div className="mt-20">
-                    <p className="font-bold text-xl mb-5">About me 🖊</p>
+                    <p className="font-bold text-xl mb-5">About me</p>
                     <p className="mb-5 px-5">{about}</p>
                 </div> : <></>
             }
@@ -96,7 +100,7 @@ const Style1 = ({ data, exists }) => {
             <div className="mt-20">
                 {
                     skills.length > 0 ?
-                        <p className={`font-bold text-xl mb-5`}>Tools is use 🧰</p>
+                        <p className={`font-bold text-xl mb-5`}>My tools and skills 🧰</p>
                         : <></>
                 }
                 <ul className={styles.wrap}>
@@ -115,8 +119,17 @@ const Style1 = ({ data, exists }) => {
                     <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                 </div> : <></>
             }
+
+            {
+                isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                    <p className={`font-bold text-xl mb-5`}>Wanna tip me? 😁</p>
+                    <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
+                        <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
+                    </a>
+                </div> : <div></div>
+            }
         </div>
-    </div>
+    </div >
 
     // if (!data && !exists) return <div className="w-screen h-screen flex items-center justify-center flex-col text-center p-5">
     // <p className="text-3xl font-medium">The page youre looking for doesnt exist</p>

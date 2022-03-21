@@ -33,7 +33,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 return <input disabled={!isPremiumAccount} value={usernames.coffee} className={styles.input} type="text" onChange={e => setCoffee(e.target.value)} />
 
             case "eth-tip":
-                return <input disabled={!isPremiumAccount} placeholder={host} value={usernames.ethAddress} className={styles.input} type="text" onChange={e => setEthAddress(e.target.value)} />
+                return <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={usernames.ethAddress} className={styles.input} type="text" onChange={e => setEthAddress(e.target.value)} />
 
 
             default: return <p>...</p>
@@ -43,7 +43,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
     return <div className="mb-10">
         <label className={styles.label}>{label}</label>
         <div className={styles.inputContainer}>
-            {fieldFor !== "eth-tip" && fieldFor !== "coffee" ? <p>{host}</p> : <div></div>}
+            <p>{host}</p>
             {dynamicInput()}
         </div>
     </div>

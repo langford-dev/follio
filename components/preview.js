@@ -13,7 +13,7 @@ const styles = {
 }
 
 const Preview = () => {
-    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
+    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount } = useContext(AppContext)
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + usernames.twitter,
@@ -57,7 +57,7 @@ const Preview = () => {
 
             {
                 about ? <div className="mt-20">
-                    <p className="font-bold text-xl mb-5">About me 🖊</p>
+                    <p className="font-bold text-xl mb-5">About me</p>
                     <p className="mb-5 px-5">{about}</p>
                 </div> : <></>
             }
@@ -65,7 +65,7 @@ const Preview = () => {
             <div className="mt-20">
                 {
                     skills.length > 0 ?
-                        <p className={`font-bold text-xl mb-5`}>Tools is use 🧰</p>
+                        <p className={`font-bold text-xl mb-5`}>My tools and skills 🧰 </p>
                         : <></>
                 }
                 <ul className={styles.wrap}>
@@ -83,6 +83,15 @@ const Preview = () => {
                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                 </div> : <></>
+            }
+
+            {
+                isPremiumAccount && usernames.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                    <p className={`font-bold text-xl mb-5`}>Wanna tip me? 😁</p>
+                    <a href={`https://www.buymeacoffee.com/${usernames.coffee}`}>
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
+                    </a>
+                </div> : <div></div>
             }
         </div>
     </div>
