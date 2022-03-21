@@ -50,6 +50,12 @@ const Preview = () => {
                 }
 
                 {
+                    !coverPhotoPreview && !coverPhoto ?
+                        <div className={styles.coverPhoto} />
+                        : <></>
+                }
+
+                {
                     !coverPhotoPreview && coverPhoto ? <img className={styles.coverPhoto} src={coverPhoto} alt='' /> : <></>
                 }
 
