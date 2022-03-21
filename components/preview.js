@@ -9,7 +9,7 @@ const styles = {
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen`,
     previewMainEdit: `text-center m-auto`,
-    closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
+    closePreviewButton: `-mt-5 flex items-center justify-center p-2 sm:hidden`,
 }
 
 const Preview = () => {

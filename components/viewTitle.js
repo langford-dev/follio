@@ -5,7 +5,7 @@ const styles = {
     viewTitle: `hidden items-center justify-between w-full sm:w-min sm:flex`,
     title: `text-3xl font-bold`,
     textButton: `mt-5 sm:mt-0 text-blue-600 cursor-pointer select-none whitespace-nowrap`,
-    pageTitleView: `flex items-start justify-start flex-col sm:items-center sm:justify-between sm:flex-row`,
+    pageTitleView: `flex items-start justify-start flex-col sm:items-center sm:justify-between sm:flex-row -mt-5 sm:mt-0`,
 }
 
 const ViewTitle = ({ title, subtitle }) => {
