@@ -3,7 +3,7 @@ import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 
 const styles = {
-    editingView: `w-screen sm:w-1/2 p-10 px-5 sm:border-l pb-56 bg-white`,
+    editingView: `w-screen sm:w-1/2 p-10 -mt-5 sm:mt-0 px-5 sm:border-l pb-56 bg-white`,
     inputContainer: `flex flex-col mt-10`,
     input: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md`,
     textArea: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md resize-none h-56`,
