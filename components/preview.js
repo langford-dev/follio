@@ -7,30 +7,13 @@ import Image from "next/image"
 const styles = {
     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block`,
+    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen`,
     previewMainEdit: `text-center m-auto`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
 }
 
-const Preview = ({ editMode }) => {
+const Preview = () => {
     let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview } = useContext(AppContext)
-
-    // if (!editMode) {
-    //     fullname = "Langford Quarshie K."
-    //     title = "Web developer"
-    //     about = "Hello 👋 Im Langford. A self-taught Web(3) & Software developer, Content creator and Technical Writer ✍️ I have over 3 + years of industry experience.  I enjoy learning new technologies and writing about what I discover 💛 My favorite languages are JavaScript, HTML and CSS.I am well - versed in frameworks such as React, Vue.js, React Native, Flutter"
-    //     themeColor = "#f5f5f5"
-    //     skills = ["html", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "CSS", "JavaScript", "NextJs", "Tailwind CSS"]
-    //     showGithubStats = true
-    //     usernames = {
-    //         twitter: "langford_dev",
-    //         facebook: "sasa",
-    //         linkedin: "sasa",
-    //         github: "langfordquarshie21",
-    //         instagram: "sasa",
-    //         coffee: "sasa",
-    //     }
-    // }
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + usernames.twitter,

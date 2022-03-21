@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image"
 
 const styles = {
-    preview: `min-h-screen pb-56`,
+    preview: `max-h-screen pb-56`,
     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,

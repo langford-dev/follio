@@ -20,7 +20,7 @@ const LoginComponent = () => {
     if (showLoader) return <Loader />
 
     else return <div className="w-screen h-screen flex items-center justify-center bg-white">
-        <div className="p-5 rounded-md w-full sm:w-4/12 px-10">
+        <div className="p-5 rounded-md w-full sm:max-w-lg px-10">
             <p className="font-bold text-2xl mb-5 text-center">Welcome back 😋</p>
             <p className="text-center mb-5 text-gray-500">ayee! nice to see you again :)</p>
 

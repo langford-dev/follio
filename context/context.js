@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
-    const maxViewCount = 3
+    const maxViewCount = 4
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)

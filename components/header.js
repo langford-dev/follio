@@ -9,7 +9,7 @@ const styles = {
     button: `select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
     nav: `hidden sm:flex `,
     navLink: `hover:text-blue-600 cursor-pointer p-3 h-20 flex items-center`,
-    active: `hover:text-blue-600 cursor-pointer p-3 pb-2 h-20 flex items-center border-b-2 border-blue-600 text-blue-600`,
+    active: `hover:text-blue-600 cursor-pointer p-3 pb-2 h-20 flex items-center border-b-4 border-blue-600 text-blue-600`,
 
     drawerLink: `mb-3`,
 
