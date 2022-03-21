@@ -11,7 +11,7 @@ const styles = {
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     profilePhotoContainer: `w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-20`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `bg-gray-100 w-full h-25 sm:h-60 object-cover`,
+    coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
 }
 
 const Style1 = ({ data, exists }) => {
