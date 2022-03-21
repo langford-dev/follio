@@ -17,10 +17,11 @@ const ViewsTracker = () => {
 
     return <ul className={styles.mainTracker}>
         <li onClick={() => setActive(0)} className={viewCount === 0 ? styles.active : styles.trackerItem}>🚀 Introduction</li>
-        <li onClick={() => setActive(1)} className={viewCount === 1 ? styles.active : styles.trackerItem}>🔨 Your skills</li>
-        <li onClick={() => setActive(2)} className={viewCount === 2 ? styles.active : styles.trackerItem}>🤩 Your socials</li>
-        <li onClick={() => setActive(3)} className={viewCount === 3 ? styles.active : styles.trackerItem}>🎁 Receive tips</li>
-        <li onClick={() => setActive(4)} className={viewCount === 4 ? styles.active : styles.trackerItem}>💼 Projects</li>
+        <li onClick={() => setActive(1)} className={viewCount === 1 ? styles.active : styles.trackerItem}>📷 Photos</li>
+        <li onClick={() => setActive(1)} className={viewCount === 2 ? styles.active : styles.trackerItem}>🔨 Your skills</li>
+        <li onClick={() => setActive(2)} className={viewCount === 3 ? styles.active : styles.trackerItem}>🤩 Your socials</li>
+        <li onClick={() => setActive(3)} className={viewCount === 4 ? styles.active : styles.trackerItem}>🎁 Receive tips</li>
+        <li onClick={() => setActive(4)} className={viewCount === 5 ? styles.active : styles.trackerItem}>💼 Projects</li>
     </ul>
 }
 

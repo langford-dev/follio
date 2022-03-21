@@ -14,13 +14,16 @@ export const AppProvider = ({ children }) => {
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
     const [projects, setProjects] = useState([])
-    const [coverPhoto, setCoverPhoto] = useState(true)
+    const [coverPhoto, setCoverPhoto] = useState('')
     const [profilePhoto, setProfilePhoto] = useState("")
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [showLogin, setShowLogin] = useState(true)
     const [showLoader, setShowLoader] = useState(false)
+
+    const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
+    const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -30,7 +33,7 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
-    const maxViewCount = 4
+    const maxViewCount = 5
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)
@@ -73,6 +76,31 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
+    const uploadImage = async (_file) => {
+
+        try {
+
+            const data = new FormData()
+            data.append("file", _file)
+            data.append("upload_preset", "tutorial")
+            data.append("cloud_name", "breellz")
+
+            const res = await fetch("https://api.cloudinary.com/v1_1/breellz/image/upload", {
+                method: "POST",
+                body: data
+            })
+
+            const resData = await res.json()
+
+            return resData.url
+        }
+
+        catch (e) {
+
+            console.log('ERR_', e.message)
+        }
+    }
+
     const updateAccount = async () => {
 
         /* check if user is auth */
@@ -81,8 +109,25 @@ export const AppProvider = ({ children }) => {
         try {
 
             let proceed = confirm("Do you want to save your changes?")
+            let _profilePhoto = profilePhoto;
+            let _coverPhoto = coverPhoto;
 
             if (!proceed) return
+
+            setShowLoader(true)
+
+            if (coverPhotoPreview) {
+                console.log('cover changes')
+                _coverPhoto = await uploadImage(coverPhotoPreview)
+            }
+
+            if (profilePhotoPreview) {
+                console.log('profile changed')
+                _profilePhoto = await uploadImage(profilePhotoPreview)
+            }
+
+            console.log('_coverPhoto', _coverPhoto)
+            console.log('_profilePhoto', _profilePhoto)
 
             let _body = {
                 "fullname": fullname,
@@ -93,15 +138,13 @@ export const AppProvider = ({ children }) => {
                 "skills": skills,
                 "isPremiumAccount": isPremiumAccount,
                 "socials": { twitter, facebook, instagram, linkedin, github, coffee, ethAddress },
-                "profilePhoto": profilePhoto,
-                "coverPhoto": coverPhoto,
+                "profilePhoto": _profilePhoto,
+                "coverPhoto": _coverPhoto,
                 "workplaces": workplaces,
                 "projects": projects,
             }
 
             console.log(_body)
-
-            setShowLoader(true)
 
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
                 method: 'POST',
@@ -143,8 +186,8 @@ export const AppProvider = ({ children }) => {
             setUsername(data.payload.username)
             setWork(data.payload.work)
             setAbout(data.payload.about)
-            setProfilePhoto(data.payload.coverPhoto)
-            setCoverPhoto(data.payload.profilePhoto)
+            setProfilePhoto(data.payload.profilePhoto)
+            setCoverPhoto(data.payload.coverPhoto)
             setShowGithubStats(data.payload.showGithubStats)
             setSkills(data.payload.skills)
             setWorkplaces(data.payload.workplaces)
@@ -175,8 +218,8 @@ export const AppProvider = ({ children }) => {
         setUsername(sessionStorageData.username)
         setWork(sessionStorageData.work)
         setAbout(sessionStorageData.about)
-        setProfilePhoto(sessionStorageData.coverPhoto)
-        setCoverPhoto(sessionStorageData.profilePhoto)
+        setProfilePhoto(sessionStorageData.profilePhoto)
+        setCoverPhoto(sessionStorageData.coverPhoto)
         setShowGithubStats(sessionStorageData.showGithubStats)
         setSkills(sessionStorageData.skills)
         setWorkplaces(sessionStorageData.workplaces)
@@ -247,7 +290,6 @@ export const AppProvider = ({ children }) => {
         setLinkedin,
         setGithub,
         setCoffee,
-        // isAuthenticated, toggleIsAuthenticated,
         isAuthenticated, toggleIsAuthenticated,
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,
@@ -258,6 +300,9 @@ export const AppProvider = ({ children }) => {
         showLogin, setShowLogin,
         readDataFromStorage,
         showLoader, setShowLoader,
+        coverPhotoPreview, setCoverPhotoPreview,
+        coverPhoto, profilePhoto,
+        profilePhotoPreview, setProfilePhotoPreview,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

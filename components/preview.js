@@ -10,10 +10,13 @@ const styles = {
     previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen`,
     previewMainEdit: `text-center m-auto`,
     closePreviewButton: `-mt-5 flex items-center justify-center p-2 sm:hidden`,
+    profilePhotoContainer: `w-48 h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-20`,
+    profilePhoto: `object-cover h-full w-full rounded-full`,
+    coverPhoto: `bg-gray-100 w-full h-60 object-cover`,
 }
 
 const Preview = () => {
-    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount } = useContext(AppContext)
+    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + usernames.twitter,
@@ -39,11 +42,50 @@ const Preview = () => {
             <p className={styles.closePreviewButton} onClick={() => setShowPreview(false)}>&times; Close preview</p>
 
             <div>
-                <div className="bg-gray-200 w-full h-60" />
-                <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />
+
+                {
+                    coverPhotoPreview ?
+                        <img className={styles.coverPhoto} src={URL.createObjectURL(coverPhotoPreview)} alt='' />
+                        : <></>
+                }
+
+                {
+                    !coverPhotoPreview && coverPhoto ? <img className={styles.coverPhoto} src={coverPhoto} alt='' /> : <></>
+                }
+
+                {
+                    profilePhotoPreview ?
+                        <div className={styles.profilePhotoContainer}>
+                            <img className={styles.profilePhoto} src={URL.createObjectURL(profilePhotoPreview)} alt='' />
+                        </div> : <></>
+                }
+
+                {
+                    !profilePhotoPreview && profilePhoto ?
+                        <div className={styles.profilePhotoContainer}>
+                            <img className={styles.profilePhoto} src={profilePhoto} alt='' />
+                        </div> : <></>
+                }
+
+
+                {/* {
+                    !coverPhotoPreview ?
+                        <div className="bg-gray-200 w-full h-60" />
+                        : <img className={styles.coverPhoto} src={URL.createObjectURL(coverPhotoPreview)} alt='' />
+
+                }
+
+                {
+                    !profilePhotoPreview ?
+                        <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />
+                        : <div className={styles.profilePhotoContainer}>
+                            <img className={styles.profilePhoto} src={URL.createObjectURL(profilePhotoPreview)} alt='' />
+                        </div>
+                } */}
+
             </div>
 
-            <p className="font-bold text-3xl my-5 mt-20">{fullname}</p>
+            <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{work}</p>
 
             {socialIcons()}

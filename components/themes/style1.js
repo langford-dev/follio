@@ -9,6 +9,9 @@ const styles = {
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
+    profilePhotoContainer: `w-48 h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-20`,
+    profilePhoto: `object-cover h-full w-full rounded-full`,
+    coverPhoto: `bg-gray-100 w-full h-60 object-cover`,
 }
 
 const Style1 = ({ data, exists }) => {
@@ -22,6 +25,8 @@ const Style1 = ({ data, exists }) => {
     const [socials, setSocials] = useState({})
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [username, setUsername] = useState("")
+    const [coverPhoto, setCoverPhoto] = useState('')
+    const [profilePhoto, setProfilePhoto] = useState("")
 
     useEffect(() => {
 
@@ -35,6 +40,8 @@ const Style1 = ({ data, exists }) => {
             setAbout(data.about)
             setShowGithubStats(data.showGithubStats)
             setIsPremiumAccount(data.isPremiumAccount)
+            setProfilePhoto(data.profilePhoto)
+            setCoverPhoto(data.coverPhoto)
         }
 
     }, [data, exists])
@@ -60,9 +67,27 @@ const Style1 = ({ data, exists }) => {
 
     return <div className={styles.preview}>
         <div className={styles.previewMain}>
-            <div>
+
+            {/* <div>
                 <div className="bg-gray-200 w-full h-60" />
                 <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />
+            </div> */}
+
+            <div>
+
+                {
+                    coverPhoto ?
+                        <img className={styles.coverPhoto} src={coverPhoto} alt='' />
+                        : <div className={styles.coverPhoto} ></div>
+                }
+
+                {
+                    profilePhoto ?
+                        <div className={styles.profilePhotoContainer}>
+                            <img className={styles.profilePhoto} src={profilePhoto} alt='' />
+                        </div> : <div className={styles.profilePhoto} ></div>
+                }
+
             </div>
 
             {/* {
@@ -77,7 +102,7 @@ const Style1 = ({ data, exists }) => {
                 </div> : <></>
             } */}
 
-            <p className="font-bold text-3xl my-5 mt-20">{fullname}</p>
+            <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{work}</p>
 
             {socialIcons()}
