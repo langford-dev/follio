@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { AppContext } from "../context/context"
 
 const styles = {
-    mainTracker: `hidden fixed left-0 pl-5 pr-5 pt-5 xl:block lg:bottom-0 bg-white border`,
+    mainTracker: `hidden fixed left-0 pl-5 pr-5 pt-5 xl:block bg-white border`,
+    // mainTracker: `hidden fixed left-0 pl-5 pr-5 pt-5 xl:block lg:bottom-0 bg-white border`,
     trackerItem: `cursor-pointer hover:bg-gray-100 p-3 mb-3 w-40 text-center`,
     active: `cursor-pointer bg-gray-100 p-3 mb-3 w-40 text-center border`,
 }

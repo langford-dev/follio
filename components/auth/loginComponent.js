@@ -4,10 +4,10 @@ import { AppContext } from "../../context/context"
 import Loader from "../loader"
 
 const styles = {
-    inputContainer: `flex flex-col mb-10`,
-    input: `outline-none w-full border px-3 py-2`,
-    label: `mb-2 flex items-center justify-between`,
-    button: `select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
+    inputContainer: `flex flex-col mb-5`,
+    input: `outline-none w-full border py-2 px-5 rounded-md`,
+    label: `mb-2 flex items-center justify-between font-medium text-gray-600`,
+    button: `mt-10 select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
 const LoginComponent = () => {
@@ -19,9 +19,10 @@ const LoginComponent = () => {
 
     if (showLoader) return <Loader />
 
-    else return <div className="w-screen h-screen flex items-center justify-center">
-        <div className="p-5 rounded-md w-full sm:w-4/12">
-            <p className="font-bold text-4xl mb-10">Welcome back :)</p>
+    else return <div className="w-screen h-screen flex items-center justify-center bg-white">
+        <div className="p-5 rounded-md w-full sm:w-4/12 px-10">
+            <p className="font-bold text-2xl mb-5 text-center">Welcome back 😋</p>
+            <p className="text-center mb-5 text-gray-500">ayee! nice to see you again :)</p>
 
             <div className={styles.inputContainer}>
                 <label className={styles.label}>Username</label>
@@ -39,7 +40,7 @@ const LoginComponent = () => {
 
             <div className={styles.button} onClick={() => login(username, password)}>Lets go🚀</div>
 
-            <p className="mt-3 font-bold cursor-pointer" onClick={() => setShowLogin(false)}>Sign me up yo!</p>
+            <p className="mt-5 font-bold cursor-pointer text-center" onClick={() => setShowLogin(false)}>Sign me up yo!</p>
         </div>
     </div>
 }

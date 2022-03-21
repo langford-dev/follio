@@ -5,7 +5,7 @@ import Switch from "react-switch";
 import { AppContext } from "../../context/context";
 
 const styles = {
-    editingView: `w-screen sm:w-1/2 p-10 px-5 sm:border-l pb-56`,
+    editingView: `w-screen sm:w-1/2 p-10 px-5 sm:border-l pb-56 bg-white`,
 }
 
 const SocialsView = () => {
@@ -14,7 +14,7 @@ const SocialsView = () => {
     return <div className={styles.editingView}>
         <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
 
-        <div className="mt-10">
+        <div className="mt-16">
             <SocialInput label="Twitter profile" host="https://twitter.com/" fieldFor="twitter" />
             <SocialInput label="Facebook profile" host="https://facebook.com/" fieldFor="facebook" />
             <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />

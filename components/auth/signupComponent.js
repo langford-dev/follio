@@ -4,10 +4,10 @@ import { AppContext } from "../../context/context"
 import Loader from "../loader"
 
 const styles = {
-    inputContainer: `flex flex-col mb-10`,
-    input: `outline-none w-full border px-3 py-2`,
-    label: `mb-2 flex items-center justify-between`,
-    button: `select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
+    inputContainer: `flex flex-col mb-5`,
+    input: `outline-none w-full border py-2 px-5 rounded-md`,
+    label: `mb-2 flex items-center justify-between font-medium text-gray-600`,
+    button: `mt-10 select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
 const SignupComponent = () => {
@@ -71,17 +71,19 @@ const SignupComponent = () => {
 
     if (showLoader) return <Loader />
 
-    else return <div className="w-screen h-screen flex items-center justify-center">
-        <div className="p-5 rounded-md w-full sm:w-4/12">
-            <p className="font-bold text-4xl mb-10">Heyoo 👋 Lets go!</p>
+    else return <div className="w-screen h-screen flex items-center justify-center bg-white">
+        <div className="p-5 rounded-md w-full sm:w-4/12 px-10">
+            <p className="font-bold text-2xl mb-5 text-center">Yooo whats up? 👋</p>
+            <p className="text-center mb-5 text-gray-500">You new? enter your username and choose a password</p>
 
             <div className={styles.inputContainer}>
                 <label className={styles.label}>Username
                     <span>
                         {
-                            usernameExists ? <span className="text-red-700">Not available</span> : <span className="text-green-600">Available</span>
+                            usernameExists === true ? <span className="text-red-700">Not available</span> : <span className="text-green-600">Available</span>
                         }
-                    </span> </label>
+                    </span>
+                </label>
                 <input className={styles.input} value={username} onChange={e => {
                     setUsername((e.target.value).split(/\s+/).join("").toLocaleLowerCase().trim())
                     checkUsernameExists(e.target.value)
@@ -93,11 +95,11 @@ const SignupComponent = () => {
                 <input type="password" value={password} className={styles.input} onChange={e => setPassword(e.target.value)} />
             </div>
 
-            <p className="mb-3 -mt-3 text-red-700">{error}</p>
+            <p className="-mb-5 mt-5 text-red-700">{error}</p>
 
             <div className={styles.button} onClick={signupUser}>Lets go🚀</div>
 
-            <p className="mt-3 font-bold cursor-pointer" onClick={() => setShowLogin(true)}>Login me in</p>
+            <p className="mt-5 font-bold cursor-pointer text-center" onClick={() => setShowLogin(true)}>Login me in</p>
         </div>
     </div>
 }
