@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
 import DynamicEditView from "./dynamicEditView"
+import Loader from "./loader"
 import Preview from "./preview"
 import ViewsTracker from "./viewsTracker"
 
@@ -10,7 +11,9 @@ const styles = {
 }
 
 const EditView = () => {
-    let { showPreview, setShowPreview } = useContext(AppContext)
+    let { showPreview, setShowPreview, showLoader } = useContext(AppContext)
+
+    if (showLoader) return <Loader />
 
     return <div className={styles.pageView}>
         <div className={styles.flexView}>

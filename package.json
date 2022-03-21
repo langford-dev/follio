@@ -15,7 +15,8 @@
     "react-social-icons": "5.11.0",
     "react-switch": "6.0.0",
     "react-google-login": "5.2.2",
-    "sawo": "1.0.3"
+    "sawo": "1.0.3",
+    "antd": "4.19.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",

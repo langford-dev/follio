@@ -11,7 +11,7 @@ const styles = {
 }
 
 const IntroView = () => {
-    const { setFullname, setWork, setAbout, setThemeColor, fullname, work, about, themeColor } = useContext(AppContext)
+    const { setFullname, setWork, setAbout, fullname, work, about } = useContext(AppContext)
 
     return <div className={styles.editingView}>
         <ViewTitle title="Introduction" subtitle="Tell visitors about you, what you do, and who you are." />
@@ -28,12 +28,12 @@ const IntroView = () => {
             <label className={styles.label}>About you</label>
             <textarea type="text" value={about} className={styles.textArea} onChange={e => setAbout(e.target.value)} />
         </div>
-        <div className={styles.inputContainer}>
+        {/* <div className={styles.inputContainer}>
             <div className="flex">
                 <label className={styles.label}>🎨 Your theme color</label>
                 <input className="ml-5" type="color" value={themeColor} onChange={e => setThemeColor(e.target.value)} />
             </div>
-        </div>
+        </div> */}
     </div>
 }
 

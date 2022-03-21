@@ -4,23 +4,23 @@ import { createContext } from "react"
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-    let [viewCount, setViewCount] = useState(0)
-    let [fullname, setFullname] = useState("")
-    let [username, setUsername] = useState("")
-    let [work, setWork] = useState("")
-    let [about, setAbout] = useState("")
-    let [themeColor, setThemeColor] = useState("")
-    let [showGithubStats, setShowGithubStats] = useState(false)
-    let [skills, setSkills] = useState([])
-    let [workplaces, setWorkplaces] = useState([])
-    let [projects, setProjects] = useState([])
+    const [viewCount, setViewCount] = useState(0)
+    const [fullname, setFullname] = useState("")
+    const [username, setUsername] = useState("")
+    const [work, setWork] = useState("")
+    const [about, setAbout] = useState("")
+    const [themeColor, setThemeColor] = useState("")
+    const [showGithubStats, setShowGithubStats] = useState(false)
+    const [skills, setSkills] = useState([])
+    const [workplaces, setWorkplaces] = useState([])
+    const [projects, setProjects] = useState([])
+    const [coverPhoto, setCoverPhoto] = useState(true)
+    const [profilePhoto, setProfilePhoto] = useState("")
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
     const [showPreview, setShowPreview] = useState(false)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [showLogin, setShowLogin] = useState(true)
-
-    const [profilePhoto, setProfilePhoto] = useState("")
-    const [coverPhoto, setCoverPhoto] = useState(true)
+    const [showLoader, setShowLoader] = useState(false)
 
     const [twitter, setTwitter] = useState("")
     const [facebook, setFacebook] = useState("")
@@ -71,28 +71,6 @@ export const AppProvider = ({ children }) => {
     const saveNewChangesToStorage = (data) => {
 
         sessionStorage.setItem("data", JSON.stringify(data))
-
-        // console.log("newData >> ", data)
-
-        // setFullname(data.payload.fullname)
-        // setUsername(data.payload.username)
-        // setWork(data.payload.work)
-        // setAbout(data.payload.about)
-        // setProfilePhoto(data.payload.coverPhoto)
-        // setCoverPhoto(data.payload.profilePhoto)
-        // setShowGithubStats(data.payload.showGithubStats)
-        // setSkills(data.payload.skills)
-        // setWorkplaces(data.payload.workplaces)
-        // setProjects(data.payload.projects)
-        // setIsPremiumAccount(data.payload.isPremiumAccount)
-        // setWorkplaces(data.payload.workplaces)
-        // setTwitter(data.payload.socials.twitter)
-        // setFacebook(data.payload.socials.facebook)
-        // setInstagram(data.payload.socials.instagram)
-        // setLinkedin(data.payload.socials.linkedin)
-        // setGithub(data.payload.socials.github)
-        // setCoffee(data.payload.socials.coffee)
-        // setEthAddress(data.payload.ethAddress)
     }
 
     const updateAccount = async () => {
@@ -101,6 +79,10 @@ export const AppProvider = ({ children }) => {
         /* check if username is present */
 
         try {
+
+            let proceed = confirm("Do you want to save your changes?")
+
+            if (!proceed) return
 
             let _body = {
                 "fullname": fullname,
@@ -119,6 +101,8 @@ export const AppProvider = ({ children }) => {
 
             console.log(_body)
 
+            setShowLoader(true)
+
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
                 method: 'POST',
                 headers: {
@@ -131,9 +115,13 @@ export const AppProvider = ({ children }) => {
 
             console.log(data)
 
+            setShowLoader(false)
+
             saveNewChangesToStorage(_body)
 
         } catch (e) {
+
+            setShowLoader(false)
             console.log(e.message)
         }
     }
@@ -209,14 +197,19 @@ export const AppProvider = ({ children }) => {
 
         try {
 
+            setShowLoader(true)
+
             const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
             const data = await res.json()
+
 
             if (data.payload.password === _password) {
 
                 console.log("correct password", data)
 
-                getAccountData(_username)
+                await getAccountData(_username)
+
+                setShowLoader(false)
 
                 return
             }
@@ -225,8 +218,12 @@ export const AppProvider = ({ children }) => {
 
             toggleIsAuthenticated(false)
 
+            setShowLoader(false)
+
+
         } catch (e) {
 
+            setShowLoader(false)
             alert("Account doesn not exist")
             console.log(e.message)
         }
@@ -258,6 +255,7 @@ export const AppProvider = ({ children }) => {
         getAccountData, login,
         showLogin, setShowLogin,
         readDataFromStorage,
+        showLoader, setShowLoader,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

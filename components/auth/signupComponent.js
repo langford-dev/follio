@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router"
 import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
+import Loader from "../loader"
 
 const styles = {
     inputContainer: `flex flex-col mb-10`,
@@ -10,7 +11,7 @@ const styles = {
 }
 
 const SignupComponent = () => {
-    const { getAccountData, setShowLogin } = useContext(AppContext)
+    const { getAccountData, setShowLogin, showLoader, setShowLoader, } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -38,6 +39,8 @@ const SignupComponent = () => {
 
             if (username.trim() === "" || password.trim() === "") return
 
+            setShowLoader(true)
+
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
                 method: 'POST',
                 headers: {
@@ -50,19 +53,25 @@ const SignupComponent = () => {
 
             if (!data.status) {
 
+                setShowLoader(false)
                 setError(data.error)
                 return
             }
 
-            getAccountData(username)
+            await getAccountData(username)
+
+            setShowLoader(false)
 
         } catch (e) {
 
+            setShowLoader(false)
             console.log(e.message)
         }
     }
 
-    return <div className="w-screen h-screen flex items-center justify-center">
+    if (showLoader) return <Loader />
+
+    else return <div className="w-screen h-screen flex items-center justify-center">
         <div className="p-5 rounded-md w-full sm:w-4/12">
             <p className="font-bold text-4xl mb-10">Heyoo 👋 Lets go!</p>
 

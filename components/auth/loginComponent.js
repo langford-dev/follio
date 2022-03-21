@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router"
 import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
+import Loader from "../loader"
 
 const styles = {
     inputContainer: `flex flex-col mb-10`,
@@ -10,13 +11,15 @@ const styles = {
 }
 
 const LoginComponent = () => {
-    const { login, setShowLogin } = useContext(AppContext)
+    const { login, setShowLogin, showLoader } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    return <div className="w-screen h-screen flex items-center justify-center">
+    if (showLoader) return <Loader />
+
+    else return <div className="w-screen h-screen flex items-center justify-center">
         <div className="p-5 rounded-md w-full sm:w-4/12">
             <p className="font-bold text-4xl mb-10">Welcome back :)</p>
 
