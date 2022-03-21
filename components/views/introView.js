@@ -7,7 +7,7 @@ const styles = {
     inputContainer: `flex flex-col mt-10`,
     input: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md`,
     textArea: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md resize-none h-56`,
-    label: `font-bold`
+    label: `font-medium`
 }
 
 const IntroView = () => {
