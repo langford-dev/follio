@@ -6,7 +6,7 @@ import Logo from "./logo"
 const styles = {
     header: `px-5 border-b h-14 sm:h-20 bg-white fixed w-screen top-0 left-0 z-40`,
     headerWrapper: `m-auto max-w-screen-2xl h-full flex items-center justify-between`,
-    button: `select-none bg bg-blue-600 text-white h-9 px-5 flex items-center justify-center rounded-md cursor-pointer`,
+    button: `select-none bg-blue-600 text-white h-9 px-5 flex items-center justify-center rounded-md cursor-pointer`,
     nav: `hidden sm:flex `,
     navLink: `hover:text-blue-600 cursor-pointer p-3 flex items-center`,
     // active: `hover:text-blue-600 cursor-pointer p-3 text-white flex items-center bg-yellow-300 rounded-xlg`,
@@ -39,7 +39,7 @@ const Header = () => {
             </nav>
             <div className="flex items-center">
                 <div className={styles.button} onClick={updateAccount}>Save &amp; publish</div>
-                <div className="text-4xl ml-3 bg-blue-50 rounded-md px-2 sm:hidden" onClick={() => setShowDrawer(true)}>&equiv;</div>
+                <div className="text-4xl ml-3 mr-0 rounded-md px-2 sm:hidden" onClick={() => setShowDrawer(true)}>&equiv;</div>
             </div>
         </div>
 
