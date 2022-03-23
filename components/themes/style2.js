@@ -10,7 +10,7 @@ const styles = {
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-[#0d0d0d] m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `w-screen h-56 object-cover`
+    coverPhoto: `w-screen h-32 sm:h-72 object-cover`
     // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 }
 
