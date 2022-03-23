@@ -3,6 +3,7 @@ import { AppContext } from "../context/context"
 import ImagesView from "./views/imagesView"
 import IntroView from "./views/introView"
 import PaymentView from "./views/paymentView"
+import ProjectsView from "./views/projectsView"
 import SkillsView from "./views/skillsView"
 import SocialsView from "./views/socialsView"
 
@@ -15,6 +16,7 @@ const DynamicEditView = () => {
         case 2: return <SkillsView />
         case 3: return <SocialsView />
         case 4: return <PaymentView />
+        case 5: return <ProjectsView />
         default: return <div></div>
     }
 }

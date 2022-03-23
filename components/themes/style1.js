@@ -9,9 +9,9 @@ const styles = {
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
-    profilePhotoContainer: `w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-20`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
+    coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 }
 
 const Style1 = ({ data, exists }) => {
@@ -118,7 +118,7 @@ const Style1 = ({ data, exists }) => {
             {
                 about ? <div className="mt-20">
                     <p className="font-bold text-xl mb-5">About me</p>
-                    <p className="mb-5 px-5">{about}</p>
+                    <p className="mb-5 px-5 text-lg">{about}</p>
                 </div> : <></>
             }
 

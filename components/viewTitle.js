@@ -3,7 +3,7 @@ import { AppContext } from "../context/context"
 
 const styles = {
     viewTitle: `hidden items-center justify-between w-full sm:w-min sm:flex`,
-    title: `text-3xl font-bold`,
+    title: `text-3xl font-medium`,
     textButton: `mt-5 sm:mt-0 text-blue-600 cursor-pointer select-none whitespace-nowrap`,
     pageTitleView: `flex items-start justify-start flex-col sm:items-center sm:justify-between sm:flex-row -mt-5 sm:mt-0`,
 }

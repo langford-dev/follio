@@ -16,7 +16,7 @@ export default function Home() {
 
   else return <div>
     <Header />
-    <div className='mt-20 p-10 max-w-screen-xl m-auto border border-t-0 bg-white'>
+    <div className='mt-20 p-10 max-w-screen-2xl m-auto border border-t-0 bg-white'>
       <p className={styles.title}>Dashboard</p>
       <p>View your statistics, clicks and engagement</p>
     </div>

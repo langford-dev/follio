@@ -7,7 +7,7 @@ import ViewController from "./viewController"
 import ViewsTracker from "./viewsTracker"
 
 const styles = {
-    pageView: `m-auto max-w-screen-xl h-screen pt-20`,
+    pageView: `m-auto max-w-screen-2xl h-screen pt-20`,
     flexView: `flex min-h-screen`,
 }
 

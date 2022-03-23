@@ -5,10 +5,11 @@ import Logo from "./logo"
 
 const styles = {
     header: `px-5 border-b h-14 sm:h-20 bg-white fixed w-screen top-0 left-0 z-40`,
-    headerWrapper: `m-auto max-w-screen-xl h-full flex items-center justify-between`,
+    headerWrapper: `m-auto max-w-screen-2xl h-full flex items-center justify-between`,
     button: `select-none bg bg-blue-600 text-white h-9 px-5 flex items-center justify-center rounded-md cursor-pointer`,
     nav: `hidden sm:flex `,
-    navLink: `hover:text-blue-600 cursor-pointer p-3 h-20 flex items-center`,
+    navLink: `hover:text-blue-600 cursor-pointer p-3 flex items-center`,
+    // active: `hover:text-blue-600 cursor-pointer p-3 text-white flex items-center bg-yellow-300 rounded-xlg`,
     active: `hover:text-blue-600 cursor-pointer p-3 pb-2 h-20 flex items-center border-b-4 border-blue-600 text-blue-600`,
 
     drawerLink: `mb-7`,
@@ -30,7 +31,7 @@ const Header = () => {
             <Logo />
             <nav className={styles.nav}>
                 <Link passHref={true} href="/"><p className={route === "/" ? styles.active : styles.navLink}>Dashboard</p></Link>
-                <Link passHref={true} href="/edit"><p className={route === "/edit" ? styles.active : styles.navLink}>Edit</p></Link>
+                <Link passHref={true} href="/edit"><p className={route === "/edit" ? styles.active : styles.navLink}>Appearance</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/themes" ? styles.active : styles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/settings" ? styles.active : styles.navLink}>Settings</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/upgrade" ? styles.active : styles.navLink}>Upgrade</p></Link>
@@ -47,7 +48,7 @@ const Header = () => {
                 <div className="fixed top-0 left-0 p-5 border-r border-b bg-white w-screen">
                     <p className="mb-5 font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
                     <div className={styles.drawerLink}><Link href="/">Dashboard</Link></div>
-                    <div className={styles.drawerLink}><Link href="/edit">Edit</Link></div>
+                    <div className={styles.drawerLink}><Link href="/edit">Appearance</Link></div>
                     <div className={styles.drawerLink}><Link href="/themes">Themes</Link></div>
                     <div className={styles.drawerLink}><Link href="/upgrade">Upgrade</Link></div>
                     <div className={styles.drawerLink}><Link href="/donate">Donate</Link></div>
