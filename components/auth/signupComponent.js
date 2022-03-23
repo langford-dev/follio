@@ -11,7 +11,7 @@ const styles = {
 }
 
 const SignupComponent = () => {
-    const { getAccountData, setShowLogin, showLoader, setShowLoader, } = useContext(AppContext)
+    const { getAccountData, setShowLogin, showLoader, setShowLoader, readDataFromStorage } = useContext(AppContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -59,6 +59,8 @@ const SignupComponent = () => {
             }
 
             await getAccountData(username)
+
+            await readDataFromStorage()
 
             setShowLoader(false)
 

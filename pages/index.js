@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import LoginComponent from "../components/auth/loginComponent";
 import SignupComponent from "../components/auth/signupComponent";
+import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
 import ViewTitle from "../components/viewTitle";
 import { AppContext } from "../context/context";
@@ -21,5 +22,6 @@ export default function Home() {
       <p className={styles.title}>Dashboard</p>
       <p className="mt-3 mb-5 text-gray-500">View your statistics, clicks and engagement</p>
     </div>
+    <BottomNavigation />
   </div>
 }

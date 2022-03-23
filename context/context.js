@@ -259,6 +259,8 @@ export const AppProvider = ({ children }) => {
 
                 await getAccountData(_username)
 
+                readDataFromStorage()
+
                 setShowLoader(false)
 
                 return
