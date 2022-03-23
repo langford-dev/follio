@@ -33,6 +33,8 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
+    const [theme, setTheme] = useState(0)
+
     const maxViewCount = 5
 
     const next = () => setViewCount(viewCount + 1)
@@ -142,6 +144,7 @@ export const AppProvider = ({ children }) => {
                 "coverPhoto": _coverPhoto,
                 "workplaces": workplaces,
                 "projects": projects,
+                "theme": theme,
             }
 
             console.log(_body)
@@ -201,6 +204,7 @@ export const AppProvider = ({ children }) => {
             setGithub(data.payload.socials.github)
             setCoffee(data.payload.socials.coffee)
             setEthAddress(data.payload.ethAddress)
+            setTheme(data.payload.theme)
 
         } catch (e) {
 
@@ -233,6 +237,7 @@ export const AppProvider = ({ children }) => {
         setGithub(sessionStorageData.socials.github)
         setCoffee(sessionStorageData.socials.coffee)
         setEthAddress(sessionStorageData.ethAddress)
+        setTheme(sessionStorageData.theme)
 
     }
 
@@ -303,6 +308,7 @@ export const AppProvider = ({ children }) => {
         coverPhotoPreview, setCoverPhotoPreview,
         coverPhoto, profilePhoto,
         profilePhotoPreview, setProfilePhotoPreview,
+        theme, setTheme,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

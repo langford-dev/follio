@@ -32,7 +32,7 @@ const Header = () => {
             <nav className={styles.nav}>
                 <Link passHref={true} href="/"><p className={route === "/" ? styles.active : styles.navLink}>Dashboard</p></Link>
                 <Link passHref={true} href="/edit"><p className={route === "/edit" ? styles.active : styles.navLink}>Appearance</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/themes" ? styles.active : styles.navLink}>Themes</p></Link>
+                <Link passHref={true} href="/themes"><p className={route === "/themes" ? styles.active : styles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/settings" ? styles.active : styles.navLink}>Settings</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/upgrade" ? styles.active : styles.navLink}>Upgrade</p></Link>
                 <Link passHref={true} href="/"><p className={route === "/donate" ? styles.active : styles.navLink}>Donate</p></Link>
