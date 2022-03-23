@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Style1 from "../components/themes/style1"
+import Style2 from "../components/themes/style2"
 
 const Username = () => {
     const [data, setData] = useState()
@@ -35,7 +35,7 @@ const Username = () => {
         }
     }
 
-    return <Style1 data={data} exists={exists} />
+    return <Style2 data={data} exists={exists} />
 }
 
 export default Username

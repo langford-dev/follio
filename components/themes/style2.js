@@ -4,17 +4,17 @@ import Link from "next/link";
 
 const styles = {
     // preview: `max-h-screen pb-56`,
-    pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
+    pill: `bg-gray-100/10 text-gray-400 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
-    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-[#0d0d0d] m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `w-screen h-56 object-cover`
     // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 }
 
-const Style1 = ({ data, exists }) => {
+const Style2 = ({ data, exists }) => {
 
     const [skills, setSkills] = useState([])
     const [fullname, setFullame] = useState("")
@@ -57,15 +57,15 @@ const Style1 = ({ data, exists }) => {
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {socials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
-            {socials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-            {socials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-            {socials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-            {socials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+            {socials.github ? <SocialIcon bgColor="#0D0D0D" fgColor="#fff" url={socialLinks.github} className="mr-2" /> : <></>}
+            {socials.twitter ? <SocialIcon bgColor="#0D0D0D" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+            {socials.instagram ? <SocialIcon bgColor="#0D0D0D" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+            {socials.facebook ? <SocialIcon bgColor="#0D0D0D" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+            {socials.linkedin ? <SocialIcon bgColor="#0D0D0D" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
         </ul>
     }
 
-    return <div className="h-screen bg-white overflow-y-scroll">
+    return <div className="text-white h-screen bg-[#0d0d0d] overflow-y-scroll">
         {
             coverPhoto ?
                 <img className={styles.coverPhoto} src={coverPhoto} alt='' />
@@ -73,6 +73,7 @@ const Style1 = ({ data, exists }) => {
         }
 
         <div className={styles.previewMain}>
+
             <div>
                 {
                     profilePhoto ?
@@ -84,7 +85,7 @@ const Style1 = ({ data, exists }) => {
             </div>
 
             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
-            <p className=" font-bold mb-5 uppercase">{work}</p>
+            <p className=" font-bold mb-5 uppercase mx-7">{work}</p>
 
             {socialIcons()}
 
@@ -135,7 +136,7 @@ const Style1 = ({ data, exists }) => {
                 </div> : <div></div>
             }
         </div>
-    </div >
+    </div>
 }
 
-export default Style1
+export default Style2

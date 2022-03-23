@@ -1,21 +1,20 @@
 import { useState, useContext } from "react"
-import { AppContext } from "../context/context"
+import { AppContext } from "../../context/context";
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
-import Image from "next/image"
 
 const styles = {
     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen`,
+    previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56`,
     previewMainEdit: `text-center m-auto`,
     closePreviewButton: `-mt-5 flex items-center justify-center p-2 sm:hidden`,
     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover sm:rounded-2xl`,
+    coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
 }
 
-const Preview = () => {
+const Preview1 = () => {
     let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     const socialLinks = {
@@ -113,7 +112,7 @@ const Preview = () => {
             <div className="mt-20">
                 {
                     skills.length > 0 ?
-                        <p className={`font-bold text-xl mb-5`}>My tools and skills 🧰 </p>
+                        <p className={`font-bold text-xl mb-5`}>My skills 💪</p>
                         : <></>
                 }
                 <ul className={styles.wrap}>
@@ -147,4 +146,4 @@ const Preview = () => {
     return <div></div>
 }
 
-export default Preview
+export default Preview1

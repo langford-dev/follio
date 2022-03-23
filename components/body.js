@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { AppContext } from "../context/context"
 import DynamicEditView from "./dynamicEditView"
 import Loader from "./loader"
-import Preview from "./preview"
+import Preview1 from "./previews/preview1"
 import ViewController from "./viewController"
 import ViewsTracker from "./viewsTracker"
 
@@ -20,7 +20,7 @@ const EditView = () => {
         <div className={styles.flexView}>
             <ViewsTracker />
             <DynamicEditView />
-            <Preview editMode={true} />
+            <Preview1 editMode={true} />
             {!showPreview ? <ViewController onShowPreview={() => setShowPreview(true)} /> : <div></div>}
         </div>
     </div>
