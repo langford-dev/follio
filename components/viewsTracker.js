@@ -6,7 +6,7 @@ const styles = {
     // mainTracker: `hidden fixed left-0 pl-5 pr-5 pt-5 xl:block lg:bottom-0 bg-white border`,
     trackerItem: `cursor-pointer rounded-lg hover:bg-yellow-300 p-3 mb-3 w-40`,
     active: `cursor-pointer bg-yellow-300 p-3 mb-3 w-40 rounded-lg`,
-    mainTracker: `p-5 pl-0 pr-10`,
+    mainTracker: `hidden xl:block p-5 pl-0 pr-10`,
     // mainTracker: `hidden fixed left-0 xl:block bg-white border-r border-b`,
     // // mainTracker: `hidden fixed left-0 pl-5 pr-5 pt-5 xl:block lg:bottom-0 bg-white border`,
     // trackerItem: `cursor-pointer hover:bg-gray-100 p-3 pl-5 mb-3 w-40`,
