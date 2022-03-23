@@ -25,16 +25,16 @@ const Themes = () => {
             </div>
 
             <div className="flex flex-wrap">
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
-                <ThemeCard />
+                <ThemeCard index={0} />
+                <ThemeCard index={1} />
+                <ThemeCard index={2} />
+                <ThemeCard index={3} />
+                <ThemeCard index={4} />
+                <ThemeCard index={5} />
+                <ThemeCard index={6} />
+                <ThemeCard index={7} />
+                <ThemeCard index={8} />
+                <ThemeCard index={9} />
             </div>
 
         </div>
