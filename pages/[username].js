@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Style1 from "../components/themes/style1"
+import Style2 from "../components/themes/style2"
 
 const Username = () => {
     const [data, setData] = useState()
@@ -34,6 +35,9 @@ const Username = () => {
             console.log(e.message)
         }
     }
+
+    if ((data && data) && data.theme == 1) return <Style1 data={data} exists={exists} />
+    if ((data && data) && data.theme == 2) return <Style2 data={data} exists={exists} />
 
     return <Style1 data={data} exists={exists} />
 }

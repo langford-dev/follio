@@ -33,7 +33,7 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
-    const [theme, setTheme] = useState(0)
+    const [theme, setTheme] = useState(1)
 
     const maxViewCount = 5
 
@@ -128,9 +128,6 @@ export const AppProvider = ({ children }) => {
                 _profilePhoto = await uploadImage(profilePhotoPreview)
             }
 
-            console.log('_coverPhoto', _coverPhoto)
-            console.log('_profilePhoto', _profilePhoto)
-
             let _body = {
                 "fullname": fullname,
                 "username": username,
@@ -147,8 +144,6 @@ export const AppProvider = ({ children }) => {
                 "theme": theme,
             }
 
-            console.log(_body)
-
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
                 method: 'POST',
                 headers: {
@@ -164,6 +159,8 @@ export const AppProvider = ({ children }) => {
             setShowLoader(false)
 
             saveNewChangesToStorage(_body)
+
+            // readDataFromStorage()
 
         } catch (e) {
 

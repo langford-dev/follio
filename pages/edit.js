@@ -19,8 +19,8 @@ const Edit = () => {
     const { isAuthenticated, showLogin, readDataFromStorage } = useContext(AppContext)
 
     useEffect(() => {
-        readDataFromStorage()
-    }, [])
+        if (isAuthenticated) readDataFromStorage()
+    }, [isAuthenticated])
 
     if (!isAuthenticated && showLogin) return <LoginComponent />
     if (!isAuthenticated && !showLogin) return <SignupComponent />
@@ -29,8 +29,6 @@ const Edit = () => {
         <Header />
         <EditView />
     </div>
-
-    return <div></div>
 }
 
 export default Edit
