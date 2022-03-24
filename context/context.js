@@ -47,7 +47,7 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
 
-        console.log(window.location.hostname.split(".")[0])
+        // console.log(window.location.hostname.split(".")[0])
 
         if ((screen.width <= 640) ||
             (window.matchMedia &&
@@ -69,7 +69,7 @@ export const AppProvider = ({ children }) => {
 
         setIsAuthenticated(eval(_authSessionValue))
 
-        console.log('_authSessionValue', eval(_authSessionValue))
+        // console.log('_authSessionValue', eval(_authSessionValue))
 
     }, [])
 
@@ -235,7 +235,13 @@ export const AppProvider = ({ children }) => {
         setCoffee(sessionStorageData.socials.coffee)
         setEthAddress(sessionStorageData.ethAddress)
         setTheme(sessionStorageData.theme)
+    }
 
+    const changeThemeInSessionStorage = (index) => {
+        let _sessionData = JSON.parse(sessionStorage.getItem("data"))
+        _sessionData.theme = index
+        setTheme(index)
+        saveNewChangesToStorage(_sessionData)
     }
 
     const login = async (_username, _password) => {
@@ -307,7 +313,7 @@ export const AppProvider = ({ children }) => {
         coverPhotoPreview, setCoverPhotoPreview,
         coverPhoto, profilePhoto,
         profilePhotoPreview, setProfilePhotoPreview,
-        theme, setTheme,
+        theme, changeThemeInSessionStorage,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

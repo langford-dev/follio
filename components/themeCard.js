@@ -7,9 +7,9 @@ const styles = {
 }
 
 const ThemeCard = ({ index = 1, thumbnail = "" }) => {
-    const { theme, setTheme } = useContext(AppContext)
+    const { theme, changeThemeInSessionStorage } = useContext(AppContext)
 
-    return <img src={thumbnail.src} alt="" onClick={() => setTheme(index)} className={index === theme ? styles.activeThemeCard : styles.themeCard} />
+    return <img src={thumbnail.src} alt="" onClick={() => changeThemeInSessionStorage(index)} className={index === theme ? styles.activeThemeCard : styles.themeCard} />
 }
 
 export default ThemeCard
