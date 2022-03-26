@@ -4,9 +4,9 @@
 // import Link from "next/link";
 
 // const styles = {
-//     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
+//     pill: `bg-white border rounded-full px-3 py-1 m-1`,
 //     wrap: `flex items-center justify-center flex-wrap px-5`,
-//     body: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56`,
+//     body: `min-h-screen absolute w-full p-0 sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56 bg-[#F7EBD4]`,
 //     previewMainEdit: `text-center m-auto pt-5 sm:pt-0`,
 //     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
 //     profilePhoto: `object-cover h-full w-full rounded-full`,
@@ -15,7 +15,7 @@
 
 // const SocialIcons = ({ socialLinks, usernames }) => {
 //     return <ul className={styles.wrap}>
-//         {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
+//         {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#000" url={socialLinks.github} className="mr-2" /> : <></>}
 //         {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
 //         {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
 //         {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
@@ -23,7 +23,7 @@
 //     </ul>
 // }
 
-// const Preview1 = () => {
+// const Preview4 = () => {
 //     let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
 //     const socialLinks = {
@@ -34,6 +34,8 @@
 //         instagram: 'https://instagram.com/' + usernames.instagram,
 //         coffee: 'https://www.buymeacoffee.com/' + usernames.coffee,
 //     }
+
+
 
 //     if (showPreview) return <div className={styles.body}>
 //         <div className={styles.previewMainEdit}>
@@ -129,4 +131,4 @@
 //     return <div></div>
 // }
 
-// export default Preview1
+// export default Preview4

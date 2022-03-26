@@ -4,9 +4,7 @@ import BottomNavigation from "./bottomNavigation"
 import DynamicEditView from "./dynamicEditView"
 import EditTabs from "./editTabs"
 import Loader from "./loader"
-import Preview1 from "./previews/preview1"
-import Preview2 from "./previews/preview2"
-import Preview3 from "./previews/preview3"
+import DefaultPreview from "./previews/defaultPreview"
 import ViewsTracker from "./viewsTracker"
 
 const styles = {
@@ -25,9 +23,7 @@ const EditView = () => {
             <ViewsTracker />
             <DynamicEditView />
             <EditTabs />
-            {theme === 1 ? <Preview1 editMode={true} /> : <></>}
-            {theme === 2 ? <Preview2 editMode={true} /> : <></>}
-            {theme === 3 ? <Preview3 editMode={true} /> : <></>}
+            {theme === 1 ? <DefaultPreview editMode={true} /> : <></>}
             <BottomNavigation />
             {showPreview ? <div className={styles.fab} onClick={() => setShowPreview(false)}>&times;</div> : <></>}
         </div>

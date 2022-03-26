@@ -4,14 +4,14 @@
 
 // const styles = {
 //     // preview: `max-h-screen pb-56`,
-//     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
+//     pill: `bg-white border rounded-full px-3 py-1 m-1`,
 //     wrap: `flex items-center justify-center flex-wrap px-5`,
 //     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
 //     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
 //     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
 //     profilePhoto: `object-cover h-full w-full rounded-full`,
 //     coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
-//     body: `min-h-screen bg-white overflow-y-scroll`,
+//     body: `min-h-screen bg-[#F7EBD4]`,
 //     // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 // }
 
@@ -25,7 +25,7 @@
 //     </ul>
 // }
 
-// const Style1 = ({ data, exists }) => {
+// const Style4 = ({ data, exists }) => {
 
 //     const [skills, setSkills] = useState([])
 //     const [fullname, setFullame] = useState("")
@@ -139,4 +139,4 @@
 //     </div >
 // }
 
-// export default Style1
+// export default Style4

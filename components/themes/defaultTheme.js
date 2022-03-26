@@ -10,7 +10,8 @@ const styles = {
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
-    coverPhoto: `w-screen h-32 sm:h-72 object-cover`
+    coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
+    body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
     // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 }
 
@@ -24,7 +25,7 @@ const SocialIcons = ({ socialLinks, socials }) => {
     </ul>
 }
 
-const Style3 = ({ data, exists }) => {
+const DefaultTheme = ({ data }) => {
 
     const [skills, setSkills] = useState([])
     const [fullname, setFullame] = useState("")
@@ -52,9 +53,12 @@ const Style3 = ({ data, exists }) => {
             setIsPremiumAccount(data.isPremiumAccount)
             setProfilePhoto(data.profilePhoto)
             setCoverPhoto(data.coverPhoto)
+
+            document.querySelector(".style-body").style.backgroundColor = data.themeColor
+            document.querySelector(".style-body").style.color = generateTextColor(data.themeColor)
         }
 
-    }, [data, exists])
+    }, [data])
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + socials.twitter,
@@ -65,7 +69,16 @@ const Style3 = ({ data, exists }) => {
         coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
     }
 
-    return <div className="h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100">
+    const generateTextColor = (hex = "#000000") => {
+        let color = hex.replace(/#/g, "")
+        const r = parseInt(color.substr(0, 2), 16)
+        const g = parseInt(color.substr(2, 2), 16)
+        const b = parseInt(color.substr(4, 2), 16)
+        const yiq = (r * 299 + g * 587 + b * 114) / 1000
+        return yiq >= 128 ? "#000000" : "#FFFFFF"
+    }
+
+    return <div className="style-body">
         {
             coverPhoto ?
                 <img className={styles.coverPhoto} src={coverPhoto} alt='' />
@@ -138,4 +151,4 @@ const Style3 = ({ data, exists }) => {
     </div >
 }
 
-export default Style3
+export default DefaultTheme

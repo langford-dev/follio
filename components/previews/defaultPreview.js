@@ -1,12 +1,13 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { AppContext } from "../../context/context";
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
+import { Head } from "next/document";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    previewEdit: `min-h-screen absolute w-full p-0 sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56 bg-gradient-to-tl from-rose-100 to-teal-100`,
+    // body: `min-h-screen absolute w-full p-0 sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56 bg-gradient-to-tl from-rose-100 to-teal-100`,
     previewMainEdit: `text-center m-auto pt-5 sm:pt-0`,
     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
@@ -23,8 +24,8 @@ const SocialIcons = ({ socialLinks, usernames }) => {
     </ul>
 }
 
-const Preview2 = () => {
-    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+const DefaultPreview = () => {
+    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     const socialLinks = {
         twitter: 'https://twitter.com/' + usernames.twitter,
@@ -35,9 +36,25 @@ const Preview2 = () => {
         coffee: 'https://www.buymeacoffee.com/' + usernames.coffee,
     }
 
+    useEffect(() => {
+        console.log(themeColor)
 
+        if (showPreview) {
+            document.querySelector(".body").style.backgroundColor = themeColor
+            document.querySelector(".body").style.color = generateTextColor(themeColor)
+        }
+    }, [themeColor])
 
-    if (showPreview) return <div className={styles.previewEdit}>
+    const generateTextColor = (hex) => {
+        let color = hex.replace(/#/g, "")
+        const r = parseInt(color.substr(0, 2), 16)
+        const g = parseInt(color.substr(2, 2), 16)
+        const b = parseInt(color.substr(4, 2), 16)
+        const yiq = (r * 299 + g * 587 + b * 114) / 1000
+        return yiq >= 128 ? "#000000" : "#FFFFFF"
+    }
+
+    if (showPreview) return <div className="body">
         <div className={styles.previewMainEdit}>
 
             <div>
@@ -83,8 +100,8 @@ const Preview2 = () => {
                 usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
                     <Link passHref={true} href={socialLinks.twitter}>
                         <img src={`https://img.shields.io/twitter/follow/${usernames.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
-                    </Link>
-                </div> : <></>
+                    </Link >
+                </div > : <></>
             }
 
             {
@@ -126,9 +143,9 @@ const Preview2 = () => {
                 </div> : <div></div>
             }
         </div>
-    </div>
+    </div >
 
     return <div></div>
 }
 
-export default Preview2
+export default DefaultPreview

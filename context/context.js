@@ -9,7 +9,7 @@ export const AppProvider = ({ children }) => {
     const [username, setUsername] = useState("")
     const [work, setWork] = useState("")
     const [about, setAbout] = useState("")
-    const [themeColor, setThemeColor] = useState("")
+    const [themeColor, setThemeColor] = useState("#fffff")
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
@@ -142,6 +142,7 @@ export const AppProvider = ({ children }) => {
                 "workplaces": workplaces,
                 "projects": projects,
                 "theme": theme,
+                "themeColor": themeColor,
             }
 
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
