@@ -4,6 +4,7 @@ import DynamicEditView from "./dynamicEditView"
 import Loader from "./loader"
 import Preview1 from "./previews/preview1"
 import Preview2 from "./previews/preview2"
+import Preview3 from "./previews/preview3"
 import ViewController from "./viewController"
 import ViewsTracker from "./viewsTracker"
 
@@ -23,6 +24,7 @@ const EditView = () => {
             <DynamicEditView />
             {theme === 1 ? <Preview1 editMode={true} /> : <></>}
             {theme === 2 ? <Preview2 editMode={true} /> : <></>}
+            {theme === 3 ? <Preview3 editMode={true} /> : <></>}
             {!showPreview ? <ViewController onShowPreview={() => setShowPreview(true)} /> : <div></div>}
         </div>
     </div>
