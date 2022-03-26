@@ -4,9 +4,14 @@ import { AppContext } from "../../context/context"
 import Loader from "../loader"
 
 const styles = {
+    // main: `w-screen h-screen flex flex-col items-center justify-center`,
+    main: `w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-r from-rose-100 to-teal-100`,
     inputContainer: `flex flex-col mb-5`,
-    input: `outline-none w-full border py-2 px-5 rounded-md`,
+    input: `outline-none w-full border p-2 rounded-md`,
     label: `mb-2 flex items-center justify-between font-medium text-gray-600`,
+    title: `text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-pink-600`,
+    mainInputBox: `p-5 rounded-md w-11/12 sm:max-w-lg px-5 bg-white border`,
+    subtext: `text-center mt-3 mb-10`,
     button: `mt-10 select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
@@ -19,11 +24,10 @@ const LoginComponent = () => {
 
     if (showLoader) return <Loader />
 
-    else return <div className="w-screen h-screen flex items-center justify-center bg-white">
-        <div className="p-5 rounded-md w-full sm:max-w-lg px-10">
-            <p className="font-bold text-2xl mb-1 text-center">Welcome back 😋</p>
-            <p className="text-center mb-5 text-gray-500">ayee! nice to see you again :)</p>
-
+    else return <div className={styles.main}>
+        <p className={styles.title}>Welcome back</p>
+        <p className={styles.subtext}>ayee! nice to see you again 😋</p>
+        <div className={styles.mainInputBox}>
             <div className={styles.inputContainer}>
                 <label className={styles.label}>Username</label>
                 <input className={styles.input} value={username} onChange={e => {
