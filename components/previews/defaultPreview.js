@@ -16,11 +16,11 @@ const styles = {
 
 const SocialIcons = ({ socialLinks, usernames }) => {
     return <ul className={styles.wrap}>
-        {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#000" url={socialLinks.github} className="mr-2" /> : <></>}
-        {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-        {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-        {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-        {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+        {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#000" url={socialLinks.github} className="mr-5" /> : <></>}
+        {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-5" /> : <></>}
+        {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-5" /> : <></>}
+        {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-5" /> : <></>}
+        {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-5" /> : <></>}
     </ul>
 }
 
@@ -98,8 +98,6 @@ const DefaultPreview = () => {
                 <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
                 <p className=" font-bold mb-5 uppercase">{work}</p>
 
-                <SocialIcons usernames={usernames} socialLinks={socialLinks} />
-
                 {
                     usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
                         <Link passHref={true} href={socialLinks.twitter}>
@@ -114,6 +112,8 @@ const DefaultPreview = () => {
                         <p className="mb-5 px-5 text-lg">{about}</p>
                     </div> : <></>
                 }
+
+                <SocialIcons usernames={usernames} socialLinks={socialLinks} />
 
                 <div className="mt-20">
                     {
@@ -133,8 +133,8 @@ const DefaultPreview = () => {
                 {
                     showGithubStats && usernames.github ? <div className="mt-20">
                         <p className={styles.sectionTitle}>My GitHub stats 🤩</p>
-                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
-                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
+                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
+                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=ffffff&line=3382ed&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                     </div> : <></>
                 }
 
