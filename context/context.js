@@ -203,6 +203,7 @@ export const AppProvider = ({ children }) => {
             setCoffee(data.payload.socials.coffee)
             setEthAddress(data.payload.ethAddress)
             setTheme(data.payload.theme)
+            setThemeColor(data.payload.themeColor)
 
         } catch (e) {
 
@@ -236,12 +237,20 @@ export const AppProvider = ({ children }) => {
         setCoffee(sessionStorageData.socials.coffee)
         setEthAddress(sessionStorageData.ethAddress)
         setTheme(sessionStorageData.theme)
+        setThemeColor(sessionStorageData.themeColor)
     }
 
     const changeThemeInSessionStorage = (index) => {
         let _sessionData = JSON.parse(sessionStorage.getItem("data"))
         _sessionData.theme = index
         setTheme(index)
+        saveNewChangesToStorage(_sessionData)
+    }
+
+    const saveThemeColorToStorage = (color) => {
+        let _sessionData = JSON.parse(sessionStorage.getItem("data"))
+        _sessionData.themeColor = color
+        setThemeColor(color)
         saveNewChangesToStorage(_sessionData)
     }
 
@@ -315,6 +324,7 @@ export const AppProvider = ({ children }) => {
         coverPhoto, profilePhoto,
         profilePhotoPreview, setProfilePhotoPreview,
         theme, changeThemeInSessionStorage,
+        saveThemeColorToStorage,
         usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}

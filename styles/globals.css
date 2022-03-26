@@ -36,10 +36,8 @@ a {
 .body {
   background: #fff;
   color: #000;
-  min-height: 100vh;
   width: 100%;
   position: absolute;
-  padding-bottom: 14rem;
 }
 
 @media (min-width: 640px) {
