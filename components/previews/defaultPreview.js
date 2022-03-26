@@ -7,11 +7,11 @@ import { generatePillBgColor, generateTextColor } from "../../constants/function
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
-    // body: `min-h-screen absolute w-full p-0 sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56 bg-gradient-to-tl from-rose-100 to-teal-100`,
     previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
-    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
+    sectionTitle: `font-bold text-2xl mb-5`,
 }
 
 const SocialIcons = ({ socialLinks, usernames }) => {
@@ -110,7 +110,7 @@ const DefaultPreview = () => {
 
                 {
                     about ? <div className="mt-20">
-                        <p className="font-bold text-xl mb-5">About me</p>
+                        <p className={styles.sectionTitle}>About me 😎</p>
                         <p className="mb-5 px-5 text-lg">{about}</p>
                     </div> : <></>
                 }
@@ -118,7 +118,7 @@ const DefaultPreview = () => {
                 <div className="mt-20">
                     {
                         skills.length > 0 ?
-                            <p className={`font-bold text-xl mb-5`}>My skills 💪</p>
+                            <p className={styles.sectionTitle}>My skills 💪</p>
                             : <></>
                     }
                     <ul className={styles.wrap}>
@@ -132,7 +132,7 @@ const DefaultPreview = () => {
 
                 {
                     showGithubStats && usernames.github ? <div className="mt-20">
-                        <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>My GitHub stats 🤩</p>
+                        <p className={styles.sectionTitle}>My GitHub stats 🤩</p>
                         <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                         <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                     </div> : <></>
@@ -140,7 +140,7 @@ const DefaultPreview = () => {
 
                 {
                     isPremiumAccount && usernames.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
-                        <p className={`font-bold text-xl mb-5`}>Wanna tip me? 😁</p>
+                        <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
                         <a href={`https://www.buymeacoffee.com/${usernames.coffee}`}>
                             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                         </a>

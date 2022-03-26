@@ -4,16 +4,15 @@ import Link from "next/link";
 import { generatePillBgColor, generateTextColor } from "../../constants/functions";
 
 const styles = {
-    // preview: `max-h-screen pb-56`,
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
-    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
-    // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
+    sectionTitle: `font-bold text-2xl mb-5`,
 }
 
 const SocialIcons = ({ socialLinks, socials }) => {
@@ -58,8 +57,6 @@ const DefaultTheme = ({ data }) => {
             try {
                 document.querySelector(".style-body").style.backgroundColor = data.themeColor
                 document.querySelector(".style-body").style.color = generateTextColor(data.themeColor)
-                // document.querySelectorAll(".pill").style.backgroundColor = generatePillBgColor(data.themeColor)
-                // document.querySelector(".pill").style.color = generatePillBgColor(data.themeColor)
 
                 let skillPills = document.querySelectorAll(".skill-pill")
 
@@ -85,24 +82,6 @@ const DefaultTheme = ({ data }) => {
         instagram: 'https://instagram.com/' + socials.instagram,
         coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
     }
-
-    // const generateTextColor = (hex = "#000000") => {
-    //     let color = hex.replace(/#/g, "")
-    //     const r = parseInt(color.substr(0, 2), 16)
-    //     const g = parseInt(color.substr(2, 2), 16)
-    //     const b = parseInt(color.substr(4, 2), 16)
-    //     const yiq = (r * 299 + g * 587 + b * 114) / 1000
-    //     return yiq >= 128 ? "#000000" : "#FFFFFF"
-    // }
-
-    // const generatePillBgColor = (hex = "#000000") => {
-    //     let color = hex.replace(/#/g, "")
-    //     const r = parseInt(color.substr(0, 2), 16)
-    //     const g = parseInt(color.substr(2, 2), 16)
-    //     const b = parseInt(color.substr(4, 2), 16)
-    //     const yiq = (r * 299 + g * 587 + b * 114)
-    //     return yiq <= 128 ? "#FFFFFF1c" : "#0000001c"
-    // }
 
     return <div className="style-body">
         {
@@ -137,7 +116,7 @@ const DefaultTheme = ({ data }) => {
 
             {
                 about ? <div className="mt-20">
-                    <p className="font-bold text-xl mb-5">About me</p>
+                    <p className={styles.sectionTitle}>About me 😎</p>
                     <p className="mb-5 px-5 text-lg">{about}</p>
                 </div> : <></>
             }
@@ -145,7 +124,7 @@ const DefaultTheme = ({ data }) => {
             <div className="mt-20">
                 {
                     skills.length > 0 ?
-                        <p className={`font-bold text-xl mb-5`}>My skills 💪</p>
+                        <p className={styles.sectionTitle}>My skills 💪</p>
                         : <></>
                 }
                 <ul className={styles.wrap}>
@@ -159,7 +138,7 @@ const DefaultTheme = ({ data }) => {
 
             {
                 showGithubStats && socials.github ? <div className="mt-20">
-                    <p className={`font-bold text-xl mb-5`}>My GitHub stats 🤩</p>
+                    <p className={styles.sectionTitle}>My GitHub stats 🤩</p>
                     <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                 </div> : <></>
@@ -167,7 +146,7 @@ const DefaultTheme = ({ data }) => {
 
             {
                 isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
-                    <p className={`font-bold text-xl mb-5`}>Wanna tip me? 😁</p>
+                    <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                         <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                     </a>
