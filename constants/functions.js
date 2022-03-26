@@ -4,7 +4,7 @@ export const generatePillBgColor = (hex = "#000000") => {
     const g = parseInt(color.substr(2, 2), 16)
     const b = parseInt(color.substr(4, 2), 16)
     const yiq = (r * 299 + g * 587 + b * 114)
-    return yiq <= 128 ? "#FFFFFF1c" : "#0000001c"
+    return yiq <= 128 ? "#FFFFFF0f" : "#0000000f"
 }
 
 export const generateTextColor = (hex = "#000000") => {
