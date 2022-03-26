@@ -1,8 +1,7 @@
-import { useState, useContext, useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { AppContext } from "../../context/context";
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
-import { Head } from "next/document";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
