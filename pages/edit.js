@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react"
 import LoginComponent from "../components/auth/loginComponent"
 import SignupComponent from "../components/auth/signupComponent"
-import EditView from "../components/body"
+import EditView from "../components/editView"
 import Header from "../components/header"
 import { AppContext } from "../context/context"
 

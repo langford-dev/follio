@@ -19,7 +19,7 @@ const styles = {
 const Header = () => {
     const [route, setRoute] = useState('')
     const { updateAccount } = useContext(AppContext)
-    const [showDrawer, setShowDrawer] = useState(false);
+    // const [showDrawer, setShowDrawer] = useState(false);
 
     useEffect(() => {
         console.log(window.location.pathname)
@@ -39,11 +39,10 @@ const Header = () => {
             </nav>
             <div className="flex items-center">
                 <div className={styles.button} onClick={updateAccount}>Save &amp; publish</div>
-                <div className="text-4xl ml-3 mr-0 rounded-md px-2 sm:hidden" onClick={() => setShowDrawer(true)}>&equiv;</div>
             </div>
         </div>
 
-        {
+        {/* {
             showDrawer ?
                 <div className="fixed top-0 left-0 p-5 border-r border-b bg-white w-screen">
                     <p className="mb-5 font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
@@ -54,7 +53,7 @@ const Header = () => {
                     <div className={styles.drawerLink}><Link href="/donate">Donate</Link></div>
                 </div>
                 : <div></div>
-        }
+        } */}
     </header>
 }
 

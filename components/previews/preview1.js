@@ -7,11 +7,20 @@ const styles = {
     pill: `bg-gray-100 rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewEdit: `min-h-screen absolute w-full p-0 bg-white  sm:relative sm:w-1/2 sm:p-10 sm:border-r sm:border-l sm:block sm:overflow-y-scroll sm:h-screen pb-56`,
-    previewMainEdit: `text-center m-auto`,
-    closePreviewButton: `-mt-5 flex items-center justify-center p-2 sm:hidden`,
+    previewMainEdit: `text-center m-auto pt-5 sm:pt-0`,
     profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-5 sm:-mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
+}
+
+const SocialIcons = ({ socialLinks, usernames }) => {
+    return <ul className={styles.wrap}>
+        {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
+        {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+        {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+        {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+        {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+    </ul>
 }
 
 const Preview1 = () => {
@@ -26,19 +35,8 @@ const Preview1 = () => {
         coffee: 'https://www.buymeacoffee.com/' + usernames.coffee,
     }
 
-    const socialIcons = () => {
-        return <ul className={styles.wrap}>
-            {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
-            {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-            {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-            {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-            {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
-        </ul>
-    }
-
     if (showPreview) return <div className={styles.previewEdit}>
         <div className={styles.previewMainEdit}>
-            <p className={styles.closePreviewButton} onClick={() => setShowPreview(false)}>&times; Close preview</p>
 
             <div>
 
@@ -72,28 +70,13 @@ const Preview1 = () => {
                         </div> : <></>
                 }
 
-
-                {/* {
-                    !coverPhotoPreview ?
-                        <div className="bg-gray-200 w-full h-60" />
-                        : <img className={styles.coverPhoto} src={URL.createObjectURL(coverPhotoPreview)} alt='' />
-
-                }
-
-                {
-                    !profilePhotoPreview ?
-                        <div className="w-48 h-48 m-auto bg-gray-100 rounded-full -mt-20 border-4 border-white" />
-                        : <div className={styles.profilePhotoContainer}>
-                            <img className={styles.profilePhoto} src={URL.createObjectURL(profilePhotoPreview)} alt='' />
-                        </div>
-                } */}
-
             </div>
 
             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{work}</p>
 
-            {socialIcons()}
+            <SocialIcons usernames={usernames} socialLinks={socialLinks} />
+
             {
                 usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
                     <Link passHref={true} href={socialLinks.twitter}>

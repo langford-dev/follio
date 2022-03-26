@@ -14,6 +14,16 @@ const styles = {
     // coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 sm:mt-5 object-cover sm:rounded-2xl`,
 }
 
+const SocialIcons = ({ socialLinks, socials }) => {
+    return <ul className={styles.wrap}>
+        {socials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
+        {socials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+        {socials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+        {socials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+        {socials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+    </ul>
+}
+
 const Style1 = ({ data, exists }) => {
 
     const [skills, setSkills] = useState([])
@@ -55,16 +65,6 @@ const Style1 = ({ data, exists }) => {
         coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
     }
 
-    const socialIcons = () => {
-        return <ul className={styles.wrap}>
-            {socials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
-            {socials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-            {socials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-            {socials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-            {socials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
-        </ul>
-    }
-
     return <div className="h-screen bg-white overflow-y-scroll">
         {
             coverPhoto ?
@@ -86,7 +86,7 @@ const Style1 = ({ data, exists }) => {
             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
             <p className=" font-bold mb-5 uppercase">{work}</p>
 
-            {socialIcons()}
+            <SocialIcons socials={socials} socialLinks={socialLinks} />
 
             {
                 socials.twitter ? <div className="cursor-pointer flex justify-center mt-5">
