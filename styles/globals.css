@@ -40,6 +40,13 @@ a {
   position: absolute;
 }
 
+.skill-pill {
+  padding: 7px 13px;
+  border-radius: 9999px;
+  /* border: 1px solid #dadada; */
+  margin: 6px
+}
+
 @media (min-width: 640px) {
   .body {
     width: 50%;

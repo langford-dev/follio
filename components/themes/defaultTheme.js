@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
+import { generatePillBgColor, generateTextColor } from "../../constants/functions";
 
 const styles = {
     // preview: `max-h-screen pb-56`,
@@ -54,8 +55,24 @@ const DefaultTheme = ({ data }) => {
             setProfilePhoto(data.profilePhoto)
             setCoverPhoto(data.coverPhoto)
 
-            document.querySelector(".style-body").style.backgroundColor = data.themeColor
-            document.querySelector(".style-body").style.color = generateTextColor(data.themeColor)
+            try {
+                document.querySelector(".style-body").style.backgroundColor = data.themeColor
+                document.querySelector(".style-body").style.color = generateTextColor(data.themeColor)
+                // document.querySelectorAll(".pill").style.backgroundColor = generatePillBgColor(data.themeColor)
+                // document.querySelector(".pill").style.color = generatePillBgColor(data.themeColor)
+
+                let skillPills = document.querySelectorAll(".skill-pill")
+
+                skillPills.forEach(pill => {
+                    pill.style.backgroundColor = generatePillBgColor(data.themeColor)
+                    pill.style.color = generateTextColor(data.themeColor)
+                })
+            }
+
+            catch (e) {
+
+                console.log(e)
+            }
         }
 
     }, [data])
@@ -69,14 +86,23 @@ const DefaultTheme = ({ data }) => {
         coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
     }
 
-    const generateTextColor = (hex = "#000000") => {
-        let color = hex.replace(/#/g, "")
-        const r = parseInt(color.substr(0, 2), 16)
-        const g = parseInt(color.substr(2, 2), 16)
-        const b = parseInt(color.substr(4, 2), 16)
-        const yiq = (r * 299 + g * 587 + b * 114) / 1000
-        return yiq >= 128 ? "#000000" : "#FFFFFF"
-    }
+    // const generateTextColor = (hex = "#000000") => {
+    //     let color = hex.replace(/#/g, "")
+    //     const r = parseInt(color.substr(0, 2), 16)
+    //     const g = parseInt(color.substr(2, 2), 16)
+    //     const b = parseInt(color.substr(4, 2), 16)
+    //     const yiq = (r * 299 + g * 587 + b * 114) / 1000
+    //     return yiq >= 128 ? "#000000" : "#FFFFFF"
+    // }
+
+    // const generatePillBgColor = (hex = "#000000") => {
+    //     let color = hex.replace(/#/g, "")
+    //     const r = parseInt(color.substr(0, 2), 16)
+    //     const g = parseInt(color.substr(2, 2), 16)
+    //     const b = parseInt(color.substr(4, 2), 16)
+    //     const yiq = (r * 299 + g * 587 + b * 114)
+    //     return yiq <= 128 ? "#FFFFFF1c" : "#0000001c"
+    // }
 
     return <div className="style-body">
         {
@@ -125,7 +151,7 @@ const DefaultTheme = ({ data }) => {
                 <ul className={styles.wrap}>
                     {
                         skills.map((skill, index) => {
-                            return <li key={index} className={styles.pill}>{skill}</li>
+                            return <li key={index} className="skill-pill">{skill}</li>
                         })
                     }
                 </ul>

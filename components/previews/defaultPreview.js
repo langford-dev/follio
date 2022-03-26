@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { AppContext } from "../../context/context";
 import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
+import { generatePillBgColor, generateTextColor } from "../../constants/functions";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
@@ -41,6 +42,13 @@ const DefaultPreview = () => {
         try {
             document.querySelector(".body").style.backgroundColor = themeColor
             document.querySelector(".body").style.color = generateTextColor(themeColor)
+
+            let skillPills = document.querySelectorAll(".skill-pill")
+
+            skillPills.forEach(pill => {
+                pill.style.backgroundColor = generatePillBgColor(themeColor)
+                pill.style.color = generateTextColor(themeColor)
+            })
         }
 
         catch (e) {
@@ -48,15 +56,6 @@ const DefaultPreview = () => {
         }
 
     }, [themeColor])
-
-    const generateTextColor = (hex) => {
-        let color = hex.replace(/#/g, "")
-        const r = parseInt(color.substr(0, 2), 16)
-        const g = parseInt(color.substr(2, 2), 16)
-        const b = parseInt(color.substr(4, 2), 16)
-        const yiq = (r * 299 + g * 587 + b * 114) / 1000
-        return yiq >= 128 ? "#000000" : "#FFFFFF"
-    }
 
     return <div className="body">
         {
@@ -125,7 +124,7 @@ const DefaultPreview = () => {
                     <ul className={styles.wrap}>
                         {
                             skills.map((skill, index) => {
-                                return <li key={index} className={styles.pill}>{skill}</li>
+                                return <li key={index} className="skill-pill">{skill}</li>
                             })
                         }
                     </ul>
