@@ -28,11 +28,11 @@ const Preview2 = () => {
 
     const socialIcons = () => {
         return <ul className={styles.wrap}>
-            {usernames.github ? <SocialIcon bgColor="#0D0D0D" fgColor="#fff" url={socialLinks.github} className="mr-2" /> : <></>}
-            {usernames.twitter ? <SocialIcon bgColor="#0D0D0D" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-            {usernames.instagram ? <SocialIcon bgColor="#0D0D0D" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-            {usernames.facebook ? <SocialIcon bgColor="#0D0D0D" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-            {usernames.linkedin ? <SocialIcon bgColor="#0D0D0D" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+            {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#000" url={socialLinks.github} className="mr-2" /> : <></>}
+            {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+            {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+            {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+            {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
         </ul>
     }
 
