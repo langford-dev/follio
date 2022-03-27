@@ -173,10 +173,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
 
             case "coffee":
                 return <div className="mb-10">
-                    <label className={styles.label}>
-                        <img className={styles.labelIcon} src={github.src} alt="" />
-                        {label}
-                    </label>
+                    <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
                         <input disabled={!isPremiumAccount} value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} />
@@ -185,10 +182,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
 
             case "eth-tip":
                 return <div className="mb-10">
-                    <label className={styles.label}>
-                        <img className={styles.labelIcon} src={github.src} alt="" />
-                        {label}
-                    </label>
+                    <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
                         <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
