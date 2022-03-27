@@ -5,7 +5,7 @@ import Switch from "react-switch";
 import { AppContext } from "../../context/context";
 
 const styles = {
-    editingView: `w-screen sm:w-1/2 p-10 -mt-5 sm:mt-0 px-5 sm:border-l pb-56 pt-24 sm:pt-0 bg-white sm:p-10 sm:pt-5`,
+    editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
 }
 
 const SocialsView = () => {
@@ -26,7 +26,7 @@ const SocialsView = () => {
             <SocialInput label="Discord" host="https://discord.com/users/" fieldFor="discord" />
             <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
 
-            <div className="flex items-center">
+            <div className="flex items-center px-5">
                 <p>Show GitHub stats</p>
                 <div className="ml-5">
                     <Switch onChange={e => setShowGithubStats(e)} checked={showGithubStats} />

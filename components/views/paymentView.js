@@ -5,7 +5,7 @@ import Switch from "react-switch";
 import { AppContext } from "../../context/context";
 
 const styles = {
-    editingView: `w-screen sm:w-1/2 p-10 -mt-5 sm:mt-0 px-5 sm:border-l pb-56 pt-24 sm:pt-0 bg-white sm:p-10 sm:pt-5`,
+    editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
 }
 
 const PaymentView = () => {

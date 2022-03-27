@@ -3,7 +3,7 @@ import { AppContext } from "../context/context"
 
 const styles = {
     viewTitle: `hidden items-center justify-between w-full sm:w-min sm:flex`,
-    title: `text-2xl font-bold mt-5`,
+    title: `text-2xl font-extrabold`,
     textButton: `mt-5 sm:mt-0 text-blue-600 cursor-pointer select-none whitespace-nowrap`,
     pageTitleView: `flex items-start justify-start flex-col sm:items-center sm:justify-between sm:flex-row -mt-5 sm:mt-0`,
 }
@@ -11,7 +11,7 @@ const styles = {
 const ViewTitle = ({ title, subtitle }) => {
     const { previous, next, viewCount, maxViewCount } = useContext(AppContext)
 
-    return <div>
+    return <div className="border-b mt-14 pt-10 sm:pt-0 px-5">
         <div className={styles.pageTitleView}>
             <p className={styles.title}>{title}</p>
             <div className={styles.viewTitle}>
@@ -27,7 +27,7 @@ const ViewTitle = ({ title, subtitle }) => {
                 }
             </div>
         </div>
-        <p className="mt-3 mb-5 text-gray-500">{subtitle}</p>
+        <p className="mb-3 text-gray-500">{subtitle}</p>
     </div>
 }
 

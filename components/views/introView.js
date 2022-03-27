@@ -3,8 +3,8 @@ import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 
 const styles = {
-    editingView: `w-screen sm:w-1/2 p-10 -mt-5 sm:mt-0 px-5 sm:border-l pb-56 pt-24 sm:pt-0 bg-white sm:p-10 sm:pt-5`,
-    inputContainer: `flex flex-col mt-10`,
+    editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
+    inputContainer: `flex flex-col mt-10 px-5`,
     input: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md`,
     textArea: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md resize-none h-56`,
     label: `font-medium`
@@ -31,7 +31,7 @@ const IntroView = () => {
         <div className={styles.inputContainer}>
             <div className="flex">
                 <label className={styles.label}>🎨 Your theme color</label>
-                <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value)}} />
+                <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value) }} />
             </div>
         </div>
     </div>
