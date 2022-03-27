@@ -89,13 +89,13 @@ export const Socials = ({ socials, themeColor }) => {
     return <div className="flex items-center justify-center flex-wrap px-5">
         {socials.twitter ? <Twitter username={socials.twitter} /> : <></>}
         {socials.github ? <GitHub username={socials.github} /> : <></>}
-        {socials.instagram ? <Instagram username={socials.instagram} /> : <></>}
         {socials.linkedin ? <Linkedin username={socials.linkedin} /> : <></>}
+        {socials.behance ? <Behance username={socials.behance} /> : <></>}
         {socials.stackoverflow ? <Stackoverflow username={socials.stackoverflow} /> : <></>}
         {socials.youtube ? <YouTube username={socials.youtube} /> : <></>}
         {socials.dribbble ? <Dribbble username={socials.dribbble} /> : <></>}
         {socials.twitch ? <Twitch username={socials.twitch} /> : <></>}
         {socials.discord ? <Discord username={socials.discord} /> : <></>}
-        {socials.behance ? <Behance username={socials.behance} /> : <></>}
+        {socials.instagram ? <Instagram username={socials.instagram} /> : <></>}
     </div>
 }

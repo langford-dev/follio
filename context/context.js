@@ -25,13 +25,13 @@ export const AppProvider = ({ children }) => {
     const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
     const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
 
-    const [twitter, setTwitter] = useState("")
-    const [facebook, setFacebook] = useState("")
-    const [instagram, setInstagram] = useState("")
-    const [linkedin, setLinkedin] = useState("")
-    const [github, setGithub] = useState("")
-    const [coffee, setCoffee] = useState("")
-    const [ethAddress, setEthAddress] = useState("")
+    // const [twitter, setTwitter] = useState("")
+    // const [facebook, setFacebook] = useState("")
+    // const [instagram, setInstagram] = useState("")
+    // const [linkedin, setLinkedin] = useState("")
+    // const [github, setGithub] = useState("")
+    // const [coffee, setCoffee] = useState("")
+    // const [ethAddress, setEthAddress] = useState("")
 
     const [socials, setSocials] = useState({})
 
@@ -138,7 +138,6 @@ export const AppProvider = ({ children }) => {
                 "showGithubStats": showGithubStats,
                 "skills": skills,
                 "isPremiumAccount": isPremiumAccount,
-                "socials": { twitter, facebook, instagram, linkedin, github, coffee, ethAddress },
                 "profilePhoto": _profilePhoto,
                 "coverPhoto": _coverPhoto,
                 "workplaces": workplaces,
@@ -234,13 +233,6 @@ export const AppProvider = ({ children }) => {
         setIsPremiumAccount(sessionStorageData.isPremiumAccount)
         setWorkplaces(sessionStorageData.workplaces)
         setSocials(sessionStorageData.socials)
-        // setTwitter(sessionStorageData.socials.twitter)
-        // setFacebook(sessionStorageData.socials.facebook)
-        // setInstagram(sessionStorageData.socials.instagram)
-        // setLinkedin(sessionStorageData.socials.linkedin)
-        // setGithub(sessionStorageData.socials.github)
-        // setCoffee(sessionStorageData.socials.coffee)
-        // setEthAddress(sessionStorageData.ethAddress)
         setTheme(sessionStorageData.theme)
         setThemeColor(sessionStorageData.themeColor)
     }
@@ -309,17 +301,10 @@ export const AppProvider = ({ children }) => {
         about, setAbout,
         themeColor, setThemeColor,
         skills, setSkills,
-        setTwitter,
-        setFacebook,
-        setInstagram,
-        setLinkedin,
-        setGithub,
-        setCoffee,
         isAuthenticated, toggleIsAuthenticated,
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,
         isPremiumAccount,
-        setEthAddress,
         updateAccount,
         getAccountData, login,
         showLogin, setShowLogin,
@@ -331,7 +316,6 @@ export const AppProvider = ({ children }) => {
         theme, changeThemeInSessionStorage,
         saveThemeColorToStorage,
         socials, setSocials,
-        // socials: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}
     </AppContext.Provider>

@@ -1,14 +1,25 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
+import github from "../assets/svg/github.svg"
+import twitter from "../assets/svg/twitter.svg"
+import instagram from "../assets/svg/instagram.svg"
+import linkedin from "../assets/svg/linkedin.svg"
+import stackoverflow from "../assets/svg/stackoverflow.svg"
+import youtube from "../assets/svg/youtube.svg"
+import dribbble from "../assets/svg/dribbble.svg"
+import twitch from "../assets/svg/twitch.svg"
+import discord from "../assets/svg/discord.svg"
+import behance from "../assets/svg/behance.svg"
 
 const styles = {
     inputContainer: `border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex text-gray-400`,
     input: `outline-none w-9/12 text-black`,
-    label: `font-medium`
+    label: `font-medium flex items-center`,
+    labelIcon: `mr-2`,
 }
 
 const SocialInput = ({ label, host, fieldFor }) => {
-    const { setSocials, setTwitter, setLinkedin, isPremiumAccount, setFacebook, setInstagram, setGithub, setCoffee, setEthAddress, socials } = useContext(AppContext)
+    const { setSocials, isPremiumAccount, socials } = useContext(AppContext)
 
     let newSocials = {
         twitter: socials.twitter,
@@ -41,55 +52,165 @@ const SocialInput = ({ label, host, fieldFor }) => {
         switch (fieldFor) {
 
             case "twitter":
-                return <input value={newSocials.twitter} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "twitter")} />
-
-            case "facebook":
-                return <input value={newSocials.facebook} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "facebook")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={twitter.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.twitter} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "twitter")} />
+                    </div>
+                </div>
 
             case "instagram":
-                return <input value={newSocials.instagram} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "instagram")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={instagram.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.instagram} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "instagram")} />
+                    </div>
+                </div>
 
             case "github":
-                return <input value={newSocials.github} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "github")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={github.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.github} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "github")} />
+                    </div>
+                </div>
 
             case "linkedin":
-                return <input value={newSocials.linkedin} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "linkedin")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={linkedin.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.linkedin} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "linkedin")} />
+                    </div>
+                </div>
 
             case "stackoverflow":
-                return <input value={newSocials.stackoverflow} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "stackoverflow")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={stackoverflow.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.stackoverflow} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "stackoverflow")} />
+                    </div>
+                </div>
 
             case "youtube":
-                return <input value={newSocials.youtube} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "youtube")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={youtube.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.youtube} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "youtube")} />
+                    </div>
+                </div>
 
             case "dribbble":
-                return <input value={newSocials.dribbble} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "dribbble")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={dribbble.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.dribbble} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "dribbble")} />
+                    </div>
+                </div>
 
             case "twitch":
-                return <input value={newSocials.twitch} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "twitch")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={twitch.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.twitch} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "twitch")} />
+                    </div>
+                </div>
 
             case "discord":
-                return <input value={newSocials.discord} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "discord")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={discord.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.discord} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "discord")} />
+                    </div>
+                </div>
 
             case "behance":
-                return <input value={newSocials.behance} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "behance")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={behance.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input value={newSocials.behance} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "behance")} />
+                    </div>
+                </div>
 
             case "coffee":
-                return <input disabled={!isPremiumAccount} value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={github.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input disabled={!isPremiumAccount} value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} />
+                    </div>
+                </div>
 
             case "eth-tip":
-                return <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
+                return <div className="mb-10">
+                    <label className={styles.label}>
+                        <img className={styles.labelIcon} src={github.src} alt="" />
+                        {label}
+                    </label>
+                    <div className={styles.inputContainer}>
+                        <p>{host}</p>
+                        <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
+                    </div>
+                </div>
 
             default: return <p>...</p>
         }
     }
 
-    return <div className="mb-10">
-        <label className={styles.label}>{label}</label>
-        <div className={styles.inputContainer}>
-            <p>{host}</p>
-            {dynamicInput()}
-        </div>
-    </div>
+    return dynamicInput()
+
+    // return <div className="mb-10">
+    //     <label className={styles.label}>
+    //         <img src={github.src} alt="" />
+    //         {label}
+    //     </label>
+    //     <div className={styles.inputContainer}>
+    //         <p>{host}</p>
+    //         {dynamicInput()}
+    //     </div>
+    // </div>
 }
 
 export default SocialInput
