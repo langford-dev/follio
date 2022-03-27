@@ -13,26 +13,26 @@
 //     coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
 // }
 
-// const SocialIcons = ({ socialLinks, usernames }) => {
+// const SocialIcons = ({ socialLinks, socials }) => {
 //     return <ul className={styles.wrap}>
-//         {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
-//         {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
-//         {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
-//         {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
-//         {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
+//         {socials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-2" /> : <></>}
+//         {socials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-2" /> : <></>}
+//         {socials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-2" /> : <></>}
+//         {socials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-2" /> : <></>}
+//         {socials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-2" /> : <></>}
 //     </ul>
 // }
 
 // const Preview1 = () => {
-//     let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+//     let { fullname, work, about, themeColor, skills, socials, showGithubStats, showPreview, setShowPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
 //     const socialLinks = {
-//         twitter: 'https://twitter.com/' + usernames.twitter,
-//         facebook: 'https://facebook.com/' + usernames.facebook,
-//         linkedin: 'https://linkedin.com/' + usernames.linkedin,
-//         github: 'https://github.com/' + usernames.github,
-//         instagram: 'https://instagram.com/' + usernames.instagram,
-//         coffee: 'https://www.buymeacoffee.com/' + usernames.coffee,
+//         twitter: 'https://twitter.com/' + socials.twitter,
+//         facebook: 'https://facebook.com/' + socials.facebook,
+//         linkedin: 'https://linkedin.com/' + socials.linkedin,
+//         github: 'https://github.com/' + socials.github,
+//         instagram: 'https://instagram.com/' + socials.instagram,
+//         coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
 //     }
 
 //     if (showPreview) return <div className={styles.body}>
@@ -75,12 +75,12 @@
 //             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
 //             <p className=" font-bold mb-5 uppercase">{work}</p>
 
-//             <SocialIcons usernames={usernames} socialLinks={socialLinks} />
+//             <SocialIcons socials={socials} socialLinks={socialLinks} />
 
 //             {
-//                 usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
+//                 socials.twitter ? <div className="cursor-pointer flex justify-center mt-5">
 //                     <Link passHref={true} href={socialLinks.twitter}>
-//                         <img src={`https://img.shields.io/twitter/follow/${usernames.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
+//                         <img src={`https://img.shields.io/twitter/follow/${socials.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
 //                     </Link>
 //                 </div> : <></>
 //             }
@@ -108,17 +108,17 @@
 //             </div>
 
 //             {
-//                 showGithubStats && usernames.github ? <div className="mt-20">
+//                 showGithubStats && socials.github ? <div className="mt-20">
 //                     <p className={`font-bold text-xl mb-5 text-[${themeColor}]`}>My GitHub stats 🤩</p>
-//                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
-//                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
+//                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=f97316&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
+//                     <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=f97316&line=3382ed&point=f97316&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
 //                 </div> : <></>
 //             }
 
 //             {
-//                 isPremiumAccount && usernames.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+//                 isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
 //                     <p className={`font-bold text-xl mb-5`}>Wanna tip me? 😁</p>
-//                     <a href={`https://www.buymeacoffee.com/${usernames.coffee}`}>
+//                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
 //                         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
 //                     </a>
 //                 </div> : <div></div>

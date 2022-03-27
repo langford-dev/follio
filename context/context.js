@@ -33,6 +33,8 @@ export const AppProvider = ({ children }) => {
     const [coffee, setCoffee] = useState("")
     const [ethAddress, setEthAddress] = useState("")
 
+    const [socials, setSocials] = useState({})
+
     const [theme, setTheme] = useState(1)
 
     const maxViewCount = 5
@@ -143,6 +145,7 @@ export const AppProvider = ({ children }) => {
                 "projects": projects,
                 "theme": theme,
                 "themeColor": themeColor,
+                "socials": socials,
             }
 
             const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
@@ -195,13 +198,14 @@ export const AppProvider = ({ children }) => {
             setProjects(data.payload.projects)
             setIsPremiumAccount(data.payload.isPremiumAccount)
             setWorkplaces(data.payload.workplaces)
-            setTwitter(data.payload.socials.twitter)
-            setFacebook(data.payload.socials.facebook)
-            setInstagram(data.payload.socials.instagram)
-            setLinkedin(data.payload.socials.linkedin)
-            setGithub(data.payload.socials.github)
-            setCoffee(data.payload.socials.coffee)
-            setEthAddress(data.payload.ethAddress)
+            setSocials(data.payload.socials)
+            // setTwitter(data.payload.socials.twitter)
+            // setFacebook(data.payload.socials.facebook)
+            // setInstagram(data.payload.socials.instagram)
+            // setLinkedin(data.payload.socials.linkedin)
+            // setGithub(data.payload.socials.github)
+            // setCoffee(data.payload.socials.coffee)
+            // setEthAddress(data.payload.ethAddress)
             setTheme(data.payload.theme)
             setThemeColor(data.payload.themeColor)
 
@@ -229,13 +233,14 @@ export const AppProvider = ({ children }) => {
         setProjects(sessionStorageData.projects)
         setIsPremiumAccount(sessionStorageData.isPremiumAccount)
         setWorkplaces(sessionStorageData.workplaces)
-        setTwitter(sessionStorageData.socials.twitter)
-        setFacebook(sessionStorageData.socials.facebook)
-        setInstagram(sessionStorageData.socials.instagram)
-        setLinkedin(sessionStorageData.socials.linkedin)
-        setGithub(sessionStorageData.socials.github)
-        setCoffee(sessionStorageData.socials.coffee)
-        setEthAddress(sessionStorageData.ethAddress)
+        setSocials(sessionStorageData.socials)
+        // setTwitter(sessionStorageData.socials.twitter)
+        // setFacebook(sessionStorageData.socials.facebook)
+        // setInstagram(sessionStorageData.socials.instagram)
+        // setLinkedin(sessionStorageData.socials.linkedin)
+        // setGithub(sessionStorageData.socials.github)
+        // setCoffee(sessionStorageData.socials.coffee)
+        // setEthAddress(sessionStorageData.ethAddress)
         setTheme(sessionStorageData.theme)
         setThemeColor(sessionStorageData.themeColor)
     }
@@ -325,7 +330,8 @@ export const AppProvider = ({ children }) => {
         profilePhotoPreview, setProfilePhotoPreview,
         theme, changeThemeInSessionStorage,
         saveThemeColorToStorage,
-        usernames: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
+        socials, setSocials,
+        // socials: { twitter, facebook, instagram, linkedin, github, coffee, ethAddress }
     }}>
         {children}
     </AppContext.Provider>

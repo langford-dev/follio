@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../context/context"
+import Button from "./button"
 import Logo from "./logo"
+import Modal from "./modal"
 
 const styles = {
     header: `px-5 border-b h-14 sm:h-20 bg-white fixed w-screen top-0 left-0 z-40`,
@@ -18,7 +20,7 @@ const styles = {
 
 const Header = () => {
     const [route, setRoute] = useState('')
-    const { updateAccount } = useContext(AppContext)
+    const { updateAccount, showLoader } = useContext(AppContext)
     // const [showDrawer, setShowDrawer] = useState(false);
 
     useEffect(() => {
@@ -38,7 +40,9 @@ const Header = () => {
                 <Link passHref={true} href="/"><p className={route === "/donate" ? styles.active : styles.navLink}>Donate</p></Link>
             </nav>
             <div className="flex items-center">
-                <div className={styles.button} onClick={updateAccount}>Save &amp; publish</div>
+                {!showLoader ? <Button label="Publish" onPress={() => {
+                    updateAccount()
+                }} /> : <></>}
             </div>
         </div>
 

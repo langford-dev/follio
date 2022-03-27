@@ -3,8 +3,8 @@ import LoginComponent from "../components/auth/loginComponent";
 import SignupComponent from "../components/auth/signupComponent";
 import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
-import ViewTitle from "../components/viewTitle";
 import { AppContext } from "../context/context";
+import 'tw-elements';
 
 const styles = {
   title: `text-3xl font-bold mb-3`,

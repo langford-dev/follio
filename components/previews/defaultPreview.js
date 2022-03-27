@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react"
 import { AppContext } from "../../context/context";
-import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
 import { generatePillBgColor, generateTextColor } from "../../constants/functions";
+import { Socials } from "../socials";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
@@ -14,27 +14,8 @@ const styles = {
     sectionTitle: `font-bold text-2xl mb-5`,
 }
 
-const SocialIcons = ({ socialLinks, usernames }) => {
-    return <ul className={styles.wrap}>
-        {usernames.github ? <SocialIcon bgColor="#fff" fgColor="#000" url={socialLinks.github} className="mr-5" /> : <></>}
-        {usernames.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-5" /> : <></>}
-        {usernames.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-5" /> : <></>}
-        {usernames.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-5" /> : <></>}
-        {usernames.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-5" /> : <></>}
-    </ul>
-}
-
 const DefaultPreview = () => {
-    let { fullname, work, about, themeColor, skills, usernames, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
-
-    const socialLinks = {
-        twitter: 'https://twitter.com/' + usernames.twitter,
-        facebook: 'https://facebook.com/' + usernames.facebook,
-        linkedin: 'https://linkedin.com/' + usernames.linkedin,
-        github: 'https://github.com/' + usernames.github,
-        instagram: 'https://instagram.com/' + usernames.instagram,
-        coffee: 'https://www.buymeacoffee.com/' + usernames.coffee,
-    }
+    let { fullname, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     useEffect(() => {
         console.log(themeColor)
@@ -99,9 +80,9 @@ const DefaultPreview = () => {
                 <p className=" font-bold mb-5 uppercase">{work}</p>
 
                 {
-                    usernames.twitter ? <div className="cursor-pointer flex justify-center mt-5">
-                        <Link passHref={true} href={socialLinks.twitter}>
-                            <img src={`https://img.shields.io/twitter/follow/${usernames.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
+                    socials.twitter ? <div className="cursor-pointer flex justify-center mt-5">
+                        <Link passHref={true} href={socials.twitter}>
+                            <img src={`https://img.shields.io/twitter/follow/${socials.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
                         </Link >
                     </div > : <></>
                 }
@@ -113,7 +94,7 @@ const DefaultPreview = () => {
                     </div> : <></>
                 }
 
-                <SocialIcons usernames={usernames} socialLinks={socialLinks} />
+                <Socials socials={socials} themeColor={themeColor} />
 
                 <div className="mt-20">
                     {
@@ -131,17 +112,17 @@ const DefaultPreview = () => {
                 </div>
 
                 {
-                    showGithubStats && usernames.github ? <div className="mt-20">
+                    showGithubStats && socials.github ? <div className="mt-20">
                         <p className={styles.sectionTitle}>My GitHub stats 🤩</p>
-                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${usernames.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
-                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${usernames.github}&bg_color=1c1917&color=ffffff&line=3382ed&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
+                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
+                        <img style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=ffffff&line=3382ed&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
                     </div> : <></>
                 }
 
                 {
-                    isPremiumAccount && usernames.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                    isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
                         <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
-                        <a href={`https://www.buymeacoffee.com/${usernames.coffee}`}>
+                        <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                         </a>
                     </div> : <div></div>

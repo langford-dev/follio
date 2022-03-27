@@ -17,7 +17,8 @@
     "react-google-login": "5.2.2",
     "sawo": "1.0.3",
     "antd": "4.19.3",
-    "@ant-design/icons": "4.7.0"
+    "@ant-design/icons": "4.7.0",
+    "tw-elements": "1.0.0-alpha1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",

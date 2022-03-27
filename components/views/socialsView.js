@@ -16,11 +16,16 @@ const SocialsView = () => {
 
         <div className="mt-16">
             <SocialInput label="Twitter profile" host="https://twitter.com/" fieldFor="twitter" />
-            <SocialInput label="Facebook profile" host="https://facebook.com/" fieldFor="facebook" />
-            <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
+            <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
             <SocialInput label="LinkedIn profile" host="https://linkedin.com/" fieldFor="linkedin" />
-            {/* <SocialInput label="Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" /> */}
+            <SocialInput label="Stackoverflow profile" host="https://stackoverflow.com/users/" fieldFor="stackoverflow" />
+            <SocialInput label="YouTube channel" host="https://youtube.com/c/" fieldFor="youtube" />
+            <SocialInput label="Dribbble" host="https://dribbble.com/" fieldFor="dribbble" />
+            <SocialInput label="Twitch" host="https://twitch.tv/" fieldFor="twitch" />
+            <SocialInput label="Discord" host="https://discord.com/users/" fieldFor="discord" />
+            <SocialInput label="Behance" host="https://behance.com/" fieldFor="behance" />
+
             <div className="flex items-center">
                 <p>Show GitHub stats</p>
                 <div className="ml-5">

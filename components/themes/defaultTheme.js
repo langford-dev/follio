@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import { SocialIcon } from 'react-social-icons';
 import Link from "next/link";
 import { generatePillBgColor, generateTextColor } from "../../constants/functions";
+import { Socials } from "../socials";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
@@ -13,16 +13,6 @@ const styles = {
     coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
     sectionTitle: `font-bold text-2xl mb-5`,
-}
-
-const SocialIcons = ({ socialLinks, socials }) => {
-    return <ul className={styles.wrap}>
-        {socials.github ? <SocialIcon bgColor="#fff" fgColor="#242424" url={socialLinks.github} className="mr-5" /> : <></>}
-        {socials.twitter ? <SocialIcon bgColor="#fff" fgColor="#006aee" url={socialLinks.twitter} className="mr-5" /> : <></>}
-        {socials.instagram ? <SocialIcon bgColor="#fff" fgColor="red" url={socialLinks.instagram} className="mr-5" /> : <></>}
-        {socials.facebook ? <SocialIcon bgColor="#fff" fgColor="#0A66C2" url={socialLinks.facebook} className="mr-5" /> : <></>}
-        {socials.linkedin ? <SocialIcon bgColor="#fff" fgColor="blue" url={socialLinks.linkedin} className="mr-5" /> : <></>}
-    </ul>
 }
 
 const DefaultTheme = ({ data }) => {
@@ -74,15 +64,6 @@ const DefaultTheme = ({ data }) => {
 
     }, [data])
 
-    const socialLinks = {
-        twitter: 'https://twitter.com/' + socials.twitter,
-        facebook: 'https://facebook.com/' + socials.facebook,
-        linkedin: 'https://linkedin.com/' + socials.linkedin,
-        github: 'https://github.com/' + socials.github,
-        instagram: 'https://instagram.com/' + socials.instagram,
-        coffee: 'https://www.buymeacoffee.com/' + socials.coffee,
-    }
-
     return <div className="style-body">
         {
             coverPhoto ?
@@ -106,7 +87,7 @@ const DefaultTheme = ({ data }) => {
 
             {
                 socials.twitter ? <div className="cursor-pointer flex justify-center mt-5">
-                    <Link passHref={true} href={socialLinks.twitter}>
+                    <Link passHref={true} href={socials.twitter}>
                         <img src={`https://img.shields.io/twitter/follow/${socials.twitter}?logo=twitter&style=for-the-badge&color=3382ed&labelColor=1c1917`} alt="twitter" />
                     </Link>
                 </div> : <></>
@@ -119,7 +100,7 @@ const DefaultTheme = ({ data }) => {
                 </div> : <></>
             }
 
-            <SocialIcons socials={socials} socialLinks={socialLinks} />
+            {data && data ? <Socials socials={socials} themeColor={data.themeColor} /> : <></>}
 
             <div className="mt-20">
                 {
