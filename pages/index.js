@@ -4,7 +4,6 @@ import SignupComponent from "../components/auth/signupComponent";
 import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
 import { AppContext } from "../context/context";
-import 'tw-elements';
 
 const styles = {
   title: `text-3xl font-bold mb-3`,
