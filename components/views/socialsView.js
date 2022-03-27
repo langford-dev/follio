@@ -18,7 +18,7 @@ const SocialsView = () => {
             <SocialInput label="Twitter profile" host="https://twitter.com/" fieldFor="twitter" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
             <SocialInput label="Instagram profile" host="https://instagram.com/" fieldFor="instagram" />
-            <SocialInput label="LinkedIn profile" host="https://linkedin.com/" fieldFor="linkedin" />
+            <SocialInput label="LinkedIn profile" host="https://linkedin.com/in/" fieldFor="linkedin" />
             <SocialInput label="Stackoverflow profile" host="https://stackoverflow.com/users/" fieldFor="stackoverflow" />
             <SocialInput label="YouTube channel" host="https://youtube.com/c/" fieldFor="youtube" />
             <SocialInput label="Dribbble" host="https://dribbble.com/" fieldFor="dribbble" />

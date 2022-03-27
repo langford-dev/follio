@@ -79,7 +79,6 @@ const SocialInput = ({ label, host, fieldFor }) => {
             case "eth-tip":
                 return <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
 
-
             default: return <p>...</p>
         }
     }
