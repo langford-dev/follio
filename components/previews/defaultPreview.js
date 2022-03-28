@@ -25,8 +25,6 @@ const DefaultPreview = () => {
             document.querySelector(".body").style.backgroundColor = themeColor
             document.querySelector(".body").style.color = generateTextColor(themeColor)
             document.querySelector(".body").style.maxHeight = "100vh"
-            document.querySelector(".body").style.overflowY = "scroll"
-            document.querySelector(".body").style.borderLeft = "1px solid rgb(229 231 235)"
 
             let skillPills = document.querySelectorAll(".skill-pill")
 

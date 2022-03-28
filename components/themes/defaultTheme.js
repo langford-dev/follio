@@ -48,8 +48,8 @@ const DefaultTheme = ({ data }) => {
             setProjects(data.projects)
 
             try {
-                document.querySelector(".style-body").style.backgroundColor = data.themeColor
-                document.querySelector(".style-body").style.color = generateTextColor(data.themeColor)
+                document.querySelector(".theme-body").style.backgroundColor = data.themeColor
+                document.querySelector(".theme-body").style.color = generateTextColor(data.themeColor)
 
                 let skillPills = document.querySelectorAll(".skill-pill")
 
@@ -67,7 +67,7 @@ const DefaultTheme = ({ data }) => {
 
     }, [data])
 
-    return <div className="style-body">
+    return <div className="theme-body">
         {
             coverPhoto ?
                 <img className={styles.coverPhoto} src={coverPhoto} alt='' />
