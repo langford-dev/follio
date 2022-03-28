@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import SocialInput from "../components/socialInput"
 import ViewTitle from "../components/viewTitle"
 import Switch from "react-switch";
 import { AppContext } from "../context/context";
+import SocialInput from "../socialInput";
 
 const styles = {
     editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
