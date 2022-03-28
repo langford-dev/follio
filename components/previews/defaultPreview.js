@@ -116,7 +116,13 @@ const DefaultPreview = () => {
                     </ul>
                 </div>
 
-                <ul className="mt-10 px-5">
+                <ul className="mt-20">
+                    {
+                        projects
+                            .length > 0 ?
+                            <p className={styles.sectionTitle}>My projects 🎁</p>
+                            : <></>
+                    }
                     {
                         projects.map((project, index) => {
                             return <ProjectCard editMode={false} key={index} index={index} description={project.description} thumbnail={project.thumbnail} name={project.name} link={project.link} />
