@@ -23,13 +23,11 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
         {
             thumbnail && thumbnail ?
                 <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
-                // editMode ? <img src={URL.createObjectURL(thumbnail)} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
-                //     : <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
                 : <></>
         }
         <p className="font-bold mt-5">{name}</p>
-        <p className="my-3">{description}</p>
-        <a target="_blank" rel="noreferrer" href={link} className="text-blue-600">{link}</a>
+        <p className="my-1">{description}</p>
+        <a href={link} target="_blan,k" rel="noreferrer" className="text-blue-600">{link}</a>
     </li>
 }
 

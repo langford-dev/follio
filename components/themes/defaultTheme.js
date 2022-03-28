@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link";
 import { generatePillBgColor, generateTextColor } from "../../constants/functions";
 import { Socials } from "../socials";
+import ProjectCard from "../projectCard";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
@@ -22,6 +23,7 @@ const DefaultTheme = ({ data }) => {
     const [about, setAbout] = useState("")
     const [work, setWork] = useState("")
     const [workplaces, setWorkplaces] = useState([])
+    const [projects, setProjects] = useState([])
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [socials, setSocials] = useState({})
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
@@ -43,6 +45,7 @@ const DefaultTheme = ({ data }) => {
             setIsPremiumAccount(data.isPremiumAccount)
             setProfilePhoto(data.profilePhoto)
             setCoverPhoto(data.coverPhoto)
+            setProjects(data.projects)
 
             try {
                 document.querySelector(".style-body").style.backgroundColor = data.themeColor
@@ -117,6 +120,14 @@ const DefaultTheme = ({ data }) => {
                     }
                 </ul>
             </div>
+
+            <ul className="mt-10 px-5">
+                {
+                    projects.map((project, index) => {
+                        return <ProjectCard editMode={false} key={index} index={index} description={project.description} thumbnail={project.thumbnail} name={project.name} link={project.link} />
+                    })
+                }
+            </ul>
 
             {
                 showGithubStats && socials.github ? <div className="mt-20">

@@ -1,11 +1,11 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import Images from "./views/images"
-import Intro from "./views/intro"
-import Payment from "./views/payment"
-import Projects from "./views/projects"
-import Skills from "./views/skills"
-import Socials from "./views/socials"
+import Images from "../views/images"
+import Intro from "../views/intro"
+import Payment from "../views/payment"
+import Projects from "../views/projects"
+import Skills from "../views/skills"
+import Socials from "../views/socials"
 
 const DynamicEditView = () => {
     const { viewCount } = useContext(AppContext)

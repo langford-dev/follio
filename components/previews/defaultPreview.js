@@ -3,6 +3,7 @@ import { AppContext } from "../../context/context";
 import Link from "next/link";
 import { generatePillBgColor, generateTextColor } from "../../constants/functions";
 import { Socials } from "../socials";
+import ProjectCard from "../projectCard";
 
 const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
@@ -15,7 +16,7 @@ const styles = {
 }
 
 const DefaultPreview = () => {
-    let { fullname, username, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+    let { fullname, username, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     useEffect(() => {
         console.log(themeColor)
@@ -23,6 +24,9 @@ const DefaultPreview = () => {
         try {
             document.querySelector(".body").style.backgroundColor = themeColor
             document.querySelector(".body").style.color = generateTextColor(themeColor)
+            document.querySelector(".body").style.maxHeight = "100vh"
+            document.querySelector(".body").style.overflowY = "scroll"
+            document.querySelector(".body").style.borderLeft = "1px solid rgb(229 231 235)"
 
             let skillPills = document.querySelectorAll(".skill-pill")
 
@@ -111,6 +115,14 @@ const DefaultPreview = () => {
                         }
                     </ul>
                 </div>
+
+                <ul className="mt-10 px-5">
+                    {
+                        projects.map((project, index) => {
+                            return <ProjectCard editMode={false} key={index} index={index} description={project.description} thumbnail={project.thumbnail} name={project.name} link={project.link} />
+                        })
+                    }
+                </ul>
 
                 {
                     showGithubStats && socials.github ? <div className="mt-20">
