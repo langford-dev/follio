@@ -15,7 +15,7 @@ const styles = {
 }
 
 const DefaultPreview = () => {
-    let { fullname, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+    let { fullname, username, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     useEffect(() => {
         console.log(themeColor)
@@ -27,7 +27,7 @@ const DefaultPreview = () => {
             let skillPills = document.querySelectorAll(".skill-pill")
 
             skillPills.forEach(pill => {
-                pill.style.backgroundColor = generatePillBgColor(themeColor)
+                pill.style.backgroundColor = "transparent"
                 pill.style.color = generateTextColor(themeColor)
             })
         }
@@ -77,6 +77,7 @@ const DefaultPreview = () => {
                 </div>
 
                 <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
+                <p className="mb-5 -mt-3 opacity-50">@{username}</p>
                 <p className=" font-bold mb-5 uppercase">{work}</p>
 
                 {

@@ -12,8 +12,8 @@ import discord from "../assets/svg/discord.svg"
 import behance from "../assets/svg/behance.svg"
 
 const styles = {
-    inputContainer: `bg-[#eeeff0] p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex text-gray-400`,
-    input: `outline-none w-9/12 text-black bg-[#eeeff0]`,
+    inputContainer: `bg-gray-100 p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex text-gray-400`,
+    input: `outline-none w-9/12 text-black bg-gray-100`,
     label: `font-medium flex items-center`,
     labelIcon: `mr-2`,
 }

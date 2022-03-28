@@ -305,7 +305,7 @@ export const AppProvider = ({ children }) => {
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,
         isPremiumAccount,
-        updateAccount,
+        updateAccount, username,
         getAccountData, login,
         showLogin, setShowLogin,
         readDataFromStorage,

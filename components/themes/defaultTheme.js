@@ -51,8 +51,8 @@ const DefaultTheme = ({ data }) => {
                 let skillPills = document.querySelectorAll(".skill-pill")
 
                 skillPills.forEach(pill => {
-                    pill.style.backgroundColor = generatePillBgColor(data.themeColor)
-                    pill.style.color = generateTextColor(data.themeColor)
+                    pill.style.backgroundColor = "transparent"
+                    pill.style.color = generateTextColor(themeColor)
                 })
             }
 
@@ -83,6 +83,7 @@ const DefaultTheme = ({ data }) => {
             </div>
 
             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
+            <p className="mb-5 -mt-3 opacity-50">@{username}</p>
             <p className=" font-bold mb-5 uppercase">{work}</p>
 
             {
