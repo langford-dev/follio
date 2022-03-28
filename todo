@@ -1,0 +1,13 @@
+
+  Type your most favourite text editor: <input type="text" list="text_editors">
+  <datalist id="text_editors">
+      <option value="Atom"></option>
+      <option value="Brackets"></option>    
+      <option value="Notepad ++"></option>
+      <option value="Notepad"></option>
+      <option value="Sublime Text"></option>
+      <option value="TextEdit"></option>
+      <option value="TextMate"></option>
+      <option value="Wordpad"></option>
+  </datalist>
+  <p><em>For example;</em> Sublime Text</p>

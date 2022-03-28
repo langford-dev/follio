@@ -171,6 +171,7 @@ export const AppProvider = ({ children }) => {
         } catch (e) {
 
             setShowLoader(false)
+            alert("An error occured. Please try again later.")
             console.log(e.message)
         }
     }
@@ -328,6 +329,7 @@ export const AppProvider = ({ children }) => {
         saveThemeColorToStorage,
         socials, setSocials,
         projects, setProjects,
+        uploadImage,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

@@ -22,8 +22,9 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
         {editMode ? <div onClick={() => removeProject(index)} className="text-red-600 mb-3 cursor-pointer hover:opacity-50">Delete &times;</div> : <></>}
         {
             thumbnail && thumbnail ?
-                editMode ? <img src={URL.createObjectURL(thumbnail)} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
-                    : <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
+                <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
+                // editMode ? <img src={URL.createObjectURL(thumbnail)} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
+                //     : <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md" />
                 : <></>
         }
         <p className="font-bold mt-5">{name}</p>

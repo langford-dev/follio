@@ -14,29 +14,41 @@ const styles = {
 }
 
 const Projects = () => {
-    const { projects, setProjects, showProjectModal, setShowProjectModal } = useContext(AppContext)
+    const { projects, setProjects, uploadImage, setShowLoader, showProjectModal, setShowProjectModal } = useContext(AppContext)
 
     const Modal = () => {
         const [name, setName] = useState("")
         const [link, setLink] = useState("")
         const [description, setDescription] = useState("")
-        const [thumbnail, setThumbnail] = useState("")
+        // const [thumbnail, setThumbnail] = useState("")
+        const [thumbnailFile, setThumbnailFile] = useState("")
 
-        const addProject = () => {
+        const addProject = async () => {
             if (name.trim() === "") return
-            if (!thumbnail && thumbnail) return
+            if (!thumbnailFile && thumbnailFile) return
 
-            let newProject = {
-                name: name,
-                link: link,
-                description: description,
-                thumbnail: thumbnail,
+            setShowLoader(true)
+
+            try {
+                let newProject = {
+                    name: name,
+                    link: link,
+                    description: description,
+                    thumbnail: await uploadImage(thumbnailFile),
+                }
+
+                console.log('newProject >', newProject)
+
+                setProjects([...projects, newProject])
+                setShowProjectModal(false)
+                setShowLoader(false)
             }
 
-            console.log('newProject >', newProject)
+            catch (e) {
 
-            setProjects([...projects, newProject])
-            setShowProjectModal(false)
+                console.log(e.message)
+                setShowLoader(false)
+            }
         }
 
         return <div className="flex items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md">
@@ -62,7 +74,7 @@ const Projects = () => {
                 <div className={styles.inputContainer}>
                     <label className={styles.label}>Project thumbnail</label>
                     <p className="opacity-50 mb-3">Upload an image of your project. Could be a screenshot of it</p>
-                    <input accept="image/*" className={styles.input} type="file" onChange={e => setThumbnail(e.target.files[0])} />
+                    <input accept="image/*" className={styles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
                 </div>
 
                 <div className="w-full mt-5 p-5 flex justify-start">
