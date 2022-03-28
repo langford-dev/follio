@@ -84,7 +84,7 @@ const Projects = () => {
             }
         </ul>
 
-        {projects.length <= 0 ? <div className="text-center text-gray-500 p-10 mt-10">You don't have any projects yet</div> : null}
+        {projects.length <= 0 ? <div className="text-center text-gray-500 p-10 mt-10">You dont have any projects yet</div> : null}
 
         <Button label="Add a project" onPress={() => setShowProjectModal(true)} />
 
