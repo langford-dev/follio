@@ -8,7 +8,7 @@ const styles = {
     editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
 }
 
-const PaymentView = () => {
+const Payment = () => {
     let { showGithubStats, setShowGithubStats, isPremiumAccount } = useContext(AppContext)
 
     return <div className={styles.editingView}>
@@ -23,4 +23,4 @@ const PaymentView = () => {
     </div>
 }
 
-export default PaymentView
+export default Payment

@@ -8,7 +8,7 @@ const styles = {
     editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
 }
 
-const SocialsView = () => {
+const Socials = () => {
     let { showGithubStats, setShowGithubStats } = useContext(AppContext)
 
     return <div className={styles.editingView}>
@@ -36,4 +36,4 @@ const SocialsView = () => {
     </div>
 }
 
-export default SocialsView
+export default Socials

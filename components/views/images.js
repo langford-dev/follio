@@ -10,7 +10,7 @@ const styles = {
     label: `font-medium`
 }
 
-const ImagesView = () => {
+const Images = () => {
     const { setProfilePhotoPreview, setCoverPhotoPreview, profilePhotoPreview, coverPhotoPreview } = useContext(AppContext)
 
     return <div className={styles.editingView}>
@@ -34,4 +34,4 @@ const ImagesView = () => {
     </div>
 }
 
-export default ImagesView
+export default Images

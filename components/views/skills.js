@@ -9,7 +9,7 @@ const styles = {
     toolItem: `bg-gray-100 rounded-full px-3 py-1 m-1 flex items-center justify-center cursor-pointer hover:bg-red-400 hover:text-white`,
 }
 
-const SkillsView = () => {
+const Skills = () => {
     const { skills, setSkills } = useContext(AppContext)
     const [newSkill, setNewSkill] = useState("")
 
@@ -40,6 +40,8 @@ const SkillsView = () => {
             }
         </ul>
 
+        {skills.length <= 0 ? <div className="text-center text-gray-500 mt-10">You havent added any skills yet</div> : null}
+
         <div className="mt-10 px-5">
             <input className={styles.input} autoFocus={true} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
             <button className={styles.button} onClick={() => {
@@ -53,4 +55,4 @@ const SkillsView = () => {
     </div>
 }
 
-export default SkillsView
+export default Skills

@@ -13,7 +13,6 @@ export const AppProvider = ({ children }) => {
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
-    const [projects, setProjects] = useState([])
     const [coverPhoto, setCoverPhoto] = useState('')
     const [profilePhoto, setProfilePhoto] = useState("")
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
@@ -21,9 +20,12 @@ export const AppProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [showLogin, setShowLogin] = useState(true)
     const [showLoader, setShowLoader] = useState(false)
+    const [showProjectModal, setShowProjectModal] = useState(false)
 
     const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
     const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
+
+    const [projects, setProjects] = useState([])
 
     // const [twitter, setTwitter] = useState("")
     // const [facebook, setFacebook] = useState("")
@@ -50,6 +52,7 @@ export const AppProvider = ({ children }) => {
     useEffect(() => {
 
         // console.log(window.location.hostname.split(".")[0])
+        // console.warn("setting projects")
 
         if ((screen.width <= 640) ||
             (window.matchMedia &&
@@ -235,6 +238,14 @@ export const AppProvider = ({ children }) => {
         setSocials(sessionStorageData.socials)
         setTheme(sessionStorageData.theme)
         setThemeColor(sessionStorageData.themeColor)
+
+
+        // setProjects([{
+        //     name: "Google Tech",
+        //     link: "https://google.com",
+        //     description: "Google Tech is a Google-powered website that provides information about Google's products and services. It is a part of Google's Tech Blog.",
+        //     thumbnail: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+        // }])
     }
 
     const changeThemeInSessionStorage = (index) => {
@@ -316,6 +327,8 @@ export const AppProvider = ({ children }) => {
         theme, changeThemeInSessionStorage,
         saveThemeColorToStorage,
         socials, setSocials,
+        projects, setProjects,
+        showProjectModal, setShowProjectModal,
     }}>
         {children}
     </AppContext.Provider>

@@ -10,7 +10,7 @@ const styles = {
     label: `font-medium`
 }
 
-const IntroView = () => {
+const Intro = () => {
     const { setFullname, setWork, setAbout, fullname, work, about, themeColor, saveThemeColorToStorage } = useContext(AppContext)
 
     return <div className={styles.editingView}>
@@ -37,4 +37,4 @@ const IntroView = () => {
     </div>
 }
 
-export default IntroView
+export default Intro

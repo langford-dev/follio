@@ -1,22 +1,22 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import ImagesView from "./views/imagesView"
-import IntroView from "./views/introView"
-import PaymentView from "./views/paymentView"
-import ProjectsView from "./views/projectsView"
-import SkillsView from "./views/skillsView"
-import SocialsView from "./views/socialsView"
+import Images from "./views/images"
+import Intro from "./views/intro"
+import Payment from "./views/payment"
+import Projects from "./views/projects"
+import Skills from "./views/skills"
+import Socials from "./views/socials"
 
 const DynamicEditView = () => {
     const { viewCount } = useContext(AppContext)
 
     switch (viewCount) {
-        case 0: return <IntroView />
-        case 1: return <ImagesView />
-        case 2: return <SkillsView />
-        case 3: return <SocialsView />
-        case 4: return <PaymentView />
-        case 5: return <ProjectsView />
+        case 0: return <Intro />
+        case 1: return <Images />
+        case 2: return <Skills />
+        case 3: return <Socials />
+        case 4: return <Payment />
+        case 5: return <Projects />
         default: return <div></div>
     }
 }
