@@ -62,7 +62,7 @@ const Projects = () => {
 
                 <div className={styles.inputContainer}>
                     <label className={styles.label}>Project link</label>
-                    <input value={link} placeholder="https://mysite.com" className={styles.input} onChange={e => setLink(e.target.value)} />
+                    <input value={link} placeholder="https://www.mysite.com" className={styles.input} onChange={e => setLink(e.target.value)} />
                 </div>
 
                 <div className={styles.inputContainer}>

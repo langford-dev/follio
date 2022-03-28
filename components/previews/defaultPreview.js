@@ -24,7 +24,7 @@ const DefaultPreview = () => {
         try {
             document.querySelector(".body").style.backgroundColor = themeColor
             document.querySelector(".body").style.color = generateTextColor(themeColor)
-            document.querySelector(".body").style.maxHeight = "100vh"
+            // document.querySelector(".body").style.minHeight = "100vh"
 
             let skillPills = document.querySelectorAll(".skill-pill")
 

@@ -9,7 +9,7 @@ export const AppProvider = ({ children }) => {
     const [username, setUsername] = useState("")
     const [work, setWork] = useState("")
     const [about, setAbout] = useState("")
-    const [themeColor, setThemeColor] = useState("#fffff")
+    const [themeColor, setThemeColor] = useState("#ffffff")
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
