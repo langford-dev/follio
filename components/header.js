@@ -4,19 +4,9 @@ import { AppContext } from "../context/context"
 import Button from "./button"
 import Logo from "./logo"
 import Modal from "./modal"
+import { headerStyles } from "./styles/headerStyles"
 
-const styles = {
-    header: `px-5 border-b h-14 sm:h-20 bg-white fixed w-screen top-0 left-0 z-40`,
-    headerWrapper: `m-auto max-w-screen-2xl h-full flex items-center justify-between`,
-    button: `whitespace-nowrap select-none bg-blue-600 text-white h-9 px-5 flex items-center justify-center rounded-md cursor-pointer`,
-    nav: `hidden sm:flex `,
-    navLink: `hover:text-blue-600 cursor-pointer p-3 flex items-center`,
-    // active: `hover:text-blue-600 cursor-pointer p-3 text-white flex items-center bg-yellow-300 rounded-xlg`,
-    active: `hover:text-blue-600 cursor-pointer p-3 pb-2 h-20 flex items-center border-b-4 border-blue-600 text-blue-600`,
 
-    drawerLink: `mb-7`,
-
-}
 
 const Header = () => {
     const [route, setRoute] = useState('')
@@ -28,16 +18,16 @@ const Header = () => {
         setRoute(window.location.pathname)
     }, [route])
 
-    return <header className={styles.header}>
-        <div className={styles.headerWrapper}>
+    return <header className={headerStyles.header}>
+        <div className={headerStyles.headerWrapper}>
             <Logo />
-            <nav className={styles.nav}>
-                <Link passHref={true} href="/"><p className={route === "/" ? styles.active : styles.navLink}>Dashboard</p></Link>
-                <Link passHref={true} href="/edit"><p className={route === "/edit" ? styles.active : styles.navLink}>Appearance</p></Link>
-                <Link passHref={true} href="/themes"><p className={route === "/themes" ? styles.active : styles.navLink}>Themes</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/settings" ? styles.active : styles.navLink}>Settings</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/upgrade" ? styles.active : styles.navLink}>Upgrade</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/donate" ? styles.active : styles.navLink}>Donate</p></Link>
+            <nav className={headerStyles.nav}>
+                <Link passHref={true} href="/"><p className={route === "/" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
+                <Link passHref={true} href="/edit"><p className={route === "/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
+                <Link passHref={true} href="/themes"><p className={route === "/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
+                <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
+                <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
+                <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link>
             </nav>
             <div className="flex items-center">
                 {!showLoader ? <Button label="Publish" onPress={() => {

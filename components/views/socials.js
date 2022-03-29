@@ -1,20 +1,17 @@
 import { useContext } from "react"
-import ViewTitle from "../components/viewTitle"
+import SocialInput from "../socialInput"
+import ViewTitle from "../viewTitle"
 import Switch from "react-switch";
-import { AppContext } from "../context/context";
-import SocialInput from "../socialInput";
-
-const styles = {
-    editingView: `w-screen sm:w-1/2 p-0 -mt-5 sm:mt-0 sm:border-l pb-56 bg-white`,
-}
+import { AppContext } from "../../context/context";
+import { styles } from "./styles";
 
 const Socials = () => {
     let { showGithubStats, setShowGithubStats } = useContext(AppContext)
 
-    return <div className={styles.editingView}>
+    return <div className={styles.editMain}>
         <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
 
-        <div className="mt-16">
+        <div className={styles.editMainWrapper}>
             <SocialInput label="Twitter profile" host="https://twitter.com/" fieldFor="twitter" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
             <SocialInput label="LinkedIn profile" host="https://linkedin.com/in/" fieldFor="linkedin" />
@@ -33,6 +30,7 @@ const Socials = () => {
                 </div>
             </div>
         </div>
+
     </div>
 }
 

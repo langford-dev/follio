@@ -52,7 +52,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
         switch (fieldFor) {
 
             case "twitter":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={twitter.src} alt="" />
                         {label}
@@ -64,7 +64,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "instagram":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={instagram.src} alt="" />
                         {label}
@@ -76,7 +76,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "github":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={github.src} alt="" />
                         {label}
@@ -88,7 +88,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "linkedin":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={linkedin.src} alt="" />
                         {label}
@@ -100,7 +100,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "stackoverflow":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={stackoverflow.src} alt="" />
                         {label}
@@ -112,7 +112,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "youtube":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={youtube.src} alt="" />
                         {label}
@@ -124,7 +124,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "dribbble":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={dribbble.src} alt="" />
                         {label}
@@ -136,7 +136,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "twitch":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={twitch.src} alt="" />
                         {label}
@@ -148,7 +148,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "discord":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={discord.src} alt="" />
                         {label}
@@ -160,7 +160,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "behance":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>
                         <img className={styles.labelIcon} src={behance.src} alt="" />
                         {label}
@@ -172,7 +172,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "coffee":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
@@ -181,7 +181,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                 </div>
 
             case "eth-tip":
-                return <div className="mb-8 px-5">
+                return <div className="mb-8">
                     <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
@@ -195,7 +195,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
 
     return dynamicInput()
 
-    // return <div className="mb-8 px-5">
+    // return <div className="mb-8">
     //     <label className={styles.label}>
     //         <img src={github.src} alt="" />
     //         {label}

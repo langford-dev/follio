@@ -3,10 +3,13 @@ import LoginComponent from "../components/auth/loginComponent";
 import SignupComponent from "../components/auth/signupComponent";
 import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
+import SideNav from "../components/sideNav";
 import { AppContext } from "../context/context";
 
-const styles = {
-  title: `text-3xl font-bold mb-3`,
+const mainStyles = {
+  mainTitle: `text-2xl sm:text-4xl font-bold mb-3`,
+  main: `flex w-screen min-h-screen max-w-screen-2xl m-auto`,
+  mainContentView: `p-5 w-full border border-t-0 bg-white mt-12 sm:mt-0`,
 }
 
 export default function Home() {
@@ -15,11 +18,11 @@ export default function Home() {
   if (!isAuthenticated && showLogin) return <LoginComponent />
   if (!isAuthenticated && !showLogin) return <SignupComponent />
 
-  else return <div>
+  else return <div className={mainStyles.main}>
     <Header />
-    <div className='mt-20 p-10 max-w-screen-2xl m-auto border border-t-0 bg-white'>
-      <p className={styles.title}>Dashboard</p>
-      <p className="mt-3 mb-5 text-gray-500">View your statistics, clicks and engagement</p>
+    <SideNav />
+    <div className={mainStyles.mainContentView}>
+      <p className={mainStyles.mainTitle}>Dashboard</p>
     </div>
     <BottomNavigation />
   </div>
