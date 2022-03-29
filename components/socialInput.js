@@ -12,8 +12,8 @@ import discord from "../assets/svg/discord.svg"
 import behance from "../assets/svg/behance.svg"
 
 const styles = {
-    inputContainer: `bg-gray-100 border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex text-gray-400`,
-    input: `outline-none w-9/12 text-black bg-gray-100`,
+    inputContainer: `bg-[#fbfcfff2] border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex`,
+    input: `outline-none w-9/12 bg-transparent`,
     label: `font-medium flex items-center`,
     labelIcon: `mr-2`,
 }
@@ -40,11 +40,8 @@ const SocialInput = ({ label, host, fieldFor }) => {
     }
 
     const setNewSocials = (value, type) => {
-
         newSocials[type] = value.trim()
-
         setSocials(newSocials)
-
     }
 
     let dynamicInput = () => {
@@ -194,17 +191,6 @@ const SocialInput = ({ label, host, fieldFor }) => {
     }
 
     return dynamicInput()
-
-    // return <div className="mb-8">
-    //     <label className={styles.label}>
-    //         <img src={github.src} alt="" />
-    //         {label}
-    //     </label>
-    //     <div className={styles.inputContainer}>
-    //         <p>{host}</p>
-    //         {dynamicInput()}
-    //     </div>
-    // </div>
 }
 
 export default SocialInput

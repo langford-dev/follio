@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { AppContext } from "../context/context"
+import Button from "./button"
 import { navStyles } from "./styles/navStyles"
 import ViewsTracker from "./viewsTracker"
 
@@ -11,6 +13,7 @@ import ViewsTracker from "./viewsTracker"
 // }
 
 const SideNav = () => {
+    const { updateAccount, showLoader } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -26,6 +29,11 @@ const SideNav = () => {
             <Link passHref={true} href="/"><p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>Settings</p></Link>
             <Link passHref={true} href="/"><p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>Upgrade</p></Link>
             <Link passHref={true} href="/"><p className={route === "/donate" ? navStyles.activeNavLink : navStyles.navLink}>Donate</p></Link>
+            <div className="flex items-center mt-3">
+                {!showLoader ? <Button label="Save &amp; publish" onPress={() => {
+                    updateAccount()
+                }} /> : <></>}
+            </div>
         </div>
 
         <div className={route === "/edit" ? "" : "hidden"}>
