@@ -4,8 +4,8 @@ import { EditOutlined, FormatPainterOutlined, EllipsisOutlined, HomeOutlined } f
 const iconStyle = (page) => {
     let pageUrl = window.location.pathname
 
-    if (pageUrl === page) return { fontSize: '23px', color: '#2563eb' }
-    return { fontSize: '23px' }
+    if (pageUrl === page) return { fontSize: '30px', color: '#2563eb' }
+    return { fontSize: '30px', }
 
 }
 

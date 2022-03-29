@@ -47,26 +47,28 @@ const Projects = () => {
             <div className="bg-white rounded-md w-11/12 sm:max-w-lg border">
                 <p className="font-extrabold text-2xl border-b p-5">Add new project</p>
 
-                <div className={styles.inputContainer}>
-                    <label className={styles.label}>Project name</label>
-                    <input value={name} className={styles.input} onChange={e => setName(e.target.value)} />
-                </div>
+                <div className={styles.editMainWrapper}>
+                    <div className={styles.inputContainer}>
+                        <label className={styles.label}>Project name</label>
+                        <input value={name} className={styles.input} onChange={e => setName(e.target.value)} />
+                    </div>
 
-                <div className={styles.inputContainer}>
-                    <label className={styles.label}>Project link</label>
-                    <input value={link} className={styles.input} onChange={e => setLink(e.target.value)} />
-                </div>
+                    <div className={styles.inputContainer}>
+                        <label className={styles.label}>Project link</label>
+                        <input value={link} className={styles.input} onChange={e => setLink(e.target.value)} />
+                    </div>
 
-                <div className={styles.inputContainer}>
-                    <label className={styles.label}>Project Description</label>
-                    <p className="opacity-50 mb-3">Talk a bit about your project</p>
-                    <textarea value={description} className={styles.input} onChange={e => setDescription(e.target.value)} />
-                </div>
+                    <div className={styles.inputContainer}>
+                        <label className={styles.label}>Project Description</label>
+                        <p className="opacity-50 mb-3">Talk a bit about your project</p>
+                        <textarea value={description} className={styles.input} onChange={e => setDescription(e.target.value)} />
+                    </div>
 
-                <div className={styles.inputContainer}>
-                    <label className={styles.label}>Project thumbnail</label>
-                    <p className="opacity-50 mb-3">Upload an image of your project. Could be a screenshot of it</p>
-                    <input accept="image/*" className={styles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
+                    <div className={styles.inputContainer}>
+                        <label className={styles.label}>Project thumbnail</label>
+                        <p className="opacity-50 mb-3">Upload an image of your project. Could be a screenshot of it</p>
+                        <input accept="image/*" className={styles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
+                    </div>
                 </div>
 
                 <div className="w-full mt-5 p-5 flex justify-start">
