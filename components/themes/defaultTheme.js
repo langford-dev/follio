@@ -9,7 +9,7 @@ const styles = {
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMain: `text-center m-auto max-w-2xl max-w-3xl py-20 pt-0 lg:px-10 block`,
     closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
-    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:-mt-10`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
@@ -82,7 +82,6 @@ const DefaultTheme = ({ data }) => {
                             <img className={styles.profilePhoto} src={profilePhoto} alt='' />
                         </div> : <div className={styles.profilePhoto} ></div>
                 }
-
             </div>
 
             <p className="font-bold text-3xl my-5 mt-10">{fullname}</p>
