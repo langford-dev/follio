@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../context/context"
 import Button from "./button"
+import Logo from "./logo"
 import { navStyles } from "./styles/navStyles"
 import ViewsTracker from "./viewsTracker"
 
@@ -23,6 +24,7 @@ const SideNav = () => {
 
     return <div className={navStyles.sideNav}>
         <div className="border-b pb-5">
+            <div className="flex items-center justify-center mr-10 mb-5"><Logo /></div>
             <Link passHref={true} href="/"><p className={route === "/" ? navStyles.activeNavLink : navStyles.navLink}>Dashboard</p></Link>
             <Link passHref={true} href="/edit"><p className={route === "/edit" ? navStyles.activeNavLink : navStyles.navLink}>Appearance</p></Link>
             <Link passHref={true} href="/themes"><p className={route === "/themes" ? navStyles.activeNavLink : navStyles.navLink}>Themes</p></Link>
