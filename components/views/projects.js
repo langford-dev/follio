@@ -43,8 +43,8 @@ const Projects = () => {
             }
         }
 
-        return <div className="flex items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md">
-            <div className="bg-white rounded-md w-11/12 sm:max-w-lg border">
+        return <div className="flex items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-0 backdrop-blur-md">
+            <div className="bg-white rounded-md w-11/12 sm:max-w-lg border-2 border-black">
                 <p className="font-extrabold text-2xl border-b p-5">Add new project</p>
 
                 <div className={styles.editMainWrapper}>
