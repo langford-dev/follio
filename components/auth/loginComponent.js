@@ -1,18 +1,19 @@
 import { useRouter } from "next/dist/client/router"
 import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
+import Button from "../button"
 import Loader from "../loader"
 
 const styles = {
     // main: `w-screen h-screen flex flex-col items-center justify-center`,
-    main: `w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-r from-rose-100 to-teal-100`,
+    // main: `w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-r from-rose-100 to-teal-100`,
+    main: `w-screen h-screen flex flex-col items-center justify-center bg-yellow-300`,
     inputContainer: `flex flex-col mb-5`,
     input: `outline-none w-full border p-2 rounded-md`,
     label: `mb-2 flex items-center justify-between font-medium text-gray-600`,
-    title: `text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-pink-600`,
-    mainInputBox: `p-5 rounded-md w-11/12 sm:max-w-lg px-5 bg-white border`,
+    title: `text-3xl sm:text-5xl font-extrabold overflow-hidden`,
+    mainInputBox: `p-5 rounded-md w-11/12 sm:max-w-lg px-5 bg-white border border-black`,
     subtext: `text-center mt-3 mb-10`,
-    button: `mt-10 select-none bg bg-blue-600 text-white h-10 px-5 flex items-center justify-center rounded-md cursor-pointer`,
 }
 
 const LoginComponent = () => {
@@ -42,8 +43,7 @@ const LoginComponent = () => {
 
             <p className="mb-3 -mt-3 text-red-700">{error}</p>
 
-            <div className={styles.button} onClick={() => login(username, password)}>Lets go🚀</div>
-
+            <Button label="Lets go🚀" onPress={() => login(username, password)} />
             <p className="mt-5 font-bold cursor-pointer text-center" onClick={() => setShowLogin(false)}>Sign me up yo!</p>
         </div>
     </div>
