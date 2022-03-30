@@ -5,13 +5,14 @@ import EditViewController from "./editViewController"
 import EditTabs from "./editTabs"
 import Loader from "./loader"
 import DefaultPreview from "./previews/defaultPreview"
-import ViewsTracker from "./viewsTracker"
+import eye from "../assets/svg/eye.svg"
+import Image from "next/image"
 import Header from "./header"
 
 const styles = {
     pageView: `m-auto max-w-screen-2xl min-h-screen`,
     pageViewWrapper: `flex min-h-screen`,
-    fab: `shadow-2xl h-14 w-14 bg-blue-600 text-white font-bold text-4xl fixed bottom-0 mb-20 right-0 m-4 pb-1 rounded-full flex justify-center items-center sm:hidden`,
+    fab: `focus:outline-none focus:ring-0 active:bg-yellow-500 transition active:scale-95 active:shadow-lg hover:bg-white h-14 w-14 bg-[#FFFD63] border-2 border-black font-bold text-4xl fixed bottom-0 mb-20 right-0 m-4 pb-1 rounded-full flex justify-center items-center sm:hidden`,
 }
 
 const EditView = () => {
@@ -23,10 +24,11 @@ const EditView = () => {
         <Header />
         <div className={styles.pageViewWrapper}>
             <EditViewController />
-            {!showPreview ? <EditTabs /> : <></>}
 
+            {!showPreview ? <EditTabs /> : <></>}
             {theme === 1 ? <DefaultPreview editMode={true} /> : <></>}
             {showPreview ? <div className={styles.fab} onClick={() => setShowPreview(false)}>&times;</div> : <></>}
+            {!showPreview ? <div className={styles.fab} onClick={() => setShowPreview(true)}><Image src={eye} /></div> : <></>}
 
             <BottomNavigation />
         </div>

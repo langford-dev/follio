@@ -1,12 +1,10 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import eye from "../assets/svg/eye.svg"
-import Image from "next/image"
 
 const styles = {
-    tab: `whitespace-nowrap mr-7 h-14 flex items-center pt-2 opacity-50 min-w-min`,
-    active: `whitespace-nowrap mr-7 h-14 flex items-center pt-2 block opacity-100 border-b-2 min-w-min border-yellow-300`,
-    main: `no-scrollbar fixed top-12 left-0 bg-white border-b w-screen px-3 z-20 flex items-center overflow-x-auto sm:hidden`,
+    tab: `whitespace-nowrap mr-3 mt-2 px-3 flex items-center py-2 opacity-50 min-w-min`,
+    active: `whitespace-nowrap mr-3 mt-2 rounded-lg px-3 flex items-center py-2 block opacity-100 min-w-min bg-[#E6E7E8]`,
+    main: `fixed top-12 left-0 bg-white border-b w-screen px-3 py-3 z-20 flex items-center overflow-x-auto sm:hidden`,
     fab: `shadow-2xl h-14 w-14 bg-blue-600 fixed bottom-0 mb-20 right-0 m-4 rounded-full flex justify-center items-center sm:hidden`,
 }
 
@@ -27,7 +25,7 @@ const EditTabs = () => {
             <li onClick={() => setActive(4)} className={viewCount === 4 ? styles.active : styles.tab}>🎁 Receive tips</li>
         </ul>
 
-        {!showPreview ? <div className={styles.fab} onClick={() => setShowPreview(true)}><Image src={eye} /></div> : <></>}
+        {/* {!showPreview ? <div className={styles.fab} onClick={() => setShowPreview(true)}><Image src={eye} /></div> : <></>} */}
     </div>
 }
 
