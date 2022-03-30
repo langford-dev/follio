@@ -14,9 +14,9 @@ const EditViewController = () => {
         case 0: return <Intro />
         case 1: return <Images />
         case 2: return <Skills />
-        case 3: return <Socials />
-        case 4: return <Payment />
-        case 5: return <Projects />
+        case 3: return <Projects />
+        case 4: return <Socials />
+        case 5: return <Payment />
         default: return <div></div>
     }
 }
