@@ -9,7 +9,7 @@ const styles = {
     pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center justify-center flex-wrap px-5`,
     previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
-    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto -mt-10 sm:mt-10`,
+    profilePhotoContainer: `w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden relative p-1 bg-white m-auto mt-10 sm:mt-10`,
     profilePhoto: `object-cover h-full w-full rounded-full`,
     coverPhoto: `bg-gray-100 w-full h-32 sm:h-60 object-cover`,
     sectionTitle: `font-bold text-2xl mb-5`,
