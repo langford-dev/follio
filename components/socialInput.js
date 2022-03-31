@@ -12,9 +12,12 @@ import discord from "../assets/svg/discord.svg"
 import behance from "../assets/svg/behance.svg"
 
 const styles = {
-    inputContainer: `bg-[#fbfcfff2] border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex`,
-    input: `outline-none w-9/12 bg-transparent`,
-    label: `font-medium flex items-center`,
+    inputContainer: `outline-none w-full border border-[#84858e35] p-3 rounded-xl mt-2 border sm:w-9/12 rounded-md flex`,
+    // inputContainer: `bg-[#fbfcfff2] border p-2 outline-none mt-2 w-full sm:w-9/12 rounded-md flex`,
+    // input: `outline-none w-full border p-3 rounded-xl mt-2`,
+    // input: `outline-none w-9/12 bg-transparent`,
+    input: `outline-none`,
+    label: `font-bold flex opacity-50 items-center`,
     labelIcon: `mr-2`,
 }
 
