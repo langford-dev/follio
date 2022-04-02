@@ -13,7 +13,7 @@ const mainStyles = {
 }
 
 export default function Home() {
-  const { isAuthenticated, showLogin } = useContext(AppContext)
+  const { isAuthenticated, showLogin, views } = useContext(AppContext)
 
   if (!isAuthenticated && showLogin) return <LoginComponent />
   if (!isAuthenticated && !showLogin) return <SignupComponent />
@@ -23,7 +23,12 @@ export default function Home() {
     <SideNav />
     <div className={mainStyles.mainContentView}>
       <p className={mainStyles.mainTitle}>Dashboard</p>
+      <div>
+        <div className="border p-2 w-max  ">
+          Views - {views}
+        </div>
+      </div>
     </div>
-    <BottomNavigation />
+    {/* <BottomNavigation /> */}
   </div>
 }

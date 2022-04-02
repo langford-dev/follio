@@ -17,7 +17,7 @@ html,
 body {
   /* background: #e2e8f013; */
   /* overflow-x: hidden; */
-  /* background: #fbfcfff2; */
+  background: #fbfcfff2;
   padding: 0;
   margin: 0;
   color: #242424
@@ -26,6 +26,24 @@ body {
 :root {
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar {
+  /* width: 10px; */
+  display: none;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dddddda3;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dddddd;
+} */
 
 .about-text {
   line-height: 46px;
@@ -71,4 +89,8 @@ a {
     max-height: 100vh;
     border-left: 1px solid rgb(229 231 235);
   }
+
+  /* ::-webkit-scrollbar {
+    display: none;
+  } */
 }

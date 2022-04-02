@@ -9,6 +9,7 @@ export const AppProvider = ({ children }) => {
     const [tagline, setTagline] = useState("")
     const [username, setUsername] = useState("")
     const [work, setWork] = useState("")
+    const [views, setViews] = useState(0)
     const [about, setAbout] = useState("")
     const [themeColor, setThemeColor] = useState("#ffffff")
     const [showGithubStats, setShowGithubStats] = useState(false)
@@ -84,6 +85,21 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
+    const increasePageViewCount = async (data) => {
+
+        data.views++
+
+        const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+
+        console.log("res >> ", res)
+    }
+
     const uploadImage = async (_file) => {
 
         try {
@@ -148,6 +164,7 @@ export const AppProvider = ({ children }) => {
                 "workplaces": workplaces,
                 "projects": projects,
                 "theme": theme,
+                "views": views,
                 "themeColor": themeColor,
                 "socials": socials,
             }
@@ -194,6 +211,7 @@ export const AppProvider = ({ children }) => {
             setFullname(data.payload.fullname)
             setUsername(data.payload.username)
             setTagline(data.payload.tagline)
+            setViews(data.payload.views)
             setWork(data.payload.work)
             setAbout(data.payload.about)
             setProfilePhoto(data.payload.profilePhoto)
@@ -231,6 +249,7 @@ export const AppProvider = ({ children }) => {
         setUsername(sessionStorageData.username)
         setTagline(sessionStorageData.tagline)
         setWork(sessionStorageData.work)
+        setViews(sessionStorageData.views)
         setAbout(sessionStorageData.about)
         setProfilePhoto(sessionStorageData.profilePhoto)
         setCoverPhoto(sessionStorageData.coverPhoto)
@@ -335,6 +354,8 @@ export const AppProvider = ({ children }) => {
         projects, setProjects,
         uploadImage,
         tagline, setTagline,
+        increasePageViewCount,
+        views,
         showProjectModal, setShowProjectModal,
     }}>
         {children}
