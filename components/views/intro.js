@@ -4,7 +4,7 @@ import ViewTitle from "../viewTitle"
 import { styles } from "./styles"
 
 const Intro = () => {
-    const { setFullname, setWork, setAbout, fullname, work, about, themeColor, saveThemeColorToStorage } = useContext(AppContext)
+    const { setFullname, setWork, setAbout, fullname, work, about, themeColor, setTagline, tagline, saveThemeColorToStorage } = useContext(AppContext)
 
     return <div className={styles.editMain}>
         <ViewTitle title="Introduction" subtitle="Tell visitors your name, what you do, and who you are" />
@@ -13,6 +13,11 @@ const Intro = () => {
             <div className={styles.inputContainer}>
                 <label className={styles.label}>Your name</label>
                 <input type="text" value={fullname} className={styles.input} onChange={e => setFullname(e.target.value)} />
+            </div>
+
+            <div className={styles.inputContainer}>
+                <label className={styles.label}>Tagline</label>
+                <input type="text" placeholder="I am Langford 👋, a web developer, and content creator." value={tagline} className={styles.input} onChange={e => setTagline(e.target.value)} />
             </div>
 
             <div className={styles.inputContainer}>

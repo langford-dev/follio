@@ -18,7 +18,7 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
         }
     }
 
-    return <div className="p-3 sm:m-2 mb-4 border border-[#dadada29] rounded-md text-left">
+    return <div className="p-3 sm:m-2 mb-10 border border-[#dadada29] rounded-md text-left">
         {
             editMode ?
                 <div onClick={() => removeProject(index)} className="text-red-600 mb-3 cursor-pointer hover:opacity-50">
