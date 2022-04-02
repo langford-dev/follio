@@ -64,10 +64,17 @@ const Preview1 = () => {
                         </div>
                         <div>
                             {
-                                profilePhoto ?
+                                profilePhotoPreview ?
+                                    <div className={styles.profilePhotoContainer}>
+                                        <img className={styles.profilePhoto} src={URL.createObjectURL(profilePhotoPreview)} alt='' />
+                                    </div> : <></>
+                            }
+
+                            {
+                                !profilePhotoPreview && profilePhoto ?
                                     <div className={styles.profilePhotoContainer}>
                                         <img className={styles.profilePhoto} src={profilePhoto} alt='' />
-                                    </div> : <img src={`https://avatars.dicebear.com/api/avataaars/:${fullname}.svg`} className="w-96 h-96 max-w-4xl" />
+                                    </div> : <></>
                             }
                         </div>
                     </div>
