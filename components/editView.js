@@ -8,6 +8,7 @@ import DefaultPreview from "./previews/defaultPreview"
 import eye from "../assets/svg/eye.svg"
 import Image from "next/image"
 import Header from "./header"
+import Preview1 from "./previews/preview1"
 
 const styles = {
     pageView: `m-auto max-w-screen-2xl min-h-screen`,
@@ -27,6 +28,7 @@ const EditView = () => {
 
             {!showPreview ? <EditTabs /> : <></>}
             {theme === 1 ? <DefaultPreview editMode={true} /> : <></>}
+            {theme === 2 ? <Preview1 editMode={true} /> : <></>}
             {showPreview ? <div className={styles.fab} onClick={() => setShowPreview(false)}>&times;</div> : <></>}
             {!showPreview ? <div className={styles.fab} onClick={() => setShowPreview(true)}><Image src={eye} /></div> : <></>}
 

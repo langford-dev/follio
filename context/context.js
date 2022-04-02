@@ -6,6 +6,7 @@ export const AppContext = createContext()
 export const AppProvider = ({ children }) => {
     const [viewCount, setViewCount] = useState(0)
     const [fullname, setFullname] = useState("")
+    const [tagline, setTagline] = useState("")
     const [username, setUsername] = useState("")
     const [work, setWork] = useState("")
     const [about, setAbout] = useState("")
@@ -136,6 +137,7 @@ export const AppProvider = ({ children }) => {
             let _body = {
                 "fullname": fullname,
                 "username": username,
+                "tagline": tagline,
                 "work": work,
                 "about": about,
                 "showGithubStats": showGithubStats,
@@ -191,6 +193,7 @@ export const AppProvider = ({ children }) => {
 
             setFullname(data.payload.fullname)
             setUsername(data.payload.username)
+            setTagline(data.payload.tagline)
             setWork(data.payload.work)
             setAbout(data.payload.about)
             setProfilePhoto(data.payload.profilePhoto)
@@ -226,6 +229,7 @@ export const AppProvider = ({ children }) => {
 
         setFullname(sessionStorageData.fullname)
         setUsername(sessionStorageData.username)
+        setTagline(sessionStorageData.tagline)
         setWork(sessionStorageData.work)
         setAbout(sessionStorageData.about)
         setProfilePhoto(sessionStorageData.profilePhoto)
@@ -330,6 +334,7 @@ export const AppProvider = ({ children }) => {
         socials, setSocials,
         projects, setProjects,
         uploadImage,
+        tagline, setTagline,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

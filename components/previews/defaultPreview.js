@@ -108,7 +108,7 @@ const DefaultPreview = () => {
                     <ul className={styles.wrap}>
                         {
                             skills.map((skill, index) => {
-                                return <li key={index} className="skill-pill">{skill}</li>
+                                return <li key={index} className="skill-pill rounded-full px-4 py-2 hover:opacity-50 transition m-3">{skill}</li>
                             })
                         }
                     </ul>

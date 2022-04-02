@@ -32,8 +32,6 @@ const DefaultTheme = ({ data }) => {
     const [profilePhoto, setProfilePhoto] = useState("")
 
     useEffect(() => {
-
-
         if (data && data) {
             setSkills(data.skills)
             setFullame(data.fullname)
@@ -114,7 +112,7 @@ const DefaultTheme = ({ data }) => {
                 <ul className={styles.wrap}>
                     {
                         skills.map((skill, index) => {
-                            return <li key={index} className="skill-pill">{skill}</li>
+                            return <li key={index} className="skill-pill rounded-full px-4 py-2 hover:opacity-50 transition m-3">{skill}</li>
                         })
                     }
                 </ul>
@@ -138,7 +136,7 @@ const DefaultTheme = ({ data }) => {
                 showGithubStats && socials.github ? <div className="mt-20">
                     <p className={styles.sectionTitle}>My GitHub stats 🤩</p>
                     <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
-                    <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=ffffff&line=3382ed&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} />
+                    {/* <img alt='' style={{ width: "90%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://activity-graph.herokuapp.com/graph?username=${socials.github}&bg_color=1c1917&color=ffffff&line=3382ed&point=ffffff&area_color=1c1917&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph`} /> */}
                 </div> : <></>
             }
 
