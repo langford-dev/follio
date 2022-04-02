@@ -11,7 +11,7 @@ const ViewsTracker = () => {
 
     return <ul>
         <li onClick={() => setActive(0)} className={viewCount === 0 ? navStyles.activeNavLink : navStyles.navLink}>👋 Introduction</li>
-        <li onClick={() => setActive(1)} className={viewCount === 1 ? navStyles.activeNavLink : navStyles.navLink}>📷 Photos</li>
+        <li onClick={() => setActive(1)} className={viewCount === 1 ? navStyles.activeNavLink : navStyles.navLink}>📷 Add photos</li>
         <li onClick={() => setActive(2)} className={viewCount === 2 ? navStyles.activeNavLink : navStyles.navLink}>🔨 Your skills</li>
         <li onClick={() => setActive(3)} className={viewCount === 3 ? navStyles.activeNavLink : navStyles.navLink}>💼 Projects</li>
         <li onClick={() => setActive(4)} className={viewCount === 4 ? navStyles.activeNavLink : navStyles.navLink}>🤩 Your socials</li>

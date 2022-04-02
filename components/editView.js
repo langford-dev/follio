@@ -32,7 +32,7 @@ const EditView = () => {
             {showPreview ? <div className={styles.fab} onClick={() => setShowPreview(false)}>&times;</div> : <></>}
             {!showPreview ? <div className={styles.fab} onClick={() => setShowPreview(true)}><Image src={eye} /></div> : <></>}
 
-            <BottomNavigation />
+            {/* <BottomNavigation /> */}
         </div>
     </div>
 }

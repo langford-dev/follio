@@ -16,13 +16,13 @@ const Intro = () => {
             </div>
 
             <div className={styles.inputContainer}>
-                <label className={styles.label}>Tagline</label>
-                <input type="text" placeholder="I am Langford 👋, a web developer, and content creator." value={tagline} className={styles.input} onChange={e => setTagline(e.target.value)} />
+                <label className={styles.label}>Your work</label>
+                <input type="text" value={work} className={styles.input} onChange={e => setWork(e.target.value)} />
             </div>
 
             <div className={styles.inputContainer}>
-                <label className={styles.label}>Your work</label>
-                <input type="text" value={work} className={styles.input} onChange={e => setWork(e.target.value)} />
+                <label className={styles.label}>Tagline</label>
+                <textarea type="text" placeholder="I am Langford 👋, a web developer, and content creator." value={tagline} className={styles.textArea} onChange={e => setTagline(e.target.value)} />
             </div>
 
             <div className={styles.inputContainer}>

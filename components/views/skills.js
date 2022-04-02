@@ -36,10 +36,14 @@ const Skills = () => {
                 }
             </ul>
 
-            {skills.length <= 0 ? <div className="text-center text-gray-500 mt-10">You havent added any skills yet</div> : null}
+            {
+                skills.length <= 0 ?
+                    <div className="text-center text-gray-500 mt-10">You havent added any skills yet</div>
+                    : null
+            }
 
             <div className="flex items-center flex-wrap mt-10">
-                <input className={styles.input} autoFocus={true} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
+                <input className={styles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
                 <div className="mt-2 sm:ml-5">
                     <Button label="Add a skill" onPress={() => {
                         if (newSkill.trim() === "") return
