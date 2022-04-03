@@ -3,7 +3,7 @@ import LoginComponent from "../components/auth/loginComponent"
 import SignupComponent from "../components/auth/signupComponent"
 import EditView from "../components/editView"
 import Header from "../components/header"
-import SideNav from "../components/sideNav"
+import SideNav from "../components/side-nav/sideNav"
 import { mainStyles } from "../components/styles/mainStyles"
 import { AppContext } from "../context/context"
 
