@@ -4,6 +4,7 @@ import brush from "../../assets/svg/brush.svg"
 import theme from "../../assets/svg/theme.svg"
 import settings from "../../assets/svg/settings.svg"
 import shield from "../../assets/svg/shield.svg"
+import share from "../../assets/svg/share.svg"
 import color from "../../assets/svg/color.svg"
 import coin from "../../assets/svg/coin.svg"
 import { useContext, useEffect, useState } from "react"
@@ -12,7 +13,7 @@ import Button from "../button"
 import { navStyles } from "../styles/navStyles"
 
 const SideNavLinks = () => {
-    const { updateAccount, showLoader } = useContext(AppContext)
+    const { updateAccount, showLoader, shareLink } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -57,6 +58,10 @@ const SideNavLinks = () => {
                 Donate
             </p>
         </Link>
+        <p className={navStyles.navLink} onClick={() => shareLink()}>
+            <img className={navStyles.navLinkIcon} src={share.src} />
+            Share link
+        </p>
 
         <div className="flex items-center mt-3">
             {!showLoader ? <Button label="Save &amp; publish" onPress={() => {

@@ -18,7 +18,8 @@ body {
   /* background: #e2e8f013; */
   /* overflow-x: hidden; */
   /* background: #fbfcfff2; */
-  background: #F7F6F3;
+  /* background: #F7F6F3; */
+  background: #F9F9F9;
   padding: 0;
   margin: 0;
   color: #242424;
@@ -69,7 +70,7 @@ a {
   width: 100%;
   position: absolute;
   overflow-y: scroll;
-  border-left: 1px solid rgb(229 231 235);
+  /* border-left: 1px solid rgb(229 231 235); */
 }
 
 .skill-pill {
@@ -90,6 +91,7 @@ a {
     position: relative;
     /* overflow-y: scroll; */
     max-height: 100vh;
+    border-left: 1px solid rgb(229 231 235);
   }
 
   /* ::-webkit-scrollbar {

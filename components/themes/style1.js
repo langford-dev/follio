@@ -79,9 +79,9 @@ const Style1 = ({ data }) => {
         <div className={styles.previewMain}>
 
             {/* HERO */}
-            <div className="sm:flex items-center py-28 px-5 border-b border-b-[#27272767]">
+            <div className="sm:flex justify-center items-center py-32 px-5 border-b border-b-[#27272767]">
                 <div>
-                    <p className="sm:text-7xl text-5xl font-extrabold leading-tight sm:mr-10">{tagline}</p>
+                    <p className="sm:text-7xl text-5xl max-w-4xl font-extrabold leading-tight sm:mr-10">{tagline}</p>
                     {
                         tagline === "" ?
                             <p className="sm:text-7xl text-5xl font-extrabold leading-tight sm:mr-10">{work}</p>
@@ -108,7 +108,7 @@ const Style1 = ({ data }) => {
             {/* ABOUT */}
             {
                 about ?
-                    <div className="py-28 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
                         <p className="text-3xl font-bold mb-5">ABOUT ME</p>
                         <p className="text-xl sm:text-3xl about-text">{about}</p>
                     </div>
@@ -118,7 +118,7 @@ const Style1 = ({ data }) => {
             {/* SKILLS */}
             {
                 skills.length > 0 ?
-                    <div className="py-28 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
                         <p className="text-3xl font-bold mb-5">MY SKILLS</p>
                         <ul className={styles.wrap}>
                             {
@@ -134,7 +134,7 @@ const Style1 = ({ data }) => {
             {/* PROJECTS */}
             {
                 projects.length > 0 ?
-                    <div className="py-28 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
                         <p className="text-3xl font-bold mb-5">PROJECTS</p>
                         <ul className="grid grid-cols-1 sm:grid-cols-2">
                             {
@@ -150,7 +150,7 @@ const Style1 = ({ data }) => {
             {/* GITHUB STATS */}
             {
                 showGithubStats && socials.github ?
-                    <div className="py-28 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
                         <p className="text-3xl font-bold mb-5">MY GITHUB STATS</p>
                         <img alt='' style={{ width: "100%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     </div> : <></>
@@ -159,7 +159,7 @@ const Style1 = ({ data }) => {
             {/* DONATIONS & TIPS */}
             {
                 isPremiumAccount && socials.coffee.trim() !== "" ?
-                    <div className="py-28 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
                         <p className="text-3xl font-bold mb-5">WANT TO DONATE?</p>
                         <div className="sm:flex justify-center">
                             <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
@@ -179,7 +179,7 @@ const Style1 = ({ data }) => {
             }
 
             {/* MADE WITH FOLIO */}
-            <div className="py-28 px-5 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
+            <div className="py-20 px-5 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
                 <a href="https://folio.vercel.app" className="opacity-50">Made with 💛 by Folio</a>
             </div>
         </div>
