@@ -100,6 +100,21 @@ export const AppProvider = ({ children }) => {
         console.log("res >> ", res)
     }
 
+    const shareLink = async () => {
+        console.warn("sharing...🔥")
+        try {
+            await navigator.share({
+                title: `Folio | ${fullname}`,
+                text: 'Check out my Folio',
+                url: `https://follio.netlify.app/${username}`,
+            })
+        }
+
+        catch (e) {
+            console.log(e.message)
+        }
+    }
+
     const uploadImage = async (_file) => {
 
         try {
@@ -355,7 +370,7 @@ export const AppProvider = ({ children }) => {
         uploadImage,
         tagline, setTagline,
         increasePageViewCount,
-        views,
+        views, shareLink,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

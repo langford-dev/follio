@@ -44,7 +44,7 @@ const Themes = () => {
                 <ThemeCard index={2} thumbnail={theme2} />
             </div>
         </div>
-        <BottomNavigation />
+        {/* <BottomNavigation /> */}
     </div>
 }
 
