@@ -69,6 +69,7 @@ a {
   width: 100%;
   position: absolute;
   overflow-y: scroll;
+  border-left: 1px solid rgb(229 231 235);
 }
 
 .skill-pill {
@@ -89,7 +90,6 @@ a {
     position: relative;
     /* overflow-y: scroll; */
     max-height: 100vh;
-    border-left: 1px solid rgb(229 231 235);
   }
 
   /* ::-webkit-scrollbar {
