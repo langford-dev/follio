@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
+import Colors from "./views/colors"
 import Images from "./views/images"
 import Intro from "./views/intro"
 import Payment from "./views/payment"
@@ -14,9 +15,10 @@ const EditViewController = () => {
         case 0: return <Intro />
         case 1: return <Images />
         case 2: return <Skills />
-        case 3: return <Projects />
-        case 4: return <Socials />
-        case 5: return <Payment />
+        case 3: return <Colors />
+        case 4: return <Projects />
+        case 5: return <Socials />
+        case 6: return <Payment />
         default: return <div></div>
     }
 }

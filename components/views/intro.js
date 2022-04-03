@@ -4,7 +4,7 @@ import ViewTitle from "../viewTitle"
 import { styles } from "./styles"
 
 const Intro = () => {
-    const { setFullname, setWork, setAbout, fullname, work, about, themeColor, setTagline, tagline, saveThemeColorToStorage } = useContext(AppContext)
+    const { setFullname, setWork, setAbout, fullname, work, about, setTagline, tagline } = useContext(AppContext)
 
     return <div className={styles.editMain}>
         <ViewTitle title="Introduction" subtitle="Tell visitors your name, what you do, and who you are" />
@@ -28,13 +28,6 @@ const Intro = () => {
             <div className={styles.inputContainer}>
                 <label className={styles.label}>About you</label>
                 <textarea type="text" value={about} className={styles.textArea} onChange={e => setAbout(e.target.value)} />
-            </div>
-
-            <div className={styles.inputContainer}>
-                <div className="flex">
-                    <label className={styles.label}>🎨 Your theme color</label>
-                    <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value) }} />
-                </div>
             </div>
         </div>
     </div>

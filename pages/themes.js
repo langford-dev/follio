@@ -8,7 +8,7 @@ import Loader from "../components/loader";
 import ThemeCard from "../components/themeCard";
 import theme1 from "../assets/themes/1.png"
 import theme2 from "../assets/themes/2.png"
-import SideNav from "../components/sideNav";
+import SideNav from "../components/side-nav/sideNav";
 
 const styles = {
     title: `text-3xl font-bold mb-3`,

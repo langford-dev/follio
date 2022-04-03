@@ -18,9 +18,9 @@ const BottomNavigation = () => {
             </div>
         </Link>
 
-        <Link href="/edit" pa ssHref={true}>
+        <Link href="/" pa ssHref={true}>
             <div className="flex items-center flex-col">
-                <EditOutlined style={iconStyle("/edit")} />
+                <EditOutlined style={iconStyle("/")} />
                 <small>Edit</small>
             </div>
         </Link>
