@@ -36,12 +36,12 @@ const Header = () => {
             </div>
             <Logo />
             <nav className={headerStyles.nav}>
-                <Link passHref={true} href="/"><p className={route === "/" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
+                <Link passHref={true} href="/dashboard"><p className={route === "/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
+                <Link passHref={true} href="/"><p className={route === "/" || route === "/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
                 <Link passHref={true} href="/themes"><p className={route === "/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link>
+                {/* <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link> */}
+                {/* <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link> */}
+                {/* <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link> */}
             </nav>
             <div className="flex items-center">
                 <GhostButton onPress={() => shareLink()} label="Share link" />

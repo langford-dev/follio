@@ -21,7 +21,7 @@ const SideNav = () => {
         {/* <div className="flex items-center justify-center mr-10 mb-5"><Logo /></div> */}
         <SideNavLinks />
 
-        <div className={route === "/" ? "" : "hidden"}>
+        <div className={route === "/" || route === "/edit" ? "" : "hidden"}>
             <p className={navStyles.description} />
             <div className="pb-5"><ViewsTracker /></div>
             <p className={navStyles.description}>{new Date().getFullYear()} &copy; Folio</p>

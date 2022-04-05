@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import EditView from "../components/editView"
 import Header from "../components/header"
 import SideNav from "../components/side-nav/sideNav"
-import { mainStyles } from "../components/styles/mainStyles"
+import { mainLayoutStyles } from "../components/styles/mainLayoutStyles"
 import { useSession } from 'next-auth/react'
 
 const Edit = () => {
@@ -17,10 +17,10 @@ const Edit = () => {
         }
     }, [session])
 
-    if (session) return <div className={mainStyles.main}>
+    if (session) return <div className={mainLayoutStyles.main}>
         <Header />
         <SideNav />
-        <div className={mainStyles.mainContentView}>
+        <div className={mainLayoutStyles.mainContentView}>
             <EditView />
         </div>
     </div>
@@ -36,9 +36,9 @@ const Edit = () => {
     // if (!isAuthenticated && showLogin) return <LoginComponent />
     // if (!isAuthenticated && !showLogin) return <SignupComponent />
 
-    // else return <div className={mainStyles.main}>
+    // else return <div className={mainLayoutStyles.main}>
     //     <SideNav />
-    //     <div className={mainStyles.mainContentView}>
+    //     <div className={mainLayoutStyles.mainContentView}>
     //         <EditView />
     //     </div>
     // </div>

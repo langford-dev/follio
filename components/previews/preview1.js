@@ -8,7 +8,7 @@ import { AppContext } from "../../context/context";
 const styles = {
     // pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center flex-wrap px-5 pl-0`,
-    previewMain: `m-auto 2xl container pt-20 sm:pt-0`,
+    previewMain: `m-auto 2xl container -mt-10 w-full`,
     profilePhotoContainer: `w-full rounded-xl overflow-hidden relative bg-white mt-10 `,
     profilePhoto: `object-cover h-full w-full rounded-xl`,
     // closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,

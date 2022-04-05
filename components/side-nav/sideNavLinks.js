@@ -23,46 +23,65 @@ const SideNavLinks = () => {
     }, [route])
 
     return <div>
-        <Link passHref={true} href="/dashboard">
-            <p className={route === "/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={graph.src} />
-                Dashboard
-            </p>
-        </Link>
-        <Link passHref={true} href="/">
-            <p className={route === "/" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={brush.src} />
-                Appearance
-            </p>
-        </Link>
-        <Link passHref={true} href="/themes">
-            <p className={route === "/themes" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={theme.src} />
-                Themes
-            </p>
-        </Link>
-        <Link passHref={true} href="/">
-            <p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={settings.src} />
-                Settings
-            </p>
-        </Link>
-        <Link passHref={true} href="/">
-            <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={shield.src} />
-                Upgrade
-            </p>
-        </Link>
-        <Link passHref={true} href="/">
-            <p className={route === "/donate" ? navStyles.activeNavLink : navStyles.navLink}>
-                <img className={navStyles.navLinkIcon} src={coin.src} />
-                Donate
-            </p>
-        </Link>
+        <div className="sm:hidden">
+            <Link passHref={true} href="/dashboard">
+                <p className={route === "/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={graph.src} />
+                    Dashboard
+                </p>
+            </Link>
+        </div>
+
+        <div className="sm:hidden">
+            <Link passHref={true} href="/">
+                <p className={route === "/" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={brush.src} />
+                    Appearance
+                </p>
+            </Link>
+        </div>
+
+        <div className="sm:hidden">
+            <Link passHref={true} href="/themes">
+                <p className={route === "/themes" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={theme.src} />
+                    Themes
+                </p>
+            </Link>
+        </div>
+
+        <div>
+            <Link passHref={true} href="/">
+                <p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={settings.src} />
+                    Settings
+                </p>
+            </Link>
+        </div>
+
+        <div>
+            <Link passHref={true} href="/">
+                <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={shield.src} />
+                    Upgrade
+                </p>
+            </Link>
+        </div>
+
+        <div>
+            <Link passHref={true} href="/">
+                <p className={route === "/donate" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={coin.src} />
+                    Donate
+                </p>
+            </Link>
+        </div>
+
         <p className={navStyles.navLink} onClick={() => shareLink()}>
             <img className={navStyles.navLinkIcon} src={share.src} />
             Share link
         </p>
+
         <p className={navStyles.navLink} onClick={() => {
             let conf = confirm("Are you sure you want to log out?")
             if (!conf) return

@@ -3,7 +3,7 @@
 // import SignupComponent from "../components/auth/signupComponent";
 // import EditView from "../components/editView";
 // import SideNav from "../components/side-nav/sideNav";
-// import { mainStyles } from "../components/styles/mainStyles";
+// import { mainLayoutStyles } from "../components/styles/mainLayoutStyles";
 // import { AppContext } from "../context/context";
 
 import Edit from "./edit";
@@ -18,9 +18,9 @@ import Edit from "./edit";
 //   if (!isAuthenticated && showLogin) return <LoginComponent />
 //   if (!isAuthenticated && !showLogin) return <SignupComponent />
 
-//   else return <div className={mainStyles.main}>
+//   else return <div className={mainLayoutStyles.main}>
 //     <SideNav />
-//     <div className={mainStyles.mainContentView}>
+//     <div className={mainLayoutStyles.mainContentView}>
 //       <EditView />
 //     </div>
 //   </div>

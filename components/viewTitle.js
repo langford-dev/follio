@@ -11,10 +11,10 @@ const styles = {
 const ViewTitle = ({ title, subtitle }) => {
     const { previous, next, viewCount, maxViewCount } = useContext(AppContext)
 
-    return <div className="border-b sm:border-0 p-5">
+    return <div className="border-b sm:border-0 pt-16 sm:pt-0">
         <div className={styles.pageTitleView}>
             <p className={styles.title}>{title}</p>
-            <div className={styles.viewTitle}>
+            {/* <div className={styles.viewTitle}>
                 {
                     viewCount > 0 ? <p className={styles.textButton} onClick={() => previous()}>&larr; Previous</p> : <div className="hidden"></div>
                 }
@@ -25,7 +25,7 @@ const ViewTitle = ({ title, subtitle }) => {
                         <p className={styles.textButton} onClick={() => next()}>Next &rarr;</p>
                     </div> : <div></div>
                 }
-            </div>
+            </div> */}
         </div>
         <p className="mb-3 text-gray-500">{subtitle}</p>
     </div>

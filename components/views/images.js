@@ -1,28 +1,28 @@
 import { useContext } from "react"
 import { AppContext } from "../../context/context"
+import { editLayoutStyles } from "../styles/editLayoutStyles"
 import ViewTitle from "../viewTitle"
-import { styles } from "./styles"
 
 const Images = () => {
-    const { setProfilePhotoPreview, setCoverPhotoPreview, profilePhotoPreview, coverPhotoPreview } = useContext(AppContext)
+    const { setProfilePhotoPreview, setCoverPhotoPreview } = useContext(AppContext)
 
-    return <div className={styles.editMain}>
+    return <div className={editLayoutStyles.main}>
         <ViewTitle title="Upload photos" subtitle="Choose you profile and cover photo" />
 
-        <div className={styles.editMainWrapper}>
-            <div className={styles.inputContainer}>
-                <label className={styles.label}>Profile photo</label>
+        <div className={editLayoutStyles.mainWrapper}>
+            <div className={editLayoutStyles.inputContainer}>
+                <label className={editLayoutStyles.label}>Profile photo</label>
                 <input
                     onChange={e => setProfilePhotoPreview(e.target.files[0])}
-                    className={styles.input} type="file" accept="image/*"
+                    className={editLayoutStyles.input} type="file" accept="image/*"
                 />
             </div>
 
-            <div className={styles.inputContainer}>
-                <label className={styles.label}>Cover photo</label>
+            <div className={editLayoutStyles.inputContainer}>
+                <label className={editLayoutStyles.label}>Cover photo</label>
                 <input
                     onChange={e => setCoverPhotoPreview(e.target.files[0])}
-                    className={styles.input} type="file" accept="image/*"
+                    className={editLayoutStyles.input} type="file" accept="image/*"
                 />
             </div>
         </div>

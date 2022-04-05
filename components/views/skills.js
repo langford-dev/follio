@@ -3,6 +3,7 @@ import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 import { styles } from "./styles"
 import Button from "../button"
+import { editLayoutStyles } from "../styles/editLayoutStyles"
 
 const Skills = () => {
     const { skills, setSkills } = useContext(AppContext)
@@ -21,14 +22,14 @@ const Skills = () => {
         }
     }
 
-    return <div className={styles.editMain}>
+    return <div className={editLayoutStyles.main}>
         <ViewTitle title="Your skills" subtitle="Tools, languages, skills, and tech you use" />
 
-        <div className={styles.editMainWrapper}>
+        <div className={editLayoutStyles.mainWrapper}>
             <ul className="flex items-center flex-wrap">
                 {
                     skills.map((skill, index) => {
-                        return <li key={index} className={styles.toolItem} onClick={() => removeSkill(index)}>
+                        return <li key={index} className={editLayoutStyles.toolItem} onClick={() => removeSkill(index)}>
                             <div className="mr-2">&times;</div>
                             {skill}
                         </li>
@@ -43,7 +44,7 @@ const Skills = () => {
             }
 
             <div className="flex items-center flex-wrap mt-10">
-                <input className={styles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
+                <input className={editLayoutStyles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
                 <div className="mt-2 sm:ml-5">
                     <Button label="Add a skill" onPress={() => {
                         if (newSkill.trim() === "") return

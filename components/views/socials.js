@@ -4,14 +4,15 @@ import ViewTitle from "../viewTitle"
 import Switch from "react-switch";
 import { AppContext } from "../../context/context";
 import { styles } from "./styles";
+import { editLayoutStyles } from "../styles/editLayoutStyles";
 
 const Socials = () => {
     let { showGithubStats, setShowGithubStats } = useContext(AppContext)
 
-    return <div className={styles.editMain}>
+    return <div className={editLayoutStyles.main}>
         <ViewTitle title="Your socials" subtitle="Let visitors connect with you through your socials" />
 
-        <div className={styles.editMainWrapper}>
+        <div className={editLayoutStyles.mainWrapper}>
             <SocialInput label="Twitter profile" host="https://twitter.com/" fieldFor="twitter" />
             <SocialInput label="GitHub profile" host="https://github.com/" fieldFor="github" />
             <SocialInput label="LinkedIn profile" host="https://linkedin.com/in/" fieldFor="linkedin" />

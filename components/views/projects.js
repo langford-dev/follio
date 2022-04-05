@@ -3,8 +3,9 @@ import { AppContext } from "../../context/context"
 import Button from "../button"
 import GhostButton from "../ghostButton"
 import ProjectCard from "../projectCard"
+import { editLayoutStyles } from "../styles/editLayoutStyles"
 import ViewTitle from "../viewTitle"
-import { styles } from "./styles"
+// import { styles } from "./styles"
 
 const Projects = () => {
     const { projects, setProjects, uploadImage, setShowLoader, showProjectModal, setShowProjectModal } = useContext(AppContext)
@@ -47,30 +48,30 @@ const Projects = () => {
             <div className="bg-white rounded-md w-11/12 sm:max-w-lg border border-black overflow-y-scroll">
                 <p className="font-extrabold text-2xl border-b p-5">Add new project</p>
 
-                <div className={styles.editMainWrapper}>
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>Project name</label>
-                        <input value={name} className={styles.input} onChange={e => setName(e.target.value)} />
+                <div className="p-5 pb-0">
+                    <div className={editLayoutStyles.inputContainer}>
+                        <label className={editLayoutStyles.label}>Project name</label>
+                        <input value={name} className={editLayoutStyles.input} onChange={e => setName(e.target.value)} />
                     </div>
 
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>Project link</label>
-                        <input value={link} className={styles.input} onChange={e => setLink(e.target.value)} />
+                    <div className={editLayoutStyles.inputContainer}>
+                        <label className={editLayoutStyles.label}>Project link</label>
+                        <input value={link} className={editLayoutStyles.input} onChange={e => setLink(e.target.value)} />
                     </div>
 
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>Project Description</label>
-                        <textarea value={description} placeholder="Talk a bit about your project" className={styles.input} onChange={e => setDescription(e.target.value)} />
+                    <div className={editLayoutStyles.inputContainer}>
+                        <label className={editLayoutStyles.label}>Project Description</label>
+                        <textarea value={description} placeholder="Talk a bit about your project" className={editLayoutStyles.input} onChange={e => setDescription(e.target.value)} />
                     </div>
 
-                    <div className={styles.inputContainer}>
-                        <label className={styles.label}>Project thumbnail</label>
+                    <div className={editLayoutStyles.inputContainer}>
+                        <label className={editLayoutStyles.label}>Project thumbnail</label>
                         <p className="opacity-50 mb-3">Upload an image of your project. Could be a screenshot of it</p>
-                        <input accept="image/*" className={styles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
+                        <input accept="image/*" className={editLayoutStyles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
                     </div>
                 </div>
 
-                <div className="w-full mt-5 p-5 flex justify-start">
+                <div className="w-full p-5 flex justify-start">
                     <Button label="Add project" onPress={() => addProject()} />
                     <GhostButton label="Cancel" onPress={() => setShowProjectModal(false)} />
                 </div>
@@ -78,10 +79,10 @@ const Projects = () => {
         </div>
     }
 
-    return <div className={styles.editMain}>
+    return <div className={editLayoutStyles.main}>
         <ViewTitle title="Your projects" subtitle="What cool project have you worked on?" />
 
-        <div className={styles.editMainWrapper}>
+        <div className={editLayoutStyles.mainWrapper}>
             <ul>
                 {
                     projects.map((project, index) => {
