@@ -102,7 +102,7 @@ export const AppProvider = ({ children }) => {
             body: JSON.stringify(data),
         })
 
-        console.log("res >> ", res)
+        // console.log("res >> ", res)
     }
 
     const shareLink = async () => {
@@ -199,7 +199,7 @@ export const AppProvider = ({ children }) => {
 
             const data = await res.json()
 
-            console.log(data)
+            // console.log(data)
 
             setShowLoader(false)
 
@@ -319,7 +319,7 @@ export const AppProvider = ({ children }) => {
 
         const data = await res.json()
 
-        console.log(data)
+        // console.log(data)
 
         if (!data.status) {
             alert(data.error)
@@ -342,7 +342,7 @@ export const AppProvider = ({ children }) => {
             }
 
             /** When account exists */
-            console.log(data.payload)
+            // console.log(data.payload)
             saveAccountDataToStorage(data.payload)
             readDataFromStorage()
             router.push("/")

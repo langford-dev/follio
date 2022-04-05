@@ -15,8 +15,7 @@ const Username = () => {
     const getData = async () => {
 
         try {
-
-            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${username}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user-by-username/${username}`, { method: "GET" })
             const data = await res.json()
 
             if (data.status === false) {
