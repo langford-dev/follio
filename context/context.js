@@ -44,7 +44,7 @@ export const AppProvider = ({ children }) => {
     const [theme, setTheme] = useState(1)
     const router = useRouter()
 
-    const maxViewCount = 5
+    const maxViewCount = 6
 
     const next = () => setViewCount(viewCount + 1)
     const previous = () => setViewCount(viewCount - 1)
@@ -293,6 +293,11 @@ export const AppProvider = ({ children }) => {
         saveNewChangesToStorage(_sessionData)
     }
 
+    const logout = () => {
+        sessionStorage.removeItem("data")
+        signOut()
+    }
+
     const formatUsername = (name) => {
         return (name.split(/\s+/).join("")).toLocaleLowerCase()
     }
@@ -380,7 +385,7 @@ export const AppProvider = ({ children }) => {
         uploadImage,
         tagline, setTagline,
         increasePageViewCount,
-        views, shareLink,
+        views, shareLink, logout,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

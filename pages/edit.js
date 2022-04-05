@@ -1,13 +1,10 @@
-import { useContext, useEffect, useEffectre } from "react"
+import { useEffect } from "react"
 import { useRouter } from 'next/router'
-import LoginComponent from "../components/auth/loginComponent"
-import SignupComponent from "../components/auth/signupComponent"
 import EditView from "../components/editView"
 import Header from "../components/header"
 import SideNav from "../components/side-nav/sideNav"
 import { mainStyles } from "../components/styles/mainStyles"
-import { AppContext } from "../context/context"
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 const Edit = () => {
     const router = useRouter()

@@ -1,11 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from 'next/router'
-import { AppContext } from "../context/context";
-import LoginComponent from "../components/auth/loginComponent";
-import SignupComponent from "../components/auth/signupComponent";
-import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
-import Loader from "../components/loader";
 import ThemeCard from "../components/themeCard";
 import theme1 from "../assets/themes/1.png"
 import theme2 from "../assets/themes/2.png"

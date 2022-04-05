@@ -6,6 +6,7 @@ import settings from "../../assets/svg/settings.svg"
 import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
 import color from "../../assets/svg/color.svg"
+import logoutIcon from "../../assets/svg/logoutIcon.svg"
 import coin from "../../assets/svg/coin.svg"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../context/context"
@@ -13,7 +14,7 @@ import Button from "../button"
 import { navStyles } from "../styles/navStyles"
 
 const SideNavLinks = () => {
-    const { updateAccount, showLoader, shareLink } = useContext(AppContext)
+    const { updateAccount, showLoader, shareLink, logout } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const SideNavLinks = () => {
         setRoute(window.location.pathname)
     }, [route])
 
-    return <div className="border-b pb-5">
+    return <div>
         <Link passHref={true} href="/dashboard">
             <p className={route === "/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
                 <img className={navStyles.navLinkIcon} src={graph.src} />
@@ -61,6 +62,10 @@ const SideNavLinks = () => {
         <p className={navStyles.navLink} onClick={() => shareLink()}>
             <img className={navStyles.navLinkIcon} src={share.src} />
             Share link
+        </p>
+        <p className={navStyles.navLink} onClick={logout}>
+            <img className={navStyles.navLinkIcon} src={logoutIcon.src} />
+            Logout
         </p>
 
         <div className="flex items-center mt-3">

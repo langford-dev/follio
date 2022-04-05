@@ -1,7 +1,4 @@
 import { useContext, useEffect } from "react";
-import LoginComponent from "../components/auth/loginComponent";
-import SignupComponent from "../components/auth/signupComponent";
-import BottomNavigation from "../components/bottomNavigation";
 import Header from "../components/header";
 import { useRouter } from 'next/router'
 import SideNav from "../components/side-nav/sideNav";
@@ -15,7 +12,7 @@ const mainStyles = {
 }
 
 export default function Home() {
-    const { isAuthenticated, showLogin, views } = useContext(AppContext)
+    const { views } = useContext(AppContext)
     const router = useRouter()
     const { data: session } = useSession();
 
