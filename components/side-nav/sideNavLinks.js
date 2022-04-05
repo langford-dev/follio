@@ -63,7 +63,11 @@ const SideNavLinks = () => {
             <img className={navStyles.navLinkIcon} src={share.src} />
             Share link
         </p>
-        <p className={navStyles.navLink} onClick={logout}>
+        <p className={navStyles.navLink} onClick={() => {
+            let conf = confirm("Are you sure you want to log out?")
+            if (!conf) return
+            logout()
+        }}>
             <img className={navStyles.navLinkIcon} src={logoutIcon.src} />
             Logout
         </p>

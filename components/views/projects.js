@@ -60,8 +60,7 @@ const Projects = () => {
 
                     <div className={styles.inputContainer}>
                         <label className={styles.label}>Project Description</label>
-                        <p className="opacity-50 mb-3">Talk a bit about your project</p>
-                        <textarea value={description} className={styles.input} onChange={e => setDescription(e.target.value)} />
+                        <textarea value={description} placeholder="Talk a bit about your project" className={styles.input} onChange={e => setDescription(e.target.value)} />
                     </div>
 
                     <div className={styles.inputContainer}>
