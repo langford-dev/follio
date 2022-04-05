@@ -1,4 +1,5 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useEffectre } from "react"
+import { useRouter } from 'next/router'
 import LoginComponent from "../components/auth/loginComponent"
 import SignupComponent from "../components/auth/signupComponent"
 import EditView from "../components/editView"
@@ -6,23 +7,44 @@ import Header from "../components/header"
 import SideNav from "../components/side-nav/sideNav"
 import { mainStyles } from "../components/styles/mainStyles"
 import { AppContext } from "../context/context"
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 const Edit = () => {
-    const { isAuthenticated, showLogin, readDataFromStorage } = useContext(AppContext)
+    const router = useRouter()
+    const { data: session } = useSession();
 
     useEffect(() => {
-        if (isAuthenticated) readDataFromStorage()
-    }, [isAuthenticated])
+        if (!session) {
+            router.replace("/auth")
+            return
+        }
+    }, [session])
 
-    if (!isAuthenticated && showLogin) return <LoginComponent />
-    if (!isAuthenticated && !showLogin) return <SignupComponent />
-
-    else return <div className={mainStyles.main}>
+    if (session) return <div className={mainStyles.main}>
+        <Header />
         <SideNav />
         <div className={mainStyles.mainContentView}>
             <EditView />
         </div>
     </div>
+
+    return <></>
+
+    // const { isAuthenticated, showLogin, readDataFromStorage } = useContext(AppContext)
+
+    // useEffect(() => {
+    //     if (isAuthenticated) readDataFromStorage()
+    // }, [isAuthenticated])
+
+    // if (!isAuthenticated && showLogin) return <LoginComponent />
+    // if (!isAuthenticated && !showLogin) return <SignupComponent />
+
+    // else return <div className={mainStyles.main}>
+    //     <SideNav />
+    //     <div className={mainStyles.mainContentView}>
+    //         <EditView />
+    //     </div>
+    // </div>
 }
 
 export default Edit

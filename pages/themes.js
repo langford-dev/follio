@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { useRouter } from 'next/router'
 import { AppContext } from "../context/context";
 import LoginComponent from "../components/auth/loginComponent";
 import SignupComponent from "../components/auth/signupComponent";
@@ -9,6 +10,7 @@ import ThemeCard from "../components/themeCard";
 import theme1 from "../assets/themes/1.png"
 import theme2 from "../assets/themes/2.png"
 import SideNav from "../components/side-nav/sideNav";
+import { useSession } from "next-auth/react";
 
 const styles = {
     title: `text-3xl font-bold mb-3`,
@@ -17,22 +19,23 @@ const styles = {
 
 const mainStyles = {
     mainTitle: `text-2xl sm:text-4xl font-bold mb-3`,
-    main: `flex w-screen min-h-screen max-w-screen-2xl m-auto`,
-    mainContentView: `p-5 w-full border border-t-0 bg-white mt-16 sm:mt-0`,
+    main: `flex w-screen min-h-screen m-auto`,
+    mainContentView: `p-5 w-full bg-white mt-16 sm:mt-0`,
 }
 
 const Themes = () => {
-    const { isAuthenticated, showLogin, readDataFromStorage, showLoader } = useContext(AppContext)
+    const router = useRouter()
+    const { data: session } = useSession();
 
     useEffect(() => {
-        if (isAuthenticated) readDataFromStorage()
-    }, [isAuthenticated])
+        if (!session) {
+            router.replace("/auth")
+            return
+        }
+    }, [session])
 
-    if (!isAuthenticated && showLogin) return <LoginComponent />
-    if (!isAuthenticated && !showLogin) return <SignupComponent />
-
-    else return <div className={mainStyles.main}>
-        {showLoader ? <Loader /> : <div></div>}
+    if (session) return <div className={mainStyles.main}>
+        {/* {showLoader ? <Loader /> : <div></div>} */}
         <Header />
         <SideNav />
         <div className={mainStyles.mainContentView}>
@@ -46,6 +49,8 @@ const Themes = () => {
         </div>
         {/* <BottomNavigation /> */}
     </div>
+
+    return <></>
 }
 
 export default Themes

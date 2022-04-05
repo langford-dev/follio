@@ -19,6 +19,7 @@ body {
   /* overflow-x: hidden; */
   /* background: #fbfcfff2; */
   /* background: #F7F6F3; */
+  /* background: #F9F9F9; */
   background: #F9F9F9;
   padding: 0;
   margin: 0;
@@ -91,7 +92,7 @@ a {
     position: relative;
     /* overflow-y: scroll; */
     max-height: 100vh;
-    border-left: 1px solid rgb(229 231 235);
+    /* border-left: 1px solid rgb(229 231 235); */
   }
 
   /* ::-webkit-scrollbar {

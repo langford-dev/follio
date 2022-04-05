@@ -1,9 +1,13 @@
+import { useRouter } from "next/dist/client/router"
 import { useState, useEffect } from "react"
 import { createContext } from "react"
+import { getProviders, signIn, signOut, useSession } from "next-auth/react"
 
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
+    const { data: session } = useSession()
+
     const [viewCount, setViewCount] = useState(0)
     const [fullname, setFullname] = useState("")
     const [tagline, setTagline] = useState("")
@@ -23,10 +27,8 @@ export const AppProvider = ({ children }) => {
     const [showLogin, setShowLogin] = useState(true)
     const [showLoader, setShowLoader] = useState(false)
     const [showProjectModal, setShowProjectModal] = useState(false)
-
     const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
     const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
-
     const [projects, setProjects] = useState([])
 
     // const [twitter, setTwitter] = useState("")
@@ -40,6 +42,7 @@ export const AppProvider = ({ children }) => {
     const [socials, setSocials] = useState({})
 
     const [theme, setTheme] = useState(1)
+    const router = useRouter()
 
     const maxViewCount = 5
 
@@ -65,24 +68,59 @@ export const AppProvider = ({ children }) => {
 
         else setShowPreview(true)
 
-        const _authSessionValue = sessionStorage.getItem("isAuth")
+        // console.log(session.user)
 
-        if (!_authSessionValue) {
-            sessionStorage.setItem("isAuth", false)
-            setIsAuthenticated(false)
-            console.log('null_', false)
-            return
-        }
+        // const _authSessionValue = sessionStorage.getItem("isAuth")
 
-        setIsAuthenticated(eval(_authSessionValue))
+        // if (!_authSessionValue) {
+        //     sessionStorage.setItem("isAuth", false)
+        //     setIsAuthenticated(false)
+        //     console.log('null_', false)
+        //     return
+        // }
+
+        // setIsAuthenticated(eval(_authSessionValue))
 
         // console.log('_authSessionValue', eval(_authSessionValue))
 
-    }, [])
+    }, [session])
 
     const saveNewChangesToStorage = (data) => {
 
         sessionStorage.setItem("data", JSON.stringify(data))
+    }
+
+    const signUpWithEmailPassword = async () => {
+
+        try {
+
+            setShowLoader(true)
+
+            // const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ username, password }),
+            // })
+
+            // const data = await res.json()
+
+            // if (!data.status) {
+
+            //     setShowLoader(false)
+            //     setError(data.error)
+            //     return
+            // }
+
+            // await saveAccountDataToStorage(username)
+            // setShowLoader(false)
+
+        } catch (e) {
+
+            setShowLoader(false)
+            console.log(e.message)
+        }
     }
 
     const increasePageViewCount = async (data) => {
@@ -106,7 +144,7 @@ export const AppProvider = ({ children }) => {
             await navigator.share({
                 title: `Folio | ${fullname}`,
                 text: 'Check out my Folio',
-                url: `https://follio.netlify.app/${username}`,
+                url: `https://follio.vercel.app/${username}`,
             })
         }
 
@@ -210,43 +248,34 @@ export const AppProvider = ({ children }) => {
         }
     }
 
-    const getAccountData = async (_username) => {
+    const saveAccountDataToStorage = async (data) => {
 
         try {
 
-            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
-            const data = await res.json()
+            // const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
+            // const data = await res.json()
+            // delete data.payload["password"];
+            // toggleIsAuthenticated(true)
 
-            delete data.payload["password"];
+            sessionStorage.setItem("data", JSON.stringify(data))
 
-            toggleIsAuthenticated(true)
-
-            sessionStorage.setItem("data", JSON.stringify(data.payload))
-
-            setFullname(data.payload.fullname)
-            setUsername(data.payload.username)
-            setTagline(data.payload.tagline)
-            setViews(data.payload.views)
-            setWork(data.payload.work)
-            setAbout(data.payload.about)
-            setProfilePhoto(data.payload.profilePhoto)
-            setCoverPhoto(data.payload.coverPhoto)
-            setShowGithubStats(data.payload.showGithubStats)
-            setSkills(data.payload.skills)
-            setWorkplaces(data.payload.workplaces)
-            setProjects(data.payload.projects)
-            setIsPremiumAccount(data.payload.isPremiumAccount)
-            setWorkplaces(data.payload.workplaces)
-            setSocials(data.payload.socials)
-            // setTwitter(data.payload.socials.twitter)
-            // setFacebook(data.payload.socials.facebook)
-            // setInstagram(data.payload.socials.instagram)
-            // setLinkedin(data.payload.socials.linkedin)
-            // setGithub(data.payload.socials.github)
-            // setCoffee(data.payload.socials.coffee)
-            // setEthAddress(data.payload.ethAddress)
-            setTheme(data.payload.theme)
-            setThemeColor(data.payload.themeColor)
+            setFullname(data.fullname)
+            setUsername(data.username)
+            setTagline(data.tagline)
+            setViews(data.views)
+            setWork(data.work)
+            setAbout(data.about)
+            setProfilePhoto(data.profilePhoto)
+            setCoverPhoto(data.coverPhoto)
+            setShowGithubStats(data.showGithubStats)
+            setSkills(data.skills)
+            setWorkplaces(data.workplaces)
+            setProjects(data.projects)
+            setIsPremiumAccount(data.isPremiumAccount)
+            setWorkplaces(data.workplaces)
+            setSocials(data.socials)
+            setTheme(data.theme)
+            setThemeColor(data.themeColor)
 
         } catch (e) {
 
@@ -256,7 +285,10 @@ export const AppProvider = ({ children }) => {
 
     const readDataFromStorage = () => {
 
-        if (!sessionStorage.getItem("data")) return
+        if (!sessionStorage.getItem("data")) {
+            alert("No data found in storage. Please sign in again.")
+            return
+        }
 
         let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
 
@@ -277,17 +309,10 @@ export const AppProvider = ({ children }) => {
         setSocials(sessionStorageData.socials)
         setTheme(sessionStorageData.theme)
         setThemeColor(sessionStorageData.themeColor)
-
-
-        // setProjects([{
-        //     name: "Google Tech",
-        //     link: "https://google.com",
-        //     description: "Google Tech is a Google-powered website that provides information about Google's products and services. It is a part of Google's Tech Blog.",
-        //     thumbnail: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-        // }])
     }
 
     const changeThemeInSessionStorage = (index) => {
+        console.log('New theme index, ', index)
         let _sessionData = JSON.parse(sessionStorage.getItem("data"))
         _sessionData.theme = index
         setTheme(index)
@@ -301,42 +326,84 @@ export const AppProvider = ({ children }) => {
         saveNewChangesToStorage(_sessionData)
     }
 
-    const login = async (_username, _password) => {
+    const formatUsername = (name) => {
+        return (name.split(/\s+/).join("")).toLocaleLowerCase()
+    }
 
+    /** Create Account */
+    const createAccount = async (_session) => {
+        console.warn('Creating new account...🦄', formatUsername(_session.user.name))
+        const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: formatUsername(_session.user.name),
+                email: _session.user.email,
+                fullname: _session.user.name,
+                profilePhoto: _session.user.image,
+                coverPhoto: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
+            }),
+        })
+
+        const data = await res.json()
+
+        console.log(data)
+
+        if (!data.status) {
+            alert(data.error)
+            return
+        }
+
+        fetchUserData(_session)
+    }
+
+    const fetchUserData = async (_session) => {
         try {
+            // setShowLoader(true)
 
-            if (_username.trim() === "" || _password.trim() === "") return
+            console.warn('fetching db data for...🔥', formatUsername(_session.user.name))
 
-            setShowLoader(true)
-
-            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${formatUsername(_session.user.name)}`, { method: "GET" })
             const data = await res.json()
 
+            console.log('>>>', data)
 
-            if (data.payload.password === _password) {
-
-                console.log("correct password", data)
-
-                await getAccountData(_username)
-
-                readDataFromStorage()
-
-                setShowLoader(false)
-
+            /** When account is not in DB */
+            if (!data.status) {
+                await createAccount(_session);
                 return
             }
 
-            alert("Wrong password provided")
+            /** When account exists */
+            console.log(data.payload)
+            saveAccountDataToStorage(data.payload)
+            readDataFromStorage()
+            router.push("/")
 
-            toggleIsAuthenticated(false)
+            // if (data.payload.password === _password) {
 
-            setShowLoader(false)
+            //     console.log("correct password", data)
+
+            //     await saveAccountDataToStorage(_username)
+
+            //     readDataFromStorage()
+
+            //     setShowLoader(false)
+
+            //     return
+            // }
+
+            // alert("Wrong password provided")
+
+            // toggleIsAuthenticated(false)
+
+            // setShowLoader(false)
 
 
         } catch (e) {
 
-            setShowLoader(false)
-            alert("Account doesn not exist")
+            // setShowLoader(false)
+            // alert("An error occured. Please try again later.")
             console.log(e.message)
         }
     }
@@ -356,7 +423,7 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         updateAccount, username,
-        getAccountData, login,
+        saveAccountDataToStorage, fetchUserData,
         showLogin, setShowLogin,
         readDataFromStorage,
         showLoader, setShowLoader,
