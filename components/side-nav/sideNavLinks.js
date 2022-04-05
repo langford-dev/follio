@@ -77,10 +77,12 @@ const SideNavLinks = () => {
             </Link>
         </div>
 
-        <p className={navStyles.navLink} onClick={() => shareLink()}>
-            <img className={navStyles.navLinkIcon} src={share.src} />
-            Share link
-        </p>
+        <div>
+            <p className={navStyles.navLink} onClick={() => shareLink()}>
+                <img className={navStyles.navLinkIcon} src={share.src} />
+                Share link
+            </p>
+        </div>
 
         <p className={navStyles.navLink} onClick={() => {
             let conf = confirm("Are you sure you want to log out?")

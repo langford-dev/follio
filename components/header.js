@@ -19,7 +19,7 @@ import SideNavLinks from "./side-nav/sideNavLinks"
 
 const Header = () => {
     const [route, setRoute] = useState('')
-    const { updateAccount, showLoader, shareLink } = useContext(AppContext)
+    const { updateAccount, showLoader, shareLink, profilePhoto } = useContext(AppContext)
     const [showDrawer, setShowDrawer] = useState(false);
 
     useEffect(() => {
@@ -44,12 +44,12 @@ const Header = () => {
                 {/* <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link> */}
             </nav>
             <div className="flex items-center">
-                <GhostButton onPress={() => shareLink()} label="Share link" />
                 {
                     !showLoader ?
                         <Button label="Publish" onPress={() => updateAccount()} />
                         : <></>
                 }
+                <div><img src={profilePhoto} className="w-10 h-10 rounded-full ml-3 object-cover" alt="" /></div>
             </div>
         </div>
 
