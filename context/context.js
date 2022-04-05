@@ -90,39 +90,6 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
-    const signUpWithEmailPassword = async () => {
-
-        try {
-
-            setShowLoader(true)
-
-            // const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ username, password }),
-            // })
-
-            // const data = await res.json()
-
-            // if (!data.status) {
-
-            //     setShowLoader(false)
-            //     setError(data.error)
-            //     return
-            // }
-
-            // await saveAccountDataToStorage(username)
-            // setShowLoader(false)
-
-        } catch (e) {
-
-            setShowLoader(false)
-            console.log(e.message)
-        }
-    }
-
     const increasePageViewCount = async (data) => {
 
         data.views++
@@ -359,14 +326,9 @@ export const AppProvider = ({ children }) => {
 
     const fetchUserData = async (_session) => {
         try {
-            // setShowLoader(true)
 
-            console.warn('fetching db data for...🔥', formatUsername(_session.user.name))
-
-            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${formatUsername(_session.user.name)}`, { method: "GET" })
+            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_session.user.email}`, { method: "GET" })
             const data = await res.json()
-
-            console.log('>>>', data)
 
             /** When account is not in DB */
             if (!data.status) {
@@ -379,25 +341,6 @@ export const AppProvider = ({ children }) => {
             saveAccountDataToStorage(data.payload)
             readDataFromStorage()
             router.push("/")
-
-            // if (data.payload.password === _password) {
-
-            //     console.log("correct password", data)
-
-            //     await saveAccountDataToStorage(_username)
-
-            //     readDataFromStorage()
-
-            //     setShowLoader(false)
-
-            //     return
-            // }
-
-            // alert("Wrong password provided")
-
-            // toggleIsAuthenticated(false)
-
-            // setShowLoader(false)
 
 
         } catch (e) {
