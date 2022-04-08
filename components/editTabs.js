@@ -4,7 +4,7 @@ import { AppContext } from "../context/context"
 const styles = {
     tab: `whitespace-nowrap mr-3 mt-2 px-3 flex items-center py-2 opacity-50 min-w-min`,
     active: `whitespace-nowrap mr-3 mt-2 rounded-lg px-3 flex items-center py-2 block opacity-100 min-w-min bg-[#F6F6F4]`,
-    main: `fixed top-12 left-0 bg-white w-screen px-3 py-3 z-20 flex items-center overflow-x-auto sm:hidden`,
+    main: `fixed top-12 left-0 bg-light w-screen px-3 py-3 z-20 flex items-center overflow-x-auto sm:hidden`,
     fab: `shadow-2xl h-14 w-14 bg-blue-600 fixed bottom-0 right-0 m-4 mb-0 rounded-full flex justify-center items-center sm:hidden`,
 }
 
