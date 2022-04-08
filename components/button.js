@@ -1,5 +1,5 @@
 const Button = ({ label, onPress }) => {
-    return <div className="bg-dark text-light p-3 px-5 cursor-pointer hover:bg-light border w-max    whitespace-nowrap border-dark hover:text-dark rounded-md" onClick={onPress}>
+    return <div className="bg-dark text-light p-2 px-5 cursor-pointer hover:bg-light border w-max    whitespace-nowrap border-dark hover:text-dark rounded-md" onClick={onPress}>
         {label}
     </div>
     {/* <div
