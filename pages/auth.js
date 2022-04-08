@@ -36,7 +36,7 @@ const Auth = () => {
     if (!session) return <div className={styles.main}>
         <div className={styles.mainInputBox}>
             <p className={styles.title}>Nice to meet you</p>
-            <p onClick={() => signIn("google")} className="bg-white border-black hover:opacity-70 flex items-center justify-center cursor-pointer font-bold border rounded-md px-3 py-1">
+            <p onClick={() => signIn("google")} className="bg-white border-dark hover:opacity-70 flex items-center justify-center cursor-pointer font-bold border rounded-md px-3 py-1">
                 <img src={google.src} className="w-10" />
                 Continue with Google
             </p>

@@ -6,7 +6,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -23,12 +24,13 @@ body {
   /* background: #F9F9F9; */
   padding: 0;
   margin: 0;
-  color: #242424;
-  overflow-x: hidden;
+  /* color: #242424; */
+  /* overflow-x: hidden; */
 }
 
 :root {
-  overflow-x: hidden;
+  background: #fff;
+  /* overflow-x: hidden; */
 }
 
 ::-webkit-scrollbar {
@@ -60,9 +62,10 @@ a {
 
 * {
   box-sizing: border-box;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
   font-size: .95rem;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "DM Mono", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -71,7 +74,7 @@ a {
   width: 100vw;
   position: absolute;
   margin-left: -19px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   margin-top: -50px;
   /* border-left: 1px solid rgb(229 231 235); */
 }
@@ -83,9 +86,9 @@ a {
   margin-left: 0;
 }
 
-/* .theme-body {
-  overflow-y: scroll;
-} */
+.theme-body {
+  /* overflow-y: scroll; */
+}
 
 @media (min-width: 640px) {
   .body {
@@ -95,7 +98,7 @@ a {
     margin-left: 0;
     border-radius: 20px;
     margin-top: 0;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     max-height: 100vh;
     /* border-left: 1px solid rgb(229 231 235); */
   }

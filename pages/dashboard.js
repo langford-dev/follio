@@ -30,7 +30,11 @@ export default function Home() {
             <SideNav />
             <div className={mainLayoutStyles.mainContentView}>
                 <p className={mainLayoutStyles.mainTitle}>Dashboard</p>
-                <p className="mt-3 mb-5 text-gray-500">Pick a theme that fits your style</p>
+                <div>
+                    <div className="border p-2 w-max">
+                        Views - {views}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -39,10 +43,11 @@ export default function Home() {
     //     <SideNav />
     //     <div className={mainLayoutStyles.mainContentView}>
     //         <p className={mainLayoutStyles.mainTitle}>Dashboard</p>
+    {/* <p className="mt-3 mb-5 text-gray-500">Pick a theme that fits your style</p> */ }
     //         <div>
-    //             <div className="border p-2 w-max  ">
-    //                 Views - {views}
-    //             </div>
+    // <div className="border p-2 w-max  ">
+    //     Views - {views}
+    // </div>
     //         </div>
     //     </div>
     //     {/* <BottomNavigation /> */}

@@ -44,8 +44,8 @@ const Projects = () => {
             }
         }
 
-        return <div className="flex items-center justify-center fixed inset-0 z-50 bg-black bg-opacity-30 backdrop-blur-md">
-            <div className="bg-white rounded-md w-11/12 sm:max-w-lg border border-black overflow-y-scroll">
+        return <div className="flex items-center justify-center fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md">
+            <div className="bg-white rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll">
                 <p className="font-extrabold text-2xl border-b p-5">Add new project</p>
 
                 <div className="p-5 pb-0">

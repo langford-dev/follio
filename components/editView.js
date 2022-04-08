@@ -13,7 +13,7 @@ import Preview1 from "./previews/preview1"
 const styles = {
     pageView: `m-auto max-w-screen-2xl min-h-screen`,
     pageViewWrapper: `flex min-h-screen`,
-    fab: `focus:outline-none focus:ring-0 active:bg-yellow-500 transition active:scale-95 active:shadow-lg hover:bg-white h-14 w-14 bg-[#FFFD63] border border-black font-bold text-4xl fixed bottom-0 mb-20 right-0 m-4 pb-1 rounded-full flex justify-center items-center sm:hidden`,
+    fab: `focus:outline-none focus:ring-0 active:bg-yellow-500 transition active:scale-95 active:shadow-lg hover:bg-white h-14 w-14 bg-[#FFFD63] border border-dark font-bold text-4xl fixed bottom-0 mb-20 right-0 m-4 pb-1 rounded-full flex justify-center items-center sm:hidden`,
 }
 
 const EditView = () => {

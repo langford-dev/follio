@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -5,7 +7,12 @@ module.exports = {
     "./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js"
   ],
   theme: {
-    extend: {},
+    colors: {
+      brand: "#F6DC3B",
+      dark: "#18181B",
+      mid: "#E4E4E7",
+      light: "#F8FAFC"
+    },
   },
   plugins: [],
 }
