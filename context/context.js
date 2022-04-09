@@ -105,8 +105,19 @@ export const AppProvider = ({ children }) => {
         // console.log("res >> ", res)
     }
 
+    const copyLink = async () => {
+        try {
+            await navigator.clipboard.writeText(`https://follio.vercel.app/${username}`)
+            alert("✅ Link copied")
+        }
+
+        catch (e) {
+            console.log(e.message)
+            console.log("Your browser does not support clipboard")
+        }
+    }
+
     const shareLink = async () => {
-        console.warn("sharing...🔥")
         try {
             await navigator.share({
                 title: `Folio | ${fullname}`,
@@ -117,6 +128,7 @@ export const AppProvider = ({ children }) => {
 
         catch (e) {
             console.log(e.message)
+            alert("Your browser doesn't support sharing")
         }
     }
 
@@ -302,6 +314,12 @@ export const AppProvider = ({ children }) => {
         return (name.split(/\s+/).join("")).toLocaleLowerCase()
     }
 
+    const setSuggestedThemeColor = (tailwindColor) => {
+        let hex = tailwindColor.replace("bg-", "").replace("[", "").replace("]", "")
+        saveThemeColorToStorage(hex)
+        setThemeColor(hex)
+    }
+
     /** Create Account */
     const createAccount = async (_session) => {
         console.warn('Creating new account...🦄', formatUsername(_session.user.name))
@@ -385,7 +403,8 @@ export const AppProvider = ({ children }) => {
         uploadImage,
         tagline, setTagline,
         increasePageViewCount,
-        views, shareLink, logout,
+        views, shareLink, logout, copyLink,
+        setSuggestedThemeColor,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

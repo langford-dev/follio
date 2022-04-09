@@ -6,7 +6,6 @@ import ProjectCard from "../projectCard";
 import { AppContext } from "../../context/context";
 
 const styles = {
-    // pill: `bg-white border rounded-full px-3 py-1 m-1`,
     wrap: `flex items-center sm:justify-center flex-wrap px-5 pl-0`,
     previewMain: `m-auto 2xl container`,
     profilePhotoContainer: `sm:w-96 sm:h-96 w-full rounded-xl overflow-hidden relative bg-white mt-10 sm:mt-0`,
@@ -14,17 +13,14 @@ const styles = {
     header: `p-7 fixed top-0 bg-gray-800 w-screen z-20  `,
     headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
     headerLink: `m-3 hover:opacity-50`,
+    section: `py-20 px-5 sm:text-center max-w-6xl m-auto`,
+    skillPill: `skill-pill border-[#00000014] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
     sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`
-    // closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
-    // coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
-    // body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
-    // sectionTitle: `font-bold text-2xl mb-5`,
 }
 
 const Style1 = ({ data }) => {
 
     const { increasePageViewCount } = useContext(AppContext)
-
     const [skills, setSkills] = useState([])
     const [fullname, setFullame] = useState("")
     const [tagline, setTagline] = useState("")
@@ -40,8 +36,6 @@ const Style1 = ({ data }) => {
     const [profilePhoto, setProfilePhoto] = useState("")
 
     useEffect(() => {
-
-
         if (data && data) {
             setSkills(data.skills)
             setFullame(data.fullname)
@@ -71,7 +65,6 @@ const Style1 = ({ data }) => {
             }
 
             catch (e) {
-
                 console.log(e)
             }
         }
@@ -86,17 +79,17 @@ const Style1 = ({ data }) => {
                 <nav className="hidden sm:flex">
                     <a className={styles.headerLink} href="#">Home</a>
                     {about ? <a className={styles.headerLink} href="#about">About</a> : <></>}
-                    {projects.length > 0 ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
+                    {projects.length > 0 ? <a className={styles.headerLink} href="#projects">Projects</a> : <></>}
                     {showGithubStats ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
                     {skills.length > 0 ? <a className={styles.headerLink} href="#skills">Skills</a> : <></>}
                     <a className={styles.headerLink} href="#find-me">Find me</a>
                 </nav>
             </div>
         </div>
-        <div className={styles.previewMain}>
 
+        <div className={styles.previewMain}>
             {/* HERO */}
-            <div className="sm:flex pt-56 justify-center items-center sm:h-screen py-32 sm:py-0 px-5 border-b border-b-[#27272767]">
+            <div className="sm:flex pt-56 justify-center items-center sm:h-screen py-32 sm:py-0 px-5">
                 <div>
                     <p className="text-5xl max-w-4xl font-extrabold leading-tight sm:mr-20">{tagline}</p>
                     {
@@ -130,7 +123,6 @@ const Style1 = ({ data }) => {
                         <p className={styles.sectionTitle}>ABOUT ME</p>
                         <br />
                         <p className="leading-10 text-2xl">{about}</p>
-                        {/* <p className="text-xl sm:text-3xl about-text leading-10">{about}</p> */}
                     </div>
                     : <></>
             }
@@ -138,13 +130,13 @@ const Style1 = ({ data }) => {
             {/* SKILLS */}
             {
                 skills.length > 0 ?
-                    <div id="skills" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div id="skills" className={styles.section}>
                         <p className={styles.sectionTitle}>MY SKILLS</p>
                         <br />
                         <ul className={styles.wrap}>
                             {
                                 skills.map((skill, index) => {
-                                    return <li key={index} className="skill-pill sm:text-2xl rounded-full px-4 py-2 hover:opacity-50 transition sm:m-3 m-3">{skill}</li>
+                                    return <li key={index} className={styles.skillPill}>{skill}</li>
                                 })
                             }
                         </ul>
@@ -155,7 +147,7 @@ const Style1 = ({ data }) => {
             {/* PROJECTS */}
             {
                 projects.length > 0 ?
-                    <div id="projects" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div id="projects" className={styles.section}>
                         <p className={styles.sectionTitle}>PROJECTS</p>
                         <br />
                         <ul className="grid grid-cols-1 sm:grid-cols-2">
@@ -172,7 +164,7 @@ const Style1 = ({ data }) => {
             {/* GITHUB STATS */}
             {
                 showGithubStats && socials.github ?
-                    <div id="stats" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div id="stats" className={styles.section}>
                         <p className={styles.sectionTitle}>MY GITHUB STATS</p>
                         <br />
                         <img alt='' style={{ width: "100%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
@@ -182,7 +174,7 @@ const Style1 = ({ data }) => {
             {/* DONATIONS & TIPS */}
             {
                 isPremiumAccount && socials.coffee.trim() !== "" ?
-                    <div id="donate" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
+                    <div id="donate" className={styles.section}>
                         <p className={styles.sectionTitle}>WANT TO DONATE?</p>
                         <br />
                         <div className="sm:flex justify-center">

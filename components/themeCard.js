@@ -3,7 +3,7 @@ import { AppContext } from "../context/context"
 
 const styles = {
     themeCard: `object-cover border w-full mb-3 sm:mr-5 sm:mb-5 bg-gray-300 sm:w-60 h-80 rounded-2xl cursor-pointer`,
-    activeThemeCard: `object-cover w-full mb-3 sm:mr-5 sm:mb-5 bg-gray-300 sm:w-60 h-80 rounded-2xl cursor-pointer border-2 border-blue-300`
+    activeThemeCard: `object-cover w-full mb-3 sm:mr-5 sm:mb-5 bg-gray-300 sm:w-60 h-80 rounded-2xl cursor-pointer border-4 border-brand`
 }
 
 const ThemeCard = ({ index = 1, thumbnail = "" }) => {

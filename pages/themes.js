@@ -45,22 +45,6 @@ const Themes = () => {
             </div>
         </div>
 
-    // if (session) return <div className={mainLayoutStyles.main}>
-    //     {/* {showLoader ? <Loader /> : <div></div>} */}
-    //     <Header />
-    //     <SideNav />
-    //     <div className={mainLayoutStyles.mainContentView}>
-    // <p className={mainLayoutStyles.mainTitle}>Themes</p>
-    // <p className="mt-3 mb-5 text-gray-500">Pick a theme that fits your style</p>
-
-    // <div className={styles.themeCardContainer}>
-    //     <ThemeCard index={1} thumbnail={theme1} />
-    //     <ThemeCard index={2} thumbnail={theme2} />
-    // </div>
-    //     </div>
-    //     {/* <BottomNavigation /> */}
-    // </div>
-
     return <></>
 }
 

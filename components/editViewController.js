@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../context/context"
-import Colors from "./views/colors"
+import Colors from "./views/colors/colors"
 import Images from "./views/images"
 import Intro from "./views/intro"
 import Payment from "./views/payment"

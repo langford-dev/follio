@@ -5,7 +5,7 @@ import theme from "../../assets/svg/theme.svg"
 import settings from "../../assets/svg/settings.svg"
 import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
-import color from "../../assets/svg/color.svg"
+import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
 import coin from "../../assets/svg/coin.svg"
 import { useContext, useEffect, useState } from "react"
@@ -14,7 +14,7 @@ import Button from "../button"
 import { navStyles } from "../styles/navStyles"
 
 const SideNavLinks = () => {
-    const { updateAccount, showLoader, shareLink, logout } = useContext(AppContext)
+    const { updateAccount, showLoader, shareLink, copyLink, logout } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -75,6 +75,13 @@ const SideNavLinks = () => {
                     Donate
                 </p>
             </Link>
+        </div>
+
+        <div>
+            <p className={navStyles.navLink} onClick={() => copyLink()}>
+                <img className={navStyles.navLinkIcon} src={copy.src} />
+                Copy link
+            </p>
         </div>
 
         <div>
