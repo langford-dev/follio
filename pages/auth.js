@@ -52,7 +52,7 @@ const Auth = () => {
         <div className={styles.mainInputBox}>
             {/* add logo here */}
             <p className={styles.title}>Welcome 🚀</p>
-            <p>Enter a new world of possibilities</p>
+            {/* <p>Enter a new world of possibilities</p> */}
             <div className="my-10 mb-3">
                 <GoogleButton
                     label="Continue with Google"

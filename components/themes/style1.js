@@ -13,7 +13,8 @@ const styles = {
     profilePhoto: `object-cover h-full w-full rounded-xl`,
     header: `p-7 fixed top-0 bg-gray-800 w-screen z-20  `,
     headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
-    headerLink: `m-3 hover:opacity-50`
+    headerLink: `m-3 hover:opacity-50`,
+    sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`
     // closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     // coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     // body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
@@ -84,10 +85,10 @@ const Style1 = ({ data }) => {
                 <p className="font-bold text-xl">{fullname}</p>
                 <nav className="hidden sm:flex">
                     <a className={styles.headerLink} href="#">Home</a>
-                    <a className={styles.headerLink} href="#about">About</a>
-                    <a className={styles.headerLink} href="#projects">Projects</a>
-                    <a className={styles.headerLink} href="#stats">Stats</a>
-                    <a className={styles.headerLink} href="#skills">Skills</a>
+                    {about ? <a className={styles.headerLink} href="#about">About</a> : <></>}
+                    {projects.length > 0 ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
+                    {showGithubStats ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
+                    {skills.length > 0 ? <a className={styles.headerLink} href="#skills">Skills</a> : <></>}
                     <a className={styles.headerLink} href="#find-me">Find me</a>
                 </nav>
             </div>
@@ -126,7 +127,7 @@ const Style1 = ({ data }) => {
             {
                 about ?
                     <div id="about" className="pb-56 px-5 sm:text-center max-w-6xl m-auto">
-                        <p className="text-4xl font-bold border-b w-max sm:m-auto ml-0">ABOUT ME</p>
+                        <p className={styles.sectionTitle}>ABOUT ME</p>
                         <br />
                         <p className="leading-10 text-2xl">{about}</p>
                         {/* <p className="text-xl sm:text-3xl about-text leading-10">{about}</p> */}
@@ -138,7 +139,7 @@ const Style1 = ({ data }) => {
             {
                 skills.length > 0 ?
                     <div id="skills" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
-                        <p className="text-4xl font-bold border-b w-max sm:m-auto ml-0">MY SKILLS</p>
+                        <p className={styles.sectionTitle}>MY SKILLS</p>
                         <br />
                         <ul className={styles.wrap}>
                             {
@@ -155,7 +156,7 @@ const Style1 = ({ data }) => {
             {
                 projects.length > 0 ?
                     <div id="projects" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
-                        <p className="text-4xl font-bold border-b w-max sm:m-auto ml-0">PROJECTS</p>
+                        <p className={styles.sectionTitle}>PROJECTS</p>
                         <br />
                         <ul className="grid grid-cols-1 sm:grid-cols-2">
                             {
@@ -172,7 +173,7 @@ const Style1 = ({ data }) => {
             {
                 showGithubStats && socials.github ?
                     <div id="stats" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
-                        <p className="text-4xl font-bold border-b w-max sm:m-auto ml-0">MY GITHUB STATS</p>
+                        <p className={styles.sectionTitle}>MY GITHUB STATS</p>
                         <br />
                         <img alt='' style={{ width: "100%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     </div> : <></>
@@ -182,7 +183,7 @@ const Style1 = ({ data }) => {
             {
                 isPremiumAccount && socials.coffee.trim() !== "" ?
                     <div id="donate" className="py-20 px-5 border-b border-b-[#27272767] sm:text-center max-w-6xl m-auto">
-                        <p className="text-4xl font-bold border-b w-max sm:m-auto ml-0">WANT TO DONATE?</p>
+                        <p className={styles.sectionTitle}>WANT TO DONATE?</p>
                         <br />
                         <div className="sm:flex justify-center">
                             <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>

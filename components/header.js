@@ -55,9 +55,11 @@ const Header = () => {
 
         {
             showDrawer ?
-                <div className="fixed top-0 left-0 p-5 border-r border-b bg-light w-screen">
-                    <p className="mb-5 font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
-                    <SideNavLinks />
+                <div className={headerStyles.drawerWrapper}>
+                    <div className="fixed h-screen w-2/3 top-0 left-0 p-5 border-r border-b bg-light">
+                        <p className="mb-5 font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
+                        <SideNavLinks />
+                    </div>
                 </div>
                 : <div></div>
         }

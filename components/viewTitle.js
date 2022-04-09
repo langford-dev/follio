@@ -11,7 +11,7 @@ const styles = {
 const ViewTitle = ({ title, subtitle }) => {
     const { previous, next, viewCount, maxViewCount } = useContext(AppContext)
 
-    return <div className="border-b sm:border-0 pt-16 sm:pt-0">
+    return <div className="border-b-[#f1f1f1] sm:border-0 pt-16 sm:pt-0">
         <div className={styles.pageTitleView}>
             <p className={styles.title}>{title}</p>
             {/* <div className={styles.viewTitle}>

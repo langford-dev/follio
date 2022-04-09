@@ -8,6 +8,8 @@ export const headerStyles = {
     // active: `hover:text-blue-600 cursor-pointer p-3 text-white flex items-center bg-yellow-300 rounded-xlg`,
     active: `hover:text-blue-600 cursor-pointer p-3 pb-2 h-16 flex items-center border-b-4 border-b-dark text-dark`,
     drawerLink: `mb-7`,
-    menuBtn: `h-10 rounded-lg -mr-3 bg-[#ecea51] p-2 pt-3 flex items-center flex-col cursor-pointer sm:hidden`,
+    menuBtn: `active:scale-60 transition h-10 rounded-lg -mr-3 bg-[#ecea51] p-2 pt-3 flex items-center flex-col cursor-pointer sm:hidden`,
     menuStroke: `h-1 mb-1 w-7 bg-dark`,
+    drawerWrapper: `w-screen transition h-screen fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md`,
+
 }
