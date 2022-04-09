@@ -46,7 +46,7 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
         }
         {
             link ?
-                <a href={link} target="_blank" rel="noreferrer" className="text-blue-600">{link}</a>
+                <a href={link} target="_blank" rel="noreferrer" className="text-[#0035ff]">{link}</a>
                 : <p>...</p>
         }
     </div>
