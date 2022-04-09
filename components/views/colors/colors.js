@@ -17,6 +17,7 @@ const Colors = () => {
         { color: "bg-[#f44336]", name: "Red" },
         { color: "bg-[#e91e63]", name: "Pink" },
         { color: "bg-[#9c27b0]", name: "Purple" },
+        { color: "bg-[#FFFFFF]", name: "White" },
         { color: "bg-[#673ab7]", name: "Deep Purple" },
         { color: "bg-[#03a9f4]", name: "Light Blue" },
         { color: "bg-[#00bcd4]", name: "Cyan" },
