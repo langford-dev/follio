@@ -113,7 +113,7 @@ export const AppProvider = ({ children }) => {
 
         catch (e) {
             console.log(e.message)
-            console.log("Your browser does not support clipboard")
+            // console.log("Your browser does not support clipboard")
         }
     }
 
