@@ -26,23 +26,28 @@ const Landing = () => {
             <div>
                 <img className="w-7" src={logo.src} />
             </div>
-            <div className="flex items-center">
-                <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
-                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
-                </a>
-                <Link passHref={true} href="/auth" >
-                    <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Get started</p>
-                </Link>
-            </div>
+
+            <Link passHref={true} href="/auth" >
+                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Get started</p>
+            </Link>
         </div>
 
         {/* HERO */}
         <div className="text-center container 2xl m-auto px-5 p-36">
             <p className="font-extrabold text-4xl sm:text-7xl">Simple portfolio <span id="gradient-text">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p>
-            <Link passHref={true} href="/auth" >
-                <p className="border p-3 px-5 w-max m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Build your site now! 🚀</p>
-            </Link>
+            <div className="flex flex-wrap items-center justify-center">
+                <div>
+                    <Link passHref={true} href="/auth" >
+                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Build your site now! 🚀</p>
+                    </Link>
+                </div>
+                <div className="mt-5 sm:mt-0">
+                    <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
+                        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
+                    </a>
+                </div>
+            </div>
         </div>
 
         {/* OUR FEATURES */}
