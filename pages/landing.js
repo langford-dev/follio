@@ -75,7 +75,7 @@ const Landing = () => {
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">The awesome team 😎</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
-                <User name="QA tester" link="https://follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
+                <User name="QA tester" link="https://follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
                 <User name="Founder" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
             </div>
         </div>
