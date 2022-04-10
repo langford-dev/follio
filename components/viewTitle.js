@@ -27,7 +27,7 @@ const ViewTitle = ({ title, subtitle }) => {
                 }
             </div> */}
         </div>
-        <p className="mb-3 text-gray-500">{subtitle}</p>
+        <p className="mb-3 text-[#8b8b8b]">{subtitle}</p>
     </div>
 }
 

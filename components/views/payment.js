@@ -3,6 +3,7 @@ import SocialInput from "../socialInput"
 import ViewTitle from "../viewTitle"
 import { AppContext } from "../../context/context";
 import { editLayoutStyles } from "../styles/editLayoutStyles";
+import ComingSoon from "../comingSoon";
 
 const Payment = () => {
     let { isPremiumAccount } = useContext(AppContext)
@@ -15,7 +16,12 @@ const Payment = () => {
                 <SocialInput label="☕ Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" />
                 <SocialInput label="💰 Tip me in ETH" host="" fieldFor="eth-tip" />
             </div>
-            {!isPremiumAccount ? <p className="font-medium text-xl text-gray-500">Go Premium to access this feature :)</p> : <div></div>}
+            {!isPremiumAccount ?
+                <div>
+                    <p className="font-medium text-xl opacity-30">Go Premium to access this feature :)</p>
+                    <ComingSoon />
+                </div>
+                : <div></div>}
         </div>
     </div>
 }

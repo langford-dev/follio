@@ -36,7 +36,7 @@ const SideNavLinks = () => {
             <Link passHref={true} href="/">
                 <p className={route === "/" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={brush.src} />
-                    Appearance
+                    Edit your page
                 </p>
             </Link>
         </div>
@@ -50,17 +50,17 @@ const SideNavLinks = () => {
             </Link>
         </div>
 
-        <div>
-            <Link passHref={true} href="/">
+        {/* <div>
+            <Link passHref={true} href="/settings">
                 <p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={settings.src} />
                     Settings
                 </p>
             </Link>
-        </div>
+        </div> */}
 
         <div>
-            <Link passHref={true} href="/">
+            <Link passHref={true} href="/upgrade">
                 <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={shield.src} />
                     Upgrade

@@ -81,6 +81,8 @@ const Projects = () => {
 
     return <div className={editLayoutStyles.main}>
         <ViewTitle title="Your projects" subtitle="What cool project have you worked on?" />
+        <br />
+        <Button label="Add a project" onPress={() => setShowProjectModal(true)} />
 
         <div className={editLayoutStyles.mainWrapper}>
             <ul>
@@ -93,7 +95,6 @@ const Projects = () => {
 
             {projects.length <= 0 ? <div className="text-center text-gray-500 p-10 mt-10">You dont have any projects yet</div> : null}
 
-            <Button label="Add a project" onPress={() => setShowProjectModal(true)} />
 
             {showProjectModal ? <Modal /> : null}
         </div>

@@ -1,15 +1,9 @@
-import { useContext, useEffect, useState } from "react"
-import { AppContext } from "../../context/context"
+import { useEffect, useState } from "react"
 import { navStyles } from "../styles/navStyles"
-import Link from "next/link"
-import Button from "../button"
-// import Logo from "../logo"
 import ViewsTracker from "../viewsTracker"
 import SideNavLinks from "./sideNavLinks"
-import Logo from "../logo"
 
 const SideNav = () => {
-    const { updateAccount, showLoader } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -18,7 +12,6 @@ const SideNav = () => {
     }, [route])
 
     return <div className={navStyles.sideNav}>
-        {/* <div className="flex items-center justify-center mr-10 mb-5"><Logo /></div> */}
         <SideNavLinks />
 
         <div className={route === "/" || route === "/edit" ? "" : "hidden"}>
