@@ -36,6 +36,7 @@ const Upgrade = () => {
                     <UpdateFeature label="Color customization" icon="🌴" />
                     <UpdateFeature label="Tips/donations" icon="💰" />
                     <UpdateFeature label="Meeting setup" icon="📆" />
+                    <UpdateFeature label="Custom domain" icon="🌟" />
                     <UpdateFeature label="... More coming soon" icon="🎁" />
                 </div>
                 <ComingSoon />

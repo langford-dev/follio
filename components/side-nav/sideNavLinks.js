@@ -8,6 +8,7 @@ import share from "../../assets/svg/share.svg"
 import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
 import coin from "../../assets/svg/coin.svg"
+import feedback from "../../assets/svg/feedback.svg"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../context/context"
 import Button from "../button"
@@ -69,13 +70,22 @@ const SideNavLinks = () => {
         </div>
 
         <div>
+            <Link passHref={true} href="https://twitter.com/langford_dev">
+                <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
+                    <img className={navStyles.navLinkIcon} src={feedback.src} />
+                    Feedback
+                </p>
+            </Link>
+        </div>
+
+        {/* <div>
             <Link passHref={true} href="/">
                 <p className={route === "/donate" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={coin.src} />
                     Donate
                 </p>
             </Link>
-        </div>
+        </div> */}
 
         <div>
             <p className={navStyles.navLink} onClick={() => copyLink()}>

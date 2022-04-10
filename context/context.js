@@ -124,7 +124,7 @@ export const AppProvider = ({ children }) => {
 
         catch (e) {
             console.log(e.message)
-            alert("Your browser doesn't support sharing")
+            // alert("Your browser doesn't support sharing")
         }
     }
 

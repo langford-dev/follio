@@ -18,7 +18,7 @@ const styles = {
     // // input: `outline-none w-full border p-3 rounded-xl mt-2`,
     // // input: `outline-none w-9/12 bg-transparent`,
     input: `outline-none w-5/12 bg-[#fff]`,
-    label: `font-bold flex opacity-50 items-center`,
+    label: `flex opacity-50 items-center`,
     labelIcon: `mr-2`,
 }
 
@@ -186,7 +186,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                     <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
-                        <input disabled={!isPremiumAccount} placeholder="ethereum wallet address" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
+                        <input disabled={!isPremiumAccount} placeholder="ethereum wallet" value={newSocials.ethAddress} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "eth")} />
                     </div>
                 </div>
 
