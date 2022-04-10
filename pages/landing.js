@@ -14,8 +14,8 @@ const User = ({ image, name, link, twitter }) => {
         <a href={twitter} target="_blank" rel="noreferrer">
             <img src={image} className="rounded-full w-56 h-56 hover:opacity-70" />
         </a>
-        <p className="text-xl mt-3">{name}</p>
-        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-2">{link.replace("https://", "")}</a>
+        <p className="text-xl mt-5">{name}</p>
+        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "")}</a>
         <Twitter twitterLink={twitter} />
     </div>
 }
@@ -72,7 +72,7 @@ const Landing = () => {
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter giants ⚡</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
-                <User name="Artiste" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
+                <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
                 <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
                 <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
             </div>
