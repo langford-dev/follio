@@ -9,6 +9,7 @@ import { useSession, signIn } from 'next-auth/react'
 import { AppContext } from "../context/context"
 // import Logo from "../components/logo"
 import GoogleButton from "../components/buttons/googleButton"
+import Logo from "../components/logo"
 // import GoogleButtton from "../components/buttons/googleButton"
 
 const styles = {
@@ -52,8 +53,11 @@ const Auth = () => {
     if (!session) return <div className={styles.main}>
         <div className={styles.mainInputBox}>
             {/* add logo here */}
-            <img src={logo.src} style={{ width: "30px", margin: "auto", marginBottom: "20px" }} />
+            {/* <img src={logo.src} style={{ width: "30px", margin: "auto", marginBottom: "20px" }} /> */}
             {/* <p className={styles.title}>Website building made simple</p> */}
+            <div className="flex items-center justify-center">
+                <Logo />
+            </div>
             <p className="sm:mt-5 sm:text-2xl opacity-50">Ship your portfolio in less than 2 minutes</p>
             <div className="my-10 mb-3">
                 <GoogleButton

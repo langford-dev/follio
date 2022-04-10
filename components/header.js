@@ -9,7 +9,7 @@ import { headerStyles } from "./styles/headerStyles"
 import { navStyles } from "./styles/navStyles"
 
 
-import graph from "../assets/svg/graph.svg"
+import menu from "../assets/svg/menu.svg"
 import brush from "../assets/svg/brush.svg"
 import theme from "../assets/svg/theme.svg"
 import settings from "../assets/svg/settings.svg"
@@ -29,12 +29,10 @@ const Header = () => {
 
     return <header className={headerStyles.header}>
         <div className={headerStyles.headerWrapper}>
-            <div className={headerStyles.menuBtn} onClick={() => setShowDrawer(true)}>
-                <span className={headerStyles.menuStroke} />
-                <span className={headerStyles.menuStroke} />
-                <span className={headerStyles.menuStroke} />
+            <div className="flex items-center">
+                <img src={menu.src} className={headerStyles.menuBtn} onClick={() => setShowDrawer(true)} />
+                <Logo />
             </div>
-            <Logo />
             <nav className={headerStyles.nav}>
                 <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
                 <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>

@@ -31,15 +31,6 @@ const Upgrade = () => {
             <div className={mainLayoutStyles.mainContentView}>
                 <p className={mainLayoutStyles.mainTitle}>Upgrade</p>
                 <p className="mt-3 mb-5 text-gray-500">Get access to premium theme content</p>
-                {/* <div className="flex flex-wrap sm:w-3/5">
-                    <UpdateFeature label="Dope themes" icon="🎨" />
-                    <UpdateFeature label="Page analytics" icon="📈" />
-                    <UpdateFeature label="Color customization" icon="🌴" />
-                    <UpdateFeature label="Tips/donations" icon="💰" />
-                    <UpdateFeature label="meeting scheduling" icon="📆" />
-                    <UpdateFeature label="Custom domain" icon="🌟" />
-                    <UpdateFeature label="... More coming soon" icon="🎁" />
-                </div> */}
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />

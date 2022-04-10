@@ -1,5 +1,5 @@
 const styles = {
-    featureCard: `hover:bg-mid bg-light p-10 w-full flex items-center justify-center flex-col rounded-md`,
+    featureCard: `hover:bg-mid bg-white p-10 w-full flex items-center justify-center flex-col rounded-md`,
     featureIcon: `block mb-6 text-5xl bg-mid p-3 rounded-full`,
 }
 

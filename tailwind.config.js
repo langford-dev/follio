@@ -8,10 +8,13 @@ module.exports = {
   ],
   theme: {
     colors: {
-      brand: "#F6DC3B",
+      // brand: "#F6DC3B",
+      brand: "#FEA82F",
       dark: "#18181B",
       mid: "#E4E4E7",
-      light: "#F8FAFC"
+      light: "#F8FAFC",
+      white: "#FFFFFF",
+      accent: "#1A8BFF",
     },
   },
   plugins: [],

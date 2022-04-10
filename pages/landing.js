@@ -1,6 +1,7 @@
 import Link from "next/link"
 import UpdateFeature from "../components/updateFeature"
 import logo from "../assets/logo.png"
+import Logo from "../components/logo"
 
 const Twitter = ({ twitterLink }) => {
     return <a href={twitterLink} target="_blank" rel="noreferrer" className="mt-2">
@@ -23,18 +24,20 @@ const Landing = () => {
     return <div>
         {/* HEADER */}
         <div className="flex items-center justify-between container 2xl m-auto p-5">
-            <div>
+            {/* <div>
                 <img className="w-7" src={logo.src} />
-            </div>
+            </div> */}
+
+            <Logo />
 
             <Link passHref={true} href="/auth" >
-                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Get started</p>
+                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Login / Get started</p>
             </Link>
         </div>
 
         {/* HERO */}
         <div className="text-center container 2xl m-auto px-5 p-36">
-            <p className="font-extrabold text-4xl sm:text-7xl">Simple portfolio <span id="gradient-text">builder</span></p>
+            <p className="font-extrabold text-5xl sm:text-7xl">Simple portfolio <span className="text-7xl" id="gradient-text">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p>
             <div className="flex flex-wrap items-center justify-center">
                 <div>
