@@ -15,7 +15,7 @@ const User = ({ image, name, link, twitter }) => {
             <img src={image} className="rounded-full w-56 h-56 hover:opacity-70" />
         </a>
         <p className="text-xl mt-5">{name}</p>
-        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "")}</a>
+        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "").replace("www", "")}</a>
         <Twitter twitterLink={twitter} />
     </div>
 }
