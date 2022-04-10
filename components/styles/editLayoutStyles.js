@@ -13,7 +13,7 @@
 
 export const editLayoutStyles = {
     main: `w-screen sm:w-1/2 bg-white`,
-    mainWrapper: `mt-8 sm:mr-20`,
+    mainWrapper: `mt-8 sm:mr-20 `,
     inputContainer: `flex flex-col mb-8`,
     label: `font-bold`,
     input: `outline-none w-full border border-[#84858e35] p-3 rounded-xl mt-2 sm:w-9/12`,

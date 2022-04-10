@@ -31,7 +31,7 @@ body {
 
 :root {
   background: #fff;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

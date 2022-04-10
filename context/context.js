@@ -345,7 +345,6 @@ export const AppProvider = ({ children }) => {
 
     const fetchUserData = async (_session) => {
         try {
-            console.log('process.env.NEXT_PUBLIC_SERVER_URL', process.env.NEXT_PUBLIC_SERVER_URL)
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user/${_session.user.email}`, { method: "GET" })
             const data = await res.json()
 

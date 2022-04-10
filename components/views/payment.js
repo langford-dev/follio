@@ -12,13 +12,13 @@ const Payment = () => {
         <ViewTitle title="Receive tips" subtitle="Accept payments from your page" />
 
         <div className={editLayoutStyles.mainWrapper}>
-            <div className="mt-10">
-                <SocialInput label="☕ Buy me coffee" host="https://www.buymeacoffee.com/" fieldFor="coffee" />
+            {/* <div className="mt-10 w-screen">
+                <SocialInput label="☕ Buy me coffee" host="www.buymeacoffee.com/" fieldFor="coffee" />
                 <SocialInput label="💰 Tip me in ETH" host="" fieldFor="eth-tip" />
-            </div>
+            </div> */}
             {!isPremiumAccount ?
                 <div>
-                    <p className="font-medium text-xl opacity-30">Go Premium to access this feature :)</p>
+                    {/* <p className="font-medium text-xl opacity-30">Go Premium to access this feature :)</p> */}
                     <ComingSoon />
                 </div>
                 : <div></div>}
