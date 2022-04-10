@@ -36,7 +36,7 @@ const Upgrade = () => {
                     <UpdateFeature label="Page analytics" icon="📈" />
                     <UpdateFeature label="Color customization" icon="🌴" />
                     <UpdateFeature label="Tips/donations" icon="💰" />
-                    <UpdateFeature label="Meeting setup" icon="📆" />
+                    <UpdateFeature label="meeting scheduling" icon="📆" />
                     <UpdateFeature label="Custom domain" icon="🌟" />
                     <UpdateFeature label="... More coming soon" icon="🎁" />
                 </div> */}
@@ -44,9 +44,10 @@ const Upgrade = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />
                         <UpdateFeature label="Page analytics" icon="📈" />
-                        <UpdateFeature label="Color customization" icon="🌴" />
+                        <UpdateFeature label="Color customization" icon="💅" />
                         <UpdateFeature label="Tips/donations" icon="💰" />
-                        <UpdateFeature label="Meeting setup" icon="📆" />
+                        <UpdateFeature label="meeting scheduling" icon="📆" />
+                        <UpdateFeature label="Submitting your design" icon="😎" />
                         <UpdateFeature label="Custom domain" icon="🌟" />
                         <UpdateFeature label="... More coming soon" icon="🎁" />
                     </div>
