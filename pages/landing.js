@@ -24,25 +24,20 @@ const Landing = () => {
     return <div>
         {/* HEADER */}
         <div className="flex items-center justify-between container 2xl m-auto p-5">
-            {/* <div>
-                <img className="w-7" src={logo.src} />
-            </div> */}
-
             <Logo />
-
             <Link passHref={true} href="/auth" >
-                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Login / Get started</p>
+                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer sm:text-xl">Login / Get started</p>
             </Link>
         </div>
 
         {/* HERO */}
         <div className="text-center container 2xl m-auto px-5 p-36">
-            <p className="font-extrabold text-5xl sm:text-7xl">Simple portfolio <span className="text-7xl" id="gradient-text">builder</span></p>
+            <p className="font-extrabold text-5xl sm:text-7xl leading-tight">Simple portfolio <span className="text-7xl" id="gradient-text">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p>
             <div className="flex flex-wrap items-center justify-center">
                 <div>
                     <Link passHref={true} href="/auth" >
-                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer text-xl">Build your site now! 🚀</p>
+                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer sm:text-xl">Build your site now! 🚀</p>
                     </Link>
                 </div>
                 <div className="mt-5 sm:mt-0">
@@ -74,8 +69,16 @@ const Landing = () => {
         </div>
 
         {/* PEOPLE WHO USE IT */}
-        {/* <p className="font-extrabold text-4xl sm:text-5xl">Loved by tech twitter giants ⚡</p> */}
-        {/* <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
+        <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
+            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter giants ⚡</p>
+            <div className="flex flex-wrap items-center justify-evenly wrap">
+                <User name="Artiste" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
+                <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
+                <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
+            </div>
+        </div>
+        {/* <p className="font-extrabold text-4xl sm:text-5xl">Loved by tech twitter giants ⚡</p>
+        <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Guess who loves follio</p>
 
             <div className="flex flex-wrap items-center justify-evenly wrap">
@@ -83,6 +86,7 @@ const Landing = () => {
                 <User name="Langford dev" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
             </div>
         </div> */}
+        {/* https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg */}
 
         {/* THE TEAM */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
