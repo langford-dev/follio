@@ -27,7 +27,7 @@ const Landing = () => {
         <div className="bg-[#f1f1f1]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
                 <p className="font-extrabold text-4xl sm:text-5xl">What you can do</p>
-                <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">There's no need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
+                <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">Theres no need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />

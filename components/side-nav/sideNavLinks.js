@@ -70,7 +70,7 @@ const SideNavLinks = () => {
         </div>
 
         <div>
-            <a passHref={true} target="_blank" href="https://twitter.com/langford_dev">
+            <a passHref={true} target="_blank" rel="noreferrer" href="https://twitter.com/langford_dev">
                 <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={feedback.src} />
                     Feedback
