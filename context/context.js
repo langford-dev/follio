@@ -91,23 +91,19 @@ export const AppProvider = ({ children }) => {
     }
 
     const increasePageViewCount = async (data) => {
-
         data.views++
-
-        const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
+        await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/update-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         })
-
-        // console.log("res >> ", res)
     }
 
     const copyLink = async () => {
         try {
-            await navigator.clipboard.writeText(`https://follio.vercel.app/${username}`)
+            await navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_APP_URL}/${username}`)
             alert("✅ Link copied")
         }
 
@@ -122,7 +118,7 @@ export const AppProvider = ({ children }) => {
             await navigator.share({
                 title: `Folio | ${fullname}`,
                 text: 'Check out my Folio',
-                url: `https://follio.vercel.app/${username}`,
+                url: `${process.env.NEXT_PUBLIC_APP_URL}/${username}`,
             })
         }
 
@@ -201,7 +197,7 @@ export const AppProvider = ({ children }) => {
                 "socials": socials,
             }
 
-            const res = await fetch("https://folio-backend-server.herokuapp.com/user/update-user", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/update-user`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -231,7 +227,7 @@ export const AppProvider = ({ children }) => {
 
         try {
 
-            // const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_username}`, { method: "GET" })
+            // const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/user/get-user/${_username}`, { method: "GET" })
             // const data = await res.json()
             // delete data.payload["password"];
             // toggleIsAuthenticated(true)
@@ -323,7 +319,7 @@ export const AppProvider = ({ children }) => {
     /** Create Account */
     const createAccount = async (_session) => {
         console.warn('Creating new account...🦄', formatUsername(_session.user.name))
-        const res = await fetch("https://folio-backend-server.herokuapp.com/user/add-user", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/add-user`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -349,8 +345,8 @@ export const AppProvider = ({ children }) => {
 
     const fetchUserData = async (_session) => {
         try {
-
-            const res = await fetch(`https://folio-backend-server.herokuapp.com/user/get-user/${_session.user.email}`, { method: "GET" })
+            console.log('process.env.NEXT_PUBLIC_SERVER_URL', process.env.NEXT_PUBLIC_SERVER_URL)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user/${_session.user.email}`, { method: "GET" })
             const data = await res.json()
 
             /** When account is not in DB */

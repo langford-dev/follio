@@ -54,7 +54,7 @@ const Auth = () => {
             {/* add logo here */}
             <img src={logo.src} style={{ width: "30px", margin: "auto", marginBottom: "20px" }} />
             <p className={styles.title}>Website building made simple</p>
-            <p>Create your portfolio in less than 2 minutes</p>
+            <p>Ship port your portfolio in less than 2 minutes</p>
             <div className="my-10 mb-3">
                 <GoogleButton
                     label="Continue with Google"
