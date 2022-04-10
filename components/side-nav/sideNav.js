@@ -14,12 +14,14 @@ const SideNav = () => {
     return <div className={navStyles.sideNav}>
         <SideNavLinks />
 
-        <div className={route === "/" || route === "/edit" ? "" : "hidden"}>
+        <div className={route === "/account/edit" ? "" : "hidden"}>
             <p className={navStyles.description} />
-            <div className="pb-5"><ViewsTracker /></div>
+            <div className="pb-5">
+                <ViewsTracker />
+            </div>
             <p className={navStyles.description}>{new Date().getFullYear()} &copy; Folio</p>
         </div>
-    </div>
+    </div >
 }
 
 export default SideNav

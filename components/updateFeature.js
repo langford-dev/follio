@@ -1,12 +1,14 @@
 const styles = {
-    featureCard: `hover:bg-mid bg-light relative block p-10 w-max flex items-center justify-center flex-col rounded-md m-3 ml-0`,
+    featureCard: `hover:bg-mid bg-light p-10 w-full flex items-center justify-center flex-col rounded-md`,
     featureIcon: `block mb-6 text-3xl bg-mid p-3 rounded-full`,
 }
 
 const UpdateFeature = ({ label, icon }) => {
-    return <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>{icon}</div>
-        {label}
+    return <div className="m-2">
+        <div className={styles.featureCard}>
+            <div className={styles.featureIcon}>{icon}</div>
+            <p className="text-xl">{label}</p>
+        </div>
     </div>
 }
 

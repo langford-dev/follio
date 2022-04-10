@@ -14,7 +14,7 @@ const styles = {
     profilePhoto: `object-cover h-full w-full rounded-xl`,
     section: `py-20 px-5 sm:text-center max-w-6xl m-auto`,
     sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`,
-    skillPill: `skill-pill border-[#00000014] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
+    skillPill: `skill-pill border border-[#dadada29] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
     // closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     // coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     // body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,

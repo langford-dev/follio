@@ -27,7 +27,7 @@ const Auth = () => {
     useEffect(() => {
         if (window.sessionStorage.getItem('data')) {
             readDataFromStorage()
-            router.push("/edit")
+            router.push("/account/edit")
             return
         }
 
@@ -53,7 +53,7 @@ const Auth = () => {
         <div className={styles.mainInputBox}>
             {/* add logo here */}
             <img src={logo.src} style={{ width: "30px", margin: "auto", marginBottom: "20px" }} />
-            <p className={styles.title}>Website building made simple</p>
+            {/* <p className={styles.title}>Website building made simple</p> */}
             <p className="sm:mt-5 sm:text-2xl opacity-50">Ship your portfolio in less than 2 minutes</p>
             <div className="my-10 mb-3">
                 <GoogleButton

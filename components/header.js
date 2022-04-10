@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../context/context"
-import Button from "./button"
+import Button from "./buttons/button"
 import GhostButton from "./ghostButton"
 import Logo from "./logo"
 import Modal from "./modal"
@@ -36,9 +36,10 @@ const Header = () => {
             </div>
             <Logo />
             <nav className={headerStyles.nav}>
-                <Link passHref={true} href="/dashboard"><p className={route === "/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
-                <Link passHref={true} href="/"><p className={route === "/" || route === "/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
-                <Link passHref={true} href="/themes"><p className={route === "/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
+                <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
+                <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
+                <Link passHref={true} href="/account/themes"><p className={route === "/account/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
+                <Link passHref={true} href="/account/upgrade"><p className={route === "/account/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
                 {/* <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link> */}
                 {/* <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link> */}
                 {/* <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link> */}

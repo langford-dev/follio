@@ -11,7 +11,7 @@ import coin from "../../assets/svg/coin.svg"
 import feedback from "../../assets/svg/feedback.svg"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../context/context"
-import Button from "../button"
+import Button from "../buttons/button"
 import { navStyles } from "../styles/navStyles"
 
 const SideNavLinks = () => {
@@ -25,8 +25,8 @@ const SideNavLinks = () => {
 
     return <div>
         <div className="sm:hidden">
-            <Link passHref={true} href="/dashboard">
-                <p className={route === "/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
+            <Link passHref={true} href="/account/dashboard">
+                <p className={route === "/account/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={graph.src} />
                     Dashboard
                 </p>
@@ -34,8 +34,8 @@ const SideNavLinks = () => {
         </div>
 
         <div className="sm:hidden">
-            <Link passHref={true} href="/">
-                <p className={route === "/" ? navStyles.activeNavLink : navStyles.navLink}>
+            <Link passHref={true} href="/account/edit">
+                <p className={route === "/account/edit" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={brush.src} />
                     Edit your page
                 </p>
@@ -43,8 +43,8 @@ const SideNavLinks = () => {
         </div>
 
         <div className="sm:hidden">
-            <Link passHref={true} href="/themes">
-                <p className={route === "/themes" ? navStyles.activeNavLink : navStyles.navLink}>
+            <Link passHref={true} href="/account/themes">
+                <p className={route === "/account/themes" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={theme.src} />
                     Themes
                 </p>
@@ -61,21 +61,21 @@ const SideNavLinks = () => {
         </div> */}
 
         <div>
-            <Link passHref={true} href="/upgrade">
-                <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
+            <Link passHref={true} href="/account/upgrade">
+                <p className={route === "/account/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={shield.src} />
-                    Upgrade
+                    Features
                 </p>
             </Link>
         </div>
 
         <div>
-            <Link passHref={true} href="https://twitter.com/langford_dev">
+            <a passHref={true} target="_blank" href="https://twitter.com/langford_dev">
                 <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
                     <img className={navStyles.navLinkIcon} src={feedback.src} />
                     Feedback
                 </p>
-            </Link>
+            </a>
         </div>
 
         {/* <div>

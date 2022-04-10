@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
-import Header from "../components/header";
-import ThemeCard from "../components/themeCard";
-import theme1 from "../assets/themes/1.png"
-import theme2 from "../assets/themes/2.png"
-import SideNav from "../components/side-nav/sideNav";
 import { useSession } from "next-auth/react";
-import { mainLayoutStyles } from "../components/styles/mainLayoutStyles";
+import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
+import Header from "../../components/header";
+import ThemeCard from "../../components/themeCard";
+import theme1 from "../../assets/themes/1.png"
+import theme2 from "../../assets/themes/2.png"
+import SideNav from "../../components/side-nav/sideNav";
 
 const styles = {
     title: `text-3xl font-bold mb-3`,

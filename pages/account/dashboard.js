@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
-import Header from "../components/header";
+import Header from "../../components/header";
 import { useRouter } from 'next/router'
-import SideNav from "../components/side-nav/sideNav";
-import { AppContext } from "../context/context";
+import SideNav from "../../components/side-nav/sideNav";
+import { AppContext } from "../../context/context";
 import { useSession } from "next-auth/react";
-import { mainLayoutStyles } from "../components/styles/mainLayoutStyles";
+import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
 
 // const mainLayoutStyles = {
 //     mainTitle: `text-2xl sm:text-4xl font-bold mb-3`,

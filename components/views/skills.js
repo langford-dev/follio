@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
 import ViewTitle from "../viewTitle"
 import { styles } from "./styles"
-import Button from "../button"
+import Button from "../buttons/button"
 import { editLayoutStyles } from "../styles/editLayoutStyles"
 
 const Skills = () => {

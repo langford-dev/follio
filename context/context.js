@@ -56,17 +56,19 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
 
+        setShowPreview(true)
+
         // console.log(window.location.hostname.split(".")[0])
         // console.warn("setting projects")
 
-        if ((screen.width <= 640) ||
-            (window.matchMedia &&
-                window.matchMedia('only screen and (max-width: 640px)').matches
-            )) {
-            setShowPreview(false)
-        }
+        // if ((screen.width <= 640) ||
+        //     (window.matchMedia &&
+        //         window.matchMedia('only screen and (max-width: 640px)').matches
+        //     )) {
+        //     setShowPreview(false)
+        // }
 
-        else setShowPreview(true)
+        // else setShowPreview(true)
 
         // console.log(session.user)
 
@@ -159,7 +161,6 @@ export const AppProvider = ({ children }) => {
         /* check if username is present */
 
         try {
-
             let proceed = confirm("Do you want to save your changes?")
             let _profilePhoto = profilePhoto;
             let _coverPhoto = coverPhoto;
@@ -205,15 +206,14 @@ export const AppProvider = ({ children }) => {
                 body: JSON.stringify(_body),
             })
 
-            const data = await res.json()
-
-            // console.log(data)
+            if (res.status !== 200) {
+                setShowLoader(false)
+                alert("An error occured. Please try again later.")
+                return
+            }
 
             setShowLoader(false)
-
             saveNewChangesToStorage(_body)
-
-            // readDataFromStorage()
 
         } catch (e) {
 
@@ -358,7 +358,7 @@ export const AppProvider = ({ children }) => {
             // console.log(data.payload)
             saveAccountDataToStorage(data.payload)
             readDataFromStorage()
-            router.push("/")
+            router.push("/account/edit")
 
 
         } catch (e) {

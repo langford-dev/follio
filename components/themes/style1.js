@@ -5,18 +5,7 @@ import { Socials } from "../socials";
 import ProjectCard from "../projectCard";
 import { AppContext } from "../../context/context";
 
-const styles = {
-    wrap: `flex items-center sm:justify-center flex-wrap px-5 pl-0`,
-    previewMain: `m-auto 2xl container`,
-    profilePhotoContainer: `sm:w-96 sm:h-96 w-full rounded-xl overflow-hidden relative bg-white mt-10 sm:mt-0`,
-    profilePhoto: `object-cover h-full w-full rounded-xl`,
-    header: `p-7 fixed top-0 bg-gray-800 w-screen z-20  `,
-    headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
-    headerLink: `m-3 hover:opacity-50`,
-    section: `py-20 px-5 sm:text-center max-w-6xl m-auto`,
-    skillPill: `skill-pill border-[#00000014] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
-    sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`
-}
+
 
 const Style1 = ({ data }) => {
 
@@ -34,6 +23,20 @@ const Style1 = ({ data }) => {
     const [username, setUsername] = useState("")
     const [coverPhoto, setCoverPhoto] = useState('')
     const [profilePhoto, setProfilePhoto] = useState("")
+
+    const styles = {
+        wrap: `flex items-center sm:justify-center flex-wrap px-5 pl-0`,
+        previewMain: `m-auto 2xl container`,
+        profilePhotoContainer: `sm:w-96 sm:h-96 w-full rounded-xl overflow-hidden relative bg-white mt-10 sm:mt-0`,
+        profilePhoto: `object-cover h-full w-full rounded-xl`,
+        header: `p-7 fixed top-0 bg-[${data.themeColor}] border-b border-b-[#ededed05] w-screen z-20  `,
+        headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
+        headerLink: `m-3 hover:opacity-50`,
+        section: `py-20 px-5 sm:text-center max-w-6xl m-auto`,
+        skillPill: `skill-pill border border-[#dadada29] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
+        // skillPill: `skill-pill border-[#00000014] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
+        sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`
+    }
 
     useEffect(() => {
         if (data && data) {
@@ -167,7 +170,7 @@ const Style1 = ({ data }) => {
                     <div id="stats" className={styles.section}>
                         <p className={styles.sectionTitle}>MY GITHUB STATS</p>
                         <br />
-                        <img alt='' style={{ width: "100%", margin: "auto", marginBottom: "16px", borderRadius: "10px" }} src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
+                        <img alt='' className="m-auto w-full sm:w-2/3" src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                     </div> : <></>
             }
 
