@@ -11,7 +11,7 @@ const Username = () => {
         setUsername((window.location.pathname).replace("/", ""))
         console.log((window.location.pathname).replace("/", ""))
         getData()
-    }, [data, exists])
+    }, [username])
 
     const getData = async () => {
 
