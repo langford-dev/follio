@@ -32,18 +32,7 @@ export const AppProvider = ({ children }) => {
     const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
     const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
     const [projects, setProjects] = useState([])
-    // const [isNewUser, setIsNewUser] = useState(false)
-
-    // const [twitter, setTwitter] = useState("")
-    // const [facebook, setFacebook] = useState("")
-    // const [instagram, setInstagram] = useState("")
-    // const [linkedin, setLinkedin] = useState("")
-    // const [github, setGithub] = useState("")
-    // const [coffee, setCoffee] = useState("")
-    // const [ethAddress, setEthAddress] = useState("")
-
     const [socials, setSocials] = useState({})
-
     const [theme, setTheme] = useState(1)
     const router = useRouter()
 
@@ -58,7 +47,6 @@ export const AppProvider = ({ children }) => {
     }
 
     useEffect(() => {
-
         setShowPreview(true)
 
         // console.log(window.location.hostname.split(".")[0])
@@ -137,6 +125,17 @@ export const AppProvider = ({ children }) => {
 
         try {
 
+            // const data = new FormData()
+            // data.append("file", _file)
+            // data.append("upload_preset", "follio_preset")
+            // data.append("cloud_name", "follio")
+
+            // const res = await fetch("https://api.cloudinary.com/v1_1/follio/image/upload", {
+            //     method: "POST",
+            //     mode: 'no-cors',
+            //     body: data
+            // })
+
             const data = new FormData()
             data.append("file", _file)
             data.append("upload_preset", "tutorial")
@@ -148,6 +147,7 @@ export const AppProvider = ({ children }) => {
             })
 
             const resData = await res.json()
+            console.log(res)
 
             return resData.url
         }

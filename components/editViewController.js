@@ -3,6 +3,7 @@ import { AppContext } from "../context/context"
 import Colors from "./views/colors/colors"
 import Images from "./views/images"
 import Intro from "./views/intro"
+import Meeting from "./views/meeting"
 import Payment from "./views/payment"
 import Projects from "./views/projects"
 import Skills from "./views/skills"
@@ -19,6 +20,7 @@ const EditViewController = () => {
         case 4: return <Projects />
         case 5: return <Socials />
         case 6: return <Payment />
+        case 7: return <Meeting />
         default: return <div></div>
     }
 }

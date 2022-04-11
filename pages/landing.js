@@ -15,7 +15,7 @@ const User = ({ image, name, link, twitter }) => {
             <img src={image} className="rounded-full w-56 h-56 hover:opacity-70" />
         </a>
         <p className="text-xl mt-5">{name}</p>
-        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "").replace("www", "")}</a>
+        <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "").replace("www.", "")}</a>
         <Twitter twitterLink={twitter} />
     </div>
 }
@@ -73,6 +73,7 @@ const Landing = () => {
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter giants ⚡</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
+                {/* <User name="Blockchain developer" link="https://www.follio.app/vatsalawadhiya" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" /> */}
                 {/* <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" /> */}
                 {/* <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" /> */}
             </div>
@@ -93,7 +94,7 @@ const Landing = () => {
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">The awesome team 😎</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Founder" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
-                <User name="QA tester" link="https://follio.app/godfredjones" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
+                <User name="Co founder" link="https://follio.app/godfredjones" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
             </div>
         </div>
 

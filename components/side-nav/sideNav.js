@@ -19,11 +19,14 @@ const SideNav = () => {
 
     return <div className={navStyles.sideNav}>
         <SideNavLinks />
+
         <div className="m-10" />
 
         <div className={route === "/account/edit" ? "" : "hidden"}>
             <p className={navStyles.description} />
-            <div className="pb-5 mt-5"> <ViewsTracker /> </div>
+            <div className="pb-5 mt-5">
+                <ViewsTracker />
+            </div>
         </div>
 
         <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">

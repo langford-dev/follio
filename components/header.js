@@ -35,7 +35,7 @@ const Header = () => {
             </div>
             <nav className={headerStyles.nav}>
                 <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
-                <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
+                <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Edit content</p></Link>
                 <Link passHref={true} href="/account/themes"><p className={route === "/account/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/account/upgrade"><p className={route === "/account/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
                 <Link passHref={true} href="/account/settings"><p className={route === "/account/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
@@ -57,7 +57,10 @@ const Header = () => {
             showDrawer ?
                 <div className={headerStyles.drawerWrapper}>
                     <div className="fixed h-screen w-2/3 top-0 left-0 p-5 border-r border-b bg-light">
-                        <p className="mb-5 font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
+                        <div className="flex items-center justify-between mb-5">
+                            <Logo />
+                            <p className="font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>
+                        </div>
                         <SideNavLinks />
                     </div>
                 </div>

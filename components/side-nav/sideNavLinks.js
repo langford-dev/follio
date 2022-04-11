@@ -7,12 +7,13 @@ import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
 import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
-// import settings from "../../assets/svg/settings.svg"
 import feedback from "../../assets/svg/feedback.svg"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../context/context"
-import Button from "../buttons/button"
 import { navStyles } from "../styles/navStyles"
+import Logo from "../logo"
+// import settings from "../../assets/svg/settings.svg"
+// import Button from "../buttons/button"
 
 const Twitter = ({ twitterLink }) => {
     return <a href={twitterLink} target="_blank" rel="noreferrer">
@@ -21,7 +22,7 @@ const Twitter = ({ twitterLink }) => {
 }
 
 const SideNavLinks = () => {
-    const { updateAccount, showLoader, shareLink, copyLink, logout } = useContext(AppContext)
+    const { shareLink, copyLink, logout, setShowDrawer } = useContext(AppContext)
     const [route, setRoute] = useState('')
 
     useEffect(() => {
@@ -31,6 +32,8 @@ const SideNavLinks = () => {
 
     return <div className="flex flex-col justify-between h-full">
         <div>
+
+
             <div className="sm:hidden">
                 <Link passHref={true} href="/account/dashboard">
                     <p className={route === "/account/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
@@ -53,7 +56,7 @@ const SideNavLinks = () => {
                 <Link passHref={true} href="/account/edit">
                     <p className={route === "/account/edit" ? navStyles.activeNavLink : navStyles.navLink}>
                         <img className={navStyles.navLinkIcon} src={brush.src} />
-                        Edit your page
+                        Edit content
                     </p>
                 </Link>
             </div>
@@ -76,7 +79,7 @@ const SideNavLinks = () => {
             </Link>
         </div> */}
 
-            <div>
+            {/* <div>
                 <Link passHref={true} href="/account/upgrade">
                     <p className={route === "/account/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
                         <img className={navStyles.navLinkIcon} src={shield.src} />
@@ -92,7 +95,7 @@ const SideNavLinks = () => {
                         Feedback
                     </p>
                 </a>
-            </div>
+            </div> */}
 
             {/* <div>
             <Link passHref={true} href="/">
@@ -137,8 +140,6 @@ const SideNavLinks = () => {
                 <Twitter twitterLink="https://twitter.com/Follio_" target="_blank" rel="noreferrer" />
             </div>
         </div>
-
-
 
         {/* <div className="flex items-center mt-3">
             {!showLoader ? <Button label="Save &amp; publish" action={() => {
