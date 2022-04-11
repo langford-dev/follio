@@ -26,7 +26,7 @@ const Landing = () => {
         <div className="flex items-center justify-between container 2xl m-auto p-5">
             <Logo />
             <Link passHref={true} href="/auth" >
-                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer sm:text-xl">Login / Get started</p>
+                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Login / Get started</p>
             </Link>
         </div>
 
@@ -37,7 +37,7 @@ const Landing = () => {
             <div className="flex flex-wrap items-center justify-center">
                 <div>
                     <Link passHref={true} href="/auth" >
-                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer sm:text-xl">Build your site now! 🚀</p>
+                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Build your site now! 🚀</p>
                     </Link>
                 </div>
                 <div className="mt-5 sm:mt-0">
@@ -73,8 +73,8 @@ const Landing = () => {
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter giants ⚡</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
-                <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
-                <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
+                {/* <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" /> */}
+                {/* <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" /> */}
             </div>
         </div>
         {/* <p className="font-extrabold text-4xl sm:text-5xl">Loved by tech twitter giants ⚡</p>
@@ -93,7 +93,7 @@ const Landing = () => {
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">The awesome team 😎</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Founder" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
-                <User name="QA tester" link="https://follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
+                <User name="QA tester" link="https://follio.app/godfredjones" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
             </div>
         </div>
 
