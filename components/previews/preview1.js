@@ -86,7 +86,7 @@ const Preview1 = () => {
                     {/* ABOUT */}
                     {
                         about ?
-                            <div id="about" className="pb-56 px-5 sm:text-center max-w-6xl m-auto">
+                            <div id="about" className={styles.section}>
                                 <p className={styles.sectionTitle}>ABOUT ME</p>
                                 <br />
                                 <p className="leading-10 text-2xl">{about}</p>

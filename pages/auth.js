@@ -40,15 +40,15 @@ const Auth = () => {
         console.warn('❎ No user session')
     }, [session])
 
-    const authenticate = () => {
+    // const authenticate = () => {
 
-        if (!isChecked) {
-            alert("Please accept terms and conditions")
-            return
-        }
+    //     if (!isChecked) {
+    //         alert("Please accept terms and conditions")
+    //         return
+    //     }
 
-        signIn("google")
-    }
+    //     signIn("google")
+    // }
 
     if (!session) return <div className={styles.main}>
         <div className={styles.mainInputBox}>
@@ -63,13 +63,13 @@ const Auth = () => {
                 <GoogleButton
                     label="Continue with Google"
                     icon={google.src}
-                    onPressed={() => authenticate()}
+                    onPressed={() => signIn("google")}
                 />
             </div>
-            <div className="flex justify-center items-center">
+            {/* <div className="flex justify-center items-center">
                 <input type="checkbox" checked={isChecked} onChange={e => setIsChecked(e.target.checked)} className="mr-2 cursor-pointer" />
                 There are no terms and conditions haha
-            </div>
+            </div> */}
         </div>
     </div>
 
