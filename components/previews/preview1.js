@@ -60,7 +60,7 @@ const Preview1 = () => {
                             {
                                 tagline === "" ?
                                     <p className="text-5xl font-extrabold leading-tight">{work}</p>
-                                    : <p className="my-5">{work}</p>
+                                    : <p className="my-10 text-2xl">{work}</p>
                             }
                             <div className="-ml-5 flex justify-start">
                                 <Socials socials={socials} themeColor={themeColor} />

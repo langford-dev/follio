@@ -44,6 +44,47 @@ const Skills = () => {
             }
 
             <div className="flex items-center flex-wrap mt-10">
+                <div>
+                    <input list="skiils-list" name="browser" className={editLayoutStyles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} placeholder="JavaScript" />
+                    <datalist id="skiils-list" className="bg-dark" >
+                        <option value="📦 HTML" />
+                        <option value="💅 CSS" />
+                        <option value="✅ NodeJs" />
+                        <option value="☘️ MongoDB" />
+                        <option value="SQL" />
+                        <option value="Postgres" />
+                        <option value="MySQL" />
+                        <option value="🧠 JavaScript" />
+                        <option value="📱 React" />
+                        <option value="🌋Angular" />
+                        <option value="Vue" />
+                        <option value="💾 AWS" />
+                        <option value="⚡️ NextJs" />
+                        <option value="☁ Google Cloud" />
+                        <option value="🎨 UI design" />
+                        <option value="UX design" />
+                        <option value="🛠 UX and UX" />
+                        <option value="📷 Photoshop" />
+                        <option value="💨 Tailwind CSS" />
+                        <option value="CSS" />
+                        <option value="Chakra UI" />
+                        <option value="🐳 Docker" />
+                        <option value="👨‍💻 Flutter" />
+                        <option value="Android" />
+                        <option value="iOS" />
+                        <option value="Cross-platform apps" />
+                    </datalist>
+                </div>
+                <div className="mt-2 ml-3 sm:ml-5">
+                    <Button label="Add a skill" action={() => {
+                        if (newSkill.trim() === "") return
+                        setSkills([...skills, newSkill.trim()])
+                        setNewSkill("")
+                    }} />
+                </div>
+            </div>
+
+            {/* <div className="flex items-center flex-wrap mt-10">
                 <input className={editLayoutStyles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
                 <div className="mt-2 sm:ml-5">
                     <Button label="Add a skill" action={() => {
@@ -52,10 +93,10 @@ const Skills = () => {
                         setNewSkill("")
                     }} />
                 </div>
-            </div>
+            </div> */}
         </div>
 
-    </div>
+    </div >
 }
 
 export default Skills

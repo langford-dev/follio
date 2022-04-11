@@ -97,9 +97,9 @@ const Style1 = ({ data }) => {
                     <p className="text-5xl max-w-4xl font-extrabold leading-tight sm:mr-20">{tagline}</p>
                     {
                         tagline === "" ?
-                            <p className="sm:text-7xl text-5xl font-extrabold leading-tight sm:mr-10">{work}</p>
+                            <p className="sm:text-7xl text-5zxl font-extrabold leading-tight sm:mr-10">{work}</p>
                             // <p className="sm:text-7xl text-5xl font-extrabold leading-tight sm:mr-10">{work}</p>
-                            : <p className="my-10 text-3xl">{work}</p>
+                            : <p className="my-10 sm:text-3xl text-2xl">{work}</p>
                     }
                     {
                         data && data ?

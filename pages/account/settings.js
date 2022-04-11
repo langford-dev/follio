@@ -48,9 +48,9 @@ const Settings = () => {
                 <br />
 
                 <label className={editLayoutStyles.label}>Change your username</label>
-                <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl w-max flex items-center ">
+                <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl w-12/12 flex items-center w-3/5">
                     <div className="flex text-xl">
-                        follio.app/<input type="text" value={username} className="bg-[#FAFBFF] text-brand w-min outline-none" onChange={e => setUsername(e.target.value)} />
+                        follio.app/<input type="text" value={username} className="bg-[#fff] -min text-brand outline-none" onChange={e => setUsername(e.target.value)} />
                     </div>
                 </div>
                 <div className="mt-3">
