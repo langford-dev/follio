@@ -17,10 +17,7 @@ const Payment = () => {
             {/* <div className="mt-10 w-screen">
             </div> */}
             {!isPremiumAccount ?
-                <div>
-                    {/* <p className="font-medium text-xl opacity-30">Go Premium to access this feature :)</p> */}
-                    <ComingSoon />
-                </div>
+                <ComingSoon />
                 : <div></div>}
         </div>
     </div>

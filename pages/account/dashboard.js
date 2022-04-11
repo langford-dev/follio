@@ -5,6 +5,7 @@ import SideNav from "../../components/side-nav/sideNav";
 import { AppContext } from "../../context/context";
 import { useSession } from "next-auth/react";
 import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
+import ComingSoon from "../../components/comingSoon";
 
 // const mainLayoutStyles = {
 //     mainTitle: `text-2xl sm:text-4xl font-bold mb-3`,
@@ -35,6 +36,8 @@ export default function Home() {
                         Views - {views}
                     </div>
                 </div>
+
+                <ComingSoon />
             </div>
         </div>
 
