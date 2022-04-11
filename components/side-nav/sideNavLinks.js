@@ -132,7 +132,7 @@ const SideNavLinks = () => {
 
 
         {/* <div className="flex items-center mt-3">
-            {!showLoader ? <Button label="Save &amp; publish" onPress={() => {
+            {!showLoader ? <Button label="Save &amp; publish" action={() => {
                 updateAccount()
             }} /> : <></>}
         </div> */}

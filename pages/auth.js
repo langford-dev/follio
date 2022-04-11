@@ -10,6 +10,8 @@ import { AppContext } from "../context/context"
 // import Logo from "../components/logo"
 import GoogleButton from "../components/buttons/googleButton"
 import Logo from "../components/logo"
+import Button from "../components/buttons/button"
+import DarkButton from "../components/buttons/darkButton"
 // import GoogleButtton from "../components/buttons/googleButton"
 
 const styles = {
@@ -20,10 +22,10 @@ const styles = {
 }
 
 const Auth = () => {
-    const { fetchUserData, readDataFromStorage } = useContext(AppContext)
+    const { initAccount, readDataFromStorage, isNewUser, setIsNewUser } = useContext(AppContext)
     const { data: session } = useSession()
-    const [isChecked, setIsChecked] = useState(false)
     const router = useRouter()
+    // const [isChecked, setIsChecked] = useState(false)
 
     useEffect(() => {
         if (window.sessionStorage.getItem('data')) {
@@ -34,7 +36,7 @@ const Auth = () => {
 
         if (session) {
             console.warn('session 🐛', session.user)
-            fetchUserData(session)
+            initAccount(session)
         }
 
         console.warn('❎ No user session')
@@ -63,7 +65,17 @@ const Auth = () => {
                 <GoogleButton
                     label="Continue with Google"
                     icon={google.src}
-                    onPressed={() => signIn("google")}
+                    action={() => {
+                        signIn("google")
+                        // if (!isNewUser) {
+                        //     console.warn("not new user")
+                        //     // signIn("google")
+                        //     return
+                        // }
+
+                        // console.log("new user🔥")
+                        // setIsNewUser(true)
+                    }}
                 />
             </div>
             {/* <div className="flex justify-center items-center">
@@ -71,6 +83,7 @@ const Auth = () => {
                 There are no terms and conditions haha
             </div> */}
         </div>
+
     </div>
 
     return <></>

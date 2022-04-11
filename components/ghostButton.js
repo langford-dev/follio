@@ -1,5 +1,5 @@
-const GhostButton = ({ label, onPress }) => {
-    return <div className="flex space-x-2 justify-center" onClick={onPress}>
+const GhostButton = ({ label, action }) => {
+    return <div className="flex space-x-2 justify-center" onClick={action}>
         <button
             type="button"
             data-mdb-ripple="true"

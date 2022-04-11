@@ -46,7 +46,7 @@ const Skills = () => {
             <div className="flex items-center flex-wrap mt-10">
                 <input className={editLayoutStyles.input} value={newSkill} onChange={e => setNewSkill(e.target.value)} type="text" placeholder="JavaScript" />
                 <div className="mt-2 sm:ml-5">
-                    <Button label="Add a skill" onPress={() => {
+                    <Button label="Add a skill" action={() => {
                         if (newSkill.trim() === "") return
                         setSkills([...skills, newSkill.trim()])
                         setNewSkill("")

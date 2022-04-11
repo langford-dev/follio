@@ -26,10 +26,12 @@ export const AppProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [showLogin, setShowLogin] = useState(true)
     const [showLoader, setShowLoader] = useState(false)
+    const [showSettingsModal, setShowSettingsModal] = useState(false)
     const [showProjectModal, setShowProjectModal] = useState(false)
     const [coverPhotoPreview, setCoverPhotoPreview] = useState("")
     const [profilePhotoPreview, setProfilePhotoPreview] = useState("")
     const [projects, setProjects] = useState([])
+    // const [isNewUser, setIsNewUser] = useState(false)
 
     // const [twitter, setTwitter] = useState("")
     // const [facebook, setFacebook] = useState("")
@@ -178,6 +180,8 @@ export const AppProvider = ({ children }) => {
                 console.log('profile changed')
                 _profilePhoto = await uploadImage(profilePhotoPreview)
             }
+            // 0540959238 - abigail nani
+            console.log('updating username', username)
 
             let _body = {
                 "fullname": fullname,
@@ -303,6 +307,7 @@ export const AppProvider = ({ children }) => {
 
     const logout = () => {
         sessionStorage.removeItem("data")
+        setIsNewUser(false)
         signOut()
     }
 
@@ -316,9 +321,39 @@ export const AppProvider = ({ children }) => {
         setThemeColor(hex)
     }
 
+    const setIsNewUser = (status) => {
+        sessionStorage.setItem('new-user', status)
+    }
+
+    const changeUsername = async () => {
+        try {
+            setShowLoader(true)
+
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/check-username-exists/${username}`, { method: "GET" })
+            const data = await res.json()
+            console.log(data)
+
+            if (data.payload) {
+                alert("username already exists")
+                setShowLoader(false)
+                return
+            }
+
+            await updateAccount()
+            setShowLoader(false)
+        }
+
+        catch (e) {
+            console.log(e.message)
+        }
+    }
+
     /** Create Account */
     const createAccount = async (_session) => {
         console.warn('Creating new account...🦄', formatUsername(_session.user.name))
+
+        setIsNewUser(true)
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/add-user`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -333,29 +368,29 @@ export const AppProvider = ({ children }) => {
 
         const data = await res.json()
 
-        // console.log(data)
-
         if (!data.status) {
             alert(data.error)
             return
         }
 
-        fetchUserData(_session)
+        initAccount(_session)
     }
 
-    const fetchUserData = async (_session) => {
+    const initAccount = async (_session) => {
         try {
+            console.log("initAccount>", initAccount)
+
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user/${_session.user.email}`, { method: "GET" })
             const data = await res.json()
 
             /** When account is not in DB */
             if (!data.status) {
+                console.error("doesnt have an account in DB")
                 await createAccount(_session);
                 return
             }
 
             /** When account exists */
-            // console.log(data.payload)
             saveAccountDataToStorage(data.payload)
             readDataFromStorage()
             router.push("/account/edit")
@@ -384,7 +419,7 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         updateAccount, username,
-        saveAccountDataToStorage, fetchUserData,
+        saveAccountDataToStorage, initAccount,
         showLogin, setShowLogin,
         readDataFromStorage,
         showLoader, setShowLoader,
@@ -400,6 +435,9 @@ export const AppProvider = ({ children }) => {
         increasePageViewCount,
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
+        setIsNewUser, username, setUsername,
+        changeUsername,
+        showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>
         {children}

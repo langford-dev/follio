@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { AppContext } from "../../context/context"
+import SocialInput from "../socialInput"
 import { editLayoutStyles } from "../styles/editLayoutStyles"
 import ViewTitle from "../viewTitle"
 
@@ -10,6 +11,13 @@ const Intro = () => {
         <ViewTitle title="Introduction" subtitle="Tell visitors your name, what you do, and who you are" />
 
         <div className={editLayoutStyles.mainWrapper}>
+            {/* <div className={editLayoutStyles.inputContainer}>
+                <label className={editLayoutStyles.label}>Username</label>
+                <input type="text" value={fullname} className={editLayoutStyles.input} onChange={e => setFullname(e.target.value)} />
+            </div> */}
+
+            {/* <SocialInput label="Username" host="https://follio.app/" fieldFor="username" /> */}
+
             <div className={editLayoutStyles.inputContainer}>
                 <label className={editLayoutStyles.label}>Your name</label>
                 <input type="text" value={fullname} className={editLayoutStyles.input} onChange={e => setFullname(e.target.value)} />

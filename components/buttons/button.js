@@ -1,9 +1,9 @@
-const Button = ({ label, onPress }) => {
-    return <div className="bg-brand select-none text-light p-2 px-5 cursor-pointer hover:bg-light border w-max    whitespace-nowrap hover:text-dark rounded-md" onClick={onPress}>
+const Button = ({ label, action }) => {
+    return <div className="bg-brand text-light p-2 px-5 cursor-pointer hover:bg-light border w-max    whitespace-nowrap hover:text-dark rounded-md" onClick={action}>
         {label}
     </div>
     {/* <div
-            onClick={onPress}
+            onClick={action}
             // type="button"
             // data-mdb-ripple="true"
             // data-mdb-ripple-color="light"

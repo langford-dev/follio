@@ -38,6 +38,7 @@ const Header = () => {
                 <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Appearance</p></Link>
                 <Link passHref={true} href="/account/themes"><p className={route === "/account/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/account/upgrade"><p className={route === "/account/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
+                <Link passHref={true} href="/account/settings"><p className={route === "/account/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
                 {/* <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link> */}
                 {/* <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link> */}
                 {/* <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link> */}
@@ -45,7 +46,7 @@ const Header = () => {
             <div className="flex items-center">
                 {
                     !showLoader ?
-                        <Button label="Publish" onPress={() => updateAccount()} />
+                        <Button label="Publish" action={() => updateAccount()} />
                         : <></>
                 }
                 <div><img src={profilePhoto} className="w-10 h-10 rounded-full ml-3 object-cover" alt="" /></div>

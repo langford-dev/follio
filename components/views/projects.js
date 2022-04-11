@@ -72,8 +72,8 @@ const Projects = () => {
                 </div>
 
                 <div className="w-full p-5 flex justify-start">
-                    <Button label="Add project" onPress={() => addProject()} />
-                    <GhostButton label="Cancel" onPress={() => setShowProjectModal(false)} />
+                    <Button label="Add project" action={() => addProject()} />
+                    <GhostButton label="Cancel" action={() => setShowProjectModal(false)} />
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@ const Projects = () => {
     return <div className={editLayoutStyles.main}>
         <ViewTitle title="Your projects" subtitle="What cool project have you worked on?" />
         <br />
-        <Button label="Add a project" onPress={() => setShowProjectModal(true)} />
+        <Button label="Add a project" action={() => setShowProjectModal(true)} />
 
         <div className={editLayoutStyles.mainWrapper}>
             <ul>
