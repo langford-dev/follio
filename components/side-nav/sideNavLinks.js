@@ -7,7 +7,7 @@ import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
 import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
-import coin from "../../assets/svg/coin.svg"
+// import settings from "../../assets/svg/settings.svg"
 import feedback from "../../assets/svg/feedback.svg"
 import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../context/context"
@@ -36,6 +36,15 @@ const SideNavLinks = () => {
                     <p className={route === "/account/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
                         <img className={navStyles.navLinkIcon} src={graph.src} />
                         Dashboard
+                    </p>
+                </Link>
+            </div>
+
+            <div>
+                <Link passHref={true} href="/account/settings">
+                    <p className={route === "/account/settings" ? navStyles.activeNavLink : navStyles.navLink}>
+                        <img className={navStyles.navLinkIcon} src={settings.src} />
+                        Settings
                     </p>
                 </Link>
             </div>
