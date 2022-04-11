@@ -10,6 +10,7 @@ export const AppProvider = ({ children }) => {
 
     const [viewCount, setViewCount] = useState(0)
     const [fullname, setFullname] = useState("")
+    const [email, setEmail] = useState("")
     const [tagline, setTagline] = useState("")
     const [username, setUsername] = useState("")
     const [work, setWork] = useState("")
@@ -180,12 +181,13 @@ export const AppProvider = ({ children }) => {
                 console.log('profile changed')
                 _profilePhoto = await uploadImage(profilePhotoPreview)
             }
-            // 0540959238 - abigail nani
+            // 055862247 - abigail nani
             console.log('updating username', username)
 
             let _body = {
                 "fullname": fullname,
                 "username": username,
+                "email": email,
                 "tagline": tagline,
                 "work": work,
                 "about": about,
@@ -238,6 +240,7 @@ export const AppProvider = ({ children }) => {
 
             sessionStorage.setItem("data", JSON.stringify(data))
 
+            setEmail(data.email)
             setFullname(data.fullname)
             setUsername(data.username)
             setTagline(data.tagline)
@@ -272,6 +275,7 @@ export const AppProvider = ({ children }) => {
         let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
 
         setFullname(sessionStorageData.fullname)
+        setEmail(sessionStorageData.email)
         setUsername(sessionStorageData.username)
         setTagline(sessionStorageData.tagline)
         setWork(sessionStorageData.work)
