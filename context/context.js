@@ -415,7 +415,7 @@ export const AppProvider = ({ children }) => {
             }
 
             /** When account exists */
-            console.log("got data", data.payload)
+            // console.log("got data", data.payload)
             saveAccountDataToStorage(data.payload)
             prefillFromSession()
             router.push("/account/edit")

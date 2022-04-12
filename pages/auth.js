@@ -69,7 +69,7 @@ const Auth = () => {
 
 
             {
-                session && sessionStorage.getItem("data") ?
+                session && session.user && sessionStorage.getItem("data") ?
                     <div>
                         <p className="mt-10">Logged in as {session.user.email}</p>
 
@@ -102,7 +102,6 @@ const Auth = () => {
 
     </div>
 
-    return <></>
 }
 
 export default Auth

@@ -20,7 +20,7 @@ const SideNav = () => {
     return <div className={navStyles.sideNav}>
         <SideNavLinks />
 
-        <div className="m-10" />
+        {/* <div className="m-10" /> */}
 
         <div className={route === "/account/edit" ? "" : "hidden"}>
             <p className={navStyles.description} />
