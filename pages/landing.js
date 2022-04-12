@@ -46,7 +46,7 @@ const Landing = () => {
         </div>
 
         {/* HERO */}
-        <div className="text-center container 2xl m-auto px-5 p-36">
+        <div className="text-center container 2xl m-auto px-5 p-36 -mt-10">
             <div className="flex justify-center mb-10">
                 <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
                     <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
@@ -72,7 +72,7 @@ const Landing = () => {
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
                 <p className="text-brand mb-3 font-bold text-2xl">A central point for all your details</p>
                 <p className="font-extrabold text-4xl sm:text-5xl">What you can do</p>
-                <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">Theres no need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
+                <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">No need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />
