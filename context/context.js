@@ -265,7 +265,7 @@ export const AppProvider = ({ children }) => {
         }
     }
 
-    const prefillFromSession = () => {
+    const readDataFromStorage = () => {
 
         if (!sessionStorage.getItem("data")) {
             alert("No data found in storage. Please sign in again.")
@@ -396,7 +396,7 @@ export const AppProvider = ({ children }) => {
 
             /** When account exists */
             saveAccountDataToStorage(data.payload)
-            prefillFromSession()
+            readDataFromStorage()
             router.push("/account/edit")
 
 
@@ -425,7 +425,7 @@ export const AppProvider = ({ children }) => {
         updateAccount, username,
         saveAccountDataToStorage, initAccount,
         showLogin, setShowLogin,
-        prefillFromSession,
+        readDataFromStorage,
         showLoader, setShowLoader,
         coverPhotoPreview, setCoverPhotoPreview,
         coverPhoto, profilePhoto,
