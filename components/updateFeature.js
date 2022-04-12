@@ -7,7 +7,7 @@ const UpdateFeature = ({ label, icon }) => {
     return <div className="m-2">
         <div className={styles.featureCard}>
             <div className={styles.featureIcon}>{icon}</div>
-            <p className="text-xl">{label}</p>
+            <p className="text-xl text-center">{label}</p>
         </div>
     </div>
 }
