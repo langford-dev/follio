@@ -46,7 +46,7 @@ const Landing = () => {
 
         {/* HERO */}
         <div className="text-center container 2xl m-auto px-5 p-36">
-            <p className="font-extrabold text-5xl sm:text-7xl leading-tight">Simple portfolio <span className="text-7xl" id="gradient-text">builder</span></p>
+            <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Simple portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p>
             <div className="flex flex-wrap items-center justify-center">
                 <div>
