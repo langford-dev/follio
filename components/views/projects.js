@@ -63,17 +63,25 @@ const ProjectModal = () => {
         }
 
         catch (e) {
-
             console.log(e.message)
             setShowLoader(false)
         }
     }
 
     return <div className="flex items-center justify-center fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md">
-        <div className="bg-light rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll">
-            <p className="font-extrabold text-2xl border-b p-5">Add new project</p>
 
-            <div className="p-5 pb-0">
+        {/* <div className="bg-light rounded-md w-screen h-screen overflow-y-scroll"> */}
+        {/* <div className="bg-light rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll"> */}
+        {/* <div className="bg-light rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll"> */}
+
+        <div className="bg-white sm:h-max sm:w-max w-screen h-screen overflow-y-scroll rounded-lg">
+            <p className="font-extrabold text-2xl border-b px-5 py-5">Add new project</p>
+
+            {/* <div className="p-5 pb-0 h-full overflow-y-scroll"> */}
+
+            <div className="p-5 m-auto">
+                {thumbnailFile ? <img src={URL.createObjectURL(thumbnailFile)} alt="" className="w-full h-44 rounded-md object-cover mb-5" /> : <></>}
+
                 <div className={editLayoutStyles.inputContainer}>
                     <label className={editLayoutStyles.label}>Project name</label>
                     <input value={name} className={editLayoutStyles.input} onChange={e => setName(e.target.value)} />
@@ -94,12 +102,13 @@ const ProjectModal = () => {
                     <p className="opacity-50 mb-3">Upload an image of your project. Could be a screenshot of it</p>
                     <input accept="image/*" className={editLayoutStyles.input} type="file" onChange={e => setThumbnailFile(e.target.files[0])} />
                 </div>
+
+                <div className="w-full p-5 pl-0 flex justify-start">
+                    <Button label="Add project" action={() => addProject()} />
+                    <GhostButton label="Cancel" action={() => setShowProjectModal(false)} />
+                </div>
             </div>
 
-            <div className="w-full p-5 flex justify-start">
-                <Button label="Add project" action={() => addProject()} />
-                <GhostButton label="Cancel" action={() => setShowProjectModal(false)} />
-            </div>
         </div>
     </div>
 }
