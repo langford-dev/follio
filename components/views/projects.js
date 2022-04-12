@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
 import Button from "../buttons/button"
-import GhostButton from "../ghostButton"
+import GhostButton from "../buttons/ghostButton"
 import ProjectCard from "../projectCard"
 import { editLayoutStyles } from "../styles/editLayoutStyles"
 import ViewTitle from "../viewTitle"

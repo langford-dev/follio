@@ -1,4 +1,3 @@
-import logo from "../assets/logo.png"
 
 const Logo = () => {
     return <div className="flex items-end text-dark font-bold text-2xl sm:text-4xl font-[Righteous]">

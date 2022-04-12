@@ -48,6 +48,7 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         setShowPreview(true)
+        // checkAuthStatus()
 
         // console.log(window.location.hostname.split(".")[0])
         // console.warn("setting projects")
@@ -102,7 +103,6 @@ export const AppProvider = ({ children }) => {
 
         catch (e) {
             console.log(e.message)
-            // console.log("Your browser does not support clipboard")
         }
     }
 
@@ -181,7 +181,7 @@ export const AppProvider = ({ children }) => {
                 console.log('profile changed')
                 _profilePhoto = await uploadImage(profilePhotoPreview)
             }
-            // 055862247 - abigail nani
+
             console.log('updating username', username)
 
             let _body = {
@@ -233,11 +233,6 @@ export const AppProvider = ({ children }) => {
 
         try {
 
-            // const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/user/get-user/${_username}`, { method: "GET" })
-            // const data = await res.json()
-            // delete data.payload["password"];
-            // toggleIsAuthenticated(true)
-
             sessionStorage.setItem("data", JSON.stringify(data))
 
             setEmail(data.email)
@@ -266,6 +261,8 @@ export const AppProvider = ({ children }) => {
     }
 
     const prefillFromSession = () => {
+
+        console.warn("prefilling", sessionStorage.getItem("data"))
 
         if (!sessionStorage.getItem("data")) {
             alert("No data found in storage. Please sign in again.")
@@ -353,8 +350,8 @@ export const AppProvider = ({ children }) => {
     }
 
     /** Create Account */
-    const createAccount = async (_session) => {
-        console.warn('Creating new account...🦄', formatUsername(_session.user.name))
+    const createAccount = async (session) => {
+        console.warn('Creating new account...🦄', formatUsername(session.user.name))
 
         setIsNewUser(true)
 
@@ -362,10 +359,10 @@ export const AppProvider = ({ children }) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                username: formatUsername(_session.user.name),
-                email: _session.user.email,
-                fullname: _session.user.name,
-                profilePhoto: _session.user.image,
+                username: formatUsername(session.user.name),
+                email: session.user.email,
+                fullname: session.user.name,
+                profilePhoto: session.user.image,
                 coverPhoto: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
             }),
         })
@@ -377,33 +374,76 @@ export const AppProvider = ({ children }) => {
             return
         }
 
-        initAccount(_session)
+        fetchDataFromDB(session.user.email)
     }
 
-    const initAccount = async (_session) => {
-        try {
-            console.log("initAccount>", initAccount)
+    const checkAuthStatus = async () => {
 
-            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user/${_session.user.email}`, { method: "GET" })
+        if (!session) {
+            /** When no user logged in */
+            console.warn("not logged in at all")
+            return false
+        }
+
+        if (session && session.user && !sessionStorage.getItem("data")) {
+            /** Is logged in but no data */
+            console.warn("session, no data", session.user)
+            await fetchDataFromDB(session.user.email)
+            return true
+        }
+
+        if (session && session.user && sessionStorage.getItem("data")) {
+            /** when user is fully logged in */
+            console.warn("logged in, data", session.user, sessionStorage.getItem("data"))
+            return true
+        }
+
+        return false
+    }
+
+    const fetchDataFromDB = async (_email) => {
+        try {
+            console.warn("fetching data from DB", _email)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user/${_email}`, { method: "GET" })
             const data = await res.json()
 
-            /** When account is not in DB */
+            /** When account is not in DB, create new account */
             if (!data.status) {
-                console.error("doesnt have an account in DB")
-                await createAccount(_session);
+                console.error("no user data in DB", data)
+                await createAccount()
                 return
             }
 
             /** When account exists */
+            console.log("got data", data.payload)
             saveAccountDataToStorage(data.payload)
             prefillFromSession()
             router.push("/account/edit")
+        }
 
+        catch (e) {
+            console.log(e.message)
+            alert("An error occured please try again later")
+        }
+    }
+
+    const initAuthentication = async () => {
+        try {
+
+            console.log(await checkAuthStatus())
+
+            if (!await checkAuthStatus()) {
+                console.warn("logging in")
+                await signIn("google")
+                return
+            }
+
+            router.replace("/account/edit")
 
         } catch (e) {
 
             // setShowLoader(false)
-            // alert("An error occured. Please try again later.")
+            alert("An error occured. Please try again later.")
             console.log(e.message)
         }
     }
@@ -423,7 +463,7 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         updateAccount, username,
-        saveAccountDataToStorage, initAccount,
+        saveAccountDataToStorage, initAuthentication,
         showLogin, setShowLogin,
         prefillFromSession,
         showLoader, setShowLoader,
@@ -440,7 +480,7 @@ export const AppProvider = ({ children }) => {
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
         setIsNewUser, username, setUsername,
-        changeUsername,
+        changeUsername, checkAuthStatus,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>
