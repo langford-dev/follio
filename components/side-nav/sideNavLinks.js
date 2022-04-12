@@ -70,6 +70,15 @@ const SideNavLinks = () => {
                 </Link>
             </div>
 
+            <div className="sm:hidden">
+                <Link passHref={true} href="/account/upgrade">
+                    <p className={route === "/account/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
+                        <img className={navStyles.navLinkIcon} src={shield.src} />
+                        Upgrade
+                    </p>
+                </Link>
+            </div>
+
             {/* <div>
             <Link passHref={true} href="/settings">
                 <p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>

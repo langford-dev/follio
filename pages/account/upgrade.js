@@ -36,6 +36,7 @@ const Upgrade = () => {
                         <UpdateFeature label="Dope themes" icon="🎨" />
                         <UpdateFeature label="Page analytics" icon="📈" />
                         <UpdateFeature label="Color customization" icon="💅" />
+                        <UpdateFeature label="Responsive design" icon="📱" />
                         <UpdateFeature label="Tips/donations" icon="💰" />
                         <UpdateFeature label="meeting scheduling" icon="📆" />
                         <UpdateFeature label="Submitting your design" icon="😎" />
