@@ -20,6 +20,20 @@ const User = ({ image, name, link, twitter }) => {
     </div>
 }
 
+const Testimonial = ({ name, twitter, content, link }) => {
+    return <div className="bg-white text-xl p-8 relative rounded-xl mb-5">
+        {/* <span className="text-7xl absolute left-4 opacity-20">"</span> */}
+        {content}
+        <div className="mt-5">
+            <p className="font-bold mr-2 text-brand relative top-1"> - {name} </p>
+            <div>
+                {link ? <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff]">{link.replace("https://", "").replace("www.", "")}</a> : <></>}
+                {/* {twitter ? <Twitter twitterLink={twitter} /> : <></>} */}
+            </div>
+        </div>
+    </div>
+}
+
 const Landing = () => {
     return <div>
         {/* HEADER */}
@@ -51,7 +65,7 @@ const Landing = () => {
         {/* OUR FEATURES */}
         <div className="bg-[#f1f1f1]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
-                <p className="font-extrabold text-4xl sm:text-5xl">What we got?</p>
+                <p className="font-extrabold text-4xl sm:text-5xl">What you can do</p>
                 <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">Theres no need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
@@ -70,24 +84,25 @@ const Landing = () => {
 
         {/* PEOPLE WHO USE IT */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
-            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter giants ⚡</p>
+            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter ⚡</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
-                {/* <User name="Blockchain developer" link="https://www.follio.app/vatsalawadhiya" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" /> */}
-                {/* <User name="QA tester" link="https://www.follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" /> */}
-                {/* <User name="Web3 developer" link="https://www.follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" /> */}
+                <User name="Blockchain developer" link="https://www.follio.app/vatsalawadhiya" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
             </div>
         </div>
-        {/* <p className="font-extrabold text-4xl sm:text-5xl">Loved by tech twitter giants ⚡</p>
-        <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
-            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Guess who loves follio</p>
 
-            <div className="flex flex-wrap items-center justify-evenly wrap">
-                <User name="Cardinal" link="https://follio.app/cardinal" twitter="https://twitter.com/Cardinal_nft" image="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />
-                <User name="Langford dev" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
+        {/* TESTIMONIALS */}
+        <div className="bg-[#f1f1f1]">
+            <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24 ">
+                <p className="font-extrabold text-4xl sm:text-5xl mb-20">Who said what? 😲</p>
+                <div className="flex flex-wrap items-center justify-evenly wrap">
+                    <Testimonial content="I didn't have a portfolio site, but this tool helped me setup mine in a few minutes. So freaking cool" link="" twitter="" name="Anon" />
+                    <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://follio.app/vatsalawadhiya" twitter="https://www.twitter.com/theVatsal_eth" name="Vatsal Awadhiya" />
+                    {/* <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://follio.app/langford" twitter="https://www.twitter.com/abc" name="Vatsal Awadhiya" /> */}
+                    {/* <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://follio.app/langford" twitter="https://www.twitter.com/abc" name="Vatsal Awadhiya" /> */}
+                </div>
             </div>
-        </div> */}
-        {/* https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg */}
+        </div>
 
         {/* THE TEAM */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
