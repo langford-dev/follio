@@ -20,6 +20,7 @@ const Style1 = ({ data }) => {
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [socials, setSocials] = useState({})
     const [isPremiumAccount, setIsPremiumAccount] = useState(false)
+    const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
     const [coverPhoto, setCoverPhoto] = useState('')
     const [profilePhoto, setProfilePhoto] = useState("")
@@ -42,6 +43,7 @@ const Style1 = ({ data }) => {
         if (data && data) {
             setSkills(data.skills)
             setFullame(data.fullname)
+            setEmail(data.email)
             setTagline(data.tagline)
             setUsername(data.username)
             setWork(data.work)
@@ -104,7 +106,7 @@ const Style1 = ({ data }) => {
                     {
                         data && data ?
                             <div className="-ml-5 flex justify-start">
-                                <Socials socials={socials} themeColor={data.themeColor} />
+                                <Socials socials={socials} email={email} themeColor={data.themeColor} />
                             </div>
                             : <></>
                     }
@@ -193,7 +195,7 @@ const Style1 = ({ data }) => {
             {
                 data && data ?
                     <div id="find-me" className="py-10 sm:text-center max-w-6xl m-auto flex sm:justify-center">
-                        <Socials socials={socials} themeColor={data.themeColor} />
+                        <Socials socials={socials} email={email} themeColor={data.themeColor} />
                     </div>
                     : <></>
             }

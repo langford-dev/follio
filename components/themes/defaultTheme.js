@@ -23,6 +23,7 @@ const DefaultTheme = ({ data }) => {
     const [about, setAbout] = useState("")
     const [work, setWork] = useState("")
     const [workplaces, setWorkplaces] = useState([])
+    const [email, setEmail] = useState("")
     const [projects, setProjects] = useState([])
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [socials, setSocials] = useState({})
@@ -35,6 +36,7 @@ const DefaultTheme = ({ data }) => {
         if (data && data) {
             setSkills(data.skills)
             setFullame(data.fullname)
+            setEmail(data.email)
             setUsername(data.username)
             setWork(data.work)
             setSocials(data.socials)
@@ -101,7 +103,7 @@ const DefaultTheme = ({ data }) => {
                 </div> : <></>
             }
 
-            {data && data ? <Socials socials={socials} themeColor={data.themeColor} /> : <></>}
+            {data && data ? <Socials socials={socials} email={email} themeColor={data.themeColor} /> : <></>}
 
             <div className="mt-20">
                 {

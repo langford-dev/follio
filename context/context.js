@@ -455,7 +455,7 @@ export const AppProvider = ({ children }) => {
         work, setWork,
         about, setAbout,
         themeColor, setThemeColor,
-        skills, setSkills,
+        skills, setSkills, email,
         isAuthenticated, toggleIsAuthenticated,
         showGithubStats, setShowGithubStats,
         showPreview, setShowPreview,

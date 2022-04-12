@@ -23,7 +23,7 @@ const styles = {
 
 const Preview1 = () => {
 
-    let { fullname, username, projects, work, tagline, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+    let { fullname, email, username, projects, work, tagline, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     useEffect(() => {
         console.log(themeColor)
@@ -63,7 +63,7 @@ const Preview1 = () => {
                                     : <p className="my-10 text-2xl">{work}</p>
                             }
                             <div className="-ml-5 flex justify-start">
-                                <Socials socials={socials} themeColor={themeColor} />
+                                <Socials socials={socials} email={email} themeColor={themeColor} />
                             </div>
                         </div>
                         <div>
@@ -178,7 +178,7 @@ const Preview1 = () => {
 
                     {/* FOOTER */}
                     <div id="find-me" className="py-10 sm:text-center max-w-6xl m-auto flex sm:justify-center">
-                        <Socials socials={socials} themeColor={themeColor} />
+                        <Socials socials={socials} email={email} themeColor={themeColor} />
                     </div>
 
                     {/* MADE WITH FOLIO */}

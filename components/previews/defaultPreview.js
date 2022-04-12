@@ -16,7 +16,7 @@ const styles = {
 }
 
 const DefaultPreview = () => {
-    let { fullname, username, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
+    let { fullname, email, username, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto } = useContext(AppContext)
 
     useEffect(() => {
         console.log(themeColor)
@@ -97,7 +97,7 @@ const DefaultPreview = () => {
                     </div> : <></>
                 }
 
-                <Socials socials={socials} themeColor={themeColor} />
+                <Socials socials={socials} email={email} themeColor={themeColor} />
 
                 <div className="mt-20">
                     {
