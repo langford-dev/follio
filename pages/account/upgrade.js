@@ -34,14 +34,13 @@ const Upgrade = () => {
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />
-                        <UpdateFeature label="Page analytics" icon="📈" />
                         <UpdateFeature label="Color customization" icon="💅" />
                         <UpdateFeature label="Responsive design" icon="📱" />
                         <UpdateFeature label="Tips/donations" icon="💰" />
-                        <UpdateFeature label="meeting scheduling" icon="📆" />
-                        <UpdateFeature label="Submitting your design" icon="😎" />
-                        <UpdateFeature label="Custom domain" icon="🌟" />
-                        <UpdateFeature label="... More coming soon" icon="🎁" />
+                        <UpdateFeature working={true} label="Meeting scheduling" icon="📆" />
+                        <UpdateFeature working={true} label="Page analytics" icon="📈" />
+                        <UpdateFeature soon={true} label="Submitting your design" icon="😎" />
+                        <UpdateFeature soon={true} label="Custom domain" icon="🌟" />
                     </div>
                 </div>
                 <ComingSoon />

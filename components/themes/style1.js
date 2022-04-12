@@ -126,7 +126,7 @@ const Style1 = ({ data }) => {
                 about ?
                     // <div id="about" className="pb-56 px-5 sm:text-center max-w-6xl m-auto">
                     <div id="about" className={styles.section}>
-                        <p className={styles.sectionTitle}>ABOUT ME</p>
+                        <p className={styles.sectionTitle}>ABOUT</p>
                         <br />
                         <p className="leading-10 text-2xl">{about}</p>
                     </div>

@@ -87,7 +87,7 @@ const Preview1 = () => {
                     {
                         about ?
                             <div id="about" className={styles.section}>
-                                <p className={styles.sectionTitle}>ABOUT ME</p>
+                                <p className={styles.sectionTitle}>ABOUT</p>
                                 <br />
                                 <p className="leading-10 text-2xl">{about}</p>
                             </div>

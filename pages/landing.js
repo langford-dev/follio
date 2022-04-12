@@ -1,6 +1,5 @@
 import Link from "next/link"
 import UpdateFeature from "../components/updateFeature"
-import logo from "../assets/logo.png"
 import Logo from "../components/logo"
 
 const Twitter = ({ twitterLink }) => {
@@ -20,7 +19,7 @@ const User = ({ image, name, link, twitter }) => {
     </div>
 }
 
-const Testimonial = ({ name, twitter, content, link }) => {
+const Testimonial = ({ name, content, link }) => {
     return <div className="bg-white text-xl p-8 relative rounded-xl mb-5">
         {/* <span className="text-7xl absolute left-4 opacity-20">"</span> */}
         {content}
@@ -39,45 +38,51 @@ const Landing = () => {
         {/* HEADER */}
         <div className="flex items-center justify-between container 2xl m-auto p-5">
             <Logo />
-            <Link passHref={true} href="/auth" >
-                <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Login / Get started</p>
-            </Link>
+            <div className="flex items-center">
+                <Link passHref={true} href="/auth" >
+                    <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Login</p>
+                </Link>
+            </div>
         </div>
 
         {/* HERO */}
         <div className="text-center container 2xl m-auto px-5 p-36">
-            <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Simple portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
-            <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p>
+            <div className="flex justify-center mb-10">
+                <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
+                </a>
+            </div>
+            <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Online portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
+            <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain</p>
+            {/* <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p> */}
             <div className="flex flex-wrap items-center justify-center">
                 <div>
                     <Link passHref={true} href="/auth" >
-                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Build your site now! 🚀</p>
+                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Build your site!</p>
                     </Link>
                 </div>
-                <div className="mt-5 sm:mt-0">
-                    <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
-                        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
-                    </a>
-                </div>
+                <a href="https://follio.app/langford">
+                    <p className="m-5 font-bold cursor-pointer hover:opacity-50 hover:text-brand">View demo</p>
+                </a>
             </div>
         </div>
 
         {/* OUR FEATURES */}
         <div className="bg-[#f1f1f1]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
+                <p className="text-brand mb-3 font-bold text-2xl">A central point for all your details</p>
                 <p className="font-extrabold text-4xl sm:text-5xl">What you can do</p>
                 <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-5xl m-auto">Theres no need for designers or plugins; simply pick a template, style it anyway you want, and fill it with your info. Boom! You have your website.</p>
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />
-                        <UpdateFeature label="Page analytics" icon="📈" />
                         <UpdateFeature label="Color customization" icon="💅" />
                         <UpdateFeature label="Responsive design" icon="📱" />
                         <UpdateFeature label="Tips/donations" icon="💰" />
-                        <UpdateFeature label="Meeting scheduling" icon="📆" />
-                        <UpdateFeature label="Submitting your design" icon="😎" />
-                        <UpdateFeature label="Custom domain" icon="🌟" />
-                        <UpdateFeature label="... More coming soon" icon="🎁" />
+                        <UpdateFeature working={true} label="Meeting scheduling" icon="📆" />
+                        <UpdateFeature working={true} label="Page analytics" icon="📈" />
+                        <UpdateFeature soon={true} label="Submitting your design" icon="😎" />
+                        <UpdateFeature soon={true} label="Custom domain" icon="🌟" />
                     </div>
                 </div>
             </div>
@@ -106,7 +111,8 @@ const Landing = () => {
 
         {/* THE TEAM */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
-            <p className="font-extrabold text-4xl sm:text-5xl mb-20">The awesome team 😎</p>
+            <p className="font-extrabold text-4xl sm:text-5xl">The team</p>
+            <p className="pb-10 pt-5 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">Built by a small team of developers</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Founder" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
                 <User name="Co founder" link="https://follio.app/goofierey" twitter="https://twitter.com/GoofieRey" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />

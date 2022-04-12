@@ -92,7 +92,7 @@ const DefaultPreview = () => {
 
                 {
                     about ? <div className="mt-20">
-                        <p className={styles.sectionTitle}>About me 😎</p>
+                        <p className={styles.sectionTitle}>ABOUT 😎</p>
                         <p className="mb-5 px-5 text-lg">{about}</p>
                     </div> : <></>
                 }
