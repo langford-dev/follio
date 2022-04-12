@@ -27,7 +27,7 @@ const styles = {
 const Settings = () => {
     const router = useRouter()
     const { data: session } = useSession()
-    const { changeUsername, showLoader, username, setUsername } = useContext(AppContext)
+    const { changeUsername, formatUsername, showLoader, username, setUsername } = useContext(AppContext)
 
     useEffect(() => {
         if (!session) {
@@ -51,7 +51,7 @@ const Settings = () => {
                 {/* <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl w-12/12 flex items-center w-3/5"> */}
                 <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl flex items-center sm:w-5/12">
                     <div className="flex sm:text-xl">
-                        follio.app/<input type="text" value={username} className="bg-[#fff] w-8/12 text-brand outline-none" onChange={e => setUsername(e.target.value)} />
+                        follio.app/<input type="text" value={username} className="bg-[#fff] w-8/12 text-brand outline-none lowercase" onChange={e => setUsername(formatUsername(e.target.value))} />
                     </div>
                 </div>
                 <div className="mt-3">

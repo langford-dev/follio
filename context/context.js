@@ -147,7 +147,7 @@ export const AppProvider = ({ children }) => {
             })
 
             const resData = await res.json()
-            console.log(res)
+            // console.log(res)
 
             return resData.url
         }
@@ -262,7 +262,7 @@ export const AppProvider = ({ children }) => {
 
     const prefillFromSession = () => {
 
-        console.warn("prefilling", sessionStorage.getItem("data"))
+        // console.warn("prefilling", sessionStorage.getItem("data"))
 
         if (!sessionStorage.getItem("data")) {
             alert("No data found in storage. Please sign in again.")
@@ -332,7 +332,7 @@ export const AppProvider = ({ children }) => {
 
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/check-username-exists/${username}`, { method: "GET" })
             const data = await res.json()
-            console.log(data)
+            // console.log(data)
 
             if (data.payload) {
                 alert("username already exists")
@@ -387,14 +387,14 @@ export const AppProvider = ({ children }) => {
 
         if (session && session.user && !sessionStorage.getItem("data")) {
             /** Is logged in but no data */
-            console.warn("session, no data", session.user)
+            console.warn("session, no data")
             await fetchDataFromDB(session.user.email)
             return true
         }
 
         if (session && session.user && sessionStorage.getItem("data")) {
             /** when user is fully logged in */
-            console.warn("logged in, data", session.user, sessionStorage.getItem("data"))
+            console.warn("logged in, data")
             return true
         }
 
@@ -429,8 +429,6 @@ export const AppProvider = ({ children }) => {
 
     const initAuthentication = async () => {
         try {
-
-            console.log(await checkAuthStatus())
 
             if (!await checkAuthStatus()) {
                 console.warn("logging in")
@@ -480,6 +478,7 @@ export const AppProvider = ({ children }) => {
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
         setIsNewUser, username, setUsername,
+        formatUsername,
         changeUsername, checkAuthStatus,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
