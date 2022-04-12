@@ -22,14 +22,15 @@ const styles = {
 }
 
 const Auth = () => {
-    const { initAccount, readDataFromStorage, isNewUser, setIsNewUser } = useContext(AppContext)
+    const { initAccount, prefillFromSession } = useContext(AppContext)
     const { data: session } = useSession()
     const router = useRouter()
     // const [isChecked, setIsChecked] = useState(false)
 
     useEffect(() => {
         if (window.sessionStorage.getItem('data')) {
-            readDataFromStorage()
+            console.log("user exists in session")
+            prefillFromSession()
             router.push("/account/edit")
             return
         }
@@ -41,16 +42,6 @@ const Auth = () => {
 
         console.warn('❎ No user session')
     }, [session])
-
-    // const authenticate = () => {
-
-    //     if (!isChecked) {
-    //         alert("Please accept terms and conditions")
-    //         return
-    //     }
-
-    //     signIn("google")
-    // }
 
     if (!session) return <div className={styles.main}>
         <div className={styles.mainInputBox}>
@@ -65,17 +56,7 @@ const Auth = () => {
                 <GoogleButton
                     label="Continue with Google"
                     icon={google.src}
-                    action={() => {
-                        signIn("google")
-                        // if (!isNewUser) {
-                        //     console.warn("not new user")
-                        //     // signIn("google")
-                        //     return
-                        // }
-
-                        // console.log("new user🔥")
-                        // setIsNewUser(true)
-                    }}
+                    action={() => signIn("google")}
                 />
             </div>
             {/* <div className="flex justify-center items-center">

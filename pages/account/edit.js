@@ -27,10 +27,10 @@ const Edit = () => {
 
     return <></>
 
-    // const { isAuthenticated, showLogin, readDataFromStorage } = useContext(AppContext)
+    // const { isAuthenticated, showLogin, prefillFromSession } = useContext(AppContext)
 
     // useEffect(() => {
-    //     if (isAuthenticated) readDataFromStorage()
+    //     if (isAuthenticated) prefillFromSession()
     // }, [isAuthenticated])
 
     // if (!isAuthenticated && showLogin) return <LoginComponent />
@@ -48,19 +48,19 @@ export default Edit
 
 // const Edit = () => {
 //     // const router = useRouter()
-//     // const { isAuthenticated, readDataFromStorage } = useContext(AppContext)
+//     // const { isAuthenticated, prefillFromSession } = useContext(AppContext)
 
 //     // useEffect(() => {
 
-//     //     readDataFromStorage()
+//     //     prefillFromSession()
 //     //     if (!isAuthenticated) router.push("/")
 
 //     // }, [isAuthenticated])
 
-    // const { isAuthenticated, showLogin, readDataFromStorage } = useContext(AppContext)
+    // const { isAuthenticated, showLogin, prefillFromSession } = useContext(AppContext)
 
     // useEffect(() => {
-    //     if (isAuthenticated) readDataFromStorage()
+    //     if (isAuthenticated) prefillFromSession()
     // }, [isAuthenticated])
 
     // if (!isAuthenticated && showLogin) return <LoginComponent />
