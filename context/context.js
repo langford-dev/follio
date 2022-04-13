@@ -350,8 +350,9 @@ export const AppProvider = ({ children }) => {
     }
 
     /** Create Account */
-    const createAccount = async (session) => {
-        console.warn('Creating new account...🦄', formatUsername(session.user.name))
+    const createAccount = async () => {
+
+        console.warn('Creating new account...🦄', session)
 
         setIsNewUser(true)
 
