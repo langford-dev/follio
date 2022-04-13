@@ -7,13 +7,10 @@ import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
 import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
-import feedback from "../../assets/svg/feedback.svg"
-import { useContext, useEffect, useState } from "react"
+import SideNavIconLink from "./sideNavIconLink"
+import { useContext } from "react"
 import { AppContext } from "../../context/context"
 import { navStyles } from "../styles/navStyles"
-import Logo from "../logo"
-// import settings from "../../assets/svg/settings.svg"
-// import Button from "../buttons/button"
 
 const Twitter = ({ twitterLink }) => {
     return <a href={twitterLink} target="_blank" rel="noreferrer">
@@ -22,98 +19,17 @@ const Twitter = ({ twitterLink }) => {
 }
 
 const SideNavLinks = () => {
-    const { shareLink, copyLink, logout, setShowDrawer } = useContext(AppContext)
-    const [route, setRoute] = useState('')
-
-    useEffect(() => {
-        console.log(window.location.pathname)
-        setRoute(window.location.pathname)
-    }, [route])
+    const { shareLink, copyLink, logout } = useContext(AppContext)
 
     return <div className="flex flex-col justify-between h-full">
         <div>
+            <SideNavIconLink forMobile={true} isNew={true} label="Analytics" target="/account/dashboard" icon={graph.src} />
+            <SideNavIconLink forMobile={true} label="Settings" target="/account/settings" icon={settings.src} />
+            <SideNavIconLink forMobile={true} label="Edit content" target="/account/edit" icon={brush.src} />
+            <SideNavIconLink forMobile={true} label="Themes" target="/account/themes" icon={theme.src} />
+            <SideNavIconLink forMobile={true} isNew={true} label="Upgrade" target="/account/upgrade" icon={shield.src} />
 
-
-            <div className="sm:hidden">
-                <Link passHref={true} href="/account/dashboard">
-                    <p className={route === "/account/dashboard" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={graph.src} />
-                        Dashboard
-                    </p>
-                </Link>
-            </div>
-
-            <div>
-                <Link passHref={true} href="/account/settings">
-                    <p className={route === "/account/settings" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={settings.src} />
-                        Settings
-                    </p>
-                </Link>
-            </div>
-
-            <div className="sm:hidden">
-                <Link passHref={true} href="/account/edit">
-                    <p className={route === "/account/edit" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={brush.src} />
-                        Edit content
-                    </p>
-                </Link>
-            </div>
-
-            <div className="sm:hidden">
-                <Link passHref={true} href="/account/themes">
-                    <p className={route === "/account/themes" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={theme.src} />
-                        Themes
-                    </p>
-                </Link>
-            </div>
-
-            <div className="sm:hidden">
-                <Link passHref={true} href="/account/upgrade">
-                    <p className={route === "/account/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={shield.src} />
-                        Upgrade
-                    </p>
-                </Link>
-            </div>
-
-            {/* <div>
-            <Link passHref={true} href="/settings">
-                <p className={route === "/settings" ? navStyles.activeNavLink : navStyles.navLink}>
-                    <img className={navStyles.navLinkIcon} src={settings.src} />
-                    Settings
-                </p>
-            </Link>
-        </div> */}
-
-            {/* <div>
-                <Link passHref={true} href="/account/upgrade">
-                    <p className={route === "/account/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={shield.src} />
-                        Features
-                    </p>
-                </Link>
-            </div>
-
-            <div>
-                <a passHref={true} target="_blank" rel="noreferrer" href="https://twitter.com/langford_dev">
-                    <p className={route === "/upgrade" ? navStyles.activeNavLink : navStyles.navLink}>
-                        <img className={navStyles.navLinkIcon} src={feedback.src} />
-                        Feedback
-                    </p>
-                </a>
-            </div> */}
-
-            {/* <div>
-            <Link passHref={true} href="/">
-                <p className={route === "/donate" ? navStyles.activeNavLink : navStyles.navLink}>
-                    <img className={navStyles.navLinkIcon} src={coin.src} />
-                    Donate
-                </p>
-            </Link>
-        </div> */}
+            <div className="border-b mb-5 sm:hidden border-b-[#22222211]" />
 
             <div>
                 <p className={navStyles.navLink} onClick={() => copyLink()}>
@@ -130,8 +46,8 @@ const SideNavLinks = () => {
             </div>
 
             <p className={navStyles.navLink} onClick={() => {
-                let conf = confirm("Are you sure you want to log out?")
-                if (!conf) return
+                let a = confirm("Are you sure you want to log out?")
+                if (!a) return
                 logout()
             }}>
                 <img className={navStyles.navLinkIcon} src={logoutIcon.src} />
@@ -139,24 +55,18 @@ const SideNavLinks = () => {
             </p>
 
             <div className="border-b border-b-[#22222211]" />
-        </div>
 
-        <div className="sm:hidden mb-32">
-            <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
-                <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
-            </a>
+            <div className="mt-32 sm:hidden">
+                <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
+                </a>
 
-            <div className="flex items-center justify-between mt-5">
-                <div className={navStyles.description}>{new Date().getFullYear()} &copy; Folio</div>
-                <Twitter twitterLink="https://twitter.com/Follio_" target="_blank" rel="noreferrer" />
+                <div className="flex items-center justify-between mt-5">
+                    <div className={navStyles.description}>{new Date().getFullYear()} &copy; Folio</div>
+                    <Twitter twitterLink="https://twitter.com/Follio_" target="_blank" rel="noreferrer" />
+                </div>
             </div>
         </div>
-
-        {/* <div className="flex items-center mt-3">
-            {!showLoader ? <Button label="Save &amp; publish" action={() => {
-                updateAccount()
-            }} /> : <></>}
-        </div> */}
     </div>
 }
 

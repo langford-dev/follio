@@ -1,10 +1,11 @@
 import { useEffect } from "react"
 import { useRouter } from 'next/router'
 import EditView from "../../components/editView"
-import Header from "../../components/header"
+// import Header from "../../components/header"
 import SideNav from "../../components/side-nav/sideNav"
 import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles"
 import { useSession } from 'next-auth/react'
+import Header from "../../components/header/header"
 
 const Edit = () => {
     const router = useRouter()

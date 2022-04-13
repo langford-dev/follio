@@ -44,8 +44,14 @@ const Landing = () => {
     }, [getAllUsers])
 
     const getTotalUsersNumber = async () => {
-        let a = await getAllUsers()
-        setUsersNum(a.length)
+        try {
+            let a = await getAllUsers()
+            setUsersNum(a.length)
+        }
+
+        catch (e) {
+            console.log(e.message)
+        }
     }
 
     return <div>
@@ -71,7 +77,6 @@ const Landing = () => {
 
             <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum > 0 ? usersNum : "our"}</span> users</p>
 
-            {/* <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p> */}
             <div className="flex flex-wrap items-center justify-center">
                 <div>
                     <Link passHref={true} href="/auth" >

@@ -20,11 +20,11 @@ const EditTabs = () => {
             <li onClick={() => setActive(0)} className={viewCount === 0 ? styles.active : styles.tab}>👋 Introduction</li>
             <li onClick={() => setActive(1)} className={viewCount === 1 ? styles.active : styles.tab}>📷 Add photos</li>
             <li onClick={() => setActive(2)} className={viewCount === 2 ? styles.active : styles.tab}>🔨 Your skills</li>
-            <li onClick={() => setActive(3)} className={viewCount === 3 ? styles.active : styles.tab}>🎨 Styles &amp; colors</li>
+            <li onClick={() => setActive(5)} className={viewCount === 5 ? styles.active : styles.tab}>🤩 Your socials</li>
             <li onClick={() => setActive(4)} className={viewCount === 4 ? styles.active : styles.tab}>💼 Projects</li>
             <li onClick={() => setActive(7)} className={viewCount === 7 ? styles.active : styles.tab}>📅 Meeting schedule</li>
-            <li onClick={() => setActive(5)} className={viewCount === 5 ? styles.active : styles.tab}>🤩 Your socials</li>
-            <li onClick={() => setActive(6)} className={viewCount === 6 ? styles.active : styles.tab}>🎁 Receive tips</li>
+            <li onClick={() => setActive(3)} className={viewCount === 3 ? styles.active : styles.tab}>🎨 Styles &amp; colors</li>
+            <li onClick={() => setActive(6)} className={viewCount === 6 ? styles.active : styles.tab}>🎁 Payments</li>
         </ul>
     </div>
 }

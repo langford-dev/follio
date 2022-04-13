@@ -1,31 +1,27 @@
 import Link from "next/link"
+import Logo from "../logo"
+import menu from "../../assets/svg/menu.svg"
+import SideNavLinks from "../side-nav/sideNavLinks"
+import Button from "../buttons/button"
 import { useContext, useEffect, useState } from "react"
-import { AppContext } from "../context/context"
-import Button from "./buttons/button"
-import GhostButton from "./buttons/ghostButton"
-import Logo from "./logo"
-import Modal from "./modal"
-import { headerStyles } from "./styles/headerStyles"
-import { navStyles } from "./styles/navStyles"
-
-
-import menu from "../assets/svg/menu.svg"
-import brush from "../assets/svg/brush.svg"
-import theme from "../assets/svg/theme.svg"
-import settings from "../assets/svg/settings.svg"
-import shield from "../assets/svg/shield.svg"
-import coin from "../assets/svg/coin.svg"
-import SideNavLinks from "./side-nav/sideNavLinks"
+import { AppContext } from "../../context/context"
+import { headerStyles } from "../styles/headerStyles"
 
 const Header = () => {
     const [route, setRoute] = useState('')
-    const { updateAccount, showLoader, shareLink, profilePhoto } = useContext(AppContext)
+    const { updateAccount, showLoader, profilePhoto } = useContext(AppContext)
     const [showDrawer, setShowDrawer] = useState(false);
 
     useEffect(() => {
         console.log(window.location.pathname)
         setRoute(window.location.pathname)
     }, [route])
+
+    // const NavLink = ({ label, target }) => {
+    //     return <Link passHref={true} href={target}>
+    //         <p className={route === { target } ? headerStyles.active : headerStyles.navLink}>{label}-{target}</p>
+    //     </Link>
+    // }
 
     return <header className={headerStyles.header}>
         <div className={headerStyles.headerWrapper}>
@@ -34,14 +30,12 @@ const Header = () => {
                 <Logo />
             </div>
             <nav className={headerStyles.nav}>
-                <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Dashboard</p></Link>
+                {/* <NavLink label="Dashboard" target="/account/dashboard" routeName={route} /> */}
+                <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Analytics</p></Link>
                 <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Edit content</p></Link>
                 <Link passHref={true} href="/account/themes"><p className={route === "/account/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/account/upgrade"><p className={route === "/account/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
                 <Link passHref={true} href="/account/settings"><p className={route === "/account/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
-                {/* <Link passHref={true} href="/"><p className={route === "/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link> */}
-                {/* <Link passHref={true} href="/"><p className={route === "/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link> */}
-                {/* <Link passHref={true} href="/"><p className={route === "/donate" ? headerStyles.active : headerStyles.navLink}>Donate</p></Link> */}
             </nav>
             <div className="flex items-center">
                 {

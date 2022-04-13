@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
 import { useSession } from "next-auth/react";
-// import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
-import Header from "../../components/header";
+import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
+// import Header from "../../components/header";
 import SideNav from "../../components/side-nav/sideNav";
 import UpdateFeature from "../../components/updateFeature";
 import ComingSoon from "../../components/comingSoon";
-import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
+import Header from "../../components/header/header";
 
 const styles = {
     title: `text-3xl font-bold mb-3`,
