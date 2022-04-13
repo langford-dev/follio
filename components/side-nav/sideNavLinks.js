@@ -137,6 +137,8 @@ const SideNavLinks = () => {
                 <img className={navStyles.navLinkIcon} src={logoutIcon.src} />
                 Logout
             </p>
+
+            <div className="border-b border-b-[#22222211]" />
         </div>
 
         <div className="sm:hidden mb-32">

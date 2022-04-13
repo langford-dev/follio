@@ -446,10 +446,24 @@ export const AppProvider = ({ children }) => {
         }
     }
 
+    const getAllUsers = async () => {
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-all-users`, { method: "GET" })
+            const data = await res.json()
+            return data.payload
+        }
+
+        catch (e) {
+            console.log(e.message)
+            return []
+        }
+    }
+
     return <AppContext.Provider value={{
         viewCount, setViewCount,
         next,
         previous,
+        getAllUsers,
         maxViewCount,
         fullname, setFullname,
         work, setWork,

@@ -1,6 +1,8 @@
 import Link from "next/link"
 import UpdateFeature from "../components/updateFeature"
 import Logo from "../components/logo"
+import { useContext, useEffect, useState } from "react"
+import { AppContext } from "../context/context"
 
 const Twitter = ({ twitterLink }) => {
     return <a href={twitterLink} target="_blank" rel="noreferrer" className="mt-2">
@@ -34,6 +36,18 @@ const Testimonial = ({ name, content, link }) => {
 }
 
 const Landing = () => {
+    const [usersNum, setUsersNum] = useState(0)
+    const { getAllUsers } = useContext(AppContext)
+
+    useEffect(() => {
+        getTotalUsersNumber()
+    }, [getAllUsers])
+
+    const getTotalUsersNumber = async () => {
+        let a = await getAllUsers()
+        setUsersNum(a.length)
+    }
+
     return <div>
         {/* HEADER */}
         <div className="flex items-center justify-between container 2xl m-auto p-5">
@@ -54,6 +68,9 @@ const Landing = () => {
             </div>
             <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Online portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain</p>
+
+            <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum}</span> users</p>
+
             {/* <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p> */}
             <div className="flex flex-wrap items-center justify-center">
                 <div>
@@ -122,7 +139,7 @@ const Landing = () => {
         <footer className="text-center p-20 opacity-80">
             &copy; 2022 Follio | Multiverse tech
         </footer>
-    </div>
+    </div >
 }
 
 export default Landing

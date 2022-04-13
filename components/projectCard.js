@@ -30,7 +30,7 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
             thumbnail && thumbnail ?
                 <div className="mb-3">
                     <a href={link} target="_blank" rel="noreferrer" className="text-blue-600">
-                        <img src={thumbnail} className="bg-gray-100 border w-full h-60 object-cover rounded-md hover:opacity-50 cursor-pointer transition" />
+                        <img src={thumbnail} className="bg-gray-100 w-full h-60 object-cover rounded-md hover:opacity-50 cursor-pointer transition" />
                     </a>
                 </div>
                 : <></>
@@ -42,12 +42,12 @@ const ProjectCard = ({ thumbnail, name, link, description, editMode, index }) =>
                     <summary className="cursor-pointer outline-none">Read more</summary>
                     <p className="my-3">{description}</p>
                 </details>
-                : <div className="my-3">...</div>
+                : <div className="my-3"></div>
         }
         {
             link ?
                 <a href={link} target="_blank" rel="noreferrer" className="text-[#0035ff]">{link}</a>
-                : <p>...</p>
+                : <p></p>
         }
     </div>
 }
