@@ -85,8 +85,8 @@ const Style1 = ({ data }) => {
                     <a className={styles.headerLink} href="#">Home</a>
                     {about ? <a className={styles.headerLink} href="#about">About</a> : <></>}
                     {projects.length > 0 ? <a className={styles.headerLink} href="#projects">Projects</a> : <></>}
-                    {showGithubStats ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
                     {skills.length > 0 ? <a className={styles.headerLink} href="#skills">Skills</a> : <></>}
+                    {showGithubStats ? <a className={styles.headerLink} href="#stats">Stats</a> : <></>}
                     <a className={styles.headerLink} href="#find-me">Find me</a>
                 </nav>
             </div>

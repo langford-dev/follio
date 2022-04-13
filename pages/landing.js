@@ -114,8 +114,9 @@ const Landing = () => {
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
+                <User name="SWE STUDENT" link="https://www.follio.app/azimifardous" twitter="https://twitter.com/azimifardous" image="http://res.cloudinary.com/breellz/image/upload/v1649851342/v1ywskvkyesqkzsc7zkp.jpg" />
                 <User name="Web3 dev, Content creator" link="https://www.follio.app/favoronuoha" twitter="https://twitter.com/heyOnuoha" image="https://pbs.twimg.com/profile_images/1468914223405277189/_25swnVl_400x400.jpg" />
-                <User name="Blockchain developer" link="https://www.follio.app/vatsalawadhiya" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
+                <User name="Blockchain developer" link="https://https://www.follio.app/thevatsal" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
                 <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
             </div>
         </div>
@@ -125,8 +126,9 @@ const Landing = () => {
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24 ">
                 <p className="font-extrabold text-4xl sm:text-5xl mb-20">From our buddies</p>
                 <div className="flex flex-wrap items-center justify-evenly wrap">
-                    <Testimonial content="I didn't have a portfolio site, but this tool helped me setup mine in a few minutes. So freaking cool" link="" twitter="" name="Anon" />
-                    <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://follio.app/vatsalawadhiya" twitter="https://www.twitter.com/theVatsal_eth" name="Vatsal Awadhiya" />
+                    <Testimonial content="Man i just made my portffolio within a few minutes. Really enjoyed it" link="https://www.follio.app/azimifardous" name="Ahmad Fardous Azimi" />
+                    <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://www.follio.app/thevatsal" name="Vatsal Awadhiya" />
+                    {/* <Testimonial content="I didn't have a portfolio site, but this tool helped me setup mine in a few minutes." link="" name="Anon"s /> */}
                 </div>
             </div>
         </div>
