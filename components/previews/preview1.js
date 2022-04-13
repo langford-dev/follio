@@ -98,7 +98,7 @@ const Preview1 = () => {
                     {
                         skills.length > 0 ?
                             <div id="skills" className={styles.section}>
-                                <p className={styles.sectionTitle}>MY SKILLS</p>
+                                <p className={styles.sectionTitle}>SKILLS</p>
                                 <br />
                                 <ul className={styles.wrap}>
                                     {

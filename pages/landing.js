@@ -69,7 +69,7 @@ const Landing = () => {
             <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Online portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
             <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain</p>
 
-            <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum}</span> users</p>
+            <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum > 0 ? usersNum : "our"}</span> users</p>
 
             {/* <p className="py-10 text-xl sm:text-2xl opacity-50">Ship your portfolio website in less than 2 minutes</p> */}
             <div className="flex flex-wrap items-center justify-center">
@@ -107,7 +107,7 @@ const Landing = () => {
 
         {/* PEOPLE WHO USE IT */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
-            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter ⚡</p>
+            <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Web3 dev, Content creator" link="https://www.follio.app/favoronuoha" twitter="https://twitter.com/heyOnuoha" image="https://pbs.twimg.com/profile_images/1468914223405277189/_25swnVl_400x400.jpg" />
                 <User name="Blockchain developer" link="https://www.follio.app/vatsalawadhiya" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
@@ -118,7 +118,7 @@ const Landing = () => {
         {/* TESTIMONIALS */}
         <div className="bg-[#f1f1f1]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24 ">
-                <p className="font-extrabold text-4xl sm:text-5xl mb-20">Who said what? 😲</p>
+                <p className="font-extrabold text-4xl sm:text-5xl mb-20">From our buddies</p>
                 <div className="flex flex-wrap items-center justify-evenly wrap">
                     <Testimonial content="I didn't have a portfolio site, but this tool helped me setup mine in a few minutes. So freaking cool" link="" twitter="" name="Anon" />
                     <Testimonial content="I built my portfolio, and I just love the process you have created" link="https://follio.app/vatsalawadhiya" twitter="https://www.twitter.com/theVatsal_eth" name="Vatsal Awadhiya" />
@@ -129,7 +129,7 @@ const Landing = () => {
         {/* THE TEAM */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl">The team</p>
-            <p className="pb-10 pt-5 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">Built by a small team of developers</p>
+            <p className="pb-10 pt-5 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">Follio is being built by a small team of developers</p>
             <div className="flex flex-wrap items-center justify-evenly wrap">
                 <User name="Founder" link="https://follio.app/langford" twitter="https://twitter.com/langford_dev" image="https://pbs.twimg.com/profile_images/1494065115628548099/IOVenzqn_400x400.jpg" />
                 <User name="Co founder" link="https://follio.app/goofierey" twitter="https://twitter.com/GoofieRey" image="https://pbs.twimg.com/profile_images/1477021347129737224/SpT0xdx0_400x400.jpg" />

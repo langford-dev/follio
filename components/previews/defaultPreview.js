@@ -102,7 +102,7 @@ const DefaultPreview = () => {
                 <div className="mt-20">
                     {
                         skills.length > 0 ?
-                            <p className={styles.sectionTitle}>My skills 💪</p>
+                            <p className={styles.sectionTitle}>SKILLS 💪</p>
                             : <></>
                     }
                     <ul className={styles.wrap}>

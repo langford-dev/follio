@@ -23,7 +23,7 @@ const styles = {
 }
 
 const Auth = () => {
-    const { initAuthentication, prefillFromSession, checkAuthStatus } = useContext(AppContext)
+    const { initAuthentication, prefillFromSession, logout, checkAuthStatus } = useContext(AppContext)
     const { data: session } = useSession()
     const router = useRouter()
     // const [isChecked, setIsChecked] = useState(false)
@@ -80,7 +80,7 @@ const Auth = () => {
                                     router.push("/account/edit")
                                 }
                             } />
-                            <GhostButton label="Logout" action={signOut} />
+                            <GhostButton label="Logout" action={logout} />
                         </div>
                     </div>
                     : <div>
