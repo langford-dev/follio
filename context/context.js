@@ -34,6 +34,9 @@ export const AppProvider = ({ children }) => {
     const [projects, setProjects] = useState([])
     const [socials, setSocials] = useState({})
     const [theme, setTheme] = useState(1)
+    const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
+    const [isGradient, setIsGradient] = useState(false)
+    const [cv, setCv] = useState("")
     const router = useRouter()
 
     const maxViewCount = 6
@@ -185,6 +188,9 @@ export const AppProvider = ({ children }) => {
             console.log('updating username', username)
 
             let _body = {
+                "gradient": gradient,
+                "isGradient": isGradient,
+                "cv": cv,
                 "fullname": fullname,
                 "username": username,
                 "email": email,
@@ -234,7 +240,10 @@ export const AppProvider = ({ children }) => {
         try {
 
             sessionStorage.setItem("data", JSON.stringify(data))
-
+            if (data.isGradient && data.isGradient) {
+                setGradient(data.gradient)
+                setIsGradient(data.isGradient)
+            }
             setEmail(data.email)
             setFullname(data.fullname)
             setUsername(data.username)
@@ -270,7 +279,10 @@ export const AppProvider = ({ children }) => {
         }
 
         let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
-
+        if (sessionStorageData.isGradient && sessionStorageData.isGradient) {
+            setGradient(sessionStorageData.gradient)
+            setIsGradient(sessionStorageData.isGradient)
+        }
         setFullname(sessionStorageData.fullname)
         setEmail(sessionStorageData.email)
         setUsername(sessionStorageData.username)
@@ -495,6 +507,7 @@ export const AppProvider = ({ children }) => {
         setIsNewUser, username, setUsername,
         formatUsername,
         changeUsername, checkAuthStatus,
+        gradient, isGradient, cv, setIsGradient, setGradient,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>

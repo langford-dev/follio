@@ -5,6 +5,7 @@ import EditTabs from "./editTabs"
 import Loader from "./loader"
 import DefaultPreview from "./previews/defaultPreview"
 import Preview1 from "./previews/preview1"
+import Preview2 from "./previews/preview2"
 import Header from "./header/header"
 
 const styles = {
@@ -27,6 +28,7 @@ const EditView = () => {
             {!showPreview ? <EditTabs /> : <></>}
             {theme === 1 ? <DefaultPreview editMode={true} /> : <></>}
             {theme === 2 ? <Preview1 editMode={true} /> : <></>}
+            {theme === 3 ? <Preview2 editMode={true} /> : <></>}
 
             <div className="sm:hidden">
                 {
