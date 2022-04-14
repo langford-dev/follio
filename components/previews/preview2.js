@@ -9,26 +9,6 @@ const Preview2 = ({ }) => {
     const { fullname, email, username, tagline, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto, gradient, isGradient, cv } = useContext(AppContext)
     const [textColor, setTextColor] = useState('#000')
 
-    // const [skills, setSkills] = useState([])
-    // const [fullname, setFullame] = useState("")
-    // const [tagline, setTagline] = useState("")
-    // const [about, setAbout] = useState("")
-    // const [work, setWork] = useState("")
-    // const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
-    // const [isGradient, setIsGradient] = useState(false)
-    // const [themeColor, setThemeColor] = useState("#3D5DE3")
-    // const [cv, setCv] = useState("")
-    // const [workplaces, setWorkplaces] = useState([])
-    // const [projects, setProjects] = useState([])
-    // const [showGithubStats, setShowGithubStats] = useState(false)
-    // const [socials, setSocials] = useState({})
-    // const [isPremiumAccount, setIsPremiumAccount] = useState(false)
-    // const [email, setEmail] = useState("")
-    // const [username, setUsername] = useState("")
-    // const [coverPhoto, setCoverPhoto] = useState('')
-    // const [textColor, setTextColor] = useState('#000')
-    // const [profilePhoto, setProfilePhoto] = useState("")
-
     const styles = {
         wrap: `flex items-center flex-wrap px-5`,
         previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
@@ -47,39 +27,46 @@ const Preview2 = ({ }) => {
     }
 
     useEffect(() => {
-        setTextColor(generateTextColor(gradient.from))
+
         setColors()
 
     }, [themeColor, gradient, isGradient])
 
     const setColors = () => {
-        const buttons = document.querySelectorAll(".button")
-        const hero = document.getElementById("hero")
-        const header = document.querySelector(".header")
+        try {
+            setTextColor(generateTextColor(gradient.from))
+            const buttons = document.querySelectorAll(".button")
+            const hero = document.getElementById("hero")
+            const header = document.querySelector(".header")
 
-        header.style.color = generateTextColor(gradient.to)
+            header.style.color = generateTextColor(gradient.to)
 
-        if (buttons.length > 0) {
-            buttons.forEach(button => {
-                button.style.background = themeColor
-                button.style.color = generateTextColor(themeColor)
-            })
+            if (buttons.length > 0) {
+                buttons.forEach(button => {
+                    button.style.background = themeColor
+                    button.style.color = generateTextColor(themeColor)
+                })
+            }
+
+            if (isGradient) {
+                hero.style.color = generateTextColor(gradient.to)
+                hero.style.background =
+                    "linear-gradient(to right, "
+                    + gradient.from
+                    + ", "
+                    + gradient.to
+                    + ")";
+                hero.style.background + ";";
+                return
+            }
+
+            hero.style.background = themeColor
+            hero.style.color = generateTextColor(themeColor)
         }
 
-        if (isGradient) {
-            hero.style.color = generateTextColor(gradient.to)
-            hero.style.background =
-                "linear-gradient(to right, "
-                + gradient.from
-                + ", "
-                + gradient.to
-                + ")";
-            hero.style.background + ";";
-            return
+        catch (e) {
+            console.error(e.message)
         }
-
-        hero.style.background = themeColor
-        hero.style.color = generateTextColor(themeColor)
     }
 
     return <div className="body">
