@@ -17,6 +17,7 @@ export const AppProvider = ({ children }) => {
     const [views, setViews] = useState(0)
     const [about, setAbout] = useState("")
     const [themeColor, setThemeColor] = useState("#ffffff")
+    const [accentColor, setAccentColor] = useState("#fea82f")
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
@@ -34,8 +35,8 @@ export const AppProvider = ({ children }) => {
     const [projects, setProjects] = useState([])
     const [socials, setSocials] = useState({})
     const [theme, setTheme] = useState(1)
-    const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
-    const [isGradient, setIsGradient] = useState(false)
+    // const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
+    // const [isGradient, setIsGradient] = useState(false)
     const [cv, setCv] = useState("")
     const router = useRouter()
 
@@ -51,39 +52,9 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         setShowPreview(true)
-        // checkAuthStatus()
-
-        // console.log(window.location.hostname.split(".")[0])
-        // console.warn("setting projects")
-
-        // if ((screen.width <= 640) ||
-        //     (window.matchMedia &&
-        //         window.matchMedia('only screen and (max-width: 640px)').matches
-        //     )) {
-        //     setShowPreview(false)
-        // }
-
-        // else setShowPreview(true)
-
-        // console.log(session.user)
-
-        // const _authSessionValue = sessionStorage.getItem("isAuth")
-
-        // if (!_authSessionValue) {
-        //     sessionStorage.setItem("isAuth", false)
-        //     setIsAuthenticated(false)
-        //     console.log('null_', false)
-        //     return
-        // }
-
-        // setIsAuthenticated(eval(_authSessionValue))
-
-        // console.log('_authSessionValue', eval(_authSessionValue))
-
     }, [session])
 
     const saveNewChangesToStorage = (data) => {
-
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
@@ -188,8 +159,8 @@ export const AppProvider = ({ children }) => {
             console.log('updating username', username)
 
             let _body = {
-                "gradient": gradient,
-                "isGradient": isGradient,
+                // "gradient": gradient,
+                // "isGradient": true,
                 "cv": cv,
                 "fullname": fullname,
                 "username": username,
@@ -207,6 +178,7 @@ export const AppProvider = ({ children }) => {
                 "theme": theme,
                 "views": views,
                 "themeColor": themeColor,
+                "accentColor": accentColor,
                 "socials": socials,
             }
 
@@ -240,10 +212,10 @@ export const AppProvider = ({ children }) => {
         try {
 
             sessionStorage.setItem("data", JSON.stringify(data))
-            if (data.isGradient && data.isGradient) {
-                setGradient(data.gradient)
-                setIsGradient(data.isGradient)
-            }
+            // if (data.isGradient && data.isGradient) {
+            //     setGradient(data.gradient)
+            //     setIsGradient(data.isGradient)
+            // }
             setEmail(data.email)
             setFullname(data.fullname)
             setUsername(data.username)
@@ -261,6 +233,7 @@ export const AppProvider = ({ children }) => {
             setWorkplaces(data.workplaces)
             setSocials(data.socials)
             setTheme(data.theme)
+            setAccentColor(data.accentColor)
             setThemeColor(data.themeColor)
 
         } catch (e) {
@@ -279,10 +252,10 @@ export const AppProvider = ({ children }) => {
         }
 
         let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
-        if (sessionStorageData.isGradient && sessionStorageData.isGradient) {
-            setGradient(sessionStorageData.gradient)
-            setIsGradient(sessionStorageData.isGradient)
-        }
+        // if (sessionStorageData.isGradient && sessionStorageData.isGradient) {
+        //     setGradient(sessionStorageData.gradient)
+        //     setIsGradient(sessionStorageData.isGradient)
+        // }
         setFullname(sessionStorageData.fullname)
         setEmail(sessionStorageData.email)
         setUsername(sessionStorageData.username)
@@ -300,6 +273,7 @@ export const AppProvider = ({ children }) => {
         setWorkplaces(sessionStorageData.workplaces)
         setSocials(sessionStorageData.socials)
         setTheme(sessionStorageData.theme)
+        setAccentColor(sessionStorageData.accentColor)
         setThemeColor(sessionStorageData.themeColor)
     }
 
@@ -311,10 +285,19 @@ export const AppProvider = ({ children }) => {
         saveNewChangesToStorage(_sessionData)
     }
 
-    const saveThemeColorToStorage = (color) => {
+    const saveThemeColorToStorage = (color, type) => {
         let _sessionData = JSON.parse(sessionStorage.getItem("data"))
-        _sessionData.themeColor = color
-        setThemeColor(color)
+
+        if (type === "themeColor") {
+            _sessionData.themeColor = color
+            setThemeColor(color)
+        }
+
+        if (type === "accentColor") {
+            _sessionData.accentColor = color
+            setAccentColor(color)
+        }
+
         saveNewChangesToStorage(_sessionData)
     }
 
@@ -505,9 +488,8 @@ export const AppProvider = ({ children }) => {
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
         setIsNewUser, username, setUsername,
-        formatUsername,
+        formatUsername, cv, accentColor,
         changeUsername, checkAuthStatus,
-        gradient, isGradient, cv, setIsGradient, setGradient,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>

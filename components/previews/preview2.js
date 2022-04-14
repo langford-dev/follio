@@ -6,67 +6,62 @@ import { generateTextColor } from "../../constants/functions"
 
 const Preview2 = ({ }) => {
 
-    const { fullname, email, username, tagline, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto, gradient, isGradient, cv } = useContext(AppContext)
-    const [textColor, setTextColor] = useState('#000')
+    const { fullname, email, username, accentColor, tagline, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto, cv } = useContext(AppContext)
 
     const styles = {
-        wrap: `flex items-center flex-wrap px-5`,
+        wrap: `flex items-center flex-wrap px-10 -ml-10`,
         previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
-        profilePhotoContainer: `hidden m-auto w-full rounded-full overflow-hidden relative bg-white mt-10 border-4 border-[#fff]`,
+        profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-full overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
         profilePhoto: `object-cover h-full w-full rounded-full`,
-        header: `header p-5 px-5 z-20`,
+        header: `header p-5 px-10 z-20`,
         headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
         headerLink: `m-3 hover:opacity-50 hidden`,
-        section: `border-b border-b-[#f1f1f1] py-32 px-5 m-auto text-left`,
-        graySection: `bg-[#dbdbdb21] border-b border-b-[#f1f1f1] py-32 px-5 text-left m-auto`,
+        section: `border-b border-b-[#f1f1f1] py-32 px-10 m-auto text-left`,
+        graySection: `bg-[#dbdbdb21] border-b border-b-[#f1f1f1] py-32 px-10 text-left m-auto`,
         heroSection: `m-auto -mt-32`,
         sectionWrapper: `m-auto max-w-7xl`,
         skillPill: `skill-pill ml-0 bg-white border border-[#dadada] border rounded-full px-4 py-2 hover:opacity-50 m-3 transition`,
-        sectionTitle: `text-4xl font-bold ml-0`,
-        miniSectionTitle: `text-accent font-bold text-xl mb-2 uppercase`,
+        sectionTitle: `text-3xl font-bold ml-0`,
+        miniSectionTitle: `mini-section-title font-bold text-xl mb-2 uppercase`,
     }
 
     useEffect(() => {
-
         setColors()
-
-    }, [themeColor, gradient, isGradient])
+    }, [themeColor, accentColor])
 
     const setColors = () => {
         try {
-            setTextColor(generateTextColor(gradient.from))
             const buttons = document.querySelectorAll(".button")
             const hero = document.getElementById("hero")
             const header = document.querySelector(".header")
+            const miniSectionTitle = document.querySelectorAll(".mini-section-title")
 
-            header.style.color = generateTextColor(gradient.to)
+            miniSectionTitle.forEach(title => {
+                title.style.color = accentColor
+            })
+
+            header.style.color = generateTextColor(themeColor)
+            hero.style.background = themeColor
+            hero.style.color = generateTextColor(themeColor)
 
             if (buttons.length > 0) {
                 buttons.forEach(button => {
-                    button.style.background = themeColor
-                    button.style.color = generateTextColor(themeColor)
+                    button.style.background = accentColor
+                    button.style.color = generateTextColor(accentColor)
                 })
             }
-
-            if (isGradient) {
-                hero.style.color = generateTextColor(gradient.to)
-                hero.style.background =
-                    "linear-gradient(to right, "
-                    + gradient.from
-                    + ", "
-                    + gradient.to
-                    + ")";
-                hero.style.background + ";";
-                return
-            }
-
-            hero.style.background = themeColor
-            hero.style.color = generateTextColor(themeColor)
         }
 
         catch (e) {
             console.error(e.message)
         }
+    }
+
+    const SectionTitle = ({ title, subTitle }) => {
+        return <div className="mb-10">
+            <p className={styles.miniSectionTitle}>{subTitle}</p>
+            <p className={styles.sectionTitle}>{title}</p>
+        </div>
     }
 
     return <div className="body">
@@ -88,11 +83,11 @@ const Preview2 = ({ }) => {
                                     {socials.coffee ? <a className={styles.headerLink} href="#support">Support</a> : <></>}
                                 </nav>
                                 {
-                                    cv ?
-                                        <div className="flex items-center">
-                                            <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
-                                        </div>
-                                        : <></>
+                                    // cv ?
+                                    <div className="flex items-center">
+                                        <p className={`button hover:opacity-50 cursor-pointer p-3 px-10 rounded-full`}>Download CV</p>
+                                    </div>
+                                    // : <></>
                                 }
                             </div>
                         </div>
@@ -100,22 +95,13 @@ const Preview2 = ({ }) => {
                         {/* HERO */}
                         <div id="hero" className={styles.heroSection}>
                             <div className={styles.section}>
-                                <div className="sm:h-[70vh] pt-32 sm:pt-0 sm:flex items-center justify-between">
-                                    <div className={`text-left max-w-5xl text-[${textColor}]`}>
-                                        <div className="text-6xl leading-tight py-5 font-bold">{tagline}</div>
+                                <div className="sm:h-[70vh] pt-32 sm:pt-0 sm:flex items-center">
+                                    <div className={`text-left max-w-5xl`}>
+                                        <div className="text-5xl leading-tight py-5 font-bold">{tagline}</div>
                                         <div className="text-2xl">{work}</div>
-                                        {/* <div className="-ml-8 mt-8 flex justify-start">
-                                            <Socials socials={socials} email={email} themeColor={gradient.to} />
-                                        </div> */}
-                                    </div>
-
-                                    <div>
-                                        {
-                                            profilePhoto ?
-                                                <div className={styles.profilePhotoContainer}>
-                                                    <img className={styles.profilePhoto} src={profilePhoto} alt='' />
-                                                </div> : <img src={`https://avatars.dicebear.com/api/avataaars/:${fullname}.svg`} className="w-96 h-96 max-w-4xl" />
-                                        }
+                                        <div className="-ml-8 mt-8 flex justify-start">
+                                            <Socials socials={socials} email={email} themeColor={themeColor} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -123,12 +109,24 @@ const Preview2 = ({ }) => {
 
                         {/* ABOUT */}
                         <div id="about" className={styles.section}>
-                            <div className="mb-10">
-                                <p className={styles.miniSectionTitle}>About me</p>
-                                <p className={styles.sectionTitle}>Know Me More</p>
-                            </div>
+                            <SectionTitle title="Know Me More" subTitle="ABOUT ME" />
                             <div className={styles.sectionWrapper}>
-                                <p className="leading-10 text-2xl">{about}</p>
+                                <p className="text-2xl">{about}</p>
+                            </div>
+                            <div className="mt-10">
+                                {
+                                    profilePhotoPreview ?
+                                        <div className={styles.profilePhotoContainer}>
+                                            <img className={styles.profilePhoto} src={URL.createObjectURL(profilePhotoPreview)} alt='' />
+                                        </div> : <></>
+                                }
+
+                                {
+                                    !profilePhotoPreview && profilePhoto ?
+                                        <div className={styles.profilePhotoContainer}>
+                                            <img className={styles.profilePhoto} src={profilePhoto} alt='' />
+                                        </div> : <></>
+                                }
                             </div>
                         </div>
 
@@ -136,10 +134,7 @@ const Preview2 = ({ }) => {
                         {
                             skills.length > 0 ?
                                 <div id="skills" className={styles.graySection}>
-                                    <div className="mb-10">
-                                        <p className={styles.miniSectionTitle}>MY SKILLS</p>
-                                        <p className={styles.sectionTitle}>Expert With My Tools</p>
-                                    </div>
+                                    <SectionTitle title="Expert With My Tools" subTitle="MY SKILLS" />
                                     <div className={styles.sectionWrapper}>
                                         <ul className={styles.wrap}>
                                             {
@@ -157,10 +152,7 @@ const Preview2 = ({ }) => {
                         {
                             projects.length > 0 ?
                                 <div id="projects" className={styles.section}>
-                                    <div className="mb-10">
-                                        <p className={styles.miniSectionTitle}>MY PORTFOLIO</p>
-                                        <p className={styles.sectionTitle}>Recent Works</p>
-                                    </div>
+                                    <SectionTitle title="Recent Works" subTitle="MY PORTFOLIO" />
                                     <div className={styles.sectionWrapper}>
                                         <ul className="grid grid-cols-1 sm:grid-cols-2">
                                             {
@@ -178,10 +170,7 @@ const Preview2 = ({ }) => {
                         {
                             showGithubStats && socials.github ?
                                 <div id="stats" className={styles.section}>
-                                    <div className="mb-10">
-                                        <p className={styles.miniSectionTitle}>MY GITHUB CONTRIBUTIONS</p>
-                                        <p className={styles.sectionTitle}>GitHub Statistics</p>
-                                    </div>
+                                    <SectionTitle title="GitHub Statistics" subTitle="MY GITHUB CONTRIBUTIONS" />
                                     <img alt='' className="m-auto w-full sm:w-1/3" src={`https://github-readme-stats.vercel.app/api?username=${socials.github}&show_icons=true&hide=&count_private=true&title_color=3382ed&text_color=ffffff&icon_color=3382ed&bg_color=1c1917&hide_border=true&show_icons=true`} />
                                 </div>
                                 : <></>
@@ -191,10 +180,7 @@ const Preview2 = ({ }) => {
                         {
                             socials.coffee !== "" ?
                                 <div id="support" className={styles.section}>
-                                    <div className="mb-10">
-                                        <p className={styles.miniSectionTitle}>SUPPORT</p>
-                                        <p className={styles.sectionTitle}>Want to support?</p>
-                                    </div>
+                                    <SectionTitle title="Want to support?" subTitle="SUPPORT" />
                                     <div>
                                         <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                                             <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
@@ -210,7 +196,7 @@ const Preview2 = ({ }) => {
 
 
                         {/* MADE WITH FOLIO */}
-                        <div className="py-20 px-5 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
+                        <div className="py-20 px-10 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
                             <a href="https://follio.app" className="opacity-50">Made with 💛 by Folio</a>
                         </div>
                     </div> : <></>

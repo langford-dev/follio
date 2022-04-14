@@ -12,9 +12,9 @@ const Style2 = ({ data }) => {
     const [tagline, setTagline] = useState("")
     const [about, setAbout] = useState("")
     const [work, setWork] = useState("")
-    const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
-    const [isGradient, setIsGradient] = useState(false)
-    const [themeColor, setThemeColor] = useState("#3D5DE3")
+    // const [gradient, setGradient] = useState({ 'from': "#07B5D4", 'to': "#3884F4" })
+    // const [isGradient, setIsGradient] = useState(false)
+    // const [themeColor, setThemeColor] = useState("#3D5DE3")
     const [cv, setCv] = useState("")
     const [workplaces, setWorkplaces] = useState([])
     const [projects, setProjects] = useState([])
@@ -30,30 +30,30 @@ const Style2 = ({ data }) => {
     const styles = {
         wrap: `flex items-center sm:justify-center flex-wrap px-5 pl-0`,
         previewMain: `m-auto 2xl container`,
-        profilePhotoContainer: `sm:block hidden m-auto sm:w-72 sm:h-72 w-full rounded-full overflow-hidden relative bg-white mt-10 border-4 border-[#fff] sm:mt-0`,
+        profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-full overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
         profilePhoto: `object-cover h-full w-full rounded-full`,
         header: `header p-5 px-5 sm:px-0 w-screen z-20`,
-        headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
+        headerWrapper: `flex items-center justify-between xl container sm:pl-5 m-auto w-full h-full`,
         headerLink: `m-3 hover:opacity-50`,
         section: `border-b border-b-[#f1f1f1] py-32 sm:py-56 px-5 sm:text-center xl container m-auto`,
         graySection: `bg-[#dbdbdb21] border-b border-b-[#f1f1f1] py-32 sm:py-56 px-5 sm:text-center m-auto`,
-        heroSection: `m-auto -mt-32`,
+        heroSection: `m-auto -mt-56 sm:-mt-32 pt-28 sm:pt-0`,
         sectionWrapper: `m-auto max-w-7xl`,
         skillPill: `skill-pill bg-white border border-[#dadada] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
-        sectionTitle: `sm:text-5xl text-4xl font-bold w-max sm:m-auto ml-0`,
-        miniSectionTitle: `text-accent font-bold text-xl mb-2 uppercase`,
+        sectionTitle: `sm:text-5xl text-3xl font-bold w-max sm:m-auto ml-0`,
+        miniSectionTitle: `mini-section-title font-bold text-xl mb-2 uppercase`,
     }
 
     useEffect(() => {
         if (data && data) {
-            if (data.isGradient) {
-                setGradient(data.gradient)
-                setIsGradient(data.isGradient)
-                setTextColor(generateTextColor(data.gradient.from))
-            }
+            // if (data.isGradient) {
+            //     setGradient(data.gradient)
+            //     setIsGradient(data.isGradient)
+            //     setTextColor(generateTextColor(data.gradient.from))
+            // }
+            // setThemeColor(data.themeColor)
             setSkills(data.skills)
             setCv(data.cv)
-            setThemeColor(data.themeColor)
             setFullame(data.fullname)
             setEmail(data.email)
             setTagline(data.tagline)
@@ -83,30 +83,22 @@ const Style2 = ({ data }) => {
         const buttons = document.querySelectorAll(".button")
         const hero = document.getElementById("hero")
         const header = document.querySelector(".header")
+        const miniSectionTitle = document.querySelectorAll(".mini-section-title")
 
-        header.style.color = generateTextColor(data.gradient.to)
+        miniSectionTitle.forEach(title => {
+            title.style.color = data.accentColor
+        })
+
+        header.style.color = generateTextColor(data.themeColor)
+        hero.style.background = data.themeColor
+        hero.style.color = generateTextColor(data.themeColor)
 
         if (buttons.length > 0) {
             buttons.forEach(button => {
-                button.style.background = data.themeColor
-                button.style.color = generateTextColor(data.themeColor)
+                button.style.background = data.accentColor
+                button.style.color = generateTextColor(data.accentColor)
             })
         }
-
-        if (data.isGradient) {
-            hero.style.color = generateTextColor(data.gradient.to)
-            hero.style.background =
-                "linear-gradient(to right, "
-                + data.gradient.from
-                + ", "
-                + data.gradient.to
-                + ")";
-            hero.style.background + ";";
-            return
-        }
-
-        hero.style.background = data.themeColor
-        hero.style.color = generateTextColor(data.themeColor)
     }
 
     return <div className="theme-body min-h-screen w-screen">
@@ -123,11 +115,11 @@ const Style2 = ({ data }) => {
                     {socials.coffee ? <a className={styles.headerLink} href="#support">Support</a> : <></>}
                 </nav>
                 {
-                    cv ?
-                        <div className="flex items-center">
-                            <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
-                        </div>
-                        : <></>
+                    // cv ?
+                    <div className="flex items-center">
+                        <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
+                    </div>
+                    // : <></>
                 }
             </div>
         </div>
@@ -135,22 +127,13 @@ const Style2 = ({ data }) => {
         {/* HERO */}
         <div id="hero" className={styles.heroSection}>
             <div className={styles.section}>
-                <div className="sm:h-[70vh] pt-32 sm:pt-0 sm:flex items-center justify-between">
-                    <div className={`text-left max-w-5xl text-[${textColor}]`}>
-                        <div className="text-6xl leading-tight py-5 font-bold">{tagline}</div>
+                <div className="sm:h-[70vh] pt-32 sm:pt-0 sm:flex items-center justify-evenly">
+                    <div className={`sm:text-center max-w-5xl`}>
+                        <div className="sm:text-7xl text-5xl leading-tight sm:mb-5 py-5 font-bold">{tagline}</div>
                         <div className="text-2xl">{work}</div>
-                        <div className="-ml-8 mt-8 flex justify-start">
-                            <Socials socials={socials} email={email} themeColor={data.gradient.to} />
+                        <div className="-ml-8 mt-8 flex sm:justify-center justify-start">
+                            <Socials socials={socials} email={email} themeColor={data.themeColor} />
                         </div>
-                    </div>
-
-                    <div>
-                        {
-                            profilePhoto ?
-                                <div className={styles.profilePhotoContainer}>
-                                    <img className={styles.profilePhoto} src={profilePhoto} alt='' />
-                                </div> : <img src={`https://avatars.dicebear.com/api/avataaars/:${fullname}.svg`} className="w-96 h-96 max-w-4xl" />
-                        }
                     </div>
                 </div>
             </div>
@@ -159,17 +142,25 @@ const Style2 = ({ data }) => {
         {/* ABOUT */}
         <div id="about" className={styles.section}>
             <div className="mb-10">
-                <p className={styles.miniSectionTitle}>About me</p>
+                <p className={styles.miniSectionTitle}>ABOUT ME</p>
                 <p className={styles.sectionTitle}>Know Me More</p>
             </div>
             <div className={styles.sectionWrapper}>
-                <p className="leading-10 text-2xl">{about}</p>
+                <p className="sm:text-2xl text-xl">{data.about}</p>
+            </div>
+            <div className="mt-10">
+                {
+                    profilePhoto ?
+                        <div className={styles.profilePhotoContainer}>
+                            <img className={styles.profilePhoto} src={profilePhoto} alt='' />
+                        </div> : <img src={`https://avatars.dicebear.com/api/avataaars/:${fullname}.svg`} className="w-96 h-96 max-w-4xl" />
+                }
             </div>
         </div>
 
         {/* SKILLS */}
         {
-            skills.length > 0 ?
+            data.skills.length > 0 ?
                 <div id="skills" className={styles.graySection}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>MY SKILLS</p>
