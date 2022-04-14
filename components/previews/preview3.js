@@ -5,7 +5,7 @@ import { Socials } from "../socials"
 import { generateTextColor } from "../../constants/functions"
 
 const styles = {
-    wrap: `flex items-center flex-wrap px-5 -ml-10`,
+    wrap: `flex items-center flex-wrap px-5 -ml-5`,
     previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
     profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-xl overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
     profilePhoto: `object-cover h-full w-full rounded-xl`,
