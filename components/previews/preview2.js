@@ -117,9 +117,9 @@ const Preview2 = ({ }) => {
                                     <div className={`text-left max-w-5xl text-[${textColor}]`}>
                                         <div className="text-6xl leading-tight py-5 font-bold">{tagline}</div>
                                         <div className="text-2xl">{work}</div>
-                                        <div className="-ml-8 mt-8 flex justify-start">
+                                        {/* <div className="-ml-8 mt-8 flex justify-start">
                                             <Socials socials={socials} email={email} themeColor={gradient.to} />
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     <div>
@@ -224,7 +224,7 @@ const Preview2 = ({ }) => {
 
                         {/* MADE WITH FOLIO */}
                         <div className="py-20 px-5 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
-                            <a href="https://folio.vercel.app" className="opacity-50">Made with 💛 by Folio</a>
+                            <a href="https://follio.app" className="opacity-50">Made with 💛 by Folio</a>
                         </div>
                     </div> : <></>
             }

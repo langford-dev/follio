@@ -202,7 +202,7 @@ const Style1 = ({ data }) => {
 
             {/* MADE WITH FOLIO */}
             <div className="py-20 px-5 -mt-10 pt-10 sm:text-center max-w-6xl m-auto">
-                <a href="https://folio.vercel.app" className="opacity-50">Made with 💛 by Folio</a>
+                <a href="https://follio.app" className="opacity-50">Made with 💛 by Folio</a>
             </div>
         </div>
     </div >
