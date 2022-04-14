@@ -177,8 +177,7 @@ const SocialInput = ({ label, host, fieldFor }) => {
                     <label className={styles.label}>{label}</label>
                     <div className={styles.inputContainer}>
                         <p>{host}</p>
-                        <input value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} />
-                        {/* <input disabled={!isPremiumAccount} value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} /> */}
+                        <input disabled={!isPremiumAccount} value={newSocials.coffee} className={styles.input} type="text" onChange={e => setNewSocials(e.target.value, "coffee")} />
                     </div>
                 </div>
 

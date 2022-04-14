@@ -4,15 +4,15 @@ import ProjectCard from "../projectCard"
 import { Socials } from "../socials"
 import { generateTextColor } from "../../constants/functions"
 
-const Preview2 = ({ }) => {
+const Preview3 = ({ }) => {
 
     const { fullname, email, username, accentColor, tagline, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto, cv } = useContext(AppContext)
 
     const styles = {
         wrap: `flex items-center flex-wrap px-10 -ml-10`,
         previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
-        profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-full overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
-        profilePhoto: `object-cover h-full w-full rounded-full`,
+        profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-xl overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
+        profilePhoto: `object-cover h-full w-full rounded-xl`,
         header: `header p-5 px-10 z-20`,
         headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
         headerLink: `m-3 hover:opacity-50 hidden`,
@@ -206,7 +206,7 @@ const Preview2 = ({ }) => {
     </div >
 }
 
-export default Preview2
+export default Preview3
 
 // import { useContext, useEffect, useState } from "react"
 // import { AppContext } from "../../context/context"
@@ -214,7 +214,7 @@ export default Preview2
 // import { Socials } from "../socials"
 // import { generateTextColor } from "../../constants/functions"
 
-// const Preview2 = ({ }) => {
+// const Preview3 = ({ }) => {
 
 //     const { fullname, email, username, accentColor, tagline, projects, work, about, themeColor, skills, socials, showGithubStats, showPreview, isPremiumAccount, coverPhotoPreview, profilePhotoPreview, coverPhoto, profilePhoto, cv } = useContext(AppContext)
 
@@ -416,4 +416,4 @@ export default Preview2
 //     </div >
 // }
 
-// export default Preview2
+// export default Preview3
