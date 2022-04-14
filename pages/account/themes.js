@@ -6,6 +6,7 @@ import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
 import ThemeCard from "../../components/themeCard";
 import theme1 from "../../assets/themes/1.png"
 import theme2 from "../../assets/themes/2.png"
+import theme3 from "../../assets/themes/3.png"
 import SideNav from "../../components/side-nav/sideNav";
 import Header from "../../components/header/header";
 
@@ -42,6 +43,7 @@ const Themes = () => {
                 <div className={styles.themeCardContainer}>
                     <ThemeCard index={1} thumbnail={theme1} />
                     <ThemeCard index={2} thumbnail={theme2} />
+                    <ThemeCard index={3} thumbnail={theme3} />
                 </div>
             </div>
         </div>

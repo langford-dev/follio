@@ -6,7 +6,7 @@ import { styles } from "../styles"
 import Palette from "./palette"
 
 const Colors = () => {
-    const { themeColor, saveThemeColorToStorage } = useContext(AppContext)
+    const { themeColor, accentColor, saveThemeColorToStorage } = useContext(AppContext)
     const suggestedColors = [
         { color: "bg-[#292929]", name: "Dark knight" },
         { color: "bg-[#374EBE]", name: "Blue seige" },
@@ -32,8 +32,13 @@ const Colors = () => {
         <div className={editLayoutStyles.mainWrapper}>
             <div className={editLayoutStyles.inputContainer}>
                 <div className="flex">
-                    <label className={editLayoutStyles.label}>🎨 Pick a background color</label>
-                    <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value) }} />
+                    <label className={editLayoutStyles.label}>🎨 Background color</label>
+                    <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value, "themeColor") }} />
+                </div>
+
+                <div className="flex">
+                    <label className={editLayoutStyles.label}>🎨 Accent color</label>
+                    <input className="ml-5" type="color" value={accentColor} onChange={e => { saveThemeColorToStorage(e.target.value, "accentColor") }} />
                 </div>
 
                 {/* SUGGESTED THEMES */}

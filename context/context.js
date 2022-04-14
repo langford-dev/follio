@@ -17,6 +17,7 @@ export const AppProvider = ({ children }) => {
     const [views, setViews] = useState(0)
     const [about, setAbout] = useState("")
     const [themeColor, setThemeColor] = useState("#ffffff")
+    const [accentColor, setAccentColor] = useState("#fea82f")
     const [showGithubStats, setShowGithubStats] = useState(false)
     const [skills, setSkills] = useState([])
     const [workplaces, setWorkplaces] = useState([])
@@ -34,6 +35,7 @@ export const AppProvider = ({ children }) => {
     const [projects, setProjects] = useState([])
     const [socials, setSocials] = useState({})
     const [theme, setTheme] = useState(1)
+    const [cv, setCv] = useState("")
     const router = useRouter()
 
     const maxViewCount = 6
@@ -48,35 +50,6 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         setShowPreview(true)
-        // checkAuthStatus()
-
-        // console.log(window.location.hostname.split(".")[0])
-        // console.warn("setting projects")
-
-        // if ((screen.width <= 640) ||
-        //     (window.matchMedia &&
-        //         window.matchMedia('only screen and (max-width: 640px)').matches
-        //     )) {
-        //     setShowPreview(false)
-        // }
-
-        // else setShowPreview(true)
-
-        // console.log(session.user)
-
-        // const _authSessionValue = sessionStorage.getItem("isAuth")
-
-        // if (!_authSessionValue) {
-        //     sessionStorage.setItem("isAuth", false)
-        //     setIsAuthenticated(false)
-        //     console.log('null_', false)
-        //     return
-        // }
-
-        // setIsAuthenticated(eval(_authSessionValue))
-
-        // console.log('_authSessionValue', eval(_authSessionValue))
-
     }, [session])
 
     const saveNewChangesToStorage = (data) => {
@@ -186,6 +159,7 @@ export const AppProvider = ({ children }) => {
 
             let _body = {
                 "fullname": fullname,
+                "cv": cv,
                 "username": username,
                 "email": email,
                 "tagline": tagline,
@@ -201,6 +175,7 @@ export const AppProvider = ({ children }) => {
                 "theme": theme,
                 "views": views,
                 "themeColor": themeColor,
+                "accentColor": accentColor,
                 "socials": socials,
             }
 
@@ -236,6 +211,7 @@ export const AppProvider = ({ children }) => {
             sessionStorage.setItem("data", JSON.stringify(data))
 
             setEmail(data.email)
+            setCv(data.cv)
             setFullname(data.fullname)
             setUsername(data.username)
             setTagline(data.tagline)
@@ -253,6 +229,7 @@ export const AppProvider = ({ children }) => {
             setSocials(data.socials)
             setTheme(data.theme)
             setThemeColor(data.themeColor)
+            setAccentColor(data.accentColor)
 
         } catch (e) {
 
@@ -272,6 +249,7 @@ export const AppProvider = ({ children }) => {
         let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
 
         setFullname(sessionStorageData.fullname)
+        setCv(sessionStorageData.cv)
         setEmail(sessionStorageData.email)
         setUsername(sessionStorageData.username)
         setTagline(sessionStorageData.tagline)
@@ -288,6 +266,7 @@ export const AppProvider = ({ children }) => {
         setWorkplaces(sessionStorageData.workplaces)
         setSocials(sessionStorageData.socials)
         setTheme(sessionStorageData.theme)
+        setAccentColor(sessionStorageData.accentColor)
         setThemeColor(sessionStorageData.themeColor)
     }
 
@@ -299,10 +278,19 @@ export const AppProvider = ({ children }) => {
         saveNewChangesToStorage(_sessionData)
     }
 
-    const saveThemeColorToStorage = (color) => {
+    const saveThemeColorToStorage = (color, type) => {
         let _sessionData = JSON.parse(sessionStorage.getItem("data"))
-        _sessionData.themeColor = color
-        setThemeColor(color)
+
+        if (type === "themeColor") {
+            _sessionData.themeColor = color
+            setThemeColor(color)
+        }
+
+        if (type === "accentColor") {
+            _sessionData.accentColor = color
+            setAccentColor(color)
+        }
+
         saveNewChangesToStorage(_sessionData)
     }
 
@@ -494,7 +482,7 @@ export const AppProvider = ({ children }) => {
         setSuggestedThemeColor,
         setIsNewUser, username, setUsername,
         formatUsername,
-        changeUsername, checkAuthStatus,
+        changeUsername, checkAuthStatus, cv, accentColor,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>

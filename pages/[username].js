@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import DefaultTheme from "../components/themes/defaultTheme"
 import Style1 from "../components/themes/style1"
+import Style3 from "../components/themes/style3"
 
 const Username = () => {
     const [data, setData] = useState()
@@ -40,6 +41,7 @@ const Username = () => {
 
     if ((data && data) && data.theme == 1) return <DefaultTheme data={data} />
     if ((data && data) && data.theme == 2) return <Style1 data={data} />
+    if ((data && data) && data.theme == 3) return <Style3 data={data} />
 
     return <DefaultTheme data={data} />
 }

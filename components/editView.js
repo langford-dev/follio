@@ -6,6 +6,7 @@ import Loader from "./loader"
 import DefaultPreview from "./previews/defaultPreview"
 import Preview1 from "./previews/preview1"
 import Header from "./header/header"
+import Preview3 from "./previews/preview3"
 
 const styles = {
     pageView: `m-auto max-w-screen-2xl min-h-screen`,
@@ -27,6 +28,7 @@ const EditView = () => {
             {!showPreview ? <EditTabs /> : <></>}
             {theme === 1 ? <DefaultPreview editMode={true} /> : <></>}
             {theme === 2 ? <Preview1 editMode={true} /> : <></>}
+            {theme === 3 ? <Preview3 editMode={true} /> : <></>}
 
             <div className="sm:hidden">
                 {
