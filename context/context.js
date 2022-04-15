@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router"
 import { useState, useEffect } from "react"
 import { createContext } from "react"
-import { getProviders, signIn, signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 export const AppContext = createContext()
 
@@ -53,7 +53,6 @@ export const AppProvider = ({ children }) => {
     }, [session])
 
     const saveNewChangesToStorage = (data) => {
-
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
@@ -95,7 +94,6 @@ export const AppProvider = ({ children }) => {
     }
 
     const uploadFile = async (_file) => {
-
         try {
 
             console.log("file", _file)

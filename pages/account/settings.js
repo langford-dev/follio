@@ -59,7 +59,7 @@ const Settings = () => {
                 </div>
                 <div className="m-10" />
 
-                <label className={editLayoutStyles.label}>Upload your resume/cv</label>
+                <label className={editLayoutStyles.label}>Upload your resume/cv {cv ? "(1)" : ""} </label>
                 <p className="opacity-50 mb-5">Please upload only PDFs or other document types</p>
                 <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl flex items-center sm:w-5/12">
                     <input type="file"
