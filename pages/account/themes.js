@@ -6,7 +6,7 @@ import { mainLayoutStyles } from "../../components/styles/mainLayoutStyles";
 import ThemeCard from "../../components/themeCard";
 import theme1 from "../../assets/themes/1.png"
 import theme2 from "../../assets/themes/2.png"
-import theme3 from "../../assets/themes/3.png"
+import theme3 from "../../assets/themes/3.jpg"
 import SideNav from "../../components/side-nav/sideNav";
 import Header from "../../components/header/header";
 
