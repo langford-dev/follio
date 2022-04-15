@@ -32,21 +32,12 @@ const Colors = () => {
         <div className={editLayoutStyles.mainWrapper}>
             <div className={editLayoutStyles.inputContainer}>
                 <div className="flex">
-<<<<<<< HEAD
-                    <label className={editLayoutStyles.label}>🎨 Background color</label>
-                    <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value, "themeColor") }} />
-                </div>
-
-                <div className="flex">
-                    <label className={editLayoutStyles.label}>🎨 Accent color</label>
-=======
                     <label className={editLayoutStyles.label}>Background color</label>
                     <input className="ml-5" type="color" value={themeColor} onChange={e => { saveThemeColorToStorage(e.target.value, "themeColor") }} />
                 </div>
 
                 <div className="flex mt-5">
                     <label className={editLayoutStyles.label}>Accent color</label>
->>>>>>> dev
                     <input className="ml-5" type="color" value={accentColor} onChange={e => { saveThemeColorToStorage(e.target.value, "accentColor") }} />
                 </div>
 
