@@ -181,7 +181,7 @@ const Style3 = ({ data }) => {
 
         {/* PROJECTS */}
         {
-            projects.length > 0 ?
+            data.projects.length > 0 ?
                 <div id="projects" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>MY PORTFOLIO</p>
@@ -202,7 +202,7 @@ const Style3 = ({ data }) => {
 
         {/* GITHUB STATS */}
         {
-            showGithubStats && socials.github ?
+            data.showGithubStats && data.socials.github ?
                 <div id="stats" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>MY GITHUB CONTRIBUTIONS</p>
@@ -215,7 +215,7 @@ const Style3 = ({ data }) => {
 
         {/* DONATIONS & TIPS */}
         {
-            socials.coffee !== "" ?
+            data.socials.coffee !== "" ?
                 <div id="support" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>SUPPORT</p>
