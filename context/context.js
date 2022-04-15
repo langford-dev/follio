@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router"
 import { useState, useEffect } from "react"
 import { createContext } from "react"
-import { getProviders, signIn, signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 export const AppContext = createContext()
 
@@ -53,7 +53,6 @@ export const AppProvider = ({ children }) => {
     }, [session])
 
     const saveNewChangesToStorage = (data) => {
-
         sessionStorage.setItem("data", JSON.stringify(data))
     }
 
@@ -94,40 +93,33 @@ export const AppProvider = ({ children }) => {
         }
     }
 
-    const uploadImage = async (_file) => {
-
+    const uploadFile = async (_file) => {
         try {
 
-            // const data = new FormData()
-            // data.append("file", _file)
-            // data.append("upload_preset", "follio_preset")
-            // data.append("cloud_name", "follio")
-
-            // const res = await fetch("https://api.cloudinary.com/v1_1/follio/image/upload", {
-            //     method: "POST",
-            //     mode: 'no-cors',
-            //     body: data
-            // })
+            console.log("file", _file)
 
             const data = new FormData()
-            data.append("file", _file)
-            data.append("upload_preset", "tutorial")
-            data.append("cloud_name", "breellz")
 
-            const res = await fetch("https://api.cloudinary.com/v1_1/breellz/image/upload", {
+            const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/follio/upload"
+            const CLOUDINARY_UPLOAD_PRESET = "follio_preset"
+
+            data.append("file", _file)
+            data.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+            data.append("cloud_name", "follio")
+
+            const res = await fetch(`${CLOUDINARY_URL}`, {
                 method: "POST",
                 body: data
             })
 
             const resData = await res.json()
-            // console.log(res)
 
             return resData.url
         }
 
         catch (e) {
-
-            console.log('ERR_', e.message)
+            console.error('upload error', e.message)
+            return null
         }
     }
 
@@ -145,17 +137,39 @@ export const AppProvider = ({ children }) => {
 
             setShowLoader(true)
 
+            // console.log('profilePhotoPreview', profilePhotoPreview)
+            // console.log('coverPhotoPreview', coverPhotoPreview)
+
+            // const coverSession = sessionStorage.getItem('cover')
+            // const profileSession = sessionStorage.getItem('profile')
+
+            // if (coverSession === coverPhoto) {
+            //     console.log("coverSession === coverPhoto")
+            // }
+
+            // if (profileSession === profilePhoto) {
+            //     console.log("profileSession === profilePhoto")
+            // }
+
             if (coverPhotoPreview) {
                 console.log('cover changes')
-                _coverPhoto = await uploadImage(coverPhotoPreview)
+                _coverPhoto = await uploadFile(coverPhotoPreview)
+
+                // sessionStorage.setItem('cover', _coverPhoto)
+
+                setCoverPhoto(_coverPhoto)
             }
 
             if (profilePhotoPreview) {
                 console.log('profile changed')
-                _profilePhoto = await uploadImage(profilePhotoPreview)
+                _profilePhoto = await uploadFile(profilePhotoPreview)
+
+                // sessionStorage.setItem('profile', _profilePhoto)
+
+                setProfilePhoto(_profilePhoto)
             }
 
-            console.log('updating username', username)
+            // console.log('updating username', username)
 
             let _body = {
                 "fullname": fullname,
@@ -314,13 +328,34 @@ export const AppProvider = ({ children }) => {
         sessionStorage.setItem('new-user', status)
     }
 
+    const uploadResume = async () => {
+
+        const a = confirm("Do you want upload new resume?")
+        if (!a) return
+
+        setShowLoader(true)
+
+        let _cv = await uploadFile(cv)
+        setCv(_cv)
+
+        setShowLoader(false)
+
+        // console.log("_cv", _cv)
+        // if (typeof cv === 'object') {
+        //     console.warn("uploading cv file object")
+        //     let _cv = await uploadFile(cv)
+        //     console.log("_cv", _cv)
+        //     setCv(_cv)
+        // }
+    }
+
     const changeUsername = async () => {
         try {
+
             setShowLoader(true)
 
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/check-username-exists/${username}`, { method: "GET" })
             const data = await res.json()
-            // console.log(data)
 
             if (data.payload) {
                 alert("username already exists")
@@ -333,6 +368,8 @@ export const AppProvider = ({ children }) => {
         }
 
         catch (e) {
+            alert("An error occured. Please try again later.")
+            setShowLoader(false)
             console.log(e.message)
         }
     }
@@ -475,14 +512,15 @@ export const AppProvider = ({ children }) => {
         saveThemeColorToStorage,
         socials, setSocials,
         projects, setProjects,
-        uploadImage,
+        uploadFile,
         tagline, setTagline,
         increasePageViewCount,
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
         setIsNewUser, username, setUsername,
-        formatUsername,
+        formatUsername, setCv,
         changeUsername, checkAuthStatus, cv, accentColor,
+        uploadResume,
         showSettingsModal, setShowSettingsModal,
         showProjectModal, setShowProjectModal,
     }}>

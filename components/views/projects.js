@@ -35,7 +35,7 @@ const Projects = () => {
 }
 
 const ProjectModal = () => {
-    const { projects, setProjects, uploadImage, setShowLoader, setShowProjectModal } = useContext(AppContext)
+    const { projects, setProjects, uploadFile, setShowLoader, setShowProjectModal } = useContext(AppContext)
     const [name, setName] = useState("")
     const [link, setLink] = useState("")
     const [description, setDescription] = useState("")
@@ -52,7 +52,7 @@ const ProjectModal = () => {
                 name: name,
                 link: link,
                 description: description,
-                thumbnail: await uploadImage(thumbnailFile),
+                thumbnail: await uploadFile(thumbnailFile),
             }
 
             console.log('newProject >', newProject)

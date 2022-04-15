@@ -115,11 +115,23 @@ const Style3 = ({ data }) => {
                     {socials.coffee ? <a className={styles.headerLink} href="#support">Support</a> : <></>}
                 </nav>
                 {
+<<<<<<< HEAD
                     // cv ?
                     <div className="flex items-center">
                         <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
                     </div>
                     // : <></>
+=======
+                    data.cv ?
+                        <div className="flex items-center">
+                            <a href={cv} target="_blank" rel="noreferrer">
+                                <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>
+                                    Download resume
+                                </p>
+                            </a>
+                        </div>
+                        : <></>
+>>>>>>> dev
                 }
             </div>
         </div>
@@ -181,7 +193,11 @@ const Style3 = ({ data }) => {
 
         {/* PROJECTS */}
         {
+<<<<<<< HEAD
             projects.length > 0 ?
+=======
+            data.projects.length > 0 ?
+>>>>>>> dev
                 <div id="projects" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>MY PORTFOLIO</p>
@@ -202,7 +218,11 @@ const Style3 = ({ data }) => {
 
         {/* GITHUB STATS */}
         {
+<<<<<<< HEAD
             showGithubStats && socials.github ?
+=======
+            data.showGithubStats && data.socials.github ?
+>>>>>>> dev
                 <div id="stats" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>MY GITHUB CONTRIBUTIONS</p>
@@ -215,7 +235,11 @@ const Style3 = ({ data }) => {
 
         {/* DONATIONS & TIPS */}
         {
+<<<<<<< HEAD
             socials.coffee !== "" ?
+=======
+            data.socials.coffee !== "" ?
+>>>>>>> dev
                 <div id="support" className={styles.section}>
                     <div className="mb-10">
                         <p className={styles.miniSectionTitle}>SUPPORT</p>

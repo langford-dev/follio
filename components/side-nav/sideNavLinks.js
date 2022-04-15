@@ -26,7 +26,7 @@ const SideNavLinks = () => {
             <SideNavIconLink forMobile={true} isNew={true} label="Analytics" target="/account/dashboard" icon={graph.src} />
             <SideNavIconLink forMobile={true} isNew={true} label="Settings" target="/account/settings" icon={settings.src} />
             <SideNavIconLink forMobile={true} label="Edit content" target="/account/edit" icon={brush.src} />
-            <SideNavIconLink forMobile={true} label="Themes" target="/account/themes" icon={theme.src} />
+            <SideNavIconLink forMobile={true} isNew={true} label="Themes" target="/account/themes" icon={theme.src} />
             <SideNavIconLink forMobile={true} label="Upgrade" target="/account/upgrade" icon={shield.src} />
 
             <div className="border-b mb-5 sm:hidden border-b-[#22222211]" />
