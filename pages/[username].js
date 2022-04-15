@@ -20,6 +20,8 @@ const Username = () => {
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/get-user-by-username/${username}`, { method: "GET" })
             const data = await res.json()
 
+            console.log(data)
+
             if (data.status === false) {
                 setExists(false)
                 return

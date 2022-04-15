@@ -7,7 +7,7 @@ import { generateTextColor } from "../../constants/functions"
 const styles = {
     wrap: `flex items-center flex-wrap px-5 -ml-5`,
     previewMainEdit: `text-center m-auto pt-5 sm:pt-0 pb-56`,
-    profilePhotoContainer: `m-auto sm:w-72 sm:h-72 w-full rounded-xl overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
+    profilePhotoContainer: `m-auto w-full rounded-xl overflow-hidden relative bg-white mt-10 border-8 border-[#fff] sm:mt-0`,
     profilePhoto: `object-cover h-full w-full rounded-xl`,
     header: `header p-5 sm:px-20 px-5 z-20`,
     headerWrapper: `flex items-center justify-between xl container m-auto w-full h-full`,
@@ -80,11 +80,15 @@ const Preview3 = () => {
                                 {socials.coffee ? <a className={styles.headerLink} href="#support">Support</a> : <></>}
                             </nav>
                             {
-                                // cv ?
-                                <div className="flex items-center">
-                                    <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
-                                </div>
-                                // : <></>
+                                cv ?
+                                    <div className="flex items-center">
+                                        <a href={cv} target="_blank" rel="noopener noreferrer">
+                                            <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>
+                                                Download CV
+                                            </p>
+                                        </a>
+                                    </div>
+                                    : <></>
                             }
                         </div>
                     </div>
@@ -108,7 +112,7 @@ const Preview3 = () => {
                     <div id="about" className={styles.section}>
                         <SectionTitle title="Know Me More" subTitle="ABOUT ME" />
                         <div className={styles.sectionWrapper}>
-                            <p className="text-2xl">{about}</p>
+                            <p className="text-xl">{about}</p>
                         </div>
                         <div className="mt-10">
                             {

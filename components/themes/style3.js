@@ -115,11 +115,15 @@ const Style3 = ({ data }) => {
                     {socials.coffee ? <a className={styles.headerLink} href="#support">Support</a> : <></>}
                 </nav>
                 {
-                    // cv ?
-                    <div className="flex items-center">
-                        <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>Download CV</p>
-                    </div>
-                    // : <></>
+                    data.cv ?
+                        <div className="flex items-center">
+                            <a href={cv} target="_blank" rel="noreferrer">
+                                <p className={`button hover:opacity-50 cursor-pointer p-3 px-5 rounded-full`}>
+                                    Download resume
+                                </p>
+                            </a>
+                        </div>
+                        : <></>
                 }
             </div>
         </div>
