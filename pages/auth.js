@@ -16,7 +16,7 @@ const styles = {
 }
 
 const Auth = () => {
-    const { initAuthentication, prefillFromSession, logout, checkAuthStatus } = useContext(AppContext)
+    const { initAuthentication, prefill, logout, isNewUser, checkAuthStatus } = useContext(AppContext)
     const { data: session } = useSession()
     const router = useRouter()
 
@@ -26,24 +26,29 @@ const Auth = () => {
 
     const onload = async () => {
         console.warn("auth status", await checkAuthStatus())
+        console.log('isNewUser', isNewUser)
+        // console.log(session)
+        // console.log("Auth", sessionStorage.getItem("data"))
     }
 
     return <div className={styles.main}>
         <div className={styles.mainInputBox}>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center mb-5">
                 <Logo />
             </div>
-            <p className="sm:mt-5 sm:text-2xl opacity-50">Ship your portfolio in less than 2 minutes</p>
+            {/* <p className="sm:mt-5 sm:text-5xl font-extrabold text-brand max-w-2xl leading-tight m-auto">Ship your portfolio in less than 2 minutes</p> */}
+            <p className="sm:mt-5 text-2xl sm:text-3xl leading-tight m-auto">Sign up/Log in</p>
             {
-                session && session.user && sessionStorage.getItem("data") ?
+                (session && session) && (session.user && sessionStorage.getItem("data")) ?
                     <div>
-                        <p className="mt-10">Logged in as {session.user.email}</p>
+                        <p className="mt-10 opacity-50">Logged in as {session.user.email}</p>
 
                         <div className="flex justify-center items-center mt-10">
                             <DarkButton label="Go home" action={
                                 async () => {
-                                    await prefillFromSession()
-                                    router.push("/account/edit")
+                                    await prefill(JSON.parse(sessionStorage.getItem("data")))
+                                    if (isNewUser) router.push("/account/edit")
+                                    else router.push("/account/edit")
                                 }
                             } />
                             <GhostButton label="Logout" action={logout} />

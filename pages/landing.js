@@ -10,12 +10,12 @@ const Twitter = ({ twitterLink }) => {
     </a>
 }
 
-const User = ({ image, name, link, twitter }) => {
-    return <div className="flex flex-col items-center mb-20 sm:mb-0">
+const User = ({ image, role, link, twitter }) => {
+    return <div className="flex flex-col items-center mb-20 sm:mb-0 sm:mr-10">
         <a href={twitter} target="_blank" rel="noreferrer">
             <img src={image} className="rounded-full w-56 h-56 hover:opacity-70" />
         </a>
-        <p className="text-xl mt-5">{name}</p>
+        <p className="text-xl mt-5">{role}</p>
         <a href={link} target="_blank" rel="noreferrer" className="text-[#3d5bff] mt-1">{link.replace("https://", "").replace("www.", "")}</a>
         <Twitter twitterLink={twitter} />
     </div>
@@ -72,7 +72,7 @@ const Landing = () => {
                     <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
                 </a>
             </div>
-            <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Online portfolio <span className="text-7xl text-brand mt-1 sm:mt-0">builder</span></p>
+            <p className="font-extrabold text-6xl sm:text-7xl leading-tight"><span className="text-7xl text-brand mt-1 sm:mt-0">Free</span> Online portfolio builder</p>
             <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain</p>
 
             <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum > 0 ? usersNum : "our"}</span> users</p>
@@ -113,11 +113,12 @@ const Landing = () => {
         {/* PEOPLE WHO USE IT */}
         <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
             <p className="font-extrabold text-4xl sm:text-5xl mb-20">Loved by twitter</p>
-            <div className="flex flex-wrap items-center justify-evenly wrap">
-                <User name="SWE STUDENT" link="https://www.follio.app/azimifardous" twitter="https://twitter.com/azimifardous" image="http://res.cloudinary.com/breellz/image/upload/v1649851342/v1ywskvkyesqkzsc7zkp.jpg" />
-                <User name="Web3 dev, Content creator" link="https://www.follio.app/favoronuoha" twitter="https://twitter.com/heyOnuoha" image="https://pbs.twimg.com/profile_images/1468914223405277189/_25swnVl_400x400.jpg" />
-                <User name="Blockchain developer" link="https://https://www.follio.app/thevatsal" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
-                <User name="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
+            <div className="flex flex-wrap max-w-5xl m-auto items-center justify-evenly wrap">
+                <User role="SWE Student" link="https://www.follio.app/azimifardous" twitter="https://twitter.com/azimifardous" image="http://res.cloudinary.com/breellz/image/upload/v1649851342/v1ywskvkyesqkzsc7zkp.jpg" />
+                <User role="Software Developer" link="https://www.follio.app/abbaskhan" twitter="https://twitter.com/KhanAbbas201" image="https://lh3.googleusercontent.com/a-/AOh14GjKbuUSwQDcsQwc3FaiQBLJunny09pS8b7tvMGklQ=s96-c" />
+                <User role="Web3 dev, Content creator" link="https://www.follio.app/favoronuoha" twitter="https://twitter.com/heyOnuoha" image="https://pbs.twimg.com/profile_images/1468914223405277189/_25swnVl_400x400.jpg" />
+                <User role="Blockchain developer" link="https://https://www.follio.app/thevatsal" twitter="https://twitter.com/theVatsal_eth" image="http://res.cloudinary.com/breellz/image/upload/v1649672271/mlejeypghxifl67zmatb.png" />
+                <User role="Digital artist" link="https://www.follio.app/eaziart" twitter="https://twitter.com/ezi_art_" image="https://pbs.twimg.com/profile_images/1508088843253256196/CGQCAjT8_400x400.jpg" />
             </div>
         </div>
 

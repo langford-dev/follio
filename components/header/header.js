@@ -9,7 +9,7 @@ import { headerStyles } from "../styles/headerStyles"
 
 const Header = () => {
     const [route, setRoute] = useState('')
-    const { updateAccount, showLoader, profilePhoto } = useContext(AppContext)
+    const { updateAccount, showLoader, profilePhoto, username } = useContext(AppContext)
     const [showDrawer, setShowDrawer] = useState(false);
 
     useEffect(() => {
@@ -43,7 +43,9 @@ const Header = () => {
                         <Button label="Publish" action={() => updateAccount()} />
                         : <></>
                 }
-                <div><img src={profilePhoto} className="w-10 h-10 rounded-full ml-3 object-cover" alt="" /></div>
+                <a href={`${process.env.NEXT_PUBLIC_APP_URL}/${username}`} target="_blank" rel="noreferrer">
+                    <img src={profilePhoto} className="w-10 h-10 border border-[#c1c1c1] rounded-full ml-3 object-cover" alt="" />
+                </a>
             </div>
         </div>
 
