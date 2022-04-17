@@ -33,15 +33,15 @@ const Auth = () => {
 
     return <div className={styles.main}>
         <div className={styles.mainInputBox}>
-            {/* <div className="flex items-center justify-center mb-5">
+            <div className="flex items-center justify-center mb-5">
                 <Logo />
-            </div> */}
+            </div>
             {/* <p className="sm:mt-5 sm:text-5xl font-extrabold text-brand max-w-2xl leading-tight m-auto">Ship your portfolio in less than 2 minutes</p> */}
-            <p className="sm:mt-5 sm:text-3xl leading-tight m-auto">Sign up/Log in</p>
+            <p className="sm:mt-5 text-2xl sm:text-3xl leading-tight m-auto">Sign up/Log in</p>
             {
                 (session && session) && (session.user && sessionStorage.getItem("data")) ?
                     <div>
-                        <p className="mt-10">Logged in as {session.user.email}</p>
+                        <p className="mt-10 opacity-50">Logged in as {session.user.email}</p>
 
                         <div className="flex justify-center items-center mt-10">
                             <DarkButton label="Go home" action={
