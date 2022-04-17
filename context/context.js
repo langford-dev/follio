@@ -36,6 +36,7 @@ export const AppProvider = ({ children }) => {
     const [socials, setSocials] = useState({})
     const [theme, setTheme] = useState(1)
     const [cv, setCv] = useState("")
+    const [isNewUser, setIsNewUser] = useState(false)
     const router = useRouter()
 
     const maxViewCount = 6
@@ -89,14 +90,11 @@ export const AppProvider = ({ children }) => {
 
         catch (e) {
             console.log(e.message)
-            // alert("Your browser doesn't support sharing")
         }
     }
 
     const uploadFile = async (_file) => {
         try {
-
-            console.log("file", _file)
 
             const data = new FormData()
 
@@ -125,9 +123,6 @@ export const AppProvider = ({ children }) => {
 
     const updateAccount = async () => {
 
-        /* check if user is auth */
-        /* check if username is present */
-
         try {
             let proceed = confirm("Do you want to save your changes?")
             let _profilePhoto = profilePhoto;
@@ -155,8 +150,6 @@ export const AppProvider = ({ children }) => {
                 console.log('cover changes')
                 _coverPhoto = await uploadFile(coverPhotoPreview)
 
-                // sessionStorage.setItem('cover', _coverPhoto)
-
                 setCoverPhoto(_coverPhoto)
             }
 
@@ -164,12 +157,8 @@ export const AppProvider = ({ children }) => {
                 console.log('profile changed')
                 _profilePhoto = await uploadFile(profilePhotoPreview)
 
-                // sessionStorage.setItem('profile', _profilePhoto)
-
                 setProfilePhoto(_profilePhoto)
             }
-
-            // console.log('updating username', username)
 
             let _body = {
                 "fullname": fullname,
@@ -218,70 +207,30 @@ export const AppProvider = ({ children }) => {
         }
     }
 
-    const saveAccountDataToStorage = async (data) => {
+    const prefill = (_source) => {
 
-        try {
+        sessionStorage.setItem("data", JSON.stringify(_source))
 
-            sessionStorage.setItem("data", JSON.stringify(data))
-
-            setEmail(data.email)
-            setCv(data.cv)
-            setFullname(data.fullname)
-            setUsername(data.username)
-            setTagline(data.tagline)
-            setViews(data.views)
-            setWork(data.work)
-            setAbout(data.about)
-            setProfilePhoto(data.profilePhoto)
-            setCoverPhoto(data.coverPhoto)
-            setShowGithubStats(data.showGithubStats)
-            setSkills(data.skills)
-            setWorkplaces(data.workplaces)
-            setProjects(data.projects)
-            setIsPremiumAccount(data.isPremiumAccount)
-            setWorkplaces(data.workplaces)
-            setSocials(data.socials)
-            setTheme(data.theme)
-            setThemeColor(data.themeColor)
-            setAccentColor(data.accentColor)
-
-        } catch (e) {
-
-            console.log(e.message)
-        }
-    }
-
-    const prefillFromSession = () => {
-
-        // console.warn("prefilling", sessionStorage.getItem("data"))
-
-        if (!sessionStorage.getItem("data")) {
-            alert("No data found in storage. Please sign in again.")
-            return
-        }
-
-        let sessionStorageData = JSON.parse(sessionStorage.getItem("data"))
-
-        setFullname(sessionStorageData.fullname)
-        setCv(sessionStorageData.cv)
-        setEmail(sessionStorageData.email)
-        setUsername(sessionStorageData.username)
-        setTagline(sessionStorageData.tagline)
-        setWork(sessionStorageData.work)
-        setViews(sessionStorageData.views)
-        setAbout(sessionStorageData.about)
-        setProfilePhoto(sessionStorageData.profilePhoto)
-        setCoverPhoto(sessionStorageData.coverPhoto)
-        setShowGithubStats(sessionStorageData.showGithubStats)
-        setSkills(sessionStorageData.skills)
-        setWorkplaces(sessionStorageData.workplaces)
-        setProjects(sessionStorageData.projects)
-        setIsPremiumAccount(sessionStorageData.isPremiumAccount)
-        setWorkplaces(sessionStorageData.workplaces)
-        setSocials(sessionStorageData.socials)
-        setTheme(sessionStorageData.theme)
-        setAccentColor(sessionStorageData.accentColor)
-        setThemeColor(sessionStorageData.themeColor)
+        setFullname(_source.fullname)
+        setCv(_source.cv)
+        setEmail(_source.email)
+        setUsername(_source.username)
+        setTagline(_source.tagline)
+        setWork(_source.work)
+        setViews(_source.views)
+        setAbout(_source.about)
+        setProfilePhoto(_source.profilePhoto)
+        setCoverPhoto(_source.coverPhoto)
+        setShowGithubStats(_source.showGithubStats)
+        setSkills(_source.skills)
+        setWorkplaces(_source.workplaces)
+        setProjects(_source.projects)
+        setIsPremiumAccount(_source.isPremiumAccount)
+        setWorkplaces(_source.workplaces)
+        setSocials(_source.socials)
+        setTheme(_source.theme)
+        setAccentColor(_source.accentColor)
+        setThemeColor(_source.themeColor)
     }
 
     const changeThemeInSessionStorage = (index) => {
@@ -292,7 +241,7 @@ export const AppProvider = ({ children }) => {
         saveNewChangesToStorage(_sessionData)
     }
 
-    const saveThemeColorToStorage = (color, type) => {
+    const saveColorToSession = (color, type) => {
         let _sessionData = JSON.parse(sessionStorage.getItem("data"))
 
         if (type === "themeColor") {
@@ -320,12 +269,8 @@ export const AppProvider = ({ children }) => {
 
     const setSuggestedThemeColor = (tailwindColor) => {
         let hex = tailwindColor.replace("bg-", "").replace("[", "").replace("]", "")
-        saveThemeColorToStorage(hex)
+        saveColorToSession(hex)
         setThemeColor(hex)
-    }
-
-    const setIsNewUser = (status) => {
-        sessionStorage.setItem('new-user', status)
     }
 
     const uploadResume = async () => {
@@ -339,14 +284,6 @@ export const AppProvider = ({ children }) => {
         setCv(_cv)
 
         setShowLoader(false)
-
-        // console.log("_cv", _cv)
-        // if (typeof cv === 'object') {
-        //     console.warn("uploading cv file object")
-        //     let _cv = await uploadFile(cv)
-        //     console.log("_cv", _cv)
-        //     setCv(_cv)
-        // }
     }
 
     const changeUsername = async () => {
@@ -415,7 +352,7 @@ export const AppProvider = ({ children }) => {
             /** Is logged in but no data */
             console.warn("session, no data")
             await fetchDataFromDB(session.user.email)
-            return true
+            return false
         }
 
         if (session && session.user && sessionStorage.getItem("data")) {
@@ -440,16 +377,12 @@ export const AppProvider = ({ children }) => {
                 return
             }
 
-            /** When account exists */
-            // console.log("got data", data.payload)
-            saveAccountDataToStorage(data.payload)
-            prefillFromSession()
-            router.push("/account/edit")
+            console.log('data', data.payload)
+            prefill(data.payload)
         }
 
         catch (e) {
             console.log(e.message)
-            alert("An error occured please try again later")
         }
     }
 
@@ -457,7 +390,6 @@ export const AppProvider = ({ children }) => {
         try {
 
             if (!await checkAuthStatus()) {
-                console.warn("logging in")
                 await signIn("google")
                 return
             }
@@ -501,15 +433,15 @@ export const AppProvider = ({ children }) => {
         showPreview, setShowPreview,
         isPremiumAccount,
         updateAccount, username,
-        saveAccountDataToStorage, initAuthentication,
+        initAuthentication,
         showLogin, setShowLogin,
-        prefillFromSession,
+        prefill,
         showLoader, setShowLoader,
         coverPhotoPreview, setCoverPhotoPreview,
         coverPhoto, profilePhoto,
         profilePhotoPreview, setProfilePhotoPreview,
         theme, changeThemeInSessionStorage,
-        saveThemeColorToStorage,
+        saveColorToSession,
         socials, setSocials,
         projects, setProjects,
         uploadFile,
@@ -517,7 +449,7 @@ export const AppProvider = ({ children }) => {
         increasePageViewCount,
         views, shareLink, logout, copyLink,
         setSuggestedThemeColor,
-        setIsNewUser, username, setUsername,
+        isNewUser, setIsNewUser, username, setUsername,
         formatUsername, setCv,
         changeUsername, checkAuthStatus, cv, accentColor,
         uploadResume,
