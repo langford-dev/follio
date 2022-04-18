@@ -7,8 +7,12 @@ import shield from "../../assets/svg/shield.svg"
 import share from "../../assets/svg/share.svg"
 import copy from "../../assets/svg/copy.svg"
 import logoutIcon from "../../assets/svg/logoutIcon.svg"
+import qrcode from "../../assets/svg/qrcode.svg"
 import SideNavIconLink from "./sideNavIconLink"
-import { useContext } from "react"
+import Switch from "react-switch";
+import DarkButton from '../buttons/darkButton'
+import { QRCodeCanvas } from "qrcode.react"
+import { useContext, useState } from "react"
 import { AppContext } from "../../context/context"
 import { navStyles } from "../styles/navStyles"
 
@@ -19,7 +23,17 @@ const Twitter = ({ twitterLink }) => {
 }
 
 const SideNavLinks = () => {
-    const { shareLink, copyLink, logout } = useContext(AppContext)
+    const { shareLink, copyLink, logout, username, cv } = useContext(AppContext)
+    const [showCv, setShowCv] = useState(false)
+    const [openQrcodeModal, setOpenQrcodeModal] = useState(false)
+
+    const downloadQrCode = () => {
+        let canvas = document.getElementsByTagName("canvas")[0]
+        const link = document.createElement("a")
+        link.href = canvas.toDataURL("image/png")
+        link.download = "qrcode.png"
+        link.click()
+    }
 
     return <div className="flex flex-col justify-between h-full">
         <div>
@@ -30,6 +44,13 @@ const SideNavLinks = () => {
             <SideNavIconLink forMobile={true} label="Upgrade" target="/account/upgrade" icon={shield.src} />
 
             <div className="border-b mb-5 sm:hidden border-b-[#22222211]" />
+
+            <div>
+                <p className={navStyles.navLink} onClick={() => setOpenQrcodeModal(true)}>
+                    <img className={navStyles.navLinkIcon} src={qrcode.src} />
+                    Share QR code
+                </p>
+            </div>
 
             <div>
                 <p className={navStyles.navLink} onClick={() => copyLink()}>
@@ -55,6 +76,37 @@ const SideNavLinks = () => {
             </p>
 
             <div className="border-b border-b-[#22222211]" />
+
+            {
+                openQrcodeModal ?
+                    <div className="mt-20">
+                        <div className="flex items-center justify-center fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md">
+                            <div className="bg-white sm:h-max lg:w-5/12 w-screen h-screen overflow-y-scroll rounded-lg">
+                                <div className="p-5 flex items-center flex-col">
+                                    <p className="text-5xl mt-10 sm:mt-0 cursor-pointer" onClick={() => setOpenQrcodeModal(false)}>&times;</p>
+                                    <p className="font-extrabold text-2xl">Share your QR code</p>
+                                    <p className="opacity-50 mb-5 text-center">Visitors can easily visit your portfolio or download your resume by scanning your QR code</p>
+
+                                    <div className="flex flex-wrap justify-between">
+                                        {
+                                            showCv ?
+                                                cv ? <QRCodeCanvas size={270} value={cv} /> : <p>You have not added you resume/cv</p>
+                                                : <QRCodeCanvas size={270} value={`${process.env.NEXT_PUBLIC_APP_URL}/${username}`} />
+                                        }
+                                    </div>
+
+                                    <div className="my-5 flex justify-start items-center">
+                                        <p className="opacity-50 mr-2">Show code for CV/resume</p>
+                                        <Switch onChange={e => setShowCv(e)} checked={showCv} />
+                                    </div>
+
+                                    <DarkButton action={downloadQrCode} label='Download QR code' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    : <></>
+            }
 
             <div className="mt-32 sm:hidden">
                 <a href="https://www.producthunt.com/posts/follio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-follio" target="_blank" rel="noreferrer">
