@@ -72,8 +72,11 @@ const Landing = () => {
                     <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=340571&theme=light" alt="Follio - Easy&#0044;&#0032;no&#0045;code&#0032;and&#0032;customizable&#0032;portfolio&#0032;site&#0032;builder | Product Hunt" style={{ width: "250px", height: "50px" }} />
                 </a>
             </div>
-            <p className="font-extrabold text-6xl sm:text-7xl leading-tight"><span className="text-7xl text-brand mt-1 sm:mt-0">Free</span> Online portfolio builder</p>
-            <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain</p>
+            <p className="font-extrabold text-6xl sm:text-7xl leading-tight">Online portfolio<span className="text-7xl text-brand mt-1 sm:mt-0"> builder</span></p>
+            <p className="py-10 text-xl sm:text-2xl opacity-50 max-w-4xl m-auto">
+                An easy way to create and deploy your portfolio site with your skills, projects, socials, meeting schedules, and custom domain for free!
+            </p>
+            {/* <div className="font-extrabold text-brand -mt-5 m-10 text-xl sm:text-4xl">For free </div> */}
 
             <p className="mb-10 text-xl">💛 Loved by <span className="text-brand font-bold text-xl">{usersNum > 0 ? usersNum : "our"}</span> users</p>
 
@@ -145,7 +148,7 @@ const Landing = () => {
         </div>
 
         <footer className="text-center p-20 opacity-80">
-            &copy; 2022 Follio | Multiverse tech
+            &copy; 2022 Follio | Vaporware Studios
         </footer>
     </div >
 }
