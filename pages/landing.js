@@ -101,13 +101,14 @@ const Landing = () => {
                 <div className="flex items-center justify-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 w-full">
                         <UpdateFeature label="Dope themes" icon="🎨" />
+                        <UpdateFeature label="Custom QR code" icon="👩‍💻" />
                         <UpdateFeature label="Color customization" icon="💅" />
                         <UpdateFeature label="Responsive design" icon="📱" />
-                        <UpdateFeature label="Tips/donations" icon="💰" />
-                        <UpdateFeature working={true} label="Meeting scheduling" icon="📆" />
                         <UpdateFeature working={true} label="Page analytics" icon="📈" />
+                        <UpdateFeature working={true} label="Meeting scheduling" icon="📆" />
                         <UpdateFeature soon={true} label="Submitting your design" icon="😎" />
                         <UpdateFeature soon={true} label="Custom domain" icon="🌟" />
+                        <UpdateFeature label="Tips/donations" icon="💰" />
                     </div>
                 </div>
             </div>
