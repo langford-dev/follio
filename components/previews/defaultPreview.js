@@ -137,13 +137,32 @@ const DefaultPreview = () => {
                 }
 
                 {
-                    isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                    socials.coffee !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
                         <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
                         <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                         </a>
                     </div> : <div></div>
                 }
+
+
+                {/* MADE WITH FOLIO */}
+                <div className="py-20 px-5 mt-10 pt-10 sm:text-center max-w-6xl m-auto">
+                    <a href="https://follio.app" className="opacity-50">Made with 💛 by Folio</a>
+                </div>
+
+                {/* DONATIONS & TIPS */}
+                {/* {
+                    socials.coffee !== "" ?
+                        <div id="support" className={styles.section}>
+                            <SectionTitle title="Want to support?" subTitle="SUPPORT" />
+                            <div>
+                                <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
+                                    <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
+                                </a>
+                            </div>
+                        </div> : <div></div>
+                } */}
             </div> : <></>
         }
     </div >

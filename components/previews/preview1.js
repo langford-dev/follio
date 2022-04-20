@@ -165,10 +165,10 @@ const Preview1 = () => {
 
                     {/* DONATIONS & TIPS */}
                     {
-                        isPremiumAccount && socials.coffee.trim() !== "" ?
-                            <div className="py-28 px-5 max-w-6xl m-auto">
+                        socials.coffee.trim() !== "" ?
+                            <div id="stats" className={styles.section}>
                                 <p className="text-3xl font-bold mb-5">WANT TO DONATE?</p>
-                                <div>
+                                <div className="flex items-center justify-center">
                                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                                         <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                                     </a>

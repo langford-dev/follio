@@ -143,13 +143,24 @@ const DefaultTheme = ({ data }) => {
             }
 
             {
-                isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                socials.coffee !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
                     <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                         <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                     </a>
                 </div> : <div></div>
             }
+
+            {/* FOOTER */}
+            {/* <div id="contact" className="py-10 sm:text-center max-w-6xl m-auto flex sm:justify-center">
+                <Socials socials={socials} email={email} themeColor="#ffffff" />
+            </div> */}
+
+
+            {/* MADE WITH FOLIO */}
+            <div className="py-20 px-5 mt-10 pt-10 sm:text-center max-w-6xl m-auto">
+                <a href="https://follio.app" className="opacity-50">Made with 💛 by Folio</a>
+            </div>
         </div>
     </div >
 }
