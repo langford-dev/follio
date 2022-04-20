@@ -14,7 +14,7 @@ const styles = {
     profilePhoto: `object-cover h-full w-full rounded-xl`,
     section: `py-20 px-5 sm:text-center max-w-6xl m-auto`,
     sectionTitle: `text-4xl font-bold border-b w-max sm:m-auto ml-0`,
-    skillPill: `skill-pill border border-[#dadada29] sm:text-2xl border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
+    skillPill: `skill-pill border border-[#dadada29] border rounded-full px-4 py-2 hover:opacity-50 m-3 transition sm:m-3`,
     // closePreviewButton: `flex items-center justify-center p-2 sm:hidden`,
     // coverPhoto: `w-screen h-32 sm:h-72 object-cover`,
     // body: `min-h-screen bg-white overflow-y-scroll bg-gradient-to-tl from-rose-100 to-teal-100`,
@@ -89,7 +89,7 @@ const Preview1 = () => {
                             <div id="about" className={styles.section}>
                                 <p className={styles.sectionTitle}>ABOUT</p>
                                 <br />
-                                <p className="leading-10 text-2xl">{about}</p>
+                                <p className="leading-10 text-xl">{about}</p>
                             </div>
                             : <></>
                     }
@@ -165,10 +165,10 @@ const Preview1 = () => {
 
                     {/* DONATIONS & TIPS */}
                     {
-                        socials.coffee.trim() !== "" ?
+                        socials.coffee !== "" ?
                             <div id="stats" className={styles.section}>
                                 <p className="text-3xl font-bold mb-5">WANT TO DONATE?</p>
-                                <div className="flex items-center justify-center">
+                                <div className="flex items-center  justify-center">
                                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                                         <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />
                                     </a>
