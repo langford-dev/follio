@@ -129,6 +129,11 @@ a {
     margin-top: 0;
     overflow-y: scroll;
     max-height: 100vh;
+    margin: 100px;
+    margin-left: 0;
+    margin-top: 0;
+    height: 80vh;
+    width: 35rem;
     /* border-left: 1px solid rgb(229 231 235); */
   }
 

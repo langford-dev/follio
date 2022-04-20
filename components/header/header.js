@@ -32,7 +32,7 @@ const Header = () => {
             <nav className={headerStyles.nav}>
                 {/* <NavLink label="Dashboard" target="/account/dashboard" routeName={route} /> */}
                 <Link passHref={true} href="/account/dashboard"><p className={route === "/account/dashboard" ? headerStyles.active : headerStyles.navLink}>Analytics</p></Link>
-                <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Edit content</p></Link>
+                <Link passHref={true} href="/account/edit"><p className={route === "/" || route === "/account/edit" ? headerStyles.active : headerStyles.navLink}>Profile</p></Link>
                 <Link passHref={true} href="/account/themes"><p className={route === "/account/themes" ? headerStyles.active : headerStyles.navLink}>Themes</p></Link>
                 <Link passHref={true} href="/account/upgrade"><p className={route === "/account/upgrade" ? headerStyles.active : headerStyles.navLink}>Upgrade</p></Link>
                 <Link passHref={true} href="/account/settings"><p className={route === "/account/settings" ? headerStyles.active : headerStyles.navLink}>Settings</p></Link>
@@ -44,7 +44,7 @@ const Header = () => {
                         : <></>
                 }
                 <a href={`${process.env.NEXT_PUBLIC_APP_URL}/${username}`} target="_blank" rel="noreferrer">
-                    <img src={profilePhoto} className="w-10 h-10 border border-[#c1c1c1] rounded-full ml-3 object-cover" alt="" />
+                    <img src={profilePhoto} className="w-10 h-10 rounded-full ml-3 object-cover" alt="" />
                 </a>
             </div>
         </div>
