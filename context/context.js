@@ -51,6 +51,13 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         setShowPreview(true)
+
+        // let now = new Date().toISOString()
+        // let createdAt = '2022-04-19T23:03:26.756Z'
+
+        // console.log(Date(now))
+        // console.log(Date(createdAt))
+
     }, [session])
 
     const saveNewChangesToStorage = (data) => {
@@ -180,6 +187,7 @@ export const AppProvider = ({ children }) => {
                 "themeColor": themeColor,
                 "accentColor": accentColor,
                 "socials": socials,
+                "updatedAt": new Date().toISOString(),
             }
 
             const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/update-user`, {
@@ -326,6 +334,7 @@ export const AppProvider = ({ children }) => {
                 email: session.user.email,
                 fullname: session.user.name,
                 profilePhoto: session.user.image,
+                createdAt: new Date().toISOString(),
                 coverPhoto: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
             }),
         })
@@ -377,7 +386,11 @@ export const AppProvider = ({ children }) => {
                 return
             }
 
-            console.log('data', data.payload)
+            // console.log('updatedAt', data.payload.updatedAt)
+            // console.log('createdAt', data.payload.createdAt)
+
+            /** show onboardng and get date difference-check f new user */
+
             prefill(data.payload)
         }
 

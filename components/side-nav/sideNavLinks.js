@@ -90,7 +90,7 @@ const SideNavLinks = () => {
                                     <div className="flex flex-wrap justify-between">
                                         {
                                             showCv ?
-                                                cv ? <QRCodeCanvas size={270} value={cv} /> : <p>You have not added you resume/cv</p>
+                                                cv ? <QRCodeCanvas size={270} value={cv} /> : <p>You have not added your resume/cv</p>
                                                 : <QRCodeCanvas size={270} value={`${process.env.NEXT_PUBLIC_APP_URL}/${username}`} />
                                         }
                                     </div>
