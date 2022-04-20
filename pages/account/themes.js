@@ -12,7 +12,7 @@ import Header from "../../components/header/header";
 
 const styles = {
     title: `text-3xl font-bold mb-3`,
-    themeCardContainer: `pb-56 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2`,
+    themeCardContainer: `grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2`,
 }
 
 // const mainLayoutStyles = {
@@ -40,10 +40,19 @@ const Themes = () => {
                 <p className={mainLayoutStyles.mainTitle}>Themes</p>
                 <p className="mt-3 mb-5 text-gray-500">Pick a theme that fits your style</p>
 
-                <div className={styles.themeCardContainer}>
-                    <ThemeCard index={1} thumbnail={theme1} />
-                    <ThemeCard index={2} thumbnail={theme2} />
-                    <ThemeCard index={3} thumbnail={theme3} />
+                <div>
+                    <p className="mb-3 mt-5 font-bold  opacity-50">Simple themes</p>
+                    <div className={styles.themeCardContainer}>
+                        <ThemeCard index={1} thumbnail={theme1} />
+                    </div>
+                </div>
+
+                <div>
+                    <p className="mb-3 mt-5 font-bold  opacity-50">Complete website-like themes</p>
+                    <div className={styles.themeCardContainer}>
+                        <ThemeCard index={2} thumbnail={theme2} />
+                        <ThemeCard index={3} thumbnail={theme3} />
+                    </div>
                 </div>
             </div>
         </div>
