@@ -143,7 +143,7 @@ const DefaultTheme = ({ data }) => {
             }
 
             {
-                isPremiumAccount && socials.coffee.trim() !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
+                socials.coffee !== "" ? <div className="flex items-center justify-content flex-col mt-20 w-full">
                     <p className={styles.sectionTitle}>Wanna tip me? 😁</p>
                     <a href={`https://www.buymeacoffee.com/${socials.coffee}`}>
                         <img alt="" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" />

@@ -179,7 +179,7 @@ const Style1 = ({ data }) => {
 
             {/* DONATIONS & TIPS */}
             {
-                isPremiumAccount && socials.coffee.trim() !== "" ?
+                socials.coffee !== "" ?
                     <div id="donate" className={styles.section}>
                         <p className={styles.sectionTitle}>WANT TO DONATE?</p>
                         <br />
