@@ -26,7 +26,7 @@ export default function Home() {
             <div className={mainLayoutStyles.mainContentView}>
                 <p className={mainLayoutStyles.mainTitle}>Analytics</p>
                 <div>
-                    <div className="border border-[#eaeaea] rounded-md bg-white text-xl p-2 w-max">
+                    <div className="border border-[#f1f1f133] rounded-md bg-[#19222d00] text-xl p-2 w-max">
                         {views} views
                     </div>
                 </div>

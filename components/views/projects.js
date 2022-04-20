@@ -74,7 +74,7 @@ const ProjectModal = () => {
         {/* <div className="bg-light rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll"> */}
         {/* <div className="bg-light rounded-md w-11/12 sm:max-w-lg border border-dark overflow-y-scroll"> */}
 
-        <div className="bg-white sm:h-max sm:w-max w-screen h-screen overflow-y-scroll rounded-lg">
+        <div className="bg-[#1F2937] sm:h-max sm:w-max w-screen h-screen overflow-y-scroll rounded-lg">
             <p className="font-extrabold text-2xl border-b px-5 py-5">Add new project</p>
 
             {/* <div className="p-5 pb-0 h-full overflow-y-scroll"> */}

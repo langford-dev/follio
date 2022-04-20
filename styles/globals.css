@@ -63,7 +63,10 @@ body {
 }
 
 :root {
-  background: #FAFBFF;
+  /* background: #18181B; */
+  /* background: #1F2937; */
+  background: #1F2937;
+  color: #fff;
   overflow-x: hidden;
   -webkit-highlight: none;
   highlight: none;

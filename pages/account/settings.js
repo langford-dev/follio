@@ -22,7 +22,7 @@ const styles = {
 // const mainLayoutStyles = {
 //     mainTitle: `text-2xl sm:text-4xl font-bold mb-3`,
 //     main: `flex w-screen min-h-screen m-auto`,
-//     mainContentView: `p-5 w-full bg-white mt-16 sm:mt-0`,
+//     mainContentView: `p-5 w-full bg-[#2c3643] mt-16 sm:mt-0`,
 // }
 
 const Settings = () => {
@@ -49,9 +49,9 @@ const Settings = () => {
                 <br />
 
                 <label className={editLayoutStyles.label}>Change your username</label>
-                <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl flex items-center sm:w-5/12">
+                <div className="p-3 mt-1 border border-[#84858e35] bg-[#2c3643] rounded-xl flex items-center sm:w-5/12">
                     <div className="flex sm:text-xl">
-                        follio.app/<input type="text" value={username} className="bg-[#fff] w-8/12 text-brand outline-none lowercase" onChange={e => setUsername(formatUsername(e.target.value))} />
+                        follio.app/<input type="text" value={username} className="bg-[#2c3643] w-8/12 text-brand outline-none lowercase" onChange={e => setUsername(formatUsername(e.target.value))} />
                     </div>
                 </div>
                 <div className="mt-3">
@@ -61,10 +61,10 @@ const Settings = () => {
 
                 <label className={editLayoutStyles.label}>Upload your resume/cv {cv ? "(1)" : ""} </label>
                 <p className="opacity-50 mb-5">Please upload only PDFs or other document types</p>
-                <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl flex items-center sm:w-5/12">
+                <div className="p-3 mt-1 border border-[#84858e35] bg-[#2c3643] rounded-xl flex items-center sm:w-5/12">
                     <input type="file"
                         accept=".pdf, .doc, .docx, .rtf, .txt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                        className="bg-[#fff] w-8/12 text-brand outline-none lowercase" onChange={e => {
+                        className="bg-[#2c3643] w-8/12 text-brand outline-none lowercase" onChange={e => {
                             setCv(e.target.files[0])
                         }} />
                 </div>
@@ -73,7 +73,7 @@ const Settings = () => {
                 </div>
 
 
-                {/* <div className="p-3 mt-1 border border-[#84858e35] bg-white rounded-xl w-12/12 flex items-center w-3/5"> */}
+                {/* <div className="p-3 mt-1 border border-[#84858e35] bg-[#2c3643] rounded-xl w-12/12 flex items-center w-3/5"> */}
 
                 {/* SETTINGS MODAL */}
                 {/* <div className="flex items-center justify-center fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md">

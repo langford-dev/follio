@@ -11,8 +11,8 @@ import GhostButton from "../components/buttons/ghostButton"
 
 const styles = {
     title: `text-3xl sm:text-6xl mb-2 font-extrabold text-center`,
-    mainInputBox: `bg-white p-5 rounded-md text-center sm:w-6/12`,
-    main: `w-screen h-screen flex flex-col items-center justify-center bg-[#fff]`,
+    mainInputBox: ` p-5 rounded-md text-center sm:w-6/12`,
+    main: `w-screen h-screen flex flex-col items-center justify-center`,
 }
 
 const Auth = () => {

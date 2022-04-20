@@ -81,7 +81,7 @@ const SideNavLinks = () => {
                 openQrcodeModal ?
                     <div className="mt-20">
                         <div className="flex items-center justify-center fixed inset-0 z-50 bg-dark bg-opacity-30 backdrop-blur-md">
-                            <div className="bg-white sm:h-max lg:w-5/12 w-screen h-screen overflow-y-scroll rounded-lg">
+                            <div className="bg-[#1F2937] sm:h-max lg:w-5/12 w-screen h-screen overflow-y-scroll rounded-lg">
                                 <div className="p-5 flex items-center flex-col">
                                     <p className="text-5xl mt-10 sm:mt-0 cursor-pointer" onClick={() => setOpenQrcodeModal(false)}>&times;</p>
                                     <p className="font-extrabold text-2xl">Share your QR code</p>

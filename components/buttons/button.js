@@ -1,5 +1,5 @@
 const Button = ({ label, action }) => {
-    return <div className="bg-brand text-light p-2 px-5 cursor-pointer hover:bg-light border w-max    whitespace-nowrap hover:text-dark rounded-md" onClick={action}>
+    return <div className="bg-brand text-light p-2 px-5 cursor-pointer hover:bg-light  w-max    whitespace-nowrap hover:text-dark rounded-md" onClick={action}>
         {label}
     </div>
     {/* <div

@@ -52,7 +52,7 @@ const Header = () => {
         {
             showDrawer ?
                 <div className={headerStyles.drawerWrapper}>
-                    <div className="fixed h-screen w-2/3 top-0 left-0 p-5 border-r border-b bg-light">
+                    <div className="fixed h-screen w-2/3 top-0 left-0 p-5 bg-[#171f2a]">
                         <div className="flex items-center justify-between mb-5">
                             <Logo />
                             <p className="font-bold" onClick={() => setShowDrawer(false)}>&times; close</p>

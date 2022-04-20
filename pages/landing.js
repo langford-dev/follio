@@ -22,7 +22,7 @@ const User = ({ image, role, link, twitter }) => {
 }
 
 const Testimonial = ({ name, content, link }) => {
-    return <div className="bg-white text-xl p-8 relative rounded-xl mb-5">
+    return <div className="bg-[#2c3643] text-xl p-8 relative rounded-xl mb-5">
         {/* <span className="text-7xl absolute left-4 opacity-20">"</span> */}
         {content}
         <div className="mt-5">
@@ -60,7 +60,7 @@ const Landing = () => {
             <Logo />
             <div className="flex items-center">
                 <Link passHref={true} href="/auth" >
-                    <p className="border p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Login</p>
+                    <p className="p-3 px-5 w-max rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Login</p>
                 </Link>
             </div>
         </div>
@@ -83,7 +83,7 @@ const Landing = () => {
             <div className="flex flex-wrap items-center justify-center">
                 <div>
                     <Link passHref={true} href="/auth" >
-                        <p className="border p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Build your site!</p>
+                        <p className="p-3 px-5 m-auto rounded-full hover:bg-light hover:text-dark bg-dark text-light cursor-pointer select-none sm:text-xl">Build your site!</p>
                     </Link>
                 </div>
                 <a href="https://follio.app/langford">
@@ -93,7 +93,7 @@ const Landing = () => {
         </div>
 
         {/* OUR FEATURES */}
-        <div className="bg-[#f1f1f1]">
+        <div className="bg-[#1b232d]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24">
                 <p className="text-brand mb-3 font-bold text-2xl">A central point for all your details</p>
                 <p className="font-extrabold text-4xl sm:text-5xl">What you can do</p>
@@ -127,7 +127,7 @@ const Landing = () => {
         </div>
 
         {/* TESTIMONIALS */}
-        <div className="bg-[#f1f1f1]">
+        <div className="bg-[#1b232d]">
             <div className="text-center container 2xl m-auto px-10 p-24 sm:px-24 ">
                 <p className="font-extrabold text-4xl sm:text-5xl mb-20">From our buddies</p>
                 <div className="flex flex-wrap items-center justify-evenly wrap">
