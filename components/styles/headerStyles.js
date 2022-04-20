@@ -1,5 +1,5 @@
 export const headerStyles = {
-    header: `px-5 py-4 border-b border-b-[#f1f1f133] bg-[#171f2a] sm:py-2 fixed w-screen top-0 left-0 z-40`,
+    header: `px-5 py-4 border-b border-b-[#f1f1f111] bg-[#1F2937] sm:py-2 fixed w-screen top-0 left-0 z-40`,
     // header: `px-5 border-b border-b-gray bg-[#fffd63] h-14 lg:hidden bg-white fixed w-screen top-0 left-0 z-40`,
     headerWrapper: `m-auto max-w-screen-4xl sm:px-5 h-full overflow-hidden flex items-center justify-between`,
     button: `whitespace-nowrap select-none bg-blue-600 text-white h-9 px-5 flex items-center justify-center rounded-md cursor-pointer`,
