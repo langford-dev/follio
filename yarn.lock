@@ -2279,10 +2279,10 @@ react-is@^16.12.0, react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-social-icons@5.11.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/react-social-icons/-/react-social-icons-5.11.0.tgz#98d1e76023a6422439f7ca2d6316f50cec4fec7b"
-  integrity sha512-hlgNMnWgkdRZZFPm8wjsRGQsSYdPC+uqxiJVpUF8Tc83OGiSQ7qtYN+rFwWubYGJ+JfwgpAg9ypx5duJfLZIfg==
+react-social-icons@5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/react-social-icons/-/react-social-icons-5.13.0.tgz#2eb83dc4b843abb0b01c9fc21c7df6d8a58b99a6"
+  integrity sha512-Tfh01p+gugmJJz9Z7trAJVDwYBDIa6M1KYETLLeL0qMM9G7sHX/PcH8xNRq/zP/bMqbOMLEbhfsW8NldjU3KDA==
   dependencies:
     prop-types "^15.7.2"
 
